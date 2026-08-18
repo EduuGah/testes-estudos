@@ -1,75 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu Primeiro Site</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Blog Dev</title>
+</head>
+<body>
 
-    <!-- Vinculando o arquivo de estilo externo -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>Meu Primeiro Site</h1>
-    <p>Teste do comando git diff</p>
+  <header>
+    <h1>Blog do Desenvolvedor</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <p>Somente na nova branch</p>
+  <main>
+    <article>
+      <h2>Aprendendo HTML Semântico</h2>
+      <p>A semântica melhora o SEO e a acessibilidade do seu site...</p>
+      
+      <figure>
+        <img src="codigo.png" alt="Exemplo de código HTML semântico no editor">
+        <figcaption>Estrutura limpa de um documento HTML5.</figcaption>
+      </figure>
+    </article>
+  </main>
 
-    <p>commit 1</p>
-
-    <p>Teste issue</p>
-
-    <!-- Link externo para abrir em nova aba -->
-    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-      Visitar meu GitHub
-    </a>
-
-    <!-- Link interno para outra página da mesma pasta -->
-    <a href="sobre.html">Sobre Mim</a>
-
-    <img
-      src="https://via.placeholder.com/150"
-      alt="Exemplo de imagem de perfil com fundo cinza"
-    />
-
-    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-      <img
-        src="logo-github.png"
-        alt="Logotipo do GitHub que direciona para o perfil"
-      />
-    </a>
-
+  <aside>
+    <h3>Artigos Recomendados</h3>
     <ul>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript</li>
+      <li><a href="#">Guia Prático de Git</a></li>
     </ul>
+  </aside>
 
-    <ol>
-      <li>Abrir o terminal</li>
-      <li>Digitar o comando git init</li>
-      <li>Criar os arquivos do projeto</li>
-    </ol>
+  <footer>
+    <p>&copy; 2026 Carlos Eduardo. Todos os direitos reservados.</p>
+  </footer>
 
-    <table>
-      <!-- Cabeçalho da Tabela -->
-      <thead>
-        <tr>
-          <th>Linguagem</th>
-          <th>Nível</th>
-        </tr>
-      </thead>
-
-      <!-- Corpo da Tabela com os Dados -->
-      <tbody>
-        <tr>
-          <td>HTML5</td>
-          <td>Avançado</td>
-        </tr>
-        <tr>
-          <td>CSS3</td>
-          <td>Intermediário</td>
-        </tr>
-      </tbody>
-    </table>
-  </body>
+</body>
 </html>
