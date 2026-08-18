@@ -1,0 +1,14 @@
+/* Reset Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total do elemento */
+}
+
+/* Estilização do corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121214;
+  color: #e1e1e6;
+  min-height: 100vh;
+}
