@@ -1,43 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Meu Blog Dev</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Meu Blog Dev</title>
+  </head>
+  <body>
+    <header>
+      <h1>Blog do Desenvolvedor</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <header>
-    <h1>Blog do Desenvolvedor</h1>
-    <nav>
+    <main>
+      <article>
+        <h2>Aprendendo HTML Semântico</h2>
+        <p>A semântica melhora o SEO e a acessibilidade do seu site...</p>
+
+        <figure>
+          <img
+            src="codigo.png"
+            alt="Exemplo de código HTML semântico no editor"
+          />
+          <figcaption>Estrutura limpa de um documento HTML5.</figcaption>
+        </figure>
+      </article>
+    </main>
+
+    <aside>
+      <h3>Artigos Recomendados</h3>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#">Guia Prático de Git</a></li>
       </ul>
-    </nav>
-  </header>
+    </aside>
 
-  <main>
-    <article>
-      <h2>Aprendendo HTML Semântico</h2>
-      <p>A semântica melhora o SEO e a acessibilidade do seu site...</p>
-      
-      <figure>
-        <img src="codigo.png" alt="Exemplo de código HTML semântico no editor">
-        <figcaption>Estrutura limpa de um documento HTML5.</figcaption>
-      </figure>
-    </article>
-  </main>
+    <footer>
+      <p>&copy; 2026 Carlos Eduardo. Todos os direitos reservados.</p>
+    </footer>
 
-  <aside>
-    <h3>Artigos Recomendados</h3>
-    <ul>
-      <li><a href="#">Guia Prático de Git</a></li>
-    </ul>
-  </aside>
+    <form action="/enviar" method="POST">
+      <!-- Campo de Texto Simples -->
+      <div>
+        <label for="nome">Nome:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+          minlength="3"
+          placeholder="Seu nome"
+        />
+      </div>
 
-  <footer>
-    <p>&copy; 2026 Carlos Eduardo. Todos os direitos reservados.</p>
-  </footer>
+      <!-- Campo de E-mail -->
+      <div>
+        <label for="email">E-mail:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="seu@email.com"
+        />
+      </div>
 
-</body>
+      <!-- Dropdown / Seleção -->
+      <div>
+        <label for="assunto">Assunto:</label>
+        <select id="assunto" name="assunto" required>
+          <option value="">Selecione...</option>
+          <option value="suporte">Suporte Técnico</option>
+          <option value="financeiro">Financeiro</option>
+        </select>
+      </div>
+
+      <!-- Radio (Grupo de Opções - mesmo 'name' para ser exclusivo) -->
+      <fieldset>
+        <legend>Preferência de Contato:</legend>
+        <input
+          type="radio"
+          id="contato-email"
+          name="preferencia"
+          value="email"
+          checked
+        />
+        <label for="contato-email">E-mail</label>
+
+        <input
+          type="radio"
+          id="contato-whatsapp"
+          name="preferencia"
+          value="whatsapp"
+        />
+        <label for="contato-whatsapp">WhatsApp</label>
+      </fieldset>
+
+      <!-- Checkbox -->
+      <div>
+        <input type="checkbox" id="termos" name="termos" required />
+        <label for="termos">Li e aceito os termos de uso.</label>
+      </div>
+
+      <!-- Botão de Envio -->
+      <button type="submit">Enviar Formulário</button>
+    </form>
+  </body>
 </html>
