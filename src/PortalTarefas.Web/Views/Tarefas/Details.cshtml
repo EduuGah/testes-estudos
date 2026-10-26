@@ -1,0 +1,8 @@
+@model TarefaResumoViewModel
+@{ ViewData["Title"] = $"Tarefa #{Model.Id}"; }
+<h1>Detalhes da tarefa</h1>
+<partial name="_ResumoTarefa" model="Model" />
+<p class="acoes">
+    <a class="botao" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+    <a asp-action="Index">Voltar para a lista</a>
+</p>

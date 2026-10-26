@@ -1,0 +1,23 @@
+@model ListaTarefasViewModel
+@{ ViewData["Title"] = "Tarefas"; }
+<h1>Tarefas</h1>
+<form method="get" asp-action="Index" class="filtros">
+    <input name="busca" value="@Model.Busca" placeholder="Buscar pelo título" />
+    <select name="situacao">
+        <option value="">Todas as situações</option>
+        @foreach (var s in SituacaoTarefa.Todas)
+        {
+            <option value="@s" selected="@(s == Model.Situacao)">@s</option>
+        }
+    </select>
+    <button type="submit">Filtrar</button>
+    <a class="botao" asp-action="Create">+ Nova tarefa</a>
+</form>
+@if (Model.Tarefas.Count == 0)
+{
+    <p class="vazio">Nenhuma tarefa encontrada com esses filtros.</p>
+}
+@foreach (var tarefa in Model.Tarefas)
+{
+    <partial name="_ResumoTarefa" model="tarefa" />
+}

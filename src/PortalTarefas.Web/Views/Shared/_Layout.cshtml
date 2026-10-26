@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] – Portal de Tarefas</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" asp-controller="Tarefas" asp-action="Index">Portal de Tarefas</a>
+        <nav>
+            <a asp-controller="Tarefas" asp-action="Index">Tarefas</a>
+            <a asp-controller="Tarefas" asp-action="Create">Nova tarefa</a>
+            <a href="/api/tarefas">API</a>
+        </nav>
+    </header>
+    <div class="conteudo">
+        <main>
+            @if (TempData["Mensagem"] is string mensagem)
+            {
+                <div class="aviso-sucesso">@mensagem</div>
+            }
+            @RenderBody()
+        </main>
+        <aside>
+            @await Component.InvokeAsync("TarefasVencidas")
+        </aside>
+    </div>
+    <footer>Portal de Tarefas · ASP.NET Core MVC · Unidade 2</footer>
+</body>
+</html>

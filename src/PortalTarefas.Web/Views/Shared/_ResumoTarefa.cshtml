@@ -1,0 +1,16 @@
+@model TarefaResumoViewModel
+<article class="cartao @(Model.Vencida ? "vencida" : "")">
+    <div class="cartao-topo">
+        <a asp-action="Details" asp-route-id="@Model.Id" class="titulo">#@Model.Id · @Model.Titulo</a>
+        <span class="selo prioridade-@Model.Prioridade.ToString().ToLower()">@Model.Prioridade</span>
+    </div>
+    @if (!string.IsNullOrWhiteSpace(Model.Descricao))
+    {
+        <p>@Model.Descricao</p>
+    }
+    <div class="meta">
+        <span class="selo situacao">@Model.Situacao</span>
+        <span>Prazo: @(Model.Prazo?.ToString("dd/MM/yyyy") ?? "sem prazo")</span>
+        @if (Model.Vencida) { <span class="alerta">vencida</span> }
+    </div>
+</article>

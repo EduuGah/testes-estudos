@@ -1,4 +1,5 @@
 using PortalTarefas.Web.Endpoints;
+using PortalTarefas.Web.Filtros;
 using PortalTarefas.Web.Middleware;
 using PortalTarefas.Web.Servicos;
 
@@ -14,8 +15,9 @@ builder.Logging.AddSimpleConsole(o =>
 
 // ---------- Serviços ----------
 builder.Services.AddProblemDetails();                 // erros no formato Problem Details
-builder.Services.AddControllers();                     // necessário para o controller MVC de comparação
-builder.Services.AddSingleton<RepositorioTarefasMemoria>();
+builder.Services.AddControllersWithViews();             // Unidade 2: controllers + views Razor
+builder.Services.AddScoped<RegistroAcaoFilter>();       // filtro resolvido por injeção ([ServiceFilter])
+builder.Services.AddSingleton<ITarefaServico, TarefaServicoMemoria>();   // trocado por banco na Unidade 3
 builder.Services.AddCors(opcoes =>
 {
     // Política nomeada: somente o front-end local (Vite) pode chamar a API pelo navegador.
@@ -40,11 +42,11 @@ app.UseCors("FrontendLocal");     //    aplica CORS depois do roteamento e antes
 app.MapTarefasEndpoints();
 
 // Diagnóstico em Minimal API (equivalente ao controller MVC)
-app.MapGet("/api/diagnostico", (RepositorioTarefasMemoria repositorio, IWebHostEnvironment ambiente) => Results.Ok(new
+app.MapGet("/api/diagnostico", async (ITarefaServico servico, IWebHostEnvironment ambiente) => Results.Ok(new
 {
     abordagem = "Minimal API",
     ambiente = ambiente.EnvironmentName,
-    totalTarefas = repositorio.Total,
+    totalTarefas = await servico.ContarAsync(),
     horarioUtc = DateTime.UtcNow
 }));
 
@@ -52,7 +54,10 @@ app.MapGet("/api/diagnostico", (RepositorioTarefasMemoria repositorio, IWebHostE
 app.MapGet("/api/diagnostico/erro", string () =>
     throw new InvalidOperationException("Falha simulada no repositório (detalhe interno que não deve chegar ao cliente)."));
 
-app.MapControllers();
+app.MapControllers();                                   // controllers com [Route] (API de diagnóstico)
+app.MapControllerRoute(                                  // rota convencional da interface MVC
+    name: "default",
+    pattern: "{controller=Tarefas}/{action=Index}/{id?}");
 
 app.Run();
 

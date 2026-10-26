@@ -8,14 +8,14 @@ namespace PortalTarefas.Web.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/mvc/diagnostico")]
-public class DiagnosticoController(RepositorioTarefasMemoria repositorio, IWebHostEnvironment ambiente) : ControllerBase
+public class DiagnosticoController(ITarefaServico servico, IWebHostEnvironment ambiente) : ControllerBase
 {
     [HttpGet]
-    public ActionResult<object> Get() => Ok(new
+    public async Task<ActionResult<object>> Get() => Ok(new
     {
         abordagem = "MVC (controller)",
         ambiente = ambiente.EnvironmentName,
-        totalTarefas = repositorio.Total,
+        totalTarefas = await servico.ContarAsync(),
         horarioUtc = DateTime.UtcNow
     });
 }
