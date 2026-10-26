@@ -1,0 +1,34 @@
+name: Evidências das aulas práticas
+
+on:
+  push:
+    branches: [ aulas-dotnet ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  evidencias:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Executar a aplicação e coletar evidências
+        run: bash ci-evidencias/rodar.sh 2>&1 | tee rodar.log
+        continue-on-error: true
+      - name: Salvar evidências na branch
+        if: always()
+        run: |
+          mkdir -p evidencias && cp rodar.log evidencias/ 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidencias src/PortalTarefas.Web/Dados/Migrations src/PortalTarefas.Web/openapi clients/typescript/src 2>/dev/null || true
+          git commit -m "Evidências da execução (run ${{ github.run_id }})" || echo "nada novo"
+          git push

@@ -485,3 +485,5 @@ $RECYCLE.BIN/
 node_modules/
 src/PortalTarefas.Frontend/dist/
 src/PortalTarefas.Frontend/tsconfig.tsbuildinfo
+ci-evidencias/node_modules/
+clients/typescript/node_modules/
