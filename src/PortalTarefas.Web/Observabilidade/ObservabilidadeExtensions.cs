@@ -87,10 +87,12 @@ public static class ObservabilidadeExtensions
                 ctx.User.Identity?.Name ?? ctx.Connection.RemoteIpAddress?.ToString() ?? "anonimo",
                 _ => new FixedWindowRateLimiterOptions { PermitLimit = 5, Window = TimeSpan.FromSeconds(30), QueueLimit = 0 }));
 
-            // Login: 5 tentativas por minuto por IP (força bruta)
+            // Login: 5 tentativas por minuto por IP (força bruta). Configurável para ambientes de teste
+            // automatizado, em que vários usuários entram a partir do mesmo IP (Portal:LimiteLoginPorMinuto).
+            var limiteLogin = builder.Configuration.GetValue("Portal:LimiteLoginPorMinuto", 5);
             o.AddPolicy("login", ctx => RateLimitPartition.GetFixedWindowLimiter(
                 ctx.Connection.RemoteIpAddress?.ToString() ?? "anonimo",
-                _ => new FixedWindowRateLimiterOptions { PermitLimit = 5, Window = TimeSpan.FromMinutes(1), QueueLimit = 0 }));
+                _ => new FixedWindowRateLimiterOptions { PermitLimit = limiteLogin, Window = TimeSpan.FromMinutes(1), QueueLimit = 0 }));
 
             o.OnRejected = async (contexto, ct) =>
             {

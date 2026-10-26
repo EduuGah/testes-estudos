@@ -38,11 +38,11 @@ if (fase === "mvc") {
   await a.goto(API + "/Tarefas/Edit/4");
   await c.goto(API + "/Tarefas/Edit/4");
   await a.fill("#Titulo", "Montar telas Razor (revisado na aba A)");
-  await a.click("button[type=submit]");
+  await a.click("form.formulario button[type=submit]");
   await a.waitForLoadState("networkidle");
   await shot(a, "u3_concorrencia_aba_a_salvou");
   await c.selectOption("#Situacao", "EmAndamento");
-  await c.click("button[type=submit]");
+  await c.click("form.formulario button[type=submit]");
   await c.waitForLoadState("networkidle");
   await shot(c, "u3_concorrencia_aba_b_conflito");
   // Unidade 6: usuário de outra equipe tentando editar

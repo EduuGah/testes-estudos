@@ -15,6 +15,8 @@ echo "::add-mask::$SQL_PWD"; echo "::add-mask::$SEED_PWD"
 export ASPNETCORE_ENVIRONMENT=Development
 export ConnectionStrings__PortalTarefas="Server=localhost,1433;Database=PortalTarefas;User Id=sa;Password=$SQL_PWD;TrustServerCertificate=True"
 export SeedIdentidade__Senha="$SEED_PWD"
+# Muitos logins seguidos do mesmo IP durante a coleta automatizada (o padrão de produção continua 5/min)
+export Portal__LimiteLoginPorMinuto=1000
 export DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_NOLOGO=1
 
 etapa() { echo; echo "================ $* ================"; }
@@ -67,7 +69,9 @@ mostra dotnet ef database update --project $WEB
 dotnet build PortalTarefas.slnx -c Debug > /dev/null 2>&1
 
 # ---------------------------------------------------------------- API em execução (1ª vez: seed)
-dotnet dev-certs https >/dev/null 2>&1
+dotnet dev-certs https --trust >/dev/null 2>&1
+# No Linux o certificado confiável fica nesta pasta; o HttpClient da API passa a aceitá-lo (como no Windows/Visual Studio)
+export SSL_CERT_DIR="$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs"
 iniciar_api /tmp/api_1.log
 {
 etapa "Banco após a primeira execução (seed aplicado)"
@@ -116,7 +120,7 @@ req 04_api_conflito -b /tmp/ck_admin -X PUT "$B/api/v1/tarefas/5" -H "Content-Ty
 {
 etapa "Geração do cliente TypeScript com NSwag"
 cd clients/typescript
-mostra dotnet nswag run nswag.json /runtime:Net90
+mostra dotnet nswag run nswag.json
 ls -la src
 mostra npm install --silent
 etapa "Chamada real com o cliente gerado"
@@ -125,6 +129,7 @@ NODE_TLS_REJECT_UNAUTHORIZED=0 PORTAL_EMAIL=admin@portal.local PORTAL_SENHA="$SE
 cd "$RAIZ"
 } > "$EV/04_nswag.txt" 2>&1
 
+sleep 31   # nova janela do limite de escrita
 R=06_matriz
 { echo "Matriz de autorização obtida chamando a API diretamente (fora da SPA)"; echo
   printf "%-36s %-8s %-8s %-8s %-8s %-8s\n" "Operação" anonimo bruno ana carla admin

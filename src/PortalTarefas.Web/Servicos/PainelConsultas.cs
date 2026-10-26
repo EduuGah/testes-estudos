@@ -15,16 +15,24 @@ public record LinhaPainel(string Situacao, int Quantidade, int Vencidas);
 /// </summary>
 public class PainelConsultas(PortalTarefasDbContext db, IConfiguration configuracao)
 {
-    public async Task<IReadOnlyList<LinhaPainel>> ComEfCoreAsync(DateOnly hoje, CancellationToken ct = default) =>
-        await db.Tarefas
+    public async Task<IReadOnlyList<LinhaPainel>> ComEfCoreAsync(DateOnly hoje, CancellationToken ct = default)
+    {
+        // Agregação feita no banco (GROUP BY + SUM com CASE); só o resultado vem para a memória.
+        // Observação: g.Count(condição) dentro do GroupBy não foi traduzido para SQL pelo provedor,
+        // por isso a contagem de vencidas usa Sum com expressão condicional.
+        var linhas = await db.Tarefas
             .AsNoTracking()
             .GroupBy(t => t.Situacao)
-            .Select(g => new LinhaPainel(
-                g.Key,
-                g.Count(),
-                g.Count(t => t.Prazo < hoje && t.Situacao != SituacaoTarefa.Concluida)))
+            .Select(g => new
+            {
+                Situacao = g.Key,
+                Quantidade = g.Count(),
+                Vencidas = g.Sum(t => t.Prazo < hoje && t.Situacao != SituacaoTarefa.Concluida ? 1 : 0)
+            })
             .OrderBy(l => l.Situacao)
             .ToListAsync(ct);
+        return linhas.Select(l => new LinhaPainel(l.Situacao, l.Quantidade, l.Vencidas)).ToList();
+    }
 
     public async Task<IReadOnlyList<LinhaPainel>> ComDapperAsync(DateOnly hoje, CancellationToken ct = default)
     {
