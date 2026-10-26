@@ -1,0 +1,27 @@
+{
+  "runtime": "Net90",
+  "defaultVariables": null,
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "../../src/PortalTarefas.Web/openapi/PortalTarefas.Web.json",
+      "output": null
+    }
+  },
+  "codeGenerators": {
+    "openApiToTypeScriptClient": {
+      "className": "PortalTarefasClient",
+      "operationGenerationMode": "SingleClientFromOperationId",
+      "template": "Fetch",
+      "promiseType": "Promise",
+      "typeScriptVersion": 5.0,
+      "typeStyle": "Interface",
+      "dateTimeType": "String",
+      "nullValue": "Undefined",
+      "generateClientInterfaces": true,
+      "generateOptionalParameters": true,
+      "useAbortSignal": true,
+      "markOptionalProperties": true,
+      "output": "src/portal-tarefas-client.ts"
+    }
+  }
+}

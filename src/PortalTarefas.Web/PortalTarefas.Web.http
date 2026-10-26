@@ -26,3 +26,32 @@ GET {{base}}/api/diagnostico/erro
 GET {{base}}/api/painel?fonte=ef
 ###
 GET {{base}}/api/painel?fonte=dapper
+
+### Unidade 4 – paginação, ordenação e filtros combinados
+GET {{base}}/api/v1/tarefas?pagina=1&tamanho=3&ordenarPor=prazo&direcao=desc&situacao=Pendente&prioridade=Alta
+
+### Unidade 4 – limites de paginação (tamanho 0 e 51 → 400)
+GET {{base}}/api/v1/tarefas?tamanho=0
+###
+GET {{base}}/api/v1/tarefas?tamanho=51
+
+### Unidade 4 – campo de ordenação não permitido → 400
+GET {{base}}/api/v1/tarefas?ordenarPor=descricao
+
+### Unidade 4 – página vazia
+GET {{base}}/api/v1/tarefas?pagina=99
+
+### Unidade 4 – inexistente → 404
+GET {{base}}/api/v1/tarefas/9999
+
+### Unidade 4 – criar (201 + Location)
+POST {{base}}/api/v1/tarefas
+Content-Type: application/json
+
+{ "titulo": "Gerar cliente TypeScript", "prioridade": "Media", "prazo": "2026-10-02" }
+
+### Unidade 4 – atualizar com versão antiga → 409
+PUT {{base}}/api/v1/tarefas/3
+Content-Type: application/json
+
+{ "titulo": "Comparar Minimal API e MVC", "prioridade": "Baixa", "situacao": "Concluida", "versao": "AAAAAAAAB9E=" }

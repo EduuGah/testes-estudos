@@ -1,4 +1,6 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 using PortalTarefas.Web.Dados;
 using PortalTarefas.Web.Endpoints;
 using PortalTarefas.Web.Filtros;
@@ -28,6 +30,20 @@ if (string.IsNullOrWhiteSpace(conexao))
 builder.Services.AddDbContextPool<PortalTarefasDbContext>(opcoes => opcoes.UseSqlServer(conexao));
 builder.Services.AddScoped<ITarefaServico, TarefaServicoEf>();
 builder.Services.AddScoped<PainelConsultas>();
+
+// Unidade 4: API REST documentada
+builder.Services.AddScoped<TarefasApiServico>();
+builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+builder.Services.AddOpenApi("v1", opcoes =>
+{
+    opcoes.AddDocumentTransformer((documento, _, _) =>
+    {
+        documento.Info.Title = "Portal de Tarefas API";
+        documento.Info.Version = "v1";
+        documento.Info.Description = "API do domínio didático Portal de Tarefas (UNIP – Desenvolvimento Web com .NET).";
+        return Task.CompletedTask;
+    });
+});
 builder.Services.AddCors(opcoes =>
 {
     // Política nomeada: somente o front-end local (Vite) pode chamar a API pelo navegador.
@@ -72,6 +88,14 @@ app.MapGet("/api/diagnostico", async (ITarefaServico servico, IWebHostEnvironmen
 // Endpoint que lança exceção de propósito, para testar o tratamento centralizado
 app.MapGet("/api/diagnostico/erro", string () =>
     throw new InvalidOperationException("Falha simulada no repositório (detalhe interno que não deve chegar ao cliente)."));
+
+app.MapTarefasApiV1();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();                 // /openapi/v1.json
+    app.MapScalarApiReference();      // /scalar/v1 – interface interativa só em desenvolvimento
+}
 
 // Painel: mesma leitura com EF Core e com Dapper, para comparação
 app.MapGet("/api/painel", async (string? fonte, PainelConsultas painel, CancellationToken ct) =>

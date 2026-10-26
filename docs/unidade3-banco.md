@@ -22,8 +22,8 @@ dotnet ef migrations add Inicial --project src/PortalTarefas.Web
 dotnet ef migrations script --project src/PortalTarefas.Web -o docs/inicial.sql
 dotnet ef database update --project src/PortalTarefas.Web
 ```
-Extensão (índice por migration): o índice `IX_Tarefas_Situacao_Prazo` foi adicionado
-depois da migration inicial e gerado com `Add-Migration IndiceSituacaoPrazo`.
+Extensão (índice por migration): o índice composto `IX_Tarefas_Situacao_Prazo`, usado
+pelo painel e pelos filtros, é declarado em `TarefaConfiguration` e aparece no SQL da migration.
 
 ## 3. Instalação limpa
 ```bash
