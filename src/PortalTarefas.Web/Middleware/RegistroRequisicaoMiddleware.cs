@@ -13,15 +13,24 @@ public class RegistroRequisicaoMiddleware(RequestDelegate proximo, ILogger<Regis
     {
         var cronometro = Stopwatch.StartNew();
         logger.LogInformation("[2-Registro] ENTRADA {Metodo} {Caminho}", contexto.Request.Method, contexto.Request.Path);
+        var status = 0;
         try
         {
             await proximo(contexto);
+            status = contexto.Response.StatusCode;
+        }
+        catch
+        {
+            // Correção: a exceção ainda não virou resposta (o UseExceptionHandler está antes,
+            // mais "por fora"); sem isto o log mostraria 200 para uma requisição que falhou.
+            status = StatusCodes.Status500InternalServerError;
+            throw;
         }
         finally
         {
             cronometro.Stop();
             logger.LogInformation("[2-Registro] SAÍDA {Metodo} {Caminho} -> {Status} em {Duracao} ms",
-                contexto.Request.Method, contexto.Request.Path, contexto.Response.StatusCode,
+                contexto.Request.Method, contexto.Request.Path, status,
                 cronometro.Elapsed.TotalMilliseconds.ToString("F1"));
         }
     }
