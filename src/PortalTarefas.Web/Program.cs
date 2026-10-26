@@ -6,22 +6,21 @@ using PortalTarefas.Web.Dados;
 using PortalTarefas.Web.Endpoints;
 using PortalTarefas.Web.Dominio;
 using PortalTarefas.Web.Filtros;
+using PortalTarefas.Web.Integracoes;
+using PortalTarefas.Web.Observabilidade;
 using PortalTarefas.Web.Seguranca;
 using PortalTarefas.Web.Middleware;
 using PortalTarefas.Web.Servicos;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Logs em uma linha e com horário (o CorrelationId vai na própria mensagem)
-builder.Logging.AddSimpleConsole(o =>
-{
-    o.SingleLine = true;
-    o.IncludeScopes = false;
-    o.TimestampFormat = "HH:mm:ss ";
-});
+// Unidade 7: logs estruturados, OpenTelemetry, resiliência, health checks, rate limiting e cache
+builder.AdicionarObservabilidadeEResiliencia();
 
 // ---------- Serviços ----------
-builder.Services.AddProblemDetails();                 // erros no formato Problem Details
+builder.Services.AddProblemDetails(o =>                // erros no formato Problem Details
+    // Unidade 7: todo erro carrega o id de correlação, que localiza os logs da falha
+    o.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions["correlationId"] = ctx.HttpContext.TraceIdentifier);
 builder.Services.AddControllersWithViews();             // Unidade 2: controllers + views Razor
 builder.Services.AddScoped<RegistroAcaoFilter>();       // filtro resolvido por injeção ([ServiceFilter])
 
@@ -118,6 +117,8 @@ app.UseRouting();                 //    escolhe o endpoint
 app.UseCors("FrontendLocal");     //    aplica CORS depois do roteamento e antes dos endpoints
 app.UseAuthentication();          //    Unidade 6: lê o cookie e preenche HttpContext.User
 app.UseAuthorization();           //    depois aplica [Authorize] e políticas
+app.UseRateLimiter();             //    Unidade 7: limites por política (particionados por usuário/IP)
+app.UseOutputCache();             //    Unidade 7: cache de respostas públicas
 
 // ---------- Endpoints ----------
 app.MapTarefasEndpoints();
@@ -140,6 +141,24 @@ if (app.Environment.IsDevelopment())
 
 app.MapTarefasApiV1();
 app.MapAutenticacaoEndpoints();
+app.MapSaude();                   // /health/live e /health/ready
+
+// Leitura pública e não personalizada → candidata a output caching
+app.MapGet("/api/publico/estatisticas", async (PortalTarefasDbContext db, CancellationToken ct) =>
+    Results.Ok(new
+    {
+        geradoEmUtc = DateTime.UtcNow,   // permite ver quando a resposta veio do cache
+        porSituacao = await db.Tarefas.AsNoTracking().GroupBy(t => t.Situacao)
+            .Select(g => new { situacao = g.Key, quantidade = g.Count() }).ToListAsync(ct)
+    }))
+    .AllowAnonymous()
+    .CacheOutput("EstatisticasPublicas");
+
+// Dica do serviço externo (com retry, circuit breaker e fallback)
+app.MapGet("/api/v1/dica", (ClienteDicas dicas, CancellationToken ct) => dicas.ObterDicaAsync(ct))
+    .RequireAuthorization(Politicas.LeituraPrivada);
+
+if (app.Environment.IsDevelopment()) app.MapSimuladorDicas();
 
 if (app.Environment.IsDevelopment())
 {

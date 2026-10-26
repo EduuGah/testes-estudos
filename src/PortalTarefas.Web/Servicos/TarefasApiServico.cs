@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
+using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using PortalTarefas.Web.Contratos;
 using PortalTarefas.Web.Dados;
@@ -8,7 +9,7 @@ using PortalTarefas.Web.Dominio;
 namespace PortalTarefas.Web.Servicos;
 
 /// <summary>Serviço de aplicação da API: monta consultas no banco e converte para DTOs.</summary>
-public class TarefasApiServico(PortalTarefasDbContext db, ITarefaServico tarefas)
+public class TarefasApiServico(PortalTarefasDbContext db, ITarefaServico tarefas, IOutputCacheStore cache)
 {
     public async Task<PaginaDto<TarefaResumoDto>> ConsultarAsync(ConsultaTarefas q, CancellationToken ct)
     {
@@ -70,8 +71,12 @@ public class TarefasApiServico(PortalTarefasDbContext db, ITarefaServico tarefas
         return await ObterAsync(id, ct);
     }
 
-    public async Task<bool> ExcluirAsync(int id, CancellationToken ct) =>
-        await db.Tarefas.Where(t => t.Id == id).ExecuteDeleteAsync(ct) > 0;
+    public async Task<bool> ExcluirAsync(int id, CancellationToken ct)
+    {
+        var excluiu = await db.Tarefas.Where(t => t.Id == id).ExecuteDeleteAsync(ct) > 0;
+        if (excluiu) await cache.EvictByTagAsync("tarefas", ct);
+        return excluiu;
+    }
 
     public static Dictionary<string, string[]> ValidarDto(object dto)
     {

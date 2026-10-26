@@ -32,7 +32,7 @@ public static class AutenticacaoEndpoints
             logger.LogInformation("Login realizado para o usuário {UsuarioId}", usuario.Id);   // id, nunca senha
             var principal = await signIn.CreateUserPrincipalAsync(usuario);
             return TypedResults.Ok(ParaDto(principal, usuario.NomeExibicao));
-        });
+        }).RequireRateLimiting("login");   // Unidade 7: limita tentativas de força bruta
 
         grupo.MapPost("/logout", async (SignInManager<UsuarioApp> signIn) =>
         {

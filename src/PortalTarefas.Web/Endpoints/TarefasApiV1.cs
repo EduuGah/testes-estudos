@@ -36,17 +36,20 @@ public static class TarefasApiV1
         grupo.MapPost("/", Criar)
             .WithName("CriarTarefa")
             .WithSummary("Cria uma tarefa e devolve Location")
-            .RequireAuthorization(Politicas.CriarTarefa);
+            .RequireAuthorization(Politicas.CriarTarefa)
+            .RequireRateLimiting("escrita");
 
         grupo.MapPut("/{id:int}", Atualizar)
             .WithName("AtualizarTarefa")
             .WithSummary("Atualiza uma tarefa usando concorrência otimista")
-            .WithDescription("Envie em 'versao' o valor recebido no GET. Se outra pessoa alterou antes, a resposta é 409.");
+            .WithDescription("Envie em 'versao' o valor recebido no GET. Se outra pessoa alterou antes, a resposta é 409.")
+            .RequireRateLimiting("escrita");
 
         grupo.MapDelete("/{id:int}", Excluir)
             .WithName("ExcluirTarefa")
             .WithSummary("Exclui uma tarefa")
-            .RequireAuthorization(Politicas.ExcluirTarefa);
+            .RequireAuthorization(Politicas.ExcluirTarefa)
+            .RequireRateLimiting("escrita");
 
         return grupo;
     }

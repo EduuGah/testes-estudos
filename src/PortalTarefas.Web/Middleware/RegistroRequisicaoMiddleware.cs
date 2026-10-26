@@ -1,5 +1,6 @@
 using System.Diagnostics;
 
+
 namespace PortalTarefas.Web.Middleware;
 
 /// <summary>
@@ -45,7 +46,9 @@ public class CorrelacaoMiddleware(RequestDelegate proximo, ILogger<CorrelacaoMid
             return Task.CompletedTask;
         });
 
-        using (logger.BeginScope(new Dictionary<string, object> { ["CorrelationId"] = id }))
+        // Liga logs e traces: o mesmo id vai para o escopo de log e para a Activity (span) da requisição
+        System.Diagnostics.Activity.Current?.SetTag("correlation.id", id);
+        using (logger.BeginScope("CorrelationId:{CorrelationId}", id))
         {
             logger.LogInformation("[1-Correlação] ENTRADA id={CorrelationId}", id);
             await proximo(contexto);

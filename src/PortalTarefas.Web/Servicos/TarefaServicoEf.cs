@@ -1,11 +1,18 @@
+using System.Diagnostics;
+using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using PortalTarefas.Web.Dados;
 using PortalTarefas.Web.Dominio;
+using PortalTarefas.Web.Observabilidade;
 
 namespace PortalTarefas.Web.Servicos;
 
 /// <summary>Implementação assíncrona com EF Core (substitui TarefaServicoMemoria).</summary>
-public class TarefaServicoEf(PortalTarefasDbContext db, ILogger<TarefaServicoEf> logger) : ITarefaServico
+public class TarefaServicoEf(
+    PortalTarefasDbContext db,
+    ILogger<TarefaServicoEf> logger,
+    Telemetria telemetria,
+    IOutputCacheStore cache) : ITarefaServico
 {
     public async Task<IReadOnlyList<Tarefa>> ListarAsync(string? situacao = null, string? busca = null, CancellationToken ct = default)
     {
@@ -20,8 +27,19 @@ public class TarefaServicoEf(PortalTarefasDbContext db, ILogger<TarefaServicoEf>
 
     public async Task<Tarefa> CriarAsync(Tarefa tarefa, CancellationToken ct = default)
     {
+        // Span customizado: aparece como filho do span da requisição HTTP no trace
+        using var span = Telemetria.Fonte.StartActivity("Tarefas.Criar");
+        span?.SetTag("tarefa.prioridade", tarefa.Prioridade.ToString());
+
+        var cronometro = Stopwatch.StartNew();
+        logger.LogInformation("Criando tarefa com prioridade {Prioridade}", tarefa.Prioridade);
         db.Tarefas.Add(tarefa);
         await db.SaveChangesAsync(ct);
+
+        telemetria.TarefasCriadas.Add(1, new KeyValuePair<string, object?>("prioridade", tarefa.Prioridade.ToString()));
+        await cache.EvictByTagAsync("tarefas", ct);   // estatísticas públicas em cache ficam desatualizadas
+        span?.SetTag("tarefa.id", tarefa.Id);
+        logger.LogInformation("Tarefa {TarefaId} criada em {Duracao} ms", tarefa.Id, cronometro.ElapsedMilliseconds);
         return tarefa;
     }
 
@@ -43,6 +61,7 @@ public class TarefaServicoEf(PortalTarefasDbContext db, ILogger<TarefaServicoEf>
         try
         {
             await db.SaveChangesAsync(ct);
+            await cache.EvictByTagAsync("tarefas", ct);
             return true;
         }
         catch (DbUpdateConcurrencyException ex)
@@ -77,6 +96,7 @@ public class TarefaServicoEf(PortalTarefasDbContext db, ILogger<TarefaServicoEf>
             await db.SaveChangesAsync(ct);
 
             await transacao.CommitAsync(ct);
+            await cache.EvictByTagAsync("tarefas", ct);
         }
         catch
         {
