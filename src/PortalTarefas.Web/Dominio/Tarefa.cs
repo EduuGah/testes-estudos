@@ -14,6 +14,12 @@ public class Tarefa
     public DateTime CriadaEmUtc { get; set; } = DateTime.UtcNow;
     public DateTime? AtualizadaEmUtc { get; set; }
 
+    /// <summary>Equipe dona da tarefa (Unidade 6: usada na política de edição).</summary>
+    public string Equipe { get; set; } = "Geral";
+
+    /// <summary>Id do usuário que criou a tarefa (extensão: política por proprietário).</summary>
+    public string? ProprietarioId { get; set; }
+
     /// <summary>Token de concorrência otimista (rowversion no SQL Server).</summary>
     public byte[] RowVersion { get; set; } = [];
 

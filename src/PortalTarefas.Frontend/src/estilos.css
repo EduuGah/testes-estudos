@@ -48,3 +48,5 @@ footer { text-align:center; color:#98a2b3; font-size:12px; padding:20px; }
 .detalhes dt { font-weight:600; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 button:disabled { opacity:.5; cursor:not-allowed; }
+.usuario { margin-left:20px; opacity:.85; font-size:14px; }
+button.link { background:none; color:#fff; padding:0; margin-left:16px; text-decoration:underline; }

@@ -1,9 +1,12 @@
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using PortalTarefas.Web.Dados;
 using PortalTarefas.Web.Endpoints;
+using PortalTarefas.Web.Dominio;
 using PortalTarefas.Web.Filtros;
+using PortalTarefas.Web.Seguranca;
 using PortalTarefas.Web.Middleware;
 using PortalTarefas.Web.Servicos;
 
@@ -30,6 +33,46 @@ if (string.IsNullOrWhiteSpace(conexao))
 builder.Services.AddDbContextPool<PortalTarefasDbContext>(opcoes => opcoes.UseSqlServer(conexao));
 builder.Services.AddScoped<ITarefaServico, TarefaServicoEf>();
 builder.Services.AddScoped<PainelConsultas>();
+
+// Unidade 6: Identity + cookie de autenticação
+builder.Services
+    .AddIdentity<UsuarioApp, IdentityRole>(o =>
+    {
+        // Requisitos didáticos, porém sem desligar controles: senha forte e bloqueio após 5 erros
+        o.Password.RequiredLength = 10;
+        o.Password.RequireNonAlphanumeric = true;
+        o.Password.RequireUppercase = true;
+        o.Password.RequireDigit = true;
+        o.Lockout.MaxFailedAccessAttempts = 5;
+        o.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+        o.User.RequireUniqueEmail = true;
+    })
+    .AddEntityFrameworkStores<PortalTarefasDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(o =>
+{
+    o.Cookie.Name = "PortalTarefas.Auth";
+    o.Cookie.HttpOnly = true;                              // JavaScript não lê o cookie
+    o.Cookie.SecurePolicy = CookieSecurePolicy.Always;     // só trafega em HTTPS
+    o.Cookie.SameSite = SameSiteMode.Strict;               // não é enviado em requisições de outros sites (CSRF)
+    o.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    o.SlidingExpiration = true;
+    o.LoginPath = "/Conta/Entrar";
+    o.AccessDeniedPath = "/Conta/AcessoNegado";
+    // Chamadas de API recebem 401/403 em vez de redirecionamento para uma página HTML
+    o.Events.OnRedirectToLogin = ctx => ResponderOuRedirecionar(ctx, StatusCodes.Status401Unauthorized);
+    o.Events.OnRedirectToAccessDenied = ctx => ResponderOuRedirecionar(ctx, StatusCodes.Status403Forbidden);
+
+    static Task ResponderOuRedirecionar(Microsoft.AspNetCore.Authentication.RedirectContext<Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions> ctx, int status)
+    {
+        if (ctx.Request.Path.StartsWithSegments("/api")) ctx.Response.StatusCode = status;
+        else ctx.Response.Redirect(ctx.RedirectUri);
+        return Task.CompletedTask;
+    }
+});
+builder.Services.AddAuthorization(Politicas.Registrar);
+builder.Services.AddSingleton<Microsoft.AspNetCore.Authorization.IAuthorizationHandler, EditarTarefaHandler>();
 
 // Unidade 4: API REST documentada
 builder.Services.AddScoped<TarefasApiServico>();
@@ -62,6 +105,7 @@ if (app.Environment.IsDevelopment())
     var db = escopo.ServiceProvider.GetRequiredService<PortalTarefasDbContext>();
     await db.Database.MigrateAsync();
     await SeedDados.AplicarAsync(db);
+    await SeedIdentidade.AplicarAsync(escopo.ServiceProvider, app.Configuration, app.Logger);
 }
 
 // ---------- Pipeline (a ordem importa) ----------
@@ -72,6 +116,8 @@ app.UseHttpsRedirection();        // 3. redireciona HTTP -> HTTPS
 app.UseStaticFiles();             //    arquivos de wwwroot encerram a requisição aqui (curto-circuito)
 app.UseRouting();                 //    escolhe o endpoint
 app.UseCors("FrontendLocal");     //    aplica CORS depois do roteamento e antes dos endpoints
+app.UseAuthentication();          //    Unidade 6: lê o cookie e preenche HttpContext.User
+app.UseAuthorization();           //    depois aplica [Authorize] e políticas
 
 // ---------- Endpoints ----------
 app.MapTarefasEndpoints();
@@ -85,11 +131,15 @@ app.MapGet("/api/diagnostico", async (ITarefaServico servico, IWebHostEnvironmen
     horarioUtc = DateTime.UtcNow
 }));
 
-// Endpoint que lança exceção de propósito, para testar o tratamento centralizado
-app.MapGet("/api/diagnostico/erro", string () =>
-    throw new InvalidOperationException("Falha simulada no repositório (detalhe interno que não deve chegar ao cliente)."));
+// Endpoint que lança exceção de propósito, para testar o tratamento centralizado (somente Development)
+if (app.Environment.IsDevelopment())
+{
+    app.MapGet("/api/diagnostico/erro", string () =>
+        throw new InvalidOperationException("Falha simulada no repositório (detalhe interno que não deve chegar ao cliente)."));
+}
 
 app.MapTarefasApiV1();
+app.MapAutenticacaoEndpoints();
 
 if (app.Environment.IsDevelopment())
 {
@@ -103,7 +153,7 @@ app.MapGet("/api/painel", async (string? fonte, PainelConsultas painel, Cancella
     var hoje = DateOnly.FromDateTime(DateTime.Today);
     var linhas = fonte == "dapper" ? await painel.ComDapperAsync(hoje, ct) : await painel.ComEfCoreAsync(hoje, ct);
     return Results.Ok(new { fonte = fonte ?? "ef", linhas });
-});
+}).RequireAuthorization(Politicas.LeituraPrivada);
 
 app.MapControllers();                                   // controllers com [Route] (API de diagnóstico)
 app.MapControllerRoute(                                  // rota convencional da interface MVC

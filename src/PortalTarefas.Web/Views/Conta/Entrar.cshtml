@@ -1,0 +1,10 @@
+@model PortalTarefas.Web.Controllers.EntrarViewModel
+@{ ViewData["Title"] = "Entrar"; }
+<h1>Entrar</h1>
+<form asp-action="Entrar" method="post" class="formulario" novalidate>
+    <div asp-validation-summary="ModelOnly" class="erro-resumo"></div>
+    <input type="hidden" asp-for="ReturnUrl" />
+    <div class="campo"><label asp-for="Email">E-mail</label><input asp-for="Email" autocomplete="username" /><span asp-validation-for="Email" class="erro"></span></div>
+    <div class="campo"><label asp-for="Senha">Senha</label><input asp-for="Senha" autocomplete="current-password" /><span asp-validation-for="Senha" class="erro"></span></div>
+    <button type="submit">Entrar</button>
+</form>

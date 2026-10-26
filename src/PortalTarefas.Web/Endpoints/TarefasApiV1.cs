@@ -1,6 +1,9 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using PortalTarefas.Web.Contratos;
+using PortalTarefas.Web.Seguranca;
 using PortalTarefas.Web.Servicos;
 
 namespace PortalTarefas.Web.Endpoints;
@@ -18,7 +21,8 @@ public static class TarefasApiV1
 {
     public static RouteGroupBuilder MapTarefasApiV1(this IEndpointRouteBuilder app)
     {
-        var grupo = app.MapGroup("/api/v1/tarefas").WithTags("Tarefas v1");
+        var grupo = app.MapGroup("/api/v1/tarefas").WithTags("Tarefas v1")
+            .RequireAuthorization(Politicas.LeituraPrivada);   // Unidade 6: leitura privada → 401 para anônimo
 
         grupo.MapGet("/", Listar)
             .WithName("ListarTarefas")
@@ -31,7 +35,8 @@ public static class TarefasApiV1
 
         grupo.MapPost("/", Criar)
             .WithName("CriarTarefa")
-            .WithSummary("Cria uma tarefa e devolve Location");
+            .WithSummary("Cria uma tarefa e devolve Location")
+            .RequireAuthorization(Politicas.CriarTarefa);
 
         grupo.MapPut("/{id:int}", Atualizar)
             .WithName("AtualizarTarefa")
@@ -40,7 +45,8 @@ public static class TarefasApiV1
 
         grupo.MapDelete("/{id:int}", Excluir)
             .WithName("ExcluirTarefa")
-            .WithSummary("Exclui uma tarefa");
+            .WithSummary("Exclui uma tarefa")
+            .RequireAuthorization(Politicas.ExcluirTarefa);
 
         return grupo;
     }
@@ -60,17 +66,24 @@ public static class TarefasApiV1
             : NaoEncontrada(id);
 
     private static async Task<Results<CreatedAtRoute<TarefaDetalheDto>, ValidationProblem>> Criar(
-        CriarTarefaDto dto, TarefasApiServico servico, CancellationToken ct)
+        CriarTarefaDto dto, ClaimsPrincipal usuario, TarefasApiServico servico, CancellationToken ct)
     {
         var erros = TarefasApiServico.ValidarDto(dto);
         if (erros.Count > 0) return TypedResults.ValidationProblem(erros);
-        var criada = await servico.CriarAsync(dto, ct);
+        var criada = await servico.CriarAsync(dto, usuario, ct);
         return TypedResults.CreatedAtRoute(criada, "ObterTarefaV1", new { id = criada.Id });
     }
 
-    private static async Task<Results<Ok<TarefaDetalheDto>, ValidationProblem, ProblemHttpResult>> Atualizar(
-        int id, AtualizarTarefaDto dto, TarefasApiServico servico, CancellationToken ct)
+    private static async Task<Results<Ok<TarefaDetalheDto>, ValidationProblem, ProblemHttpResult, ForbidHttpResult>> Atualizar(
+        int id, AtualizarTarefaDto dto, ClaimsPrincipal usuario, IAuthorizationService autorizacao,
+        ITarefaServico tarefas, TarefasApiServico servico, CancellationToken ct)
     {
+        // Autorização baseada no recurso: a decisão depende da equipe/proprietário desta tarefa
+        var atual = await tarefas.ObterAsync(id, ct);
+        if (atual is null) return NaoEncontrada(id);
+        if (!(await autorizacao.AuthorizeAsync(usuario, atual, Politicas.EditarTarefa)).Succeeded)
+            return TypedResults.Forbid();   // autenticado, mas sem permissão → 403
+
         var erros = TarefasApiServico.ValidarDto(dto);
         if (!Modelos.SituacaoTarefa.Todas.Contains(dto.Situacao)) erros["situacao"] = ["Situação inválida."];
         if (erros.Count > 0) return TypedResults.ValidationProblem(erros);

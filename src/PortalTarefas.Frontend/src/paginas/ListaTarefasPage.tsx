@@ -5,6 +5,7 @@ import type { FiltrosTarefas, Situacao } from "../api/tipos";
 import { CartaoTarefa } from "../componentes/CartaoTarefa";
 import { Carregando, MensagemErro, Ocioso, Vazio } from "../componentes/Estados";
 import { Paginacao } from "../componentes/Paginacao";
+import { useAuth } from "../autenticacao/AuthContext";
 
 const ORDENACOES = ["id", "titulo", "prazo", "prioridade", "situacao"] as const;
 
@@ -23,6 +24,7 @@ function lerFiltros(p: URLSearchParams): FiltrosTarefas {
 
 export function ListaTarefasPage() {
   const [params, setParams] = useSearchParams();
+  const { temPapel } = useAuth();
   const filtros = lerFiltros(params);
 
   const [estado, recarregar] = useRequisicao(
@@ -42,7 +44,7 @@ export function ListaTarefasPage() {
     <section>
       <div className="cabecalho-pagina">
         <h1>Tarefas</h1>
-        <Link className="botao" to="/tarefas/nova">+ Nova tarefa</Link>
+        {temPapel("Usuario", "Administrador") && <Link className="botao" to="/tarefas/nova">+ Nova tarefa</Link>}
       </div>
 
       <form className="filtros" onSubmit={(e) => { e.preventDefault(); atualizar({ busca: new FormData(e.currentTarget).get("busca")?.toString() }); }}>

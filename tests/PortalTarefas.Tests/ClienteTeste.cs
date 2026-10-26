@@ -11,7 +11,7 @@ public abstract class TesteIntegracao : IDisposable
 
     protected TesteIntegracao()
     {
-        var handler = new HttpClientHandler { AllowAutoRedirect = false };
+        var handler = new HttpClientHandler { AllowAutoRedirect = false, UseCookies = true };   // guarda o cookie de login
         // Somente em teste local: aceita o certificado de desenvolvimento do ASP.NET Core
         handler.ServerCertificateCustomValidationCallback = (_, cert, _, _) => cert?.Subject == "CN=localhost";
         Cliente = new HttpClient(handler) { BaseAddress = new Uri(BaseUrl) };

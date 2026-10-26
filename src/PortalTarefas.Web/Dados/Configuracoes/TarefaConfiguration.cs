@@ -19,6 +19,9 @@ public class TarefaConfiguration : IEntityTypeConfiguration<Tarefa>
         builder.Property(t => t.Prazo).HasColumnType("date");
         builder.Property(t => t.CriadaEmUtc).HasDefaultValueSql("SYSUTCDATETIME()");
 
+        builder.Property(t => t.Equipe).HasMaxLength(40).IsRequired().HasDefaultValue("Geral");
+        builder.Property(t => t.ProprietarioId).HasMaxLength(450);
+
         builder.Property(t => t.RowVersion).IsRowVersion();   // SQL Server gera um novo valor a cada UPDATE
 
         builder.HasIndex(t => new { t.Situacao, t.Prazo }).HasDatabaseName("IX_Tarefas_Situacao_Prazo");

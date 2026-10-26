@@ -484,3 +484,4 @@ $RECYCLE.BIN/
 # Front-end
 node_modules/
 src/PortalTarefas.Frontend/dist/
+src/PortalTarefas.Frontend/tsconfig.tsbuildinfo

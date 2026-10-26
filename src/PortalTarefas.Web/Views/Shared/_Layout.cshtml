@@ -12,7 +12,15 @@
         <nav>
             <a asp-controller="Tarefas" asp-action="Index">Tarefas</a>
             <a asp-controller="Tarefas" asp-action="Create">Nova tarefa</a>
-            <a href="/api/tarefas">API</a>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <span class="usuario">@User.Identity.Name</span>
+                <form asp-controller="Conta" asp-action="Sair" method="post" style="display:inline"><button type="submit" class="link">Sair</button></form>
+            }
+            else
+            {
+                <a asp-controller="Conta" asp-action="Entrar">Entrar</a>
+            }
         </nav>
     </header>
     <div class="conteudo">
@@ -24,7 +32,10 @@
             @RenderBody()
         </main>
         <aside>
-            @await Component.InvokeAsync("TarefasVencidas")
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                @await Component.InvokeAsync("TarefasVencidas")
+            }
         </aside>
     </div>
     <footer>Portal de Tarefas · ASP.NET Core MVC · Unidade 2</footer>

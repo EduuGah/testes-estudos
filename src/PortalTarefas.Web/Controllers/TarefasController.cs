@@ -1,6 +1,9 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PortalTarefas.Web.Dominio;
 using PortalTarefas.Web.Filtros;
+using PortalTarefas.Web.Seguranca;
 using PortalTarefas.Web.Servicos;
 using PortalTarefas.Web.ViewModels;
 
@@ -11,7 +14,8 @@ namespace PortalTarefas.Web.Controllers;
 /// verifica o ModelState, chama o serviço e escolhe a view.
 /// </summary>
 [ServiceFilter(typeof(RegistroAcaoFilter))]   // filtro aplicado só neste controller (escopo justificado no relatório)
-public class TarefasController(ITarefaServico servico) : Controller
+[Authorize(Policy = Politicas.LeituraPrivada)] // Unidade 6: páginas exigem login
+public class TarefasController(ITarefaServico servico, IAuthorizationService autorizacao) : Controller
 {
     // GET /Tarefas?situacao=Pendente&busca=tela
     public async Task<IActionResult> Index(string? situacao, string? busca, CancellationToken ct)
@@ -29,15 +33,21 @@ public class TarefasController(ITarefaServico servico) : Controller
     }
 
     [HttpGet]
+    [Authorize(Policy = Politicas.CriarTarefa)]
     public IActionResult Create() => View(new TarefaInputModel { Prazo = DateOnly.FromDateTime(DateTime.Today.AddDays(3)) });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Policy = Politicas.CriarTarefa)]
     public async Task<IActionResult> Create(TarefaInputModel modelo, CancellationToken ct)
     {
         if (!ModelState.IsValid) return View(modelo);   // volta com mensagens e dados digitados
 
-        var tarefa = new Tarefa();
+        var tarefa = new Tarefa
+        {
+            Equipe = User.FindFirstValue(TiposClaim.Equipe) ?? "Geral",
+            ProprietarioId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+        };
         modelo.AplicarEm(tarefa);
         await servico.CriarAsync(tarefa, ct);
         TempData["Mensagem"] = $"Tarefa \"{tarefa.Titulo}\" cadastrada.";
@@ -48,13 +58,18 @@ public class TarefasController(ITarefaServico servico) : Controller
     public async Task<IActionResult> Edit(int id, CancellationToken ct)
     {
         var tarefa = await servico.ObterAsync(id, ct);
-        return tarefa is null ? NaoEncontrada(id) : View(TarefaInputModel.De(tarefa));
+        if (tarefa is null) return NaoEncontrada(id);
+        if (!await PodeEditar(tarefa)) return Forbid();
+        return View(TarefaInputModel.De(tarefa));
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, TarefaInputModel modelo, CancellationToken ct)
     {
+        var atual = await servico.ObterAsync(id, ct);
+        if (atual is null) return NaoEncontrada(id);
+        if (!await PodeEditar(atual)) return Forbid();   // o servidor decide, mesmo que o botão esteja oculto
         if (!ModelState.IsValid) return View(modelo);
 
         var alteracoes = new Tarefa { Id = id };
@@ -88,11 +103,16 @@ public class TarefasController(ITarefaServico servico) : Controller
     public async Task<IActionResult> AlterarSituacao(int id, string situacao, CancellationToken ct)
     {
         if (!Modelos.SituacaoTarefa.Todas.Contains(situacao)) return BadRequest();
-        if (await servico.ObterAsync(id, ct) is null) return NaoEncontrada(id);
+        var tarefa = await servico.ObterAsync(id, ct);
+        if (tarefa is null) return NaoEncontrada(id);
+        if (!await PodeEditar(tarefa)) return Forbid();
         await servico.AlterarSituacaoAsync(id, situacao, ct);
         TempData["Mensagem"] = $"Situação alterada para {situacao}.";
         return RedirectToAction(nameof(Details), new { id });
     }
+
+    private async Task<bool> PodeEditar(Tarefa tarefa) =>
+        (await autorizacao.AuthorizeAsync(User, tarefa, Politicas.EditarTarefa)).Succeeded;
 
     private ViewResult NaoEncontrada(int id)
     {

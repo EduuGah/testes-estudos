@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using PortalTarefas.Web.Contratos;
 using PortalTarefas.Web.Dados;
@@ -46,11 +47,13 @@ public class TarefasApiServico(PortalTarefasDbContext db, ITarefaServico tarefas
     public async Task<TarefaDetalheDto?> ObterAsync(int id, CancellationToken ct) =>
         await tarefas.ObterAsync(id, ct) is { } t ? ParaDetalhe(t) : null;
 
-    public async Task<TarefaDetalheDto> CriarAsync(CriarTarefaDto dto, CancellationToken ct)
+    public async Task<TarefaDetalheDto> CriarAsync(CriarTarefaDto dto, ClaimsPrincipal usuario, CancellationToken ct)
     {
         var tarefa = await tarefas.CriarAsync(new Tarefa
         {
-            Titulo = dto.Titulo.Trim(), Descricao = dto.Descricao, Prioridade = dto.Prioridade, Prazo = dto.Prazo
+            Titulo = dto.Titulo.Trim(), Descricao = dto.Descricao, Prioridade = dto.Prioridade, Prazo = dto.Prazo,
+            Equipe = usuario.FindFirstValue(Seguranca.TiposClaim.Equipe) ?? "Geral",
+            ProprietarioId = usuario.FindFirstValue(ClaimTypes.NameIdentifier)
         }, ct);
         return ParaDetalhe(tarefa);
     }

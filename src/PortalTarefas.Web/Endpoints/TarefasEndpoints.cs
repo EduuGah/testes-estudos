@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using PortalTarefas.Web.Dominio;
 using PortalTarefas.Web.Modelos;
+using PortalTarefas.Web.Seguranca;
 using PortalTarefas.Web.Servicos;
 
 namespace PortalTarefas.Web.Endpoints;
@@ -10,7 +11,8 @@ public static class TarefasEndpoints
 {
     public static RouteGroupBuilder MapTarefasEndpoints(this IEndpointRouteBuilder app)
     {
-        var grupo = app.MapGroup("/api/tarefas").WithTags("Tarefas");
+        var grupo = app.MapGroup("/api/tarefas").WithTags("Tarefas (Unidade 1)")
+            .RequireAuthorization(Politicas.LeituraPrivada);   // Unidade 6
 
         // GET /api/tarefas?situacao=Pendente&busca=api   (query string + cabeçalho opcional)
         grupo.MapGet("/", async (
@@ -46,7 +48,7 @@ public static class TarefasEndpoints
             if (erros.Count > 0) return Results.ValidationProblem(erros);
             var criada = await servico.CriarAsync(new Tarefa { Titulo = req.Titulo.Trim(), Descricao = req.Descricao, Situacao = req.Situacao }, ct);
             return Results.CreatedAtRoute("ObterTarefa", new { id = criada.Id }, ParaDto(criada));
-        });
+        }).RequireAuthorization(Politicas.CriarTarefa);
 
         return grupo;
     }
