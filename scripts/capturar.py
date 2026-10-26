@@ -50,8 +50,12 @@ def digitar(id, valor):
 
 
 def fechar_teclado():
-    shell('input keyevent 111')   # ESC esconde o teclado sem sair da tela
-    time.sleep(0.5)
+    # BACK fecha o teclado; só é enviado se o teclado estiver aberto (senão sairia do app)
+    for _ in range(3):
+        if 'mInputShown=true' not in shell('dumpsys input_method'):
+            return
+        shell('input keyevent 4')
+        time.sleep(0.8)
 
 
 def abrir(pacote, limpar=False):
@@ -86,7 +90,8 @@ digitar('senhaEditText', 'minhasenha')
 fechar_teclado()
 print_('aula2_02_campos_preenchidos')
 tocar('entrarButton')
-print_('aula2_03_botao_entrar', 0.6)
+fechar_teclado()
+print_('aula2_03_botao_entrar', 0.3)
 
 # ---------- Aula 4 ----------
 instalar('aula4_menu')
@@ -144,6 +149,7 @@ for email, senha, nome in casos:
     if senha: digitar('senhaEditText', senha)
     fechar_teclado()
     tocar('entrarButton')
+    fechar_teclado()
     print_(nome)
 
 print('fim', flush=True)
