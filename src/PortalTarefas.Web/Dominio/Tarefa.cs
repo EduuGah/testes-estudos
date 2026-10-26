@@ -21,7 +21,8 @@ public class Tarefa
     public string? ProprietarioId { get; set; }
 
     /// <summary>Token de concorrência otimista (rowversion no SQL Server).</summary>
-    public byte[] RowVersion { get; set; } = [];
+    /// <remarks>O banco gera o valor no INSERT/UPDATE; por isso começa nulo.</remarks>
+    public byte[] RowVersion { get; set; } = null!;
 
     public bool EstaVencida(DateOnly hoje) => Prazo < hoje && Situacao != Modelos.SituacaoTarefa.Concluida;
 }

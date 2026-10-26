@@ -44,10 +44,12 @@ builder.Services.AddScoped<RegistroAcaoFilter>();       // filtro resolvido por 
 
 // Unidade 3: EF Core + SQL Server. A connection string vem de User Secrets em
 // desenvolvimento e de variável de ambiente em produção — nunca do repositório.
+// Durante o build, a ferramenta que gera o openapi/*.json carrega o Program sem banco; nesse caso não exigimos a conexão.
+var gerandoOpenApi = System.Reflection.Assembly.GetEntryAssembly()?.GetName().Name == "GetDocument.Insider";
 var conexao = builder.Configuration.GetConnectionString("PortalTarefas");
-if (string.IsNullOrWhiteSpace(conexao))
+if (string.IsNullOrWhiteSpace(conexao) && !gerandoOpenApi)
     throw new InvalidOperationException("ConnectionStrings:PortalTarefas não configurada (use dotnet user-secrets).");
-builder.Services.AddDbContextPool<PortalTarefasDbContext>(opcoes => opcoes.UseSqlServer(conexao));
+builder.Services.AddDbContextPool<PortalTarefasDbContext>(opcoes => opcoes.UseSqlServer(conexao ?? "Server=nao-utilizado"));
 builder.Services.AddScoped<ITarefaServico, TarefaServicoEf>();
 builder.Services.AddScoped<PainelConsultas>();
 
