@@ -1,0 +1,122 @@
+name: CI/CD Portal de Tarefas
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+env:
+  DOTNET_VERSION: "10.0.100"
+  NODE_VERSION: "22.12.0"
+  IMAGEM: ghcr.io/${{ github.repository_owner }}/portal-tarefas
+
+jobs:
+  backend:
+    name: Back-end (restore, build e testes)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - run: dotnet restore PortalTarefas.slnx
+      - run: dotnet build PortalTarefas.slnx -c Release --no-restore
+
+      - name: Gerar senhas efêmeras (nada fixo no repositório)
+        run: |
+          echo "SQL_PWD=$(openssl rand -base64 24 | tr -d '=+/')Aa1!" >> "$GITHUB_ENV"
+          echo "SEED_PWD=$(openssl rand -base64 18 | tr -d '=+/')Bb2!" >> "$GITHUB_ENV"
+      - name: Subir SQL Server de teste
+        run: |
+          echo "::add-mask::$SQL_PWD"
+          docker run -d --name sql -e ACCEPT_EULA=Y -e "MSSQL_SA_PASSWORD=$SQL_PWD" -p 1433:1433 \
+            mcr.microsoft.com/mssql/server:2022-CU16-ubuntu-22.04
+          sleep 25
+      - name: Iniciar a API (Development aplica migrations e seed)
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__PortalTarefas: Server=localhost;Database=PortalTarefasCI;User Id=sa;Password=${{ env.SQL_PWD }};TrustServerCertificate=True
+          SeedIdentidade__Senha: ${{ env.SEED_PWD }}
+        run: |
+          dotnet dev-certs https
+          nohup dotnet run --project src/PortalTarefas.Web -c Release --no-build --launch-profile https > api.log 2>&1 &
+          for i in $(seq 1 30); do curl -skf https://localhost:7001/health/ready && break; sleep 2; done
+      - name: Testes automatizados
+        env:
+          PORTAL_API_URL: https://localhost:7001
+          PORTAL_SENHA_TESTE: ${{ env.SEED_PWD }}
+        run: dotnet run --project tests/PortalTarefas.Tests -c Release --no-build   # código ≠ 0 encerra o job
+
+  frontend:
+    name: Front-end (npm ci, testes e build)
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: src/PortalTarefas.Frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: src/PortalTarefas.Frontend/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+  publicar:
+    name: Imagem + SBOM
+    needs: [ backend, frontend ]          # só publica se TODAS as verificações passaram
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}   # token efêmero do próprio job, sem credencial longa
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGEM }}:${{ github.sha }}
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+      - name: SBOM (extensão)
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ env.IMAGEM }}:${{ github.sha }}
+          format: spdx-json
+          artifact-name: sbom-${{ github.sha }}.spdx.json
+
+  staging:
+    name: Implantar em staging
+    needs: publicar
+    runs-on: ubuntu-24.04
+    environment: staging                  # regra do ambiente exige aprovação manual
+    permissions:
+      id-token: write                     # identidade federada (OIDC) com o Azure
+      contents: read
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: portal-tarefas-staging
+          images: ${{ env.IMAGEM }}:${{ github.sha }}
+      - name: Smoke test e Health Check
+        run: |
+          curl -sf https://portal-tarefas-staging.azurewebsites.net/health/ready
+          curl -sf https://portal-tarefas-staging.azurewebsites.net/api/publico/estatisticas
+      - name: Registrar versão implantada
+        run: echo "staging -> ${{ env.IMAGEM }}:${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"

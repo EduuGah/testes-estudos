@@ -6,6 +6,7 @@ import react from "@vitejs/plugin-react";
 // não depende de CORS em desenvolvimento.
 export default defineConfig({
   plugins: [react()],
+  base: "/app/",   // Unidade 8: a SPA é servida pela API em /app
   server: {
     port: 5173,
     proxy: {

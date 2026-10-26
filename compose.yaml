@@ -1,0 +1,22 @@
+# Execução local completa (API + SQL Server). Valores sensíveis vêm do arquivo .env (não versionado).
+services:
+  banco:
+    image: mcr.microsoft.com/mssql/server:2022-CU16-ubuntu-22.04
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQL_SA_PASSWORD:?defina SQL_SA_PASSWORD no .env}
+    ports: ["1433:1433"]
+    volumes: ["dados-sql:/var/opt/mssql"]
+
+  api:
+    build: .
+    image: portal-tarefas:local
+    depends_on: [banco]
+    ports: ["8080:8080"]
+    environment:
+      ASPNETCORE_ENVIRONMENT: Staging
+      ConnectionStrings__PortalTarefas: "Server=banco;Database=PortalTarefas;User Id=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=True"
+      ServicoDicas__UrlBase: ${SERVICO_DICAS_URL:-https://dicas.exemplo.local/}
+
+volumes:
+  dados-sql:

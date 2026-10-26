@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
+using PortalTarefas.Web.Configuracao;
 using PortalTarefas.Web.Dados;
 using PortalTarefas.Web.Endpoints;
 using PortalTarefas.Web.Dominio;
@@ -12,7 +13,24 @@ using PortalTarefas.Web.Seguranca;
 using PortalTarefas.Web.Middleware;
 using PortalTarefas.Web.Servicos;
 
+// Unidade 8: verificação de saúde usada pelo HEALTHCHECK do contêiner (a imagem não tem curl)
+if (args.Contains("--healthcheck"))
+{
+    using var http = new HttpClient { Timeout = TimeSpan.FromSeconds(3) };
+    var porta = Environment.GetEnvironmentVariable("ASPNETCORE_HTTP_PORTS") ?? "8080";
+    try { return (await http.GetAsync($"http://localhost:{porta}/health/live")).IsSuccessStatusCode ? 0 : 1; }
+    catch { return 1; }
+}
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Unidade 8: opções tipadas validadas na inicialização. Faltou configuração obrigatória?
+// A aplicação não sobe, e a mensagem cita só o nome da chave (nunca valores).
+builder.Services.AddOptions<OpcoesPortal>().Bind(builder.Configuration.GetSection(OpcoesPortal.Secao))
+    .ValidateDataAnnotations().ValidateOnStart();
+builder.Services.AddOptions<OpcoesServicoDicas>().Bind(builder.Configuration.GetSection(OpcoesServicoDicas.Secao))
+    .ValidateDataAnnotations().ValidateOnStart();
+var origensPermitidas = builder.Configuration.GetSection("Portal:OrigensPermitidas").Get<string[]>() ?? [];
 
 // Unidade 7: logs estruturados, OpenTelemetry, resiliência, health checks, rate limiting e cache
 builder.AdicionarObservabilidadeEResiliencia();
@@ -90,7 +108,7 @@ builder.Services.AddCors(opcoes =>
 {
     // Política nomeada: somente o front-end local (Vite) pode chamar a API pelo navegador.
     opcoes.AddPolicy("FrontendLocal", politica => politica
-        .WithOrigins("http://localhost:5173")
+        .WithOrigins(origensPermitidas)   // Unidade 8: origens vêm da configuração do ambiente
         .WithMethods("GET", "POST", "PUT", "DELETE")
         .WithHeaders("Content-Type", "X-Cliente-Id", "X-Correlation-Id"));
 });
@@ -174,11 +192,16 @@ app.MapGet("/api/painel", async (string? fonte, PainelConsultas painel, Cancella
     return Results.Ok(new { fonte = fonte ?? "ef", linhas });
 }).RequireAuthorization(Politicas.LeituraPrivada);
 
+// Unidade 8: deploy integrado — o build do React fica em wwwroot/app e rotas da SPA caem no index.html.
+// O prefixo /app separa a SPA da API (/api), das páginas MVC e dos health checks.
+app.MapFallbackToFile("app/{*caminho:nonfile}", "app/index.html");
+
 app.MapControllers();                                   // controllers com [Route] (API de diagnóstico)
 app.MapControllerRoute(                                  // rota convencional da interface MVC
     name: "default",
     pattern: "{controller=Tarefas}/{action=Index}/{id?}");
 
 app.Run();
+return 0;
 
 public partial class Program;   // permite referenciar a aplicação em testes de integração
