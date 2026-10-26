@@ -40,3 +40,55 @@ x-correlation-id: ac1d6ee40e06
     ]
 }
 
+$ curl -i https://localhost:7001/api/painel?fonte=ef 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: 2038b14d07d6
+
+{
+    "fonte": "ef",
+    "linhas": [
+        {
+            "situacao": "Concluida",
+            "quantidade": 2,
+            "vencidas": 0
+        },
+        {
+            "situacao": "EmAndamento",
+            "quantidade": 2,
+            "vencidas": 1
+        },
+        {
+            "situacao": "Pendente",
+            "quantidade": 2,
+            "vencidas": 0
+        }
+    ]
+}
+
+$ curl -i https://localhost:7001/api/painel?fonte=dapper 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: 0fc4cc9190f3
+
+{
+    "fonte": "dapper",
+    "linhas": [
+        {
+            "situacao": "Concluida",
+            "quantidade": 2,
+            "vencidas": 0
+        },
+        {
+            "situacao": "EmAndamento",
+            "quantidade": 2,
+            "vencidas": 1
+        },
+        {
+            "situacao": "Pendente",
+            "quantidade": 2,
+            "vencidas": 0
+        }
+    ]
+}
+

@@ -1,14 +1,14 @@
 
 ================ Falha transitória: 2 de cada 3 chamadas ao serviço de dicas falham; o retry resolve ================
 $ curl https://localhost:7001/api/v1/dica
-
+{"texto":"Revise as tarefas vencidas antes de criar novas (#3).","origem":"servico-dicas"}
 
 ================ Serviço fora do ar: falhas sucessivas abrem o circuito e o fallback responde ================
-chamada 1: 401 0.003910s 
-chamada 2: 401 0.004903s 
-chamada 3: 401 0.004171s 
-chamada 4: 401 0.004012s 
-chamada 5: 401 0.004457s 
-chamada 6: 401 0.004013s 
-chamada 7: 401 0.004107s 
-chamada 8: 401 0.004213s 
+chamada 1: 200 0.834514s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 2: 200 0.005164s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 3: 200 0.004253s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 4: 200 0.004444s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 5: 200 0.004415s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 6: 200 0.004523s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 7: 200 0.004506s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 8: 200 0.004372s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}

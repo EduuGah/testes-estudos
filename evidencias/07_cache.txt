@@ -69,3 +69,74 @@ x-correlation-id: bae4c263761f
     ]
 }
 
+$ curl -i https://localhost:7001/api/publico/estatisticas 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: b99435e4a556
+
+{
+    "geradoEmUtc": "2026-10-26T16:04:20.0236723Z",
+    "porSituacao": [
+        {
+            "situacao": "Concluida",
+            "quantidade": 3
+        },
+        {
+            "situacao": "EmAndamento",
+            "quantidade": 1
+        },
+        {
+            "situacao": "Pendente",
+            "quantidade": 13
+        }
+    ]
+}
+
+$ curl -i https://localhost:7001/api/publico/estatisticas 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+age: 2
+content-length: 184
+x-correlation-id: 15705fdfe373
+
+{
+    "geradoEmUtc": "2026-10-26T16:04:20.0236723Z",
+    "porSituacao": [
+        {
+            "situacao": "Concluida",
+            "quantidade": 3
+        },
+        {
+            "situacao": "EmAndamento",
+            "quantidade": 1
+        },
+        {
+            "situacao": "Pendente",
+            "quantidade": 13
+        }
+    ]
+}
+
+$ curl -i https://localhost:7001/api/publico/estatisticas 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: 45c10d4bc868
+
+{
+    "geradoEmUtc": "2026-10-26T16:04:53.1596358Z",
+    "porSituacao": [
+        {
+            "situacao": "Concluida",
+            "quantidade": 3
+        },
+        {
+            "situacao": "EmAndamento",
+            "quantidade": 1
+        },
+        {
+            "situacao": "Pendente",
+            "quantidade": 14
+        }
+    ]
+}
+

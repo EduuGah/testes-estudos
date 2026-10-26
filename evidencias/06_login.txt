@@ -48,3 +48,53 @@ content-length: 0
 x-correlation-id: a36c90c04c89
 
 
+$ curl -i -X POST https://localhost:7001/api/auth/login -H Content-Type: application/json -d {"email":"ana@portal.local","senha":"***"} 
+HTTP/2 401 
+content-type: application/problem+json
+x-correlation-id: 8925cdd7f5b8
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.2",
+    "title": "Falha no login",
+    "status": 401,
+    "detail": "E-mail ou senha inválidos.",
+    "traceId": "00-b66f81f23848178927020cc499f61abb-fcf48a169b4d31d0-01",
+    "correlationId": "8925cdd7f5b8"
+}
+
+$ curl -i -X POST https://localhost:7001/api/auth/login -H Content-Type: application/json -d {"email":"ninguem@portal.local","senha":"***"} 
+HTTP/2 401 
+content-type: application/problem+json
+x-correlation-id: d1b50bbd0ec6
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.2",
+    "title": "Falha no login",
+    "status": 401,
+    "detail": "E-mail ou senha inválidos.",
+    "traceId": "00-42822b5075404c6cc8b5bed130532950-921cb19aaeed45f9-01",
+    "correlationId": "d1b50bbd0ec6"
+}
+
+$ curl -i https://localhost:7001/api/auth/me 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: ba27dd12e591
+
+{
+    "id": "119b1615-1662-4fef-9e6a-be97978493ae",
+    "email": "ana@portal.local",
+    "nome": "Ana (usuária – equipe Web)",
+    "papeis": [
+        "Usuario"
+    ],
+    "equipe": "Web",
+    "podeEditarOutrasEquipes": false
+}
+
+$ curl -i https://localhost:7001/api/auth/me 
+HTTP/2 401 
+content-length: 0
+x-correlation-id: 01a5dd3aa0e6
+
+

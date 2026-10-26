@@ -1,10 +1,18 @@
 
 ================ Rate limiting: 6 escritas seguidas pelo mesmo usuário (limite 5 a cada 30 s) ================
-POST 1 -> 401
-POST 2 -> 401
-POST 3 -> 401
-POST 4 -> 401
-POST 5 -> 401
-POST 6 -> 401
+POST 1 -> 201
+POST 2 -> 201
+POST 3 -> 201
+POST 4 -> 201
+POST 5 -> 201
+POST 6 -> 429  retry-after: 30
+
 
 Corpo da resposta 429:
+{
+    "title": "Muitas requisições",
+    "status": 429,
+    "detail": "Limite de requisições excedido. Aguarde e tente novamente.",
+    "traceId": "00-364c6ab9205d62f7e2769a708de825f0-bdb2485b34d33e60-01",
+    "correlationId": "9ef83b10b4d6"
+}

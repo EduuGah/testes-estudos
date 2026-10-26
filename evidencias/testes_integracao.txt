@@ -1,55 +1,38 @@
 $ cd tests/PortalTarefas.Tests && dotnet run
 Executando 33 teste(s)...
 
-  [APROVADO] Unidade1PipelineTestes.RotaValida - Rota válida retorna 200 e a tarefa (260 ms)
-  [APROVADO] Unidade1PipelineTestes.RotaInexistente - Id inexistente retorna 404 em Problem Details (94 ms)
-  [APROVADO] Unidade1PipelineTestes.RotaNaoNumerica - Id não numérico não casa com a restrição {id:int} (88 ms)
-  [APROVADO] Unidade1PipelineTestes.FiltroQueryECabecalho - Filtro por query string e cabeçalho opcional (100 ms)
-  [APROVADO] Unidade1PipelineTestes.PostValido - POST válido retorna 201 com cabeçalho Location (95 ms)
-  [FALHOU]   Unidade1PipelineTestes.PostInvalido - POST inválido retorna 400 com erros por campo
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [APROVADO] Unidade1PipelineTestes.ExcecaoControlada - Exceção vira 500 sem detalhes internos (4 ms)
+  [APROVADO] Unidade1PipelineTestes.RotaValida - Rota válida retorna 200 e a tarefa (252 ms)
+  [APROVADO] Unidade1PipelineTestes.RotaInexistente - Id inexistente retorna 404 em Problem Details (81 ms)
+  [APROVADO] Unidade1PipelineTestes.RotaNaoNumerica - Id não numérico não casa com a restrição {id:int} (82 ms)
+  [APROVADO] Unidade1PipelineTestes.FiltroQueryECabecalho - Filtro por query string e cabeçalho opcional (90 ms)
+  [APROVADO] Unidade1PipelineTestes.PostValido - POST válido retorna 201 com cabeçalho Location (85 ms)
+  [APROVADO] Unidade1PipelineTestes.PostInvalido - POST inválido retorna 400 com erros por campo (81 ms)
+  [APROVADO] Unidade1PipelineTestes.ExcecaoControlada - Exceção vira 500 sem detalhes internos (6 ms)
   [APROVADO] Unidade1PipelineTestes.Cors - CORS libera somente a origem do front-end local (4 ms)
-  [APROVADO] Unidade1PipelineTestes.Correlacao - Correlation-Id é devolvido e reaproveitado quando enviado (9 ms)
-  [APROVADO] Unidade1PipelineTestes.MinimalEquivaleMvc - Minimal API e controller MVC retornam o mesmo contrato (15 ms)
-  [FALHOU]   Unidade2MvcTestes.CadastroValido - Cadastro válido redireciona para os detalhes (302)
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [FALHOU]   Unidade2MvcTestes.CadastroTituloVazio - Cadastro com título vazio volta à view com mensagem e preserva dados
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [FALHOU]   Unidade2MvcTestes.ValidacaoPrazo - Validação customizada de prazo aparece no formulário
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [FALHOU]   Unidade2MvcTestes.ExistenteEInexistente - Identificador existente (200) e inexistente (404)
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [FALHOU]   Unidade2MvcTestes.LayoutConsistente - Três páginas compartilham o mesmo layout e o View Component
-             Response status code does not indicate success: 429 (Too Many Requests).
+  [APROVADO] Unidade1PipelineTestes.Correlacao - Correlation-Id é devolvido e reaproveitado quando enviado (8 ms)
+  [APROVADO] Unidade1PipelineTestes.MinimalEquivaleMvc - Minimal API e controller MVC retornam o mesmo contrato (13 ms)
+  [APROVADO] Unidade2MvcTestes.CadastroValido - Cadastro válido redireciona para os detalhes (302) (118 ms)
+  [APROVADO] Unidade2MvcTestes.CadastroTituloVazio - Cadastro com título vazio volta à view com mensagem e preserva dados (86 ms)
+  [APROVADO] Unidade2MvcTestes.ValidacaoPrazo - Validação customizada de prazo aparece no formulário (85 ms)
+  [APROVADO] Unidade2MvcTestes.ExistenteEInexistente - Identificador existente (200) e inexistente (404) (94 ms)
+  [APROVADO] Unidade2MvcTestes.LayoutConsistente - Três páginas compartilham o mesmo layout e o View Component (90 ms)
   [APROVADO] Unidade2ValidacaoTestes.AltaSemPrazo - Alta prioridade sem prazo é rejeitada (2 ms)
   [APROVADO] Unidade2ValidacaoTestes.AltaPrazoLongo - Alta prioridade com prazo acima de 7 dias é rejeitada (0 ms)
   [APROVADO] Unidade2ValidacaoTestes.PrazoPassado - Prazo no passado é rejeitado no cadastro (0 ms)
   [APROVADO] Unidade2ValidacaoTestes.Validas - Combinações válidas passam (0 ms)
-  [FALHOU]   Unidade4ApiTestes.LimitesPaginacao - Tamanho de página fora de 1..50 retorna 400
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [FALHOU]   Unidade4ApiTestes.Ordenacao - Ordenação aceita só campos da lista permitida
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [FALHOU]   Unidade4ApiTestes.FiltrosEPaginaVazia - Dois filtros combinados e página vazia
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [FALHOU]   Unidade4ApiTestes.Inexistente - Recurso inexistente retorna 404 em Problem Details
-             Response status code does not indicate success: 429 (Too Many Requests).
-  [APROVADO] Unidade6AutorizacaoTestes.AnonimoRecebe401 - Anônimo recebe 401 na leitura privada (2 ms)
-  [FALHOU]   Unidade6AutorizacaoTestes.LoginInvalidoGenerico - Login inválido tem a mesma mensagem para conta existente e inexistente
-             Esperado <Unauthorized>, obtido <TooManyRequests>. 
-  [FALHOU]   Unidade6AutorizacaoTestes.OutraEquipe403 - Usuário de outra equipe recebe 403 ao editar
-             Esperado <OK>, obtido <TooManyRequests>. login de bruno@portal.local
-  [FALHOU]   Unidade6AutorizacaoTestes.ClaimPermite - Claim editar-outras-equipes permite editar (200)
-             Esperado <OK>, obtido <TooManyRequests>. login de carla@portal.local
-  [FALHOU]   Unidade6AutorizacaoTestes.ExclusaoSomenteAdmin - Somente Administrador exclui
-             Esperado <OK>, obtido <TooManyRequests>. login de ana@portal.local
-  [FALHOU]   Unidade6AutorizacaoTestes.Logout - Após logout o cookie deixa de valer (401)
-             Esperado <OK>, obtido <TooManyRequests>. login de ana@portal.local
-  [FALHOU]   Unidade7ResilienciaTestes.LivenessIndependente - Liveness responde 200 mesmo com a dependência fora
-             Esperado <OK>, obtido <ServiceUnavailable>. 
-  [FALHOU]   Unidade7ResilienciaTestes.RateLimitEscrita - Sexta escrita em 30 s recebe 429 com Retry-After
-             Esperado <TooManyRequests>, obtido <Unauthorized>. 
+  [APROVADO] Unidade4ApiTestes.LimitesPaginacao - Tamanho de página fora de 1..50 retorna 400 (82 ms)
+  [APROVADO] Unidade4ApiTestes.Ordenacao - Ordenação aceita só campos da lista permitida (84 ms)
+  [APROVADO] Unidade4ApiTestes.FiltrosEPaginaVazia - Dois filtros combinados e página vazia (102 ms)
+  [APROVADO] Unidade4ApiTestes.Inexistente - Recurso inexistente retorna 404 em Problem Details (80 ms)
+  [APROVADO] Unidade6AutorizacaoTestes.AnonimoRecebe401 - Anônimo recebe 401 na leitura privada (3 ms)
+  [APROVADO] Unidade6AutorizacaoTestes.LoginInvalidoGenerico - Login inválido tem a mesma mensagem para conta existente e inexistente (82 ms)
+  [APROVADO] Unidade6AutorizacaoTestes.OutraEquipe403 - Usuário de outra equipe recebe 403 ao editar (91 ms)
+  [APROVADO] Unidade6AutorizacaoTestes.ClaimPermite - Claim editar-outras-equipes permite editar (200) (86 ms)
+  [APROVADO] Unidade6AutorizacaoTestes.ExclusaoSomenteAdmin - Somente Administrador exclui (107 ms)
+  [APROVADO] Unidade6AutorizacaoTestes.Logout - Após logout o cookie deixa de valer (401) (81 ms)
+  [APROVADO] Unidade7ResilienciaTestes.LivenessIndependente - Liveness responde 200 mesmo com a dependência fora (11 ms)
+  [APROVADO] Unidade7ResilienciaTestes.RateLimitEscrita - Sexta escrita em 30 s recebe 429 com Retry-After (92 ms)
   [APROVADO] Unidade7ResilienciaTestes.OutputCache - Estatísticas públicas vêm do cache até a próxima escrita (5 ms)
   [APROVADO] Unidade7ResilienciaTestes.ErroCorrelacionado - Erro 500 traz correlationId e nenhum detalhe interno (3 ms)
 
-Resultado: 16 aprovado(s), 17 falha(s), total 33 em 0.80 s
+Resultado: 33 aprovado(s), 0 falha(s), total 33 em 2.13 s

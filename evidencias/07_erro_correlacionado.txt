@@ -19,3 +19,20 @@ $ grep b2b68367137c (log da aplicação)
 15:57:20 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5E
 15:57:20 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5E
     correlation.id: b2b68367137c
+$ curl -i https://localhost:7001/api/diagnostico/erro 
+HTTP/2 500 
+content-type: application/problem+json
+cache-control: no-cache,no-store
+expires: -1
+pragma: no-cache
+x-correlation-id: c9165533baef
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.6.1",
+    "title": "An error occurred while processing your request.",
+    "status": 500,
+    "traceId": "00-f8e06297378af3b42a8c6c92875fde65-81d62526b15794be-01",
+    "correlationId": "c9165533baef"
+}
+
+$ grep b2b68367137c (log da aplicação)

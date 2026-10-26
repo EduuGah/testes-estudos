@@ -3,7 +3,7 @@ Matriz de autorização obtida chamando a API diretamente (fora da SPA)
 Operação                           anonimo  bruno    ana      carla    admin   
 GET /api/v1/tarefas                  401      200      200      200      200     
 POST /api/v1/tarefas                 401      201      201      201      201     
-PUT /api/v1/tarefas/1                401      403      403      200      429     
-DELETE /api/v1/tarefas/2             401      403      403      403      429     
+PUT /api/v1/tarefas/1                401      403      403      200      200     
+DELETE /api/v1/tarefas/2             401      403      403      403      204     
 
 (DELETE do admin feito na tarefa 6, para não apagar a tarefa usada pelos demais)

@@ -1,37 +1,26 @@
 
 ================ Geração do cliente TypeScript com NSwag ================
-$ dotnet nswag run nswag.json /runtime:Net90
+$ dotnet nswag run nswag.json
 NSwag command line tool for .NET Core Net90, toolchain v14.4.0.0 (NJsonSchema v11.3.2.0 (Newtonsoft.Json v13.0.0.0))
 Visit http://NSwag.org for more information.
 NSwag bin directory: /home/runner/.nuget/packages/nswag.consolecore/14.4.0/tools/net9.0/any
-NConsole.UnusedArgumentException: Unrecognised arguments are present: [/runtime:Net90]
-   at NConsole.CommandLineProcessor.ProcessSingleAsync(String[] args, Object input)
-   at NConsole.CommandLineProcessor.ProcessAsync(String[] args, Object input)
-   at NSwag.Commands.NSwagCommandProcessor.ProcessAsync(String[] args) in /_/src/NSwag.Commands/NSwagCommandProcessor.cs:line 61total 12
-drwxr-xr-x 2 runner runner 4096 Oct 26 15:53 .
-drwxr-xr-x 3 runner runner 4096 Oct 26 15:53 ..
--rw-r--r-- 1 runner runner 1619 Oct 26 15:53 chamada-real.ts
+
+Executing file 'nswag.json' with variables ''...
+Done.
+
+Duration: 00:00:02.9055990
+total 48
+drwxr-xr-x 2 runner runner  4096 Oct 26 16:03 .
+drwxr-xr-x 3 runner runner  4096 Oct 26 16:01 ..
+-rw-r--r-- 1 runner runner  1619 Oct 26 16:01 chamada-real.ts
+-rw-r--r-- 1 runner runner 33702 Oct 26 16:03 portal-tarefas-client.ts
 $ npm install --silent
 
 ================ Chamada real com o cliente gerado ================
 $ npm run chamada-real
-
-node:internal/modules/run_main:123
-    triggerUncaughtException(
-    ^
-Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/runner/work/testes-estudos/testes-estudos/clients/typescript/src/portal-tarefas-client' imported from /home/runner/work/testes-estudos/testes-estudos/clients/typescript/src/chamada-real.ts
-    at finalizeResolution (node:internal/modules/esm/resolve:275:11)
-    at moduleResolve (node:internal/modules/esm/resolve:865:10)
-    at defaultResolve (node:internal/modules/esm/resolve:989:11)
-    at nextResolve (node:internal/modules/esm/hooks:748:28)
-    at resolveBase (file:///home/runner/work/testes-estudos/testes-estudos/clients/typescript/node_modules/tsx/dist/esm/index.mjs?1793030138869:2:3212)
-    at async resolveDirectory (file:///home/runner/work/testes-estudos/testes-estudos/clients/typescript/node_modules/tsx/dist/esm/index.mjs?1793030138869:2:3578)
-    at async resolve (file:///home/runner/work/testes-estudos/testes-estudos/clients/typescript/node_modules/tsx/dist/esm/index.mjs?1793030138869:2:4441)
-    at async nextResolve (node:internal/modules/esm/hooks:748:22)
-    at async Hooks.resolve (node:internal/modules/esm/hooks:240:24)
-    at async handleMessage (node:internal/modules/esm/worker:199:18) {
-  code: 'ERR_MODULE_NOT_FOUND',
-  url: 'file:///home/runner/work/testes-estudos/testes-estudos/clients/typescript/src/portal-tarefas-client'
-}
-
-Node.js v22.23.3
+(Use `node --trace-warnings ...` to show where the warning was created)
+Página 1/1 – 3 tarefa(s) pendente(s)
+ #4 Montar telas Razor (revisado na aba A) (prazo 2026-10-29)
+ #7 Gerar cliente TypeScript (prazo 2026-10-30)
+ #6 Documentar a API (prazo 2026-11-07)
+Criada: #8 versão AAAAAAAAB9s=
