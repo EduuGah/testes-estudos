@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories { google(); mavenCentral(); gradlePluginPortal() }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories { google(); mavenCentral() }
+}
+rootProject.name = "AulasMobile"
+// Um módulo (app) por roteiro de aula prática
+include ':aula1_primeiroapp', ':aula2_login', ':aula4_menu', ':aula5_checkbox', ':aula6_sharedprefs', ':aula7_seguranca'

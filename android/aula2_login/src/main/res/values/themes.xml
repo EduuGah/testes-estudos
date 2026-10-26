@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema do app: barra superior azul e botões na cor primária -->
+    <style name="Theme.Aula" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#1F4E79</item>
+        <item name="colorPrimaryVariant">#163A5C</item>
+        <item name="colorSecondary">#2E7D32</item>
+        <item name="android:statusBarColor">#163A5C</item>
+    </style>
+</resources>

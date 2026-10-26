@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Menu principal: um botão com ícone para cada opção, empilhados em um LinearLayout vertical -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F9"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Menu Principal"
+        android:textColor="#1F4E79"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Escolha uma opção"
+        android:textColor="#475467"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/cadastroButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="#1F4E79"
+        android:gravity="start|center_vertical"
+        android:paddingStart="24dp"
+        android:text="Cadastro"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_cadastro"
+        app:iconPadding="20dp"
+        app:iconSize="28dp" />
+
+    <Button
+        android:id="@+id/consultarButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="#2E7D32"
+        android:gravity="start|center_vertical"
+        android:paddingStart="24dp"
+        android:text="Consultar"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_consultar"
+        app:iconPadding="20dp"
+        app:iconSize="28dp" />
+
+    <Button
+        android:id="@+id/configuracoesButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="#6A4C93"
+        android:gravity="start|center_vertical"
+        android:paddingStart="24dp"
+        android:text="Configurações"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_configuracoes"
+        app:iconPadding="20dp"
+        app:iconSize="28dp" />
+
+    <Button
+        android:id="@+id/sairButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="#B42318"
+        android:gravity="start|center_vertical"
+        android:paddingStart="24dp"
+        android:text="Sair"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_sair"
+        app:iconPadding="20dp"
+        app:iconSize="28dp" />
+
+    <!-- Mostra qual opção foi escolhida por último -->
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Nenhuma opção selecionada"
+        android:textColor="#475467"
+        android:textSize="16sp" />
+
+</LinearLayout>

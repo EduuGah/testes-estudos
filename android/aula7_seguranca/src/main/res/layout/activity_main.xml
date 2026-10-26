@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Login com validações: os erros aparecem no próprio campo e em uma mensagem abaixo do botão -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8F1FB"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Login Seguro"
+        android:textColor="#1F4E79"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:text="Os dados são validados antes do envio"
+        android:textColor="#475467"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="14dp" />
+
+    <EditText
+        android:id="@+id/senhaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:hint="Senha (mínimo 6 caracteres)"
+        android:inputType="textPassword"
+        android:paddingHorizontal="14dp" />
+
+    <Button
+        android:id="@+id/entrarButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#1F4E79"
+        android:text="Entrar com segurança"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mensagemTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela que recebe o nome e mostra a saudação recuperada do armazenamento local -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3EEF9"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:id="@+id/saudacaoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Olá! Qual é o seu nome?"
+        android:textColor="#4A2C7A"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:text="Nenhum nome salvo neste aparelho."
+        android:textColor="#475467"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/nomeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:hint="Digite seu nome"
+        android:inputType="textPersonName|textCapWords"
+        android:paddingHorizontal="14dp" />
+
+    <Button
+        android:id="@+id/salvarButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#6A4C93"
+        android:text="Salvar nome"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/limparButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Apagar nome salvo"
+        android:textColor="#6A4C93" />
+
+</LinearLayout>
