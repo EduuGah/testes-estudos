@@ -29,6 +29,6 @@ jobs:
           mkdir -p evidencias && cp rodar.log evidencias/ 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add evidencias src/PortalTarefas.Web/Dados/Migrations src/PortalTarefas.Web/openapi clients/typescript/src 2>/dev/null || true
+          for c in evidencias src/PortalTarefas.Web/Dados/Migrations src/PortalTarefas.Web/openapi clients/typescript/src; do [ -e "$c" ] && git add "$c"; done
           git commit -m "Evidências da execução (run ${{ github.run_id }})" || echo "nada novo"
           git push
