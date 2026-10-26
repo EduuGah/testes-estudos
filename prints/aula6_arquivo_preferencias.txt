@@ -1,0 +1,5 @@
+$ adb shell run-as br.unip.mobile.aula6 cat shared_prefs/preferencias_usuario.xml
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="nome">Carlos Eduardo</string>
+</map>
