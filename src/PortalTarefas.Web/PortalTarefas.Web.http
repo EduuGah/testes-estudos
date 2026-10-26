@@ -1,0 +1,33 @@
+@base = https://localhost:7001
+
+### 1. Rota válida
+GET {{base}}/api/tarefas/2
+
+### 2. Rota inválida (id inexistente e id não numérico)
+GET {{base}}/api/tarefas/99
+###
+GET {{base}}/api/tarefas/abc
+
+### 3. Query string + cabeçalho opcional
+GET {{base}}/api/tarefas?situacao=EmAndamento&busca=endpoint
+X-Cliente-Id: portal-web
+
+### 4. POST válido
+POST {{base}}/api/tarefas
+Content-Type: application/json
+
+{ "titulo": "Escrever relatório da Unidade 1", "descricao": "Evidências do pipeline", "situacao": "Pendente" }
+
+### 5. POST inválido
+POST {{base}}/api/tarefas
+Content-Type: application/json
+
+{ "titulo": "", "situacao": "Atrasada" }
+
+### 6. Exceção controlada
+GET {{base}}/api/diagnostico/erro
+
+### 7. Minimal API x MVC
+GET {{base}}/api/diagnostico
+###
+GET {{base}}/api/mvc/diagnostico
