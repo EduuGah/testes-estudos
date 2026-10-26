@@ -1,0 +1,87 @@
+
+================ Ferramentas locais (dotnet-ef e NSwag) ================
+$ dotnet tool restore
+Tool 'dotnet-ef' (version '10.0.0') was restored. Available commands: dotnet-ef
+Tool 'nswag.consolecore' (version '14.4.0') was restored. Available commands: nswag
+
+A newer version of tool 'dotnet-ef' is available (version '10.0.14'). Consider updating your manifest file.
+A newer version of tool 'nswag.consolecore' is available (version '14.7.1'). Consider updating your manifest file.
+
+Restore was successful.
+
+================ Migration inicial ================
+$ dotnet ef migrations add Inicial --project src/PortalTarefas.Web --output-dir Dados/Migrations
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+Build started...
+Build succeeded.
+Done. To undo this action, use 'ef migrations remove'
+$ dotnet ef migrations list --project src/PortalTarefas.Web
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+Build started...
+Build succeeded.
+20261026155425_Inicial (Pending)
+
+================ Script SQL gerado para revisão ================
+Build started...
+Build succeeded.
+(script completo em evidencias/03_migration_inicial.sql)
+
+================ Aplicando ao banco ================
+$ dotnet ef database update --project src/PortalTarefas.Web
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
+Build started...
+Build succeeded.
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (143ms) [Parameters=[], CommandType='Text', CommandTimeout='60'] CREATE DATABASE [PortalTarefas];
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (72ms) [Parameters=[], CommandType='Text', CommandTimeout='60'] IF SERVERPROPERTY('EngineEdition') <> 5 BEGIN     ALTER DATABASE [PortalTarefas] SET READ_COMMITTED_SNAPSHOT ON; END;
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] SELECT 1
+15:54:41 info: Microsoft.EntityFrameworkCore.Migrations[20411] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] DECLARE @result int; EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive'; SELECT @result
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL BEGIN     CREATE TABLE [__EFMigrationsHistory] (         [MigrationId] nvarchar(150) NOT NULL,         [ProductVersion] nvarchar(32) NOT NULL,         CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])     ); END;
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] SELECT 1
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] SELECT [MigrationId], [ProductVersion] FROM [__EFMigrationsHistory] ORDER BY [MigrationId];
+15:54:41 info: Microsoft.EntityFrameworkCore.Migrations[20402] Applying migration '20261026155425_Inicial'.
+Applying migration '20261026155425_Inicial'.
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [AspNetRoles] (     [Id] nvarchar(450) NOT NULL,     [Name] nvarchar(256) NULL,     [NormalizedName] nvarchar(256) NULL,     [ConcurrencyStamp] nvarchar(max) NULL,     CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id]) );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [AspNetUsers] (     [Id] nvarchar(450) NOT NULL,     [NomeExibicao] nvarchar(max) NOT NULL,     [UserName] nvarchar(256) NULL,     [NormalizedUserName] nvarchar(256) NULL,     [Email] nvarchar(256) NULL,     [NormalizedEmail] nvarchar(256) NULL,     [EmailConfirmed] bit NOT NULL,     [PasswordHash] nvarchar(max) NULL,     [SecurityStamp] nvarchar(max) NULL,     [ConcurrencyStamp] nvarchar(max) NULL,     [PhoneNumber] nvarchar(max) NULL,     [PhoneNumberConfirmed] bit NOT NULL,     [TwoFactorEnabled] bit NOT NULL,     [LockoutEnd] datetimeoffset NULL,     [LockoutEnabled] bit NOT NULL,     [AccessFailedCount] int NOT NULL,     CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id]) );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [Tarefas] (     [Id] int NOT NULL IDENTITY,     [Titulo] nvarchar(80) NOT NULL,     [Descricao] nvarchar(500) NULL,     [Prioridade] int NOT NULL,     [Prazo] date NULL,     [Situacao] nvarchar(20) NOT NULL,     [CriadaEmUtc] datetime2 NOT NULL DEFAULT (SYSUTCDATETIME()),     [AtualizadaEmUtc] datetime2 NULL,     [Equipe] nvarchar(40) NOT NULL DEFAULT N'Geral',     [ProprietarioId] nvarchar(450) NULL,     [RowVersion] rowversion NOT NULL,     CONSTRAINT [PK_Tarefas] PRIMARY KEY ([Id]) );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [AspNetRoleClaims] (     [Id] int NOT NULL IDENTITY,     [RoleId] nvarchar(450) NOT NULL,     [ClaimType] nvarchar(max) NULL,     [ClaimValue] nvarchar(max) NULL,     CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),     CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [AspNetUserClaims] (     [Id] int NOT NULL IDENTITY,     [UserId] nvarchar(450) NOT NULL,     [ClaimType] nvarchar(max) NULL,     [ClaimValue] nvarchar(max) NULL,     CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),     CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [AspNetUserLogins] (     [LoginProvider] nvarchar(450) NOT NULL,     [ProviderKey] nvarchar(450) NOT NULL,     [ProviderDisplayName] nvarchar(max) NULL,     [UserId] nvarchar(450) NOT NULL,     CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),     CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [AspNetUserRoles] (     [UserId] nvarchar(450) NOT NULL,     [RoleId] nvarchar(450) NOT NULL,     CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),     CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,     CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [AspNetUserTokens] (     [UserId] nvarchar(450) NOT NULL,     [LoginProvider] nvarchar(450) NOT NULL,     [Name] nvarchar(450) NOT NULL,     [Value] nvarchar(max) NULL,     CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),     CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE TABLE [EventosAuditoria] (     [Id] bigint NOT NULL IDENTITY,     [TarefaId] int NOT NULL,     [Acao] nvarchar(40) NOT NULL,     [Detalhe] nvarchar(300) NULL,     [OcorridoEmUtc] datetime2 NOT NULL,     CONSTRAINT [PK_EventosAuditoria] PRIMARY KEY ([Id]),     CONSTRAINT [FK_EventosAuditoria_Tarefas_TarefaId] FOREIGN KEY ([TarefaId]) REFERENCES [Tarefas] ([Id]) ON DELETE CASCADE );
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE INDEX [IX_EventosAuditoria_TarefaId] ON [EventosAuditoria] ([TarefaId]);
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] CREATE INDEX [IX_Tarefas_Situacao_Prazo] ON [Tarefas] ([Situacao], [Prazo]);
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20261026155425_Inicial', N'10.0.0');
+15:54:41 info: Microsoft.EntityFrameworkCore.Database.Command[20101] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] DECLARE @result int; EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session'; SELECT @result
+Done.

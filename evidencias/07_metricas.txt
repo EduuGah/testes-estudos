@@ -1,0 +1,40 @@
+4686-	telemetry.sdk.version: 1.12.0
+4687-
+4688:Metric Name: portal.tarefas.criadas
+4689-(2026-10-26T15:55:19.3474891Z, 2026-10-26T15:55:53.7319051Z] prioridade: MediaLongSum
+4690-Value: 1
+4691-Instrumentation scope (Meter):
+4692-	Name: PortalTarefas
+4693-	Version: 1.0.0
+4694-Resource associated with Metric:
+4695-	service.name: PortalTarefas.Web
+4696-	service.version: 1.0.0
+4697-	service.instance.id: 951bd9a1-aea7-4305-af79-b7b57d0e9664
+4698-	telemetry.sdk.name: opentelemetry
+4699-	telemetry.sdk.language: dotnet
+4700-	telemetry.sdk.version: 1.12.0
+--
+6819-	telemetry.sdk.version: 1.12.0
+6820-
+6821:Metric Name: portal.tarefas.criadas
+6822-(2026-10-26T15:55:19.3474891Z, 2026-10-26T15:56:23.7316890Z] prioridade: MediaLongSum
+6823-Value: 1
+6824-Instrumentation scope (Meter):
+6825-	Name: PortalTarefas
+6826-	Version: 1.0.0
+6827-Resource associated with Metric:
+6828-	service.name: PortalTarefas.Web
+6829-	service.version: 1.0.0
+6830-	service.instance.id: 951bd9a1-aea7-4305-af79-b7b57d0e9664
+6831-	telemetry.sdk.name: opentelemetry
+6832-	telemetry.sdk.language: dotnet
+6833-	telemetry.sdk.version: 1.12.0
+--
+8738-	telemetry.sdk.version: 1.12.0
+8739-
+8740:Metric Name: portal.tarefas.criadas
+8741-(2026-10-26T15:55:19.3474891Z, 2026-10-26T15:56:53.7316356Z] prioridade: MediaLongSum
+8742-Value: 1
+8743-Instrumentation scope (Meter):
+8744-	Name: PortalTarefas
+8745-	Version: 1.0.0

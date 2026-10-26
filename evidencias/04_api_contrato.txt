@@ -1,0 +1,177 @@
+$ curl -i https://localhost:7001/api/v1/tarefas?pagina=1&tamanho=3&ordenarPor=prazo&direcao=desc 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: 9ebc2f8fdf4f
+
+{
+    "itens": [
+        {
+            "id": 6,
+            "titulo": "Documentar a API",
+            "prioridade": "Media",
+            "prazo": "2026-11-07",
+            "situacao": "Pendente",
+            "vencida": false
+        },
+        {
+            "id": 5,
+            "titulo": "Persistir tarefas com EF Core",
+            "prioridade": "Alta",
+            "prazo": "2026-11-01",
+            "situacao": "EmAndamento",
+            "vencida": false
+        },
+        {
+            "id": 3,
+            "titulo": "Comparar Minimal API e MVC",
+            "prioridade": "Baixa",
+            "prazo": "2026-10-31",
+            "situacao": "Concluida",
+            "vencida": false
+        }
+    ],
+    "pagina": 1,
+    "tamanho": 3,
+    "totalItens": 6,
+    "totalPaginas": 2
+}
+
+$ curl -i https://localhost:7001/api/v1/tarefas?tamanho=0 
+HTTP/2 400 
+content-type: application/problem+json
+x-correlation-id: fcab0fcbb5ce
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+    "title": "Parâmetros de consulta inválidos",
+    "status": 400,
+    "errors": {
+        "tamanho": [
+            "O tamanho deve estar entre 1 e 50."
+        ]
+    },
+    "traceId": "00-686729f98b866af8295500a8ac2ae669-0facd99c06801c0a-01",
+    "correlationId": "fcab0fcbb5ce"
+}
+
+$ curl -i https://localhost:7001/api/v1/tarefas?tamanho=51 
+HTTP/2 400 
+content-type: application/problem+json
+x-correlation-id: 2b99c12ff80b
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+    "title": "Parâmetros de consulta inválidos",
+    "status": 400,
+    "errors": {
+        "tamanho": [
+            "O tamanho deve estar entre 1 e 50."
+        ]
+    },
+    "traceId": "00-548cdc744a60628d660d09bb4745c58a-016fd9b5ebda46ca-01",
+    "correlationId": "2b99c12ff80b"
+}
+
+$ curl -i https://localhost:7001/api/v1/tarefas?ordenarPor=descricao 
+HTTP/2 400 
+content-type: application/problem+json
+x-correlation-id: c1c2fb54cdff
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+    "title": "Parâmetros de consulta inválidos",
+    "status": 400,
+    "errors": {
+        "ordenarPor": [
+            "Campo não permitido. Use: id, titulo, prazo, prioridade, situacao."
+        ]
+    },
+    "traceId": "00-3a5f831bec05458f01a709580aa0abb1-0b97a8f9888f859c-01",
+    "correlationId": "c1c2fb54cdff"
+}
+
+$ curl -i https://localhost:7001/api/v1/tarefas?situacao=EmAndamento&prioridade=Alta 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: 3f654ea78b45
+
+{
+    "itens": [
+        {
+            "id": 5,
+            "titulo": "Persistir tarefas com EF Core",
+            "prioridade": "Alta",
+            "prazo": "2026-11-01",
+            "situacao": "EmAndamento",
+            "vencida": false
+        }
+    ],
+    "pagina": 1,
+    "tamanho": 10,
+    "totalItens": 1,
+    "totalPaginas": 1
+}
+
+$ curl -i https://localhost:7001/api/v1/tarefas?pagina=99 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: 609d62762688
+
+{
+    "itens": [],
+    "pagina": 99,
+    "tamanho": 10,
+    "totalItens": 6,
+    "totalPaginas": 1
+}
+
+$ curl -i https://localhost:7001/api/v1/tarefas/9999 
+HTTP/2 404 
+content-type: application/problem+json
+x-correlation-id: 443ac7d3c398
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+    "title": "Tarefa não encontrada",
+    "status": 404,
+    "detail": "Não existe tarefa com id 9999.",
+    "traceId": "00-0e4bcaf14ab475a0fcdb2196c144ac38-429a98c90c02c406-01",
+    "correlationId": "443ac7d3c398"
+}
+
+$ curl -i -X POST https://localhost:7001/api/v1/tarefas -H Content-Type: application/json -d {"titulo":"Gerar cliente TypeScript","prioridade":"Media","prazo":"2026-10-30"} 
+HTTP/2 201 
+content-type: application/json; charset=utf-8
+location: https://localhost:7001/api/v1/tarefas/7
+x-correlation-id: 404c8debc1bf
+
+{
+    "id": 7,
+    "titulo": "Gerar cliente TypeScript",
+    "descricao": null,
+    "prioridade": "Media",
+    "prazo": "2026-10-30",
+    "situacao": "Pendente",
+    "criadaEmUtc": "2026-10-26T15:55:29.9689933Z",
+    "atualizadaEmUtc": null,
+    "versao": "AAAAAAAAB9g="
+}
+
+$ curl -i -X POST https://localhost:7001/api/v1/tarefas -H Content-Type: application/json -d {"titulo":"","prioridade":"Alta"} 
+HTTP/2 400 
+content-type: application/problem+json
+x-correlation-id: f82c57edeacc
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+    "title": "One or more validation errors occurred.",
+    "status": 400,
+    "errors": {
+        "titulo": [
+            "The Titulo field is required."
+        ]
+    },
+    "traceId": "00-bbc5391846b77b5ef51ed97245dd247e-efda39495ea09efb-01",
+    "correlationId": "f82c57edeacc"
+}
+

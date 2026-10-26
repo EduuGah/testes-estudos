@@ -1,0 +1,34 @@
+
+================ Banco após a primeira execução (seed aplicado) ================
+$ sqlcmd -Q "SELECT name FROM sys.tables ORDER BY name"
+name
+----
+__EFMigrationsHistory
+AspNetRoleClaims
+AspNetRoles
+AspNetUserClaims
+AspNetUserLogins
+AspNetUserRoles
+AspNetUsers
+AspNetUserTokens
+EventosAuditoria
+Tarefas
+$ sqlcmd -Q "SELECT COUNT(*) FROM Tarefas"
+Tarefas
+-------
+6
+
+================ Depois de reiniciar a aplicação (seed idempotente: nada duplicado) ================
+$ sqlcmd -Q "SELECT COUNT(*) FROM Tarefas"
+Tarefas
+-------
+6
+$ sqlcmd -Q "SELECT Id, Titulo, Situacao, Equipe, CONVERT(varchar(18), RowVersion, 1) AS RowVersion FROM Tarefas"
+Id Titulo Situacao Equipe RowVersion
+-- ------ -------- ------ ----------
+1 Configurar pipeline HTTP Concluida Geral 
+2 Criar endpoints de tarefas EmAndamento Geral 
+3 Comparar Minimal API e MVC Pendente Geral 
+4 Montar telas Razor Pendente Geral 
+5 Persistir tarefas com EF Core EmAndamento Geral 
+6 Documentar a API Pendente Geral 

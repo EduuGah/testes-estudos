@@ -1,0 +1,21 @@
+$ curl -i https://localhost:7001/api/diagnostico/erro 
+HTTP/2 500 
+content-type: application/problem+json
+cache-control: no-cache,no-store
+expires: -1
+pragma: no-cache
+x-correlation-id: b2b68367137c
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.6.1",
+    "title": "An error occurred while processing your request.",
+    "status": 500,
+    "traceId": "00-e0c27dac22574d861adb9e33794679a5-a8504dec5d11b314-01",
+    "correlationId": "b2b68367137c"
+}
+
+$ grep b2b68367137c (log da aplicação)
+15:57:20 info: PortalTarefas.Web.Middleware.CorrelacaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5EKA:00000
+15:57:20 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5E
+15:57:20 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5E
+    correlation.id: b2b68367137c

@@ -1,0 +1,881 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Portal de Tarefas API",
+    "description": "API do domínio didático Portal de Tarefas (UNIP – Desenvolvimento Web com .NET).",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/tarefas": {
+      "get": {
+        "tags": [
+          "Tarefas (Unidade 1)"
+        ],
+        "parameters": [
+          {
+            "name": "situacao",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "busca",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Cliente-Id",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tarefas (Unidade 1)"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarTarefaRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tarefas/{id}": {
+      "get": {
+        "tags": [
+          "Tarefas (Unidade 1)"
+        ],
+        "operationId": "ObterTarefa",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/diagnostico": {
+      "get": {
+        "tags": [
+          "PortalTarefas.Web"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/diagnostico/erro": {
+      "get": {
+        "tags": [
+          "PortalTarefas.Web"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publico/estatisticas": {
+      "get": {
+        "tags": [
+          "PortalTarefas.Web"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/dica": {
+      "get": {
+        "tags": [
+          "PortalTarefas.Web"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DicaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/painel": {
+      "get": {
+        "tags": [
+          "PortalTarefas.Web"
+        ],
+        "parameters": [
+          {
+            "name": "fonte",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/tarefas": {
+      "get": {
+        "tags": [
+          "Tarefas v1"
+        ],
+        "summary": "Lista tarefas com paginação, ordenação e filtros",
+        "description": "Filtros e ordenação são aplicados no banco antes da materialização. Tamanho máximo de página: 50.",
+        "operationId": "ListarTarefas",
+        "parameters": [
+          {
+            "name": "pagina",
+            "in": "query",
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": [
+                "integer",
+                "string"
+              ],
+              "format": "int32"
+            }
+          },
+          {
+            "name": "tamanho",
+            "in": "query",
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": [
+                "integer",
+                "string"
+              ],
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ordenarPor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "situacao",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "prioridade",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Prioridade"
+            }
+          },
+          {
+            "name": "busca",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginaDtoOfTarefaResumoDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tarefas v1"
+        ],
+        "summary": "Cria uma tarefa e devolve Location",
+        "operationId": "CriarTarefa",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarTarefaDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarefaDetalheDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tarefas/{id}": {
+      "get": {
+        "tags": [
+          "Tarefas v1"
+        ],
+        "summary": "Obtém os detalhes de uma tarefa",
+        "operationId": "ObterTarefaV1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarefaDetalheDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tarefas v1"
+        ],
+        "summary": "Atualiza uma tarefa usando concorrência otimista",
+        "description": "Envie em 'versao' o valor recebido no GET. Se outra pessoa alterou antes, a resposta é 409.",
+        "operationId": "AtualizarTarefa",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarTarefaDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarefaDetalheDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tarefas v1"
+        ],
+        "summary": "Exclui uma tarefa",
+        "operationId": "ExcluirTarefa",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "pattern": "^-?(?:0|[1-9]\\d*)$",
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioAtualDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "Autenticação"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioAtualDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mvc/diagnostico": {
+      "get": {
+        "tags": [
+          "Diagnostico"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AtualizarTarefaDto": {
+        "required": [
+          "titulo",
+          "descricao",
+          "prioridade",
+          "prazo",
+          "situacao",
+          "versao"
+        ],
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "maxLength": 80,
+            "minLength": 3,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "prioridade": {
+            "$ref": "#/components/schemas/Prioridade"
+          },
+          "prazo": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "situacao": {
+            "type": "string"
+          },
+          "versao": {
+            "type": "string",
+            "description": "Valor de 'versao' devolvido no GET de detalhes"
+          }
+        }
+      },
+      "CriarTarefaDto": {
+        "required": [
+          "titulo",
+          "descricao",
+          "prioridade",
+          "prazo"
+        ],
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "maxLength": 80,
+            "minLength": 3,
+            "type": "string",
+            "description": "Título exibido na lista"
+          },
+          "descricao": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "prioridade": {
+            "$ref": "#/components/schemas/Prioridade"
+          },
+          "prazo": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          }
+        }
+      },
+      "CriarTarefaRequest": {
+        "required": [
+          "titulo"
+        ],
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "maxLength": 80,
+            "minLength": 3,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "situacao": {
+            "type": "string"
+          }
+        }
+      },
+      "DicaDto": {
+        "required": [
+          "texto",
+          "origem"
+        ],
+        "type": "object",
+        "properties": {
+          "texto": {
+            "type": "string"
+          },
+          "origem": {
+            "type": "string"
+          }
+        }
+      },
+      "HttpValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "detail": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "instance": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "LoginDto": {
+        "required": [
+          "email",
+          "senha"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          }
+        }
+      },
+      "PaginaDtoOfTarefaResumoDto": {
+        "required": [
+          "itens",
+          "pagina",
+          "tamanho",
+          "totalItens",
+          "totalPaginas"
+        ],
+        "type": "object",
+        "properties": {
+          "itens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TarefaResumoDto"
+            }
+          },
+          "pagina": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "tamanho": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "totalItens": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "totalPaginas": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "Prioridade": {
+        "enum": [
+          "Baixa",
+          "Media",
+          "Alta"
+        ]
+      },
+      "TarefaDetalheDto": {
+        "required": [
+          "id",
+          "titulo",
+          "descricao",
+          "prioridade",
+          "prazo",
+          "situacao",
+          "criadaEmUtc",
+          "atualizadaEmUtc",
+          "versao"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "prioridade": {
+            "$ref": "#/components/schemas/Prioridade"
+          },
+          "prazo": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "situacao": {
+            "type": "string"
+          },
+          "criadaEmUtc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "atualizadaEmUtc": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "versao": {
+            "type": "string",
+            "description": "Token de concorrência otimista (Base64)"
+          }
+        }
+      },
+      "TarefaResumoDto": {
+        "required": [
+          "id",
+          "titulo",
+          "prioridade",
+          "prazo",
+          "situacao",
+          "vencida"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string"
+          },
+          "prioridade": {
+            "$ref": "#/components/schemas/Prioridade"
+          },
+          "prazo": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "situacao": {
+            "type": "string"
+          },
+          "vencida": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UsuarioAtualDto": {
+        "required": [
+          "id",
+          "email",
+          "nome",
+          "papeis",
+          "equipe",
+          "podeEditarOutrasEquipes"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "papeis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "equipe": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "podeEditarOutrasEquipes": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Tarefas (Unidade 1)"
+    },
+    {
+      "name": "PortalTarefas.Web"
+    },
+    {
+      "name": "Tarefas v1"
+    },
+    {
+      "name": "Autenticação"
+    },
+    {
+      "name": "Diagnostico"
+    }
+  ]
+}

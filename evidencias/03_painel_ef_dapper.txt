@@ -1,0 +1,42 @@
+$ curl -i https://localhost:7001/api/painel?fonte=ef 
+HTTP/2 500 
+content-type: application/problem+json
+cache-control: no-cache,no-store
+expires: -1
+pragma: no-cache
+x-correlation-id: f40cdfaab304
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.6.1",
+    "title": "An error occurred while processing your request.",
+    "status": 500,
+    "traceId": "00-2c622eec99ba9770ebc8e80fc4323c91-e9502adea3de5d03-01",
+    "correlationId": "f40cdfaab304"
+}
+
+$ curl -i https://localhost:7001/api/painel?fonte=dapper 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: ac1d6ee40e06
+
+{
+    "fonte": "dapper",
+    "linhas": [
+        {
+            "situacao": "Concluida",
+            "quantidade": 2,
+            "vencidas": 0
+        },
+        {
+            "situacao": "EmAndamento",
+            "quantidade": 2,
+            "vencidas": 1
+        },
+        {
+            "situacao": "Pendente",
+            "quantidade": 2,
+            "vencidas": 0
+        }
+    ]
+}
+

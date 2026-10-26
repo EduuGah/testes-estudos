@@ -1,0 +1,11 @@
+
+================ Auditoria gravada na mesma transação ================
+$ sqlcmd -Q "SELECT * FROM EventosAuditoria"
+Id TarefaId Acao Detalhe OcorridoEmUtc
+-- -------- ---- ------- -------------
+1 3 AlterarSituacao Pendente -> Concluida 2026-10-26 15:55:20.2293352
+
+================ Tarefa 4 depois do conflito (a alteração da aba A permanece; a da aba B não sobrescreveu) ================
+Id Titulo Situacao RowVersion
+-- ------ -------- ----------
+4 Montar telas Razor Pendente 

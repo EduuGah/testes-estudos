@@ -1,0 +1,61 @@
+$ curl -s https://localhost:7001/openapi/v1.json | head -60
+{
+    "openapi": "3.1.1",
+    "info": {
+        "title": "Portal de Tarefas API",
+        "description": "API do dom\u00ednio did\u00e1tico Portal de Tarefas (UNIP \u2013 Desenvolvimento Web com .NET).",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "https://localhost:7001/"
+        }
+    ],
+    "paths": {
+        "/api/tarefas": {
+            "get": {
+                "tags": [
+                    "Tarefas (Unidade 1)"
+                ],
+                "parameters": [
+                    {
+                        "name": "situacao",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "busca",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Cliente-Id",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Tarefas (Unidade 1)"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CriarTarefaRequest"
+                            }
+                        }
+                    },
+                    "required": true

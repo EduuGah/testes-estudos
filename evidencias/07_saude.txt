@@ -1,0 +1,50 @@
+$ curl -i https://localhost:7001/health/live 
+HTTP/2 200 
+content-type: text/plain
+cache-control: no-store, no-cache
+expires: Thu, 01 Jan 1970 00:00:00 GMT
+pragma: no-cache
+x-correlation-id: 5e73946a3da8
+
+Healthy
+$ curl -i https://localhost:7001/health/ready 
+HTTP/2 503 
+content-type: application/json
+cache-control: no-store, no-cache
+expires: Thu, 01 Jan 1970 00:00:00 GMT
+pragma: no-cache
+x-correlation-id: 2edca2c08f07
+
+{
+    "status": "Unhealthy",
+    "verificacoes": {
+        "banco": "Healthy",
+        "servico-dicas": "Unhealthy"
+    }
+}
+
+$ curl -i https://localhost:7001/health/live 
+HTTP/2 200 
+content-type: text/plain
+cache-control: no-store, no-cache
+expires: Thu, 01 Jan 1970 00:00:00 GMT
+pragma: no-cache
+x-correlation-id: 2acc8183b015
+
+Healthy
+$ curl -i https://localhost:7001/health/ready 
+HTTP/2 503 
+content-type: application/json
+cache-control: no-store, no-cache
+expires: Thu, 01 Jan 1970 00:00:00 GMT
+pragma: no-cache
+x-correlation-id: 703287728b6c
+
+{
+    "status": "Unhealthy",
+    "verificacoes": {
+        "banco": "Healthy",
+        "servico-dicas": "Unhealthy"
+    }
+}
+

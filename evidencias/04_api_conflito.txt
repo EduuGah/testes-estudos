@@ -1,0 +1,32 @@
+$ curl -i -X PUT https://localhost:7001/api/v1/tarefas/5 -H Content-Type: application/json -d {"titulo":"Persistir tarefas com EF Core","prioridade":"Alta","situacao":"Concluida","versao":"AAAAAAAAB9U="} 
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+x-correlation-id: 713df9e95306
+
+{
+    "id": 5,
+    "titulo": "Persistir tarefas com EF Core",
+    "descricao": null,
+    "prioridade": "Alta",
+    "prazo": null,
+    "situacao": "Concluida",
+    "criadaEmUtc": "2026-10-26T15:54:46.2834041",
+    "atualizadaEmUtc": "2026-10-26T15:55:30.1236707",
+    "versao": "AAAAAAAAB9k="
+}
+
+$ curl -i -X PUT https://localhost:7001/api/v1/tarefas/5 -H Content-Type: application/json -d {"titulo":"Persistir tarefas com EF Core","prioridade":"Alta","situacao":"Pendente","versao":"AAAAAAAAB9U="} 
+HTTP/2 409 
+content-type: application/problem+json
+x-correlation-id: 01c97b7c6603
+
+{
+    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
+    "title": "Conflito de concorrência",
+    "status": 409,
+    "detail": "A tarefa foi alterada por outra sessão. Faça um novo GET, revise e envie a nova versão.",
+    "tarefaId": 5,
+    "traceId": "00-3c77a047f9e70ecd21f83d96fc878ea9-1965338fe9b1f4e0-01",
+    "correlationId": "01c97b7c6603"
+}
+

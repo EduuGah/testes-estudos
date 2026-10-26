@@ -1,0 +1,11 @@
+$ cd src/PortalTarefas.Frontend && npm test
+
+ RUN  v3.0.5 /home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Frontend
+
+ ✓ src/api/cliente.test.ts (4 tests) 11ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  15:58:25
+   Duration  816ms (transform 69ms, setup 0ms, collect 100ms, tests 11ms, environment 382ms, prepare 103ms)
+

@@ -1,0 +1,10 @@
+
+================ Rate limiting: 6 escritas seguidas pelo mesmo usuário (limite 5 a cada 30 s) ================
+POST 1 -> 401
+POST 2 -> 401
+POST 3 -> 401
+POST 4 -> 401
+POST 5 -> 401
+POST 6 -> 401
+
+Corpo da resposta 429:
