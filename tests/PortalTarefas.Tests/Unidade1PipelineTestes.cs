@@ -8,6 +8,7 @@ public class Unidade1PipelineTestes : TesteIntegracao
     [Teste("Rota válida retorna 200 e a tarefa")]
     public async Task RotaValida()
     {
+        await EntrarAsync();
         var r = await Cliente.GetAsync("/api/tarefas/1");
         Afirmar.Igual(HttpStatusCode.OK, r.StatusCode);
         Afirmar.Igual(1, (await LerJson(r)).GetProperty("id").GetInt32());
@@ -16,6 +17,7 @@ public class Unidade1PipelineTestes : TesteIntegracao
     [Teste("Id inexistente retorna 404 em Problem Details")]
     public async Task RotaInexistente()
     {
+        await EntrarAsync();
         var r = await Cliente.GetAsync("/api/tarefas/9999");
         Afirmar.Igual(HttpStatusCode.NotFound, r.StatusCode);
         Afirmar.Igual("application/problem+json", r.Content.Headers.ContentType?.MediaType);
@@ -24,6 +26,7 @@ public class Unidade1PipelineTestes : TesteIntegracao
     [Teste("Id não numérico não casa com a restrição {id:int}")]
     public async Task RotaNaoNumerica()
     {
+        await EntrarAsync();
         var r = await Cliente.GetAsync("/api/tarefas/abc");
         Afirmar.Igual(HttpStatusCode.NotFound, r.StatusCode);
     }
@@ -31,6 +34,7 @@ public class Unidade1PipelineTestes : TesteIntegracao
     [Teste("Filtro por query string e cabeçalho opcional")]
     public async Task FiltroQueryECabecalho()
     {
+        await EntrarAsync();
         var req = new HttpRequestMessage(HttpMethod.Get, "/api/tarefas?situacao=Concluida");
         req.Headers.Add("X-Cliente-Id", "teste-automatizado");
         var r = await Cliente.SendAsync(req);
@@ -42,6 +46,7 @@ public class Unidade1PipelineTestes : TesteIntegracao
     [Teste("POST válido retorna 201 com cabeçalho Location")]
     public async Task PostValido()
     {
+        await EntrarAsync();
         var r = await Cliente.PostAsJsonAsync("/api/tarefas", new { titulo = "Tarefa criada pelo teste", situacao = "Pendente" });
         Afirmar.Igual(HttpStatusCode.Created, r.StatusCode);
         Afirmar.Verdadeiro(r.Headers.Location is not null, "Location ausente");
@@ -50,6 +55,7 @@ public class Unidade1PipelineTestes : TesteIntegracao
     [Teste("POST inválido retorna 400 com erros por campo")]
     public async Task PostInvalido()
     {
+        await EntrarAsync();
         var r = await Cliente.PostAsJsonAsync("/api/tarefas", new { titulo = "", situacao = "Atrasada" });
         Afirmar.Igual(HttpStatusCode.BadRequest, r.StatusCode);
         var erros = (await LerJson(r)).GetProperty("errors");

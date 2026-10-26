@@ -70,6 +70,7 @@ public class Unidade2MvcTestes : TesteIntegracao
     [Teste("Cadastro válido redireciona para os detalhes (302)")]
     public async Task CadastroValido()
     {
+        await EntrarAsync();
         var (token, _) = await AbrirFormulario("/Tarefas/Create");
         var r = await Enviar("/Tarefas/Create", token, new() { ["Titulo"] = "Criada pelo teste MVC", ["Prioridade"] = "1", ["Situacao"] = "Pendente" });
         Afirmar.Igual(HttpStatusCode.Redirect, r.StatusCode);
@@ -79,6 +80,7 @@ public class Unidade2MvcTestes : TesteIntegracao
     [Teste("Cadastro com título vazio volta à view com mensagem e preserva dados")]
     public async Task CadastroTituloVazio()
     {
+        await EntrarAsync();
         var (token, _) = await AbrirFormulario("/Tarefas/Create");
         var r = await Enviar("/Tarefas/Create", token, new() { ["Titulo"] = "", ["Descricao"] = "texto preservado", ["Prioridade"] = "2", ["Situacao"] = "Pendente" });
         var html = WebUtility.HtmlDecode(await r.Content.ReadAsStringAsync());
@@ -90,6 +92,7 @@ public class Unidade2MvcTestes : TesteIntegracao
     [Teste("Validação customizada de prazo aparece no formulário")]
     public async Task ValidacaoPrazo()
     {
+        await EntrarAsync();
         var (token, _) = await AbrirFormulario("/Tarefas/Create");
         var prazo = DateTime.Today.AddDays(30).ToString("yyyy-MM-dd");
         var r = await Enviar("/Tarefas/Create", token, new() { ["Titulo"] = "Urgente", ["Prioridade"] = "3", ["Prazo"] = prazo, ["Situacao"] = "Pendente" });
@@ -99,6 +102,7 @@ public class Unidade2MvcTestes : TesteIntegracao
     [Teste("Identificador existente (200) e inexistente (404)")]
     public async Task ExistenteEInexistente()
     {
+        await EntrarAsync();
         Afirmar.Igual(HttpStatusCode.OK, (await Cliente.GetAsync("/Tarefas/Details/1")).StatusCode);
         Afirmar.Igual(HttpStatusCode.NotFound, (await Cliente.GetAsync("/Tarefas/Details/999")).StatusCode);
     }
@@ -106,6 +110,7 @@ public class Unidade2MvcTestes : TesteIntegracao
     [Teste("Três páginas compartilham o mesmo layout e o View Component")]
     public async Task LayoutConsistente()
     {
+        await EntrarAsync();
         foreach (var url in new[] { "/Tarefas", "/Tarefas/Details/1", "/Tarefas/Create" })
         {
             var html = await Cliente.GetStringAsync(url);
