@@ -480,3 +480,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Front-end
+node_modules/
+src/PortalTarefas.Frontend/dist/
