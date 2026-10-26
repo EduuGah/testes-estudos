@@ -4,7 +4,7 @@ set -u
 cd "$(dirname "$0")/.."
 RAIZ=$(pwd)
 EV=$RAIZ/evidencias
-mkdir -p "$EV/telas"
+rm -rf "$EV"; mkdir -p "$EV/telas"
 B=https://localhost:7001
 WEB=src/PortalTarefas.Web
 
