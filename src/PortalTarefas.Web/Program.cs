@@ -117,8 +117,9 @@ builder.Services.AddCors(opcoes =>
 
 var app = builder.Build();
 
-// Em desenvolvimento, aplica migrations pendentes e o seed idempotente na inicialização.
-if (app.Environment.IsDevelopment())
+// Em desenvolvimento, aplica migrations pendentes e o seed idempotente na inicialização
+// (exceto quando a ferramenta de build só está lendo os endpoints para gerar o OpenAPI).
+if (app.Environment.IsDevelopment() && !gerandoOpenApi)
 {
     using var escopo = app.Services.CreateScope();
     var db = escopo.ServiceProvider.GetRequiredService<PortalTarefasDbContext>();
