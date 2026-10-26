@@ -1,27 +1,27 @@
 instalado aula1_primeiroapp 0
-print aula1_01_app_em_execucao 60013 bytes
+print aula1_01_app_em_execucao 60747 bytes
 instalado aula2_login 0
-print aula2_01_tela_login 64876 bytes
-print aula2_02_campos_preenchidos 121368 bytes
-print aula2_03_botao_entrar 126167 bytes
+print aula2_01_tela_login 65609 bytes
+print aula2_02_campos_preenchidos 65158 bytes
+print aula2_03_botao_entrar 91163 bytes
 instalado aula4_menu 0
-print aula4_01_menu 99604 bytes
-print aula4_02_opcao_consultar 101300 bytes
-print aula4_03_opcao_configuracoes 122226 bytes
-print aula4_04_confirmar_saida 101356 bytes
+print aula4_01_menu 100524 bytes
+print aula4_02_opcao_consultar 118493 bytes
+print aula4_03_opcao_configuracoes 123297 bytes
+print aula4_04_confirmar_saida 102286 bytes
 instalado aula5_checkbox 0
-print aula5_01_tela_inicial 108400 bytes
-print aula5_02_nenhuma_opcao 110472 bytes
-print aula5_03_tres_opcoes 129840 bytes
-print aula5_04_sem_mobile 128479 bytes
+print aula5_01_tela_inicial 109183 bytes
+print aula5_02_nenhuma_opcao 111163 bytes
+print aula5_03_tres_opcoes 130558 bytes
+print aula5_04_sem_mobile 129188 bytes
 instalado aula6_sharedprefs 0
-print aula6_01_primeira_abertura 77818 bytes
-print aula6_02_nome_digitado 67913 bytes
-print aula6_03_nome_salvo 92905 bytes
-print aula6_04_reaberto_nome_recuperado 86711 bytes
+print aula6_01_primeira_abertura 78390 bytes
+print aula6_02_nome_digitado 68464 bytes
+print aula6_03_nome_salvo 93473 bytes
+print aula6_04_reaberto_nome_recuperado 87221 bytes
 instalado aula7_seguranca 0
-print aula7_01_campos_vazios 88782 bytes
-print aula7_02_email_invalido 115441 bytes
-print aula7_03_senha_curta 119307 bytes
-print aula7_04_login_validado 119419 bytes
+print aula7_01_campos_vazios 89868 bytes
+print aula7_02_email_invalido 68708 bytes
+print aula7_03_senha_curta 84261 bytes
+print aula7_04_login_validado 82213 bytes
 fim

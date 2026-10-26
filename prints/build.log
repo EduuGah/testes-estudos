@@ -30,21 +30,21 @@ Daemon will be stopped at the end of the build
 > Task :aula1_primeiroapp:generateDebugAssets UP-TO-DATE
 > Task :aula1_primeiroapp:mergeDebugAssets
 > Task :aula1_primeiroapp:compressDebugAssets
+> Task :aula1_primeiroapp:processDebugManifestForPackage
 > Task :aula1_primeiroapp:desugarDebugFileDependencies
 > Task :aula1_primeiroapp:processDebugJavaRes NO-SOURCE
-> Task :aula1_primeiroapp:mergeDebugJavaResource
-> Task :aula1_primeiroapp:mergeDebugJniLibFolders
-> Task :aula1_primeiroapp:checkDebugDuplicateClasses
-> Task :aula1_primeiroapp:mergeDebugNativeLibs NO-SOURCE
-> Task :aula1_primeiroapp:processDebugManifestForPackage
-> Task :aula1_primeiroapp:mergeLibDexDebug
-> Task :aula1_primeiroapp:stripDebugDebugSymbols NO-SOURCE
 > Task :aula1_primeiroapp:processDebugResources
-> Task :aula1_primeiroapp:validateSigningDebug
-> Task :aula1_primeiroapp:mergeExtDexDebug
+> Task :aula1_primeiroapp:mergeDebugJavaResource
 > Task :aula1_primeiroapp:compileDebugJavaWithJavac
 > Task :aula1_primeiroapp:dexBuilderDebug
 > Task :aula1_primeiroapp:mergeDebugGlobalSynthetics
+> Task :aula1_primeiroapp:mergeDebugJniLibFolders
+> Task :aula1_primeiroapp:checkDebugDuplicateClasses
+> Task :aula1_primeiroapp:mergeDebugNativeLibs NO-SOURCE
+> Task :aula1_primeiroapp:stripDebugDebugSymbols NO-SOURCE
+> Task :aula1_primeiroapp:mergeLibDexDebug
+> Task :aula1_primeiroapp:mergeProjectDexDebug
+> Task :aula1_primeiroapp:validateSigningDebug
 > Task :aula1_primeiroapp:writeDebugAppMetadata
 > Task :aula1_primeiroapp:writeDebugSigningConfigVersions
 > Task :aula2_login:preBuild UP-TO-DATE
@@ -55,13 +55,13 @@ Daemon will be stopped at the end of the build
 > Task :aula2_login:generateDebugResValues
 > Task :aula2_login:mapDebugSourceSetPaths
 > Task :aula2_login:generateDebugResources
-> Task :aula1_primeiroapp:mergeProjectDexDebug
 > Task :aula2_login:packageDebugResources
 > Task :aula2_login:createDebugCompatibleScreenManifests
 > Task :aula2_login:extractDeepLinksDebug
 > Task :aula2_login:processDebugMainManifest
 > Task :aula2_login:processDebugManifest
 > Task :aula2_login:parseDebugLocalResources
+> Task :aula2_login:processDebugManifestForPackage
 > Task :aula2_login:mergeDebugShaders
 > Task :aula2_login:compileDebugShaders NO-SOURCE
 > Task :aula2_login:generateDebugAssets UP-TO-DATE
@@ -69,12 +69,12 @@ Daemon will be stopped at the end of the build
 > Task :aula2_login:compressDebugAssets
 > Task :aula2_login:desugarDebugFileDependencies
 > Task :aula2_login:processDebugJavaRes NO-SOURCE
-> Task :aula2_login:processDebugManifestForPackage
 > Task :aula2_login:checkDebugDuplicateClasses
+> Task :aula2_login:mergeDebugResources
 > Task :aula2_login:mergeDebugJavaResource
 > Task :aula2_login:mergeLibDexDebug
 > Task :aula2_login:mergeDebugJniLibFolders
-> Task :aula2_login:mergeDebugResources
+> Task :aula1_primeiroapp:mergeExtDexDebug
 > Task :aula2_login:mergeDebugNativeLibs NO-SOURCE
 > Task :aula2_login:stripDebugDebugSymbols NO-SOURCE
 > Task :aula2_login:validateSigningDebug
@@ -84,38 +84,41 @@ Daemon will be stopped at the end of the build
 > Task :aula4_menu:preDebugBuild UP-TO-DATE
 > Task :aula4_menu:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :aula4_menu:javaPreCompileDebug
+> Task :aula2_login:processDebugResources
+> Task :aula4_menu:checkDebugAarMetadata
+> Task :aula2_login:compileDebugJavaWithJavac
 > Task :aula1_primeiroapp:packageDebug
 > Task :aula1_primeiroapp:createDebugApkListingFileRedirect
 > Task :aula1_primeiroapp:assembleDebug
-> Task :aula4_menu:checkDebugAarMetadata
+> Task :aula2_login:dexBuilderDebug
 > Task :aula4_menu:generateDebugResValues
+> Task :aula2_login:mergeDebugGlobalSynthetics
 > Task :aula4_menu:mapDebugSourceSetPaths
 > Task :aula4_menu:generateDebugResources
+> Task :aula2_login:mergeProjectDexDebug
 > Task :aula4_menu:packageDebugResources
-> Task :aula2_login:processDebugResources
-> Task :aula4_menu:parseDebugLocalResources
-> Task :aula4_menu:mergeDebugResources
-> Task :aula2_login:compileDebugJavaWithJavac
-> Task :aula2_login:dexBuilderDebug
 > Task :aula4_menu:createDebugCompatibleScreenManifests
-> Task :aula2_login:mergeDebugGlobalSynthetics
 > Task :aula4_menu:extractDeepLinksDebug
 > Task :aula4_menu:processDebugMainManifest
 > Task :aula4_menu:processDebugManifest
-> Task :aula4_menu:mergeDebugShaders
 > Task :aula4_menu:processDebugManifestForPackage
+> Task :aula2_login:mergeExtDexDebug
+> Task :aula4_menu:parseDebugLocalResources
+> Task :aula4_menu:mergeDebugShaders
 > Task :aula4_menu:compileDebugShaders NO-SOURCE
 > Task :aula4_menu:generateDebugAssets UP-TO-DATE
 > Task :aula4_menu:mergeDebugAssets
-> Task :aula2_login:mergeProjectDexDebug
 > Task :aula4_menu:compressDebugAssets
 > Task :aula4_menu:desugarDebugFileDependencies
 > Task :aula4_menu:processDebugJavaRes NO-SOURCE
 > Task :aula4_menu:checkDebugDuplicateClasses
-> Task :aula4_menu:mergeDebugJavaResource
+> Task :aula2_login:packageDebug
+> Task :aula2_login:createDebugApkListingFileRedirect
+> Task :aula2_login:assembleDebug
 > Task :aula4_menu:mergeLibDexDebug
+> Task :aula4_menu:mergeDebugResources
 > Task :aula4_menu:mergeDebugJniLibFolders
-> Task :aula2_login:mergeExtDexDebug
+> Task :aula4_menu:mergeDebugJavaResource
 > Task :aula4_menu:mergeDebugNativeLibs NO-SOURCE
 > Task :aula4_menu:stripDebugDebugSymbols NO-SOURCE
 > Task :aula4_menu:validateSigningDebug
@@ -125,27 +128,24 @@ Daemon will be stopped at the end of the build
 > Task :aula5_checkbox:preDebugBuild UP-TO-DATE
 > Task :aula5_checkbox:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :aula5_checkbox:javaPreCompileDebug
-> Task :aula4_menu:processDebugResources
 > Task :aula5_checkbox:checkDebugAarMetadata
-> Task :aula4_menu:compileDebugJavaWithJavac
-> Task :aula4_menu:dexBuilderDebug
-> Task :aula2_login:packageDebug
-> Task :aula2_login:createDebugApkListingFileRedirect
-> Task :aula2_login:assembleDebug
-> Task :aula4_menu:mergeDebugGlobalSynthetics
 > Task :aula5_checkbox:generateDebugResValues
 > Task :aula5_checkbox:mapDebugSourceSetPaths
 > Task :aula5_checkbox:generateDebugResources
-> Task :aula4_menu:mergeProjectDexDebug
 > Task :aula5_checkbox:packageDebugResources
+> Task :aula4_menu:processDebugResources
+> Task :aula5_checkbox:parseDebugLocalResources
+> Task :aula5_checkbox:mergeDebugResources
+> Task :aula4_menu:compileDebugJavaWithJavac
+> Task :aula4_menu:dexBuilderDebug
+> Task :aula4_menu:mergeDebugGlobalSynthetics
 > Task :aula5_checkbox:createDebugCompatibleScreenManifests
 > Task :aula5_checkbox:extractDeepLinksDebug
 > Task :aula5_checkbox:processDebugMainManifest
 > Task :aula5_checkbox:processDebugManifest
-> Task :aula5_checkbox:processDebugManifestForPackage
-> Task :aula4_menu:mergeExtDexDebug
-> Task :aula5_checkbox:parseDebugLocalResources
+> Task :aula4_menu:mergeProjectDexDebug
 > Task :aula5_checkbox:mergeDebugShaders
+> Task :aula5_checkbox:processDebugManifestForPackage
 > Task :aula5_checkbox:compileDebugShaders NO-SOURCE
 > Task :aula5_checkbox:generateDebugAssets UP-TO-DATE
 > Task :aula5_checkbox:mergeDebugAssets
@@ -153,13 +153,10 @@ Daemon will be stopped at the end of the build
 > Task :aula5_checkbox:desugarDebugFileDependencies
 > Task :aula5_checkbox:processDebugJavaRes NO-SOURCE
 > Task :aula5_checkbox:checkDebugDuplicateClasses
-> Task :aula5_checkbox:mergeDebugResources
-> Task :aula4_menu:packageDebug
-> Task :aula4_menu:createDebugApkListingFileRedirect
-> Task :aula4_menu:assembleDebug
-> Task :aula5_checkbox:mergeLibDexDebug
 > Task :aula5_checkbox:mergeDebugJavaResource
+> Task :aula5_checkbox:mergeLibDexDebug
 > Task :aula5_checkbox:mergeDebugJniLibFolders
+> Task :aula4_menu:mergeExtDexDebug
 > Task :aula5_checkbox:mergeDebugNativeLibs NO-SOURCE
 > Task :aula5_checkbox:stripDebugDebugSymbols NO-SOURCE
 > Task :aula5_checkbox:validateSigningDebug
@@ -169,35 +166,38 @@ Daemon will be stopped at the end of the build
 > Task :aula6_sharedprefs:preDebugBuild UP-TO-DATE
 > Task :aula6_sharedprefs:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :aula6_sharedprefs:javaPreCompileDebug
+> Task :aula5_checkbox:processDebugResources
 > Task :aula6_sharedprefs:checkDebugAarMetadata
+> Task :aula5_checkbox:compileDebugJavaWithJavac
+> Task :aula5_checkbox:dexBuilderDebug
+> Task :aula4_menu:packageDebug
+> Task :aula4_menu:createDebugApkListingFileRedirect
+> Task :aula4_menu:assembleDebug
+> Task :aula5_checkbox:mergeDebugGlobalSynthetics
 > Task :aula6_sharedprefs:generateDebugResValues
 > Task :aula6_sharedprefs:mapDebugSourceSetPaths
 > Task :aula6_sharedprefs:generateDebugResources
+> Task :aula5_checkbox:mergeProjectDexDebug
 > Task :aula6_sharedprefs:packageDebugResources
-> Task :aula5_checkbox:processDebugResources
-> Task :aula6_sharedprefs:parseDebugLocalResources
-> Task :aula6_sharedprefs:mergeDebugResources
-> Task :aula5_checkbox:compileDebugJavaWithJavac
-> Task :aula5_checkbox:dexBuilderDebug
 > Task :aula6_sharedprefs:createDebugCompatibleScreenManifests
 > Task :aula6_sharedprefs:extractDeepLinksDebug
-> Task :aula5_checkbox:mergeDebugGlobalSynthetics
 > Task :aula6_sharedprefs:processDebugMainManifest
 > Task :aula6_sharedprefs:processDebugManifest
+> Task :aula6_sharedprefs:parseDebugLocalResources
+> Task :aula6_sharedprefs:processDebugManifestForPackage
 > Task :aula6_sharedprefs:mergeDebugShaders
-> Task :aula5_checkbox:mergeProjectDexDebug
 > Task :aula6_sharedprefs:compileDebugShaders NO-SOURCE
 > Task :aula6_sharedprefs:generateDebugAssets UP-TO-DATE
-> Task :aula6_sharedprefs:processDebugManifestForPackage
 > Task :aula6_sharedprefs:mergeDebugAssets
 > Task :aula6_sharedprefs:compressDebugAssets
 > Task :aula6_sharedprefs:desugarDebugFileDependencies
 > Task :aula6_sharedprefs:processDebugJavaRes NO-SOURCE
 > Task :aula6_sharedprefs:checkDebugDuplicateClasses
+> Task :aula6_sharedprefs:mergeDebugResources
 > Task :aula5_checkbox:mergeExtDexDebug
 > Task :aula6_sharedprefs:mergeDebugJavaResource
-> Task :aula6_sharedprefs:mergeLibDexDebug
 > Task :aula5_checkbox:packageDebug
+> Task :aula6_sharedprefs:mergeLibDexDebug
 > Task :aula5_checkbox:createDebugApkListingFileRedirect
 > Task :aula5_checkbox:assembleDebug
 > Task :aula6_sharedprefs:mergeDebugJniLibFolders
@@ -210,23 +210,23 @@ Daemon will be stopped at the end of the build
 > Task :aula7_seguranca:preDebugBuild UP-TO-DATE
 > Task :aula7_seguranca:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :aula7_seguranca:javaPreCompileDebug
-> Task :aula7_seguranca:checkDebugAarMetadata
 > Task :aula7_seguranca:generateDebugResValues
+> Task :aula7_seguranca:checkDebugAarMetadata
 > Task :aula7_seguranca:mapDebugSourceSetPaths
 > Task :aula7_seguranca:generateDebugResources
 > Task :aula6_sharedprefs:processDebugResources
-> Task :aula6_sharedprefs:compileDebugJavaWithJavac
 > Task :aula7_seguranca:mergeDebugResources
+> Task :aula6_sharedprefs:compileDebugJavaWithJavac
 > Task :aula6_sharedprefs:dexBuilderDebug
 > Task :aula6_sharedprefs:mergeDebugGlobalSynthetics
 > Task :aula7_seguranca:packageDebugResources
 > Task :aula7_seguranca:createDebugCompatibleScreenManifests
 > Task :aula7_seguranca:extractDeepLinksDebug
-> Task :aula7_seguranca:parseDebugLocalResources
-> Task :aula6_sharedprefs:mergeExtDexDebug
 > Task :aula7_seguranca:processDebugMainManifest
-> Task :aula6_sharedprefs:mergeProjectDexDebug
 > Task :aula7_seguranca:processDebugManifest
+> Task :aula7_seguranca:processDebugManifestForPackage
+> Task :aula6_sharedprefs:mergeProjectDexDebug
+> Task :aula7_seguranca:parseDebugLocalResources
 > Task :aula7_seguranca:mergeDebugShaders
 > Task :aula7_seguranca:compileDebugShaders NO-SOURCE
 > Task :aula7_seguranca:generateDebugAssets UP-TO-DATE
@@ -234,8 +234,8 @@ Daemon will be stopped at the end of the build
 > Task :aula7_seguranca:compressDebugAssets
 > Task :aula7_seguranca:desugarDebugFileDependencies
 > Task :aula7_seguranca:processDebugJavaRes NO-SOURCE
-> Task :aula7_seguranca:processDebugManifestForPackage
 > Task :aula7_seguranca:checkDebugDuplicateClasses
+> Task :aula6_sharedprefs:mergeExtDexDebug
 > Task :aula7_seguranca:mergeDebugJavaResource
 > Task :aula7_seguranca:mergeLibDexDebug
 > Task :aula6_sharedprefs:packageDebug
@@ -256,13 +256,13 @@ Daemon will be stopped at the end of the build
 > Task :aula7_seguranca:packageDebug
 > Task :aula7_seguranca:createDebugApkListingFileRedirect
 > Task :aula7_seguranca:assembleDebug
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1793024538544.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1793024997839.json
 
-BUILD SUCCESSFUL in 1m 11s
+BUILD SUCCESSFUL in 1m 3s
 192 actionable tasks: 192 executed
--rw-r--r-- 1 runner runner 5568155 Oct 26 14:23 android/aula1_primeiroapp/build/outputs/apk/debug/aula1_primeiroapp-debug.apk
--rw-r--r-- 1 runner runner 5570045 Oct 26 14:23 android/aula2_login/build/outputs/apk/debug/aula2_login-debug.apk
--rw-r--r-- 1 runner runner 5573385 Oct 26 14:23 android/aula4_menu/build/outputs/apk/debug/aula4_menu-debug.apk
--rw-r--r-- 1 runner runner 5570363 Oct 26 14:23 android/aula5_checkbox/build/outputs/apk/debug/aula5_checkbox-debug.apk
--rw-r--r-- 1 runner runner 5570291 Oct 26 14:23 android/aula6_sharedprefs/build/outputs/apk/debug/aula6_sharedprefs-debug.apk
--rw-r--r-- 1 runner runner 5569987 Oct 26 14:23 android/aula7_seguranca/build/outputs/apk/debug/aula7_seguranca-debug.apk
+-rw-r--r-- 1 runner runner 5568155 Oct 26 14:30 android/aula1_primeiroapp/build/outputs/apk/debug/aula1_primeiroapp-debug.apk
+-rw-r--r-- 1 runner runner 5570045 Oct 26 14:30 android/aula2_login/build/outputs/apk/debug/aula2_login-debug.apk
+-rw-r--r-- 1 runner runner 5573385 Oct 26 14:30 android/aula4_menu/build/outputs/apk/debug/aula4_menu-debug.apk
+-rw-r--r-- 1 runner runner 5570363 Oct 26 14:30 android/aula5_checkbox/build/outputs/apk/debug/aula5_checkbox-debug.apk
+-rw-r--r-- 1 runner runner 5570291 Oct 26 14:30 android/aula6_sharedprefs/build/outputs/apk/debug/aula6_sharedprefs-debug.apk
+-rw-r--r-- 1 runner runner 5569987 Oct 26 14:30 android/aula7_seguranca/build/outputs/apk/debug/aula7_seguranca-debug.apk
