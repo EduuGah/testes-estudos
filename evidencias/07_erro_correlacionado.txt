@@ -4,35 +4,18 @@ content-type: application/problem+json
 cache-control: no-cache,no-store
 expires: -1
 pragma: no-cache
-x-correlation-id: b2b68367137c
+x-correlation-id: f47dbeac92b1
 
 {
     "type": "https://tools.ietf.org/html/rfc9110#section-15.6.1",
     "title": "An error occurred while processing your request.",
     "status": 500,
-    "traceId": "00-e0c27dac22574d861adb9e33794679a5-a8504dec5d11b314-01",
-    "correlationId": "b2b68367137c"
+    "traceId": "00-2ba7c6cfb8d90047b1d6e1611dab219e-aec7fc4a5f9e888a-01",
+    "correlationId": "f47dbeac92b1"
 }
 
-$ grep b2b68367137c (log da aplicação)
-15:57:20 info: PortalTarefas.Web.Middleware.CorrelacaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5EKA:00000
-15:57:20 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5E
-15:57:20 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:a8504dec5d11b314, TraceId:e0c27dac22574d861adb9e33794679a5, ParentId:0000000000000000 => ConnectionId:0HNPJF5TB5EKA => RequestPath:/api/diagnostico/erro RequestId:0HNPJF5TB5E
-    correlation.id: b2b68367137c
-$ curl -i https://localhost:7001/api/diagnostico/erro 
-HTTP/2 500 
-content-type: application/problem+json
-cache-control: no-cache,no-store
-expires: -1
-pragma: no-cache
-x-correlation-id: c9165533baef
-
-{
-    "type": "https://tools.ietf.org/html/rfc9110#section-15.6.1",
-    "title": "An error occurred while processing your request.",
-    "status": 500,
-    "traceId": "00-f8e06297378af3b42a8c6c92875fde65-81d62526b15794be-01",
-    "correlationId": "c9165533baef"
-}
-
-$ grep b2b68367137c (log da aplicação)
+$ grep f47dbeac92b1 (log da aplicação)
+16:20:41 info: PortalTarefas.Web.Middleware.CorrelacaoMiddleware[0] => SpanId:aec7fc4a5f9e888a, TraceId:2ba7c6cfb8d90047b1d6e1611dab219e, ParentId:0000000000000000 => ConnectionId:0HNPJFDLNOR1R => RequestPath:/api/diagnostico/erro RequestId:0HNPJFDLNOR1R:00000
+16:20:41 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:aec7fc4a5f9e888a, TraceId:2ba7c6cfb8d90047b1d6e1611dab219e, ParentId:0000000000000000 => ConnectionId:0HNPJFDLNOR1R => RequestPath:/api/diagnostico/erro RequestId:0HNPJFDLNOR
+16:20:41 info: PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware[0] => SpanId:aec7fc4a5f9e888a, TraceId:2ba7c6cfb8d90047b1d6e1611dab219e, ParentId:0000000000000000 => ConnectionId:0HNPJFDLNOR1R => RequestPath:/api/diagnostico/erro RequestId:0HNPJFDLNOR
+    correlation.id: f47dbeac92b1

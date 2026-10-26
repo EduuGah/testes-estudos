@@ -1,56 +1,56 @@
 
 ================ Build da imagem (multi-stage) ================
+#11 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0.100@sha256:c7445f141c04f1a6b454181bd098dcfa606c61ba0bd213d0a702489e5bd4cd71
 #12 [frontend 1/6] FROM docker.io/library/node:22.12.0-alpine@sha256:51eff88af6dff26f59316b6e356188ffa2c422bd3c3b76f2556a2e7e89d080bd
-#12 DONE 2.7s
+#12 DONE 3.0s
 #13 [frontend 2/6] WORKDIR /src
 #13 DONE 0.0s
 #14 [frontend 3/6] COPY src/PortalTarefas.Frontend/package.json src/PortalTarefas.Frontend/package-lock.json ./
 #14 DONE 0.0s
-#15 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0.100@sha256:c7445f141c04f1a6b454181bd098dcfa606c61ba0bd213d0a702489e5bd4cd71
-#11 [final 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0.0@sha256:7c4246c1c384319346d45b3e24a10a21d5b6fc9b36a04790e1588148ff8055b0
-#11 DONE 3.5s
+#11 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0.100@sha256:c7445f141c04f1a6b454181bd098dcfa606c61ba0bd213d0a702489e5bd4cd71
+#15 [final 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0.0@sha256:7c4246c1c384319346d45b3e24a10a21d5b6fc9b36a04790e1588148ff8055b0
+#15 DONE 3.8s
 #16 [final 2/3] WORKDIR /app
 #16 DONE 0.0s
-#15 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0.100@sha256:c7445f141c04f1a6b454181bd098dcfa606c61ba0bd213d0a702489e5bd4cd71
+#11 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0.100@sha256:c7445f141c04f1a6b454181bd098dcfa606c61ba0bd213d0a702489e5bd4cd71
 #17 [frontend 4/6] RUN npm ci
-#17 DONE 7.6s
+#17 DONE 7.7s
 #18 [frontend 5/6] COPY src/PortalTarefas.Frontend/ ./
 #18 DONE 0.0s
-#15 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0.100@sha256:c7445f141c04f1a6b454181bd098dcfa606c61ba0bd213d0a702489e5bd4cd71
-#15 DONE 10.9s
+#11 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0.100@sha256:c7445f141c04f1a6b454181bd098dcfa606c61ba0bd213d0a702489e5bd4cd71
+#11 DONE 11.2s
 #19 [build 2/7] WORKDIR /src
 #19 DONE 0.0s
 #20 [build 3/7] COPY src/PortalTarefas.Web/PortalTarefas.Web.csproj src/PortalTarefas.Web/
 #20 DONE 0.0s
 #21 [build 4/7] RUN dotnet restore src/PortalTarefas.Web/PortalTarefas.Web.csproj
+#21 DONE 7.3s
 #22 [frontend 6/6] RUN npm run build
-#22 DONE 6.9s
-#21 [build 4/7] RUN dotnet restore src/PortalTarefas.Web/PortalTarefas.Web.csproj
-#21 DONE 6.3s
+#22 DONE 7.8s
 #23 [build 5/7] COPY src/PortalTarefas.Web/ src/PortalTarefas.Web/
 #23 DONE 0.0s
 #24 [build 6/7] COPY --from=frontend /src/dist/ src/PortalTarefas.Web/wwwroot/app/
 #24 DONE 0.0s
 #25 [build 7/7] RUN dotnet publish src/PortalTarefas.Web/PortalTarefas.Web.csproj -c Release -o /app/publish     --no-restore /p:UseAppHost=false /p:OpenApiGenerateDocuments=false
-#25 DONE 9.1s
+#25 DONE 9.0s
 #26 [final 3/3] COPY --from=build /app/publish .
 #26 DONE 0.0s
 #27 exporting to image
 #27 exporting layers
-#27 exporting layers 0.9s done
+#27 exporting layers 0.6s done
 #27 naming to docker.io/library/portal-tarefas:ci done
-#27 DONE 0.9s
+#27 DONE 0.6s
 
 ================ Usuário e variáveis da imagem (nenhum segredo) ================
 $ docker image inspect portal-tarefas:ci --format User={{.Config.User}}  Env={{.Config.Env}}
 User=1654  Env=[PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin APP_UID=1654 ASPNETCORE_HTTP_PORTS=8080 DOTNET_RUNNING_IN_CONTAINER=true DOTNET_VERSION=10.0.0 ASPNET_VERSION=10.0.0 ASPNETCORE_ENVIRONMENT=Production]
 $ docker image ls portal-tarefas:ci
 REPOSITORY       TAG       IMAGE ID       CREATED        SIZE
-portal-tarefas   ci        cf1b46b07565   1 second ago   260MB
+portal-tarefas   ci        af98fdce7f65   1 second ago   260MB
 
 ================ Execução com configuração externa ================
 $ docker run -d --name api --network rede -p 8080:8080 -e ASPNETCORE_ENVIRONMENT=Staging -e ConnectionStrings__PortalTarefas=*** portal-tarefas:ci
-c1b7b1414622
+edbbe54fc401
 $ docker ps --filter name=api --format table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}
 NAMES     IMAGE               STATUS                   PORTS
 api       portal-tarefas:ci   Up 6 seconds (healthy)   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
@@ -61,7 +61,7 @@ Cache-Control: no-store, no-cache
 Expires: Thu, 01 Jan 1970 00:00:00 GMT
 Pragma: no-cache
 Transfer-Encoding: chunked
-X-Correlation-Id: 6d376539382f
+X-Correlation-Id: c49b78337c95
 
 Healthy
 
@@ -74,14 +74,14 @@ $ docker history --no-trunc portal-tarefas:ci | grep -c Password
 
 ================ Primeiras linhas do log do contêiner ================
 {"EventId":60,"LogLevel":"Warning","Category":"Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository","Message":"Storing keys in a directory \u0027/home/app/.aspnet/DataProtection-K
-{"EventId":35,"LogLevel":"Warning","Category":"Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager","Message":"No XML encryptor configured. Key {e0c018ee-21c2-466c-b746-97dc5b14dda5} may b
+{"EventId":35,"LogLevel":"Warning","Category":"Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager","Message":"No XML encryptor configured. Key {7e0458be-b31d-4255-86e4-997024b2bfe1} may b
 {"EventId":14,"LogLevel":"Information","Category":"Microsoft.Hosting.Lifetime","Message":"Now listening on: http://[::]:8080","State":{"address":"http://[::]:8080","{OriginalFormat}":"Now listening on
 {"EventId":0,"LogLevel":"Information","Category":"Microsoft.Hosting.Lifetime","Message":"Application started. Press Ctrl\u002BC to shut down.","State":{"{OriginalFormat}":"Application started. Press C
 {"EventId":0,"LogLevel":"Information","Category":"Microsoft.Hosting.Lifetime","Message":"Hosting environment: Staging","State":{"EnvName":"Staging","{OriginalFormat}":"Hosting environment: {EnvName}"}
 {"EventId":0,"LogLevel":"Information","Category":"Microsoft.Hosting.Lifetime","Message":"Content root path: /app","State":{"ContentRoot":"/app","{OriginalFormat}":"Content root path: {ContentRoot}"},"
-{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.CorrelacaoMiddleware","Message":"[1-Correla\u00E7\u00E3o] ENTRADA id=8afa1079276f","State":{"CorrelationId":"8afa1079276f
+{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.CorrelacaoMiddleware","Message":"[1-Correla\u00E7\u00E3o] ENTRADA id=3cf2893e94b8","State":{"CorrelationId":"3cf2893e94b8
 {"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware","Message":"[2-Registro] ENTRADA GET /health/live","State":{"Metodo":"GET","Caminho":"/healt
 {"EventId":3,"LogLevel":"Warning","Category":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","Message":"Failed to determine the https port for redirect.","State":{"{OriginalFormat}":"Fai
-{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware","Message":"[2-Registro] SA\u00CDDA GET /health/live -\u003E 200 em 69.7 ms","State":{"Metod
-{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.CorrelacaoMiddleware","Message":"[1-Correla\u00E7\u00E3o] SA\u00CDDA id=8afa1079276f","State":{"CorrelationId":"8afa10792
-{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.CorrelacaoMiddleware","Message":"[1-Correla\u00E7\u00E3o] ENTRADA id=6d376539382f","State":{"CorrelationId":"6d376539382f
+{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.RegistroRequisicaoMiddleware","Message":"[2-Registro] SA\u00CDDA GET /health/live -\u003E 200 em 67.6 ms","State":{"Metod
+{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.CorrelacaoMiddleware","Message":"[1-Correla\u00E7\u00E3o] SA\u00CDDA id=3cf2893e94b8","State":{"CorrelationId":"3cf2893e9
+{"EventId":0,"LogLevel":"Information","Category":"PortalTarefas.Web.Middleware.CorrelacaoMiddleware","Message":"[1-Correla\u00E7\u00E3o] ENTRADA id=c49b78337c95","State":{"CorrelationId":"c49b78337c95

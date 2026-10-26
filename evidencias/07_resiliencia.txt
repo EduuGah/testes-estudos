@@ -4,11 +4,11 @@ $ curl https://localhost:7001/api/v1/dica
 {"texto":"Revise as tarefas vencidas antes de criar novas (#3).","origem":"servico-dicas"}
 
 ================ Serviço fora do ar: falhas sucessivas abrem o circuito e o fallback responde ================
-chamada 1: 200 0.834514s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
-chamada 2: 200 0.005164s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
-chamada 3: 200 0.004253s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
-chamada 4: 200 0.004444s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
-chamada 5: 200 0.004415s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
-chamada 6: 200 0.004523s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
-chamada 7: 200 0.004506s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
-chamada 8: 200 0.004372s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 1: 200 0.629584s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 2: 200 0.005309s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 3: 200 0.004840s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 4: 200 0.004578s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 5: 200 0.004885s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 6: 200 0.004432s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 7: 200 0.004496s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}
+chamada 8: 200 0.004945s {"texto":"Divida tarefas grandes em entregas menores.","origem":"fallback"}

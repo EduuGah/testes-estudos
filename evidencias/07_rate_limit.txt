@@ -13,6 +13,6 @@ Corpo da resposta 429:
     "title": "Muitas requisições",
     "status": 429,
     "detail": "Limite de requisições excedido. Aguarde e tente novamente.",
-    "traceId": "00-364c6ab9205d62f7e2769a708de825f0-bdb2485b34d33e60-01",
-    "correlationId": "9ef83b10b4d6"
+    "traceId": "00-ab55fe8abb305ce725fd5b8a12aa478f-e7f4773aa9209efa-01",
+    "correlationId": "6ace123c2766"
 }

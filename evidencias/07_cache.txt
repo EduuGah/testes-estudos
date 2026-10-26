@@ -1,81 +1,10 @@
 $ curl -i https://localhost:7001/api/publico/estatisticas 
 HTTP/2 200 
 content-type: application/json; charset=utf-8
-x-correlation-id: eb8761e80e2d
+x-correlation-id: 111ba25356f0
 
 {
-    "geradoEmUtc": "2026-10-26T15:56:47.5205851Z",
-    "porSituacao": [
-        {
-            "situacao": "Concluida",
-            "quantidade": 3
-        },
-        {
-            "situacao": "EmAndamento",
-            "quantidade": 1
-        },
-        {
-            "situacao": "Pendente",
-            "quantidade": 7
-        }
-    ]
-}
-
-$ curl -i https://localhost:7001/api/publico/estatisticas 
-HTTP/2 200 
-content-type: application/json; charset=utf-8
-age: 2
-content-length: 183
-x-correlation-id: 03341f74506c
-
-{
-    "geradoEmUtc": "2026-10-26T15:56:47.5205851Z",
-    "porSituacao": [
-        {
-            "situacao": "Concluida",
-            "quantidade": 3
-        },
-        {
-            "situacao": "EmAndamento",
-            "quantidade": 1
-        },
-        {
-            "situacao": "Pendente",
-            "quantidade": 7
-        }
-    ]
-}
-
-$ curl -i https://localhost:7001/api/publico/estatisticas 
-HTTP/2 200 
-content-type: application/json; charset=utf-8
-x-correlation-id: bae4c263761f
-
-{
-    "geradoEmUtc": "2026-10-26T15:57:20.6509088Z",
-    "porSituacao": [
-        {
-            "situacao": "Concluida",
-            "quantidade": 3
-        },
-        {
-            "situacao": "EmAndamento",
-            "quantidade": 1
-        },
-        {
-            "situacao": "Pendente",
-            "quantidade": 7
-        }
-    ]
-}
-
-$ curl -i https://localhost:7001/api/publico/estatisticas 
-HTTP/2 200 
-content-type: application/json; charset=utf-8
-x-correlation-id: b99435e4a556
-
-{
-    "geradoEmUtc": "2026-10-26T16:04:20.0236723Z",
+    "geradoEmUtc": "2026-10-26T16:20:07.8390892Z",
     "porSituacao": [
         {
             "situacao": "Concluida",
@@ -97,10 +26,10 @@ HTTP/2 200
 content-type: application/json; charset=utf-8
 age: 2
 content-length: 184
-x-correlation-id: 15705fdfe373
+x-correlation-id: c600a14d73e2
 
 {
-    "geradoEmUtc": "2026-10-26T16:04:20.0236723Z",
+    "geradoEmUtc": "2026-10-26T16:20:07.8390892Z",
     "porSituacao": [
         {
             "situacao": "Concluida",
@@ -120,10 +49,10 @@ x-correlation-id: 15705fdfe373
 $ curl -i https://localhost:7001/api/publico/estatisticas 
 HTTP/2 200 
 content-type: application/json; charset=utf-8
-x-correlation-id: 45c10d4bc868
+x-correlation-id: ed52d8845172
 
 {
-    "geradoEmUtc": "2026-10-26T16:04:53.1596358Z",
+    "geradoEmUtc": "2026-10-26T16:20:40.977642Z",
     "porSituacao": [
         {
             "situacao": "Concluida",

@@ -1,40 +1,40 @@
-1908:Activity.DisplayName:        Tarefas.Criar
-1909-Activity.Kind:               Internal
-1910-Activity.StartTime:          2026-10-26T16:02:54.8546968Z
-1911-Activity.Duration:           00:00:00.0105610
-1912-Activity.Tags:
-1913-    tarefa.prioridade: Media
-1914-    tarefa.id: 7
-1915-Instrumentation scope (ActivitySource):
-1916-    Name: PortalTarefas
-1917-    Version: 1.0.0
-1918-Resource associated with Activity:
-1919-    service.name: PortalTarefas.Web
-1920-    service.version: 1.0.0
-1921-    service.instance.id: 8b195702-28f0-4b57-8328-f97ae64b3e1e
-1922-    telemetry.sdk.name: opentelemetry
+4542:Activity.DisplayName:        Tarefas.Criar
+4543-Activity.Kind:               Internal
+4544-Activity.StartTime:          2026-10-26T16:18:47.2322809Z
+4545-Activity.Duration:           00:00:00.0103180
+4546-Activity.Tags:
+4547-    tarefa.prioridade: Media
+4548-    tarefa.id: 7
+4549-Instrumentation scope (ActivitySource):
+4550-    Name: PortalTarefas
+4551-    Version: 1.0.0
+4552-Resource associated with Activity:
+4553-    service.name: PortalTarefas.Web
+4554-    service.version: 1.0.0
+4555-    service.instance.id: ef5a80f1-b2b4-45c8-a221-f99fb22301fb
+4556-    telemetry.sdk.name: opentelemetry
 --
-2213:Activity.DisplayName:        Tarefas.Criar
-2214-Activity.Kind:               Internal
-2215-Activity.StartTime:          2026-10-26T16:03:06.8029351Z
-2216-Activity.Duration:           00:00:00.0033627
-2217-Activity.Tags:
-2218-    tarefa.prioridade: Media
-2219-    tarefa.id: 8
-2220-Instrumentation scope (ActivitySource):
-2221-    Name: PortalTarefas
-2222-    Version: 1.0.0
-2223-Resource associated with Activity:
-2224-    service.name: PortalTarefas.Web
-2225-    service.version: 1.0.0
-2226-    service.instance.id: 8b195702-28f0-4b57-8328-f97ae64b3e1e
-2227-    telemetry.sdk.name: opentelemetry
+5726:Activity.DisplayName:        Tarefas.Criar
+5727-Activity.Kind:               Internal
+5728-Activity.StartTime:          2026-10-26T16:18:55.0935688Z
+5729-Activity.Duration:           00:00:00.0035686
+5730-Activity.Tags:
+5731-    tarefa.prioridade: Media
+5732-    tarefa.id: 8
+5733-Instrumentation scope (ActivitySource):
+5734-    Name: PortalTarefas
+5735-    Version: 1.0.0
+5736-Resource associated with Activity:
+5737-    service.name: PortalTarefas.Web
+5738-    service.version: 1.0.0
+5739-    service.instance.id: ef5a80f1-b2b4-45c8-a221-f99fb22301fb
+5740-    telemetry.sdk.name: opentelemetry
 --
-3547:Activity.DisplayName:        Tarefas.Criar
-3548-Activity.Kind:               Internal
-3549-Activity.StartTime:          2026-10-26T16:03:37.9635309Z
-3550-Activity.Duration:           00:00:00.0019356
-3551-Activity.Tags:
-3552-    tarefa.prioridade: Baixa
-3553-    tarefa.id: 9
-3554-Instrumentation scope (ActivitySource):
+7062:Activity.DisplayName:        Tarefas.Criar
+7063-Activity.Kind:               Internal
+7064-Activity.StartTime:          2026-10-26T16:19:26.2561515Z
+7065-Activity.Duration:           00:00:00.0020319
+7066-Activity.Tags:
+7067-    tarefa.prioridade: Baixa
+7068-    tarefa.id: 9
+7069-Instrumentation scope (ActivitySource):

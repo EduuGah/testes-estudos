@@ -2,16 +2,16 @@
 ================ Restore e build ================
 $ dotnet build PortalTarefas.slnx -c Debug
   Determining projects to restore...
-/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
-/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
-/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
-  Restored /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj (in 4.66 sec).
-  Restored /home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj (in 4.66 sec).
+  Restored /home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj (in 5.08 sec).
+  Restored /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj (in 5.08 sec).
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
@@ -25,7 +25,7 @@ $ dotnet build PortalTarefas.slnx -c Debug
   
   GenerateOpenApiDocuments:
     dotnet "/home/runner/.nuget/packages/microsoft.extensions.apidescription.server/10.0.0/build/../tools/dotnet-getdocument.dll" --assembly "/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/bin/Debug/net10.0/PortalTarefas.Web.dll" --file-list "obj/PortalTarefas.Web.OpenApiFiles.cache" --framework ".NETCoreApp,Version=v10.0" --output "/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/openapi" --project "PortalTarefas.Web" --assets-file "/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/obj/project.assets.json" --platform "AnyCPU" 
-  16:01:48 warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35] No XML encryptor configured. Key {7353b1a3-93c9-4c6d-a42a-7f4a1af48696} may be persisted to storage in unencrypted form.
+  16:08:15 warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35] No XML encryptor configured. Key {c6605a06-7484-49a7-8a45-b5ce3ad1029e} may be persisted to storage in unencrypted form.
   Generating document named 'v1'.
   Using discovered `GenerateAsync` overload with version parameter.
   Writing document named 'v1' to '/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/openapi/PortalTarefas.Web.json'.
@@ -33,13 +33,13 @@ $ dotnet build PortalTarefas.slnx -c Debug
 
 Build succeeded.
 
-/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
-/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
-/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
+/home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/src/PortalTarefas.Web/PortalTarefas.Web.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx [/home/runner/work/testes-estudos/testes-estudos/PortalTarefas.slnx]
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
 /home/runner/work/testes-estudos/testes-estudos/tests/PortalTarefas.Tests/PortalTarefas.Tests.csproj : warning NU1902: Package 'OpenTelemetry.Api' 1.12.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g94r-2vxg-569j
@@ -53,4 +53,4 @@ Build succeeded.
     17 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:14.03
+Time Elapsed 00:00:14.33

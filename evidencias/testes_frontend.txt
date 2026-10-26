@@ -6,6 +6,6 @@ $ cd src/PortalTarefas.Frontend && npm test
 
  Test Files  1 passed (1)
       Tests  4 passed (4)
-   Start at  16:05:59
-   Duration  861ms (transform 50ms, setup 0ms, collect 113ms, tests 9ms, environment 415ms, prepare 83ms)
+   Start at  16:21:47
+   Duration  934ms (transform 58ms, setup 0ms, collect 115ms, tests 9ms, environment 449ms, prepare 88ms)
 

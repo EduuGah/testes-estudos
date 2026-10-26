@@ -3,10 +3,10 @@
 $ sqlcmd -Q "SELECT * FROM EventosAuditoria"
 Id TarefaId Acao Detalhe OcorridoEmUtc
 -- -------- ---- ------- -------------
-1 3 AlterarSituacao Pendente -> Concluida 2026-10-26 16:02:45.1879973
+1 3 AlterarSituacao Pendente -> Concluida 2026-10-26 16:18:37.5707704
 
 ================ Tarefa 4 depois do conflito (a alteração da aba A permanece; a da aba B não sobrescreveu) ================
 Id Titulo Situacao RowVersion
 -- ------ -------- ----------
 4 Montar telas Razor (revisado na aba A) Pendente 
-16:02:46 warn: PortalTarefas.Web.Servicos.TarefaServicoEf[0] => SpanId:7534394ab8813c58, TraceId:8048fafd44f9cc51a955dc434a4b6495, ParentId:0000000000000000 => ConnectionId:0HNPJFA22DP7B => RequestPath:/Tarefas/Edit/4 RequestId:0HNPJFA22DP7B:0000001F => CorrelationId:b696984bd8f5 => PortalTarefas.Web.Controllers.TarefasController.Edit (PortalTarefas.Web) Conflito de concorrência na tarefa 4
+16:18:39 warn: PortalTarefas.Web.Servicos.TarefaServicoEf[0] => SpanId:b87419a1772e30f6, TraceId:c2eb818aae4067780ef22cd7c0365ad9, ParentId:0000000000000000 => ConnectionId:0HNPJFDLNOQUA => RequestPath:/Tarefas/Edit/4 RequestId:0HNPJFDLNOQUA:0000001F => CorrelationId:a46305fd5c9d => PortalTarefas.Web.Controllers.TarefasController.Edit (PortalTarefas.Web) Conflito de concorrência na tarefa 4

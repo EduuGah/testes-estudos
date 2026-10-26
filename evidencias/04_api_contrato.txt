@@ -1,7 +1,7 @@
 $ curl -i https://localhost:7001/api/v1/tarefas?pagina=1&tamanho=3&ordenarPor=prazo&direcao=desc 
 HTTP/2 200 
 content-type: application/json; charset=utf-8
-x-correlation-id: 9ebc2f8fdf4f
+x-correlation-id: 8969210bbc56
 
 {
     "itens": [
@@ -39,7 +39,7 @@ x-correlation-id: 9ebc2f8fdf4f
 $ curl -i https://localhost:7001/api/v1/tarefas?tamanho=0 
 HTTP/2 400 
 content-type: application/problem+json
-x-correlation-id: fcab0fcbb5ce
+x-correlation-id: 08736faafb56
 
 {
     "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
@@ -50,14 +50,14 @@ x-correlation-id: fcab0fcbb5ce
             "O tamanho deve estar entre 1 e 50."
         ]
     },
-    "traceId": "00-686729f98b866af8295500a8ac2ae669-0facd99c06801c0a-01",
-    "correlationId": "fcab0fcbb5ce"
+    "traceId": "00-74051b37c73a3db613e46a6cd911b832-5bb186574895c82f-01",
+    "correlationId": "08736faafb56"
 }
 
 $ curl -i https://localhost:7001/api/v1/tarefas?tamanho=51 
 HTTP/2 400 
 content-type: application/problem+json
-x-correlation-id: 2b99c12ff80b
+x-correlation-id: 80ef066899ff
 
 {
     "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
@@ -68,14 +68,14 @@ x-correlation-id: 2b99c12ff80b
             "O tamanho deve estar entre 1 e 50."
         ]
     },
-    "traceId": "00-548cdc744a60628d660d09bb4745c58a-016fd9b5ebda46ca-01",
-    "correlationId": "2b99c12ff80b"
+    "traceId": "00-a285917902d4c3bc2c0c682f8364518e-e9f4d456d926b900-01",
+    "correlationId": "80ef066899ff"
 }
 
 $ curl -i https://localhost:7001/api/v1/tarefas?ordenarPor=descricao 
 HTTP/2 400 
 content-type: application/problem+json
-x-correlation-id: c1c2fb54cdff
+x-correlation-id: b53b59ef1b0d
 
 {
     "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
@@ -86,14 +86,14 @@ x-correlation-id: c1c2fb54cdff
             "Campo não permitido. Use: id, titulo, prazo, prioridade, situacao."
         ]
     },
-    "traceId": "00-3a5f831bec05458f01a709580aa0abb1-0b97a8f9888f859c-01",
-    "correlationId": "c1c2fb54cdff"
+    "traceId": "00-a3e9dda939c9ffa0742a7354b51a8296-bc3c939c0246256e-01",
+    "correlationId": "b53b59ef1b0d"
 }
 
 $ curl -i https://localhost:7001/api/v1/tarefas?situacao=EmAndamento&prioridade=Alta 
 HTTP/2 200 
 content-type: application/json; charset=utf-8
-x-correlation-id: 3f654ea78b45
+x-correlation-id: 98ff5b7b1319
 
 {
     "itens": [
@@ -115,7 +115,7 @@ x-correlation-id: 3f654ea78b45
 $ curl -i https://localhost:7001/api/v1/tarefas?pagina=99 
 HTTP/2 200 
 content-type: application/json; charset=utf-8
-x-correlation-id: 609d62762688
+x-correlation-id: 8aa6b8ae586d
 
 {
     "itens": [],
@@ -128,22 +128,22 @@ x-correlation-id: 609d62762688
 $ curl -i https://localhost:7001/api/v1/tarefas/9999 
 HTTP/2 404 
 content-type: application/problem+json
-x-correlation-id: 443ac7d3c398
+x-correlation-id: 8dff1b44383a
 
 {
     "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
     "title": "Tarefa não encontrada",
     "status": 404,
     "detail": "Não existe tarefa com id 9999.",
-    "traceId": "00-0e4bcaf14ab475a0fcdb2196c144ac38-429a98c90c02c406-01",
-    "correlationId": "443ac7d3c398"
+    "traceId": "00-649870bb31ad9c061b87e8fc0110e156-46cfe059fca6706f-01",
+    "correlationId": "8dff1b44383a"
 }
 
 $ curl -i -X POST https://localhost:7001/api/v1/tarefas -H Content-Type: application/json -d {"titulo":"Gerar cliente TypeScript","prioridade":"Media","prazo":"2026-10-30"} 
 HTTP/2 201 
 content-type: application/json; charset=utf-8
 location: https://localhost:7001/api/v1/tarefas/7
-x-correlation-id: 404c8debc1bf
+x-correlation-id: f83a50b658a0
 
 {
     "id": 7,
@@ -152,15 +152,15 @@ x-correlation-id: 404c8debc1bf
     "prioridade": "Media",
     "prazo": "2026-10-30",
     "situacao": "Pendente",
-    "criadaEmUtc": "2026-10-26T15:55:29.9689933Z",
+    "criadaEmUtc": "2026-10-26T16:18:47.2312972Z",
     "atualizadaEmUtc": null,
-    "versao": "AAAAAAAAB9g="
+    "versao": "AAAAAAAAB9o="
 }
 
 $ curl -i -X POST https://localhost:7001/api/v1/tarefas -H Content-Type: application/json -d {"titulo":"","prioridade":"Alta"} 
 HTTP/2 400 
 content-type: application/problem+json
-x-correlation-id: f82c57edeacc
+x-correlation-id: 0b09e1a520f6
 
 {
     "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
@@ -171,184 +171,7 @@ x-correlation-id: f82c57edeacc
             "The Titulo field is required."
         ]
     },
-    "traceId": "00-bbc5391846b77b5ef51ed97245dd247e-efda39495ea09efb-01",
-    "correlationId": "f82c57edeacc"
-}
-
-$ curl -i https://localhost:7001/api/v1/tarefas?pagina=1&tamanho=3&ordenarPor=prazo&direcao=desc 
-HTTP/2 200 
-content-type: application/json; charset=utf-8
-x-correlation-id: be32b597597e
-
-{
-    "itens": [
-        {
-            "id": 6,
-            "titulo": "Documentar a API",
-            "prioridade": "Media",
-            "prazo": "2026-11-07",
-            "situacao": "Pendente",
-            "vencida": false
-        },
-        {
-            "id": 5,
-            "titulo": "Persistir tarefas com EF Core",
-            "prioridade": "Alta",
-            "prazo": "2026-11-01",
-            "situacao": "EmAndamento",
-            "vencida": false
-        },
-        {
-            "id": 3,
-            "titulo": "Comparar Minimal API e MVC",
-            "prioridade": "Baixa",
-            "prazo": "2026-10-31",
-            "situacao": "Concluida",
-            "vencida": false
-        }
-    ],
-    "pagina": 1,
-    "tamanho": 3,
-    "totalItens": 6,
-    "totalPaginas": 2
-}
-
-$ curl -i https://localhost:7001/api/v1/tarefas?tamanho=0 
-HTTP/2 400 
-content-type: application/problem+json
-x-correlation-id: 8e2948eb8a13
-
-{
-    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-    "title": "Parâmetros de consulta inválidos",
-    "status": 400,
-    "errors": {
-        "tamanho": [
-            "O tamanho deve estar entre 1 e 50."
-        ]
-    },
-    "traceId": "00-e8800d030397cc2e26b1b8e70ab8881c-d0e4b02eca5414e2-01",
-    "correlationId": "8e2948eb8a13"
-}
-
-$ curl -i https://localhost:7001/api/v1/tarefas?tamanho=51 
-HTTP/2 400 
-content-type: application/problem+json
-x-correlation-id: 60e54f891116
-
-{
-    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-    "title": "Parâmetros de consulta inválidos",
-    "status": 400,
-    "errors": {
-        "tamanho": [
-            "O tamanho deve estar entre 1 e 50."
-        ]
-    },
-    "traceId": "00-1eed5bb7f8422ac1c0c87d9229c31bda-a2caa0db82e5efd1-01",
-    "correlationId": "60e54f891116"
-}
-
-$ curl -i https://localhost:7001/api/v1/tarefas?ordenarPor=descricao 
-HTTP/2 400 
-content-type: application/problem+json
-x-correlation-id: c881f138c800
-
-{
-    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-    "title": "Parâmetros de consulta inválidos",
-    "status": 400,
-    "errors": {
-        "ordenarPor": [
-            "Campo não permitido. Use: id, titulo, prazo, prioridade, situacao."
-        ]
-    },
-    "traceId": "00-8db56265912532efe352bf80e5fe10e7-4d9597aba3ecb8f8-01",
-    "correlationId": "c881f138c800"
-}
-
-$ curl -i https://localhost:7001/api/v1/tarefas?situacao=EmAndamento&prioridade=Alta 
-HTTP/2 200 
-content-type: application/json; charset=utf-8
-x-correlation-id: cfcfe2fb34ee
-
-{
-    "itens": [
-        {
-            "id": 5,
-            "titulo": "Persistir tarefas com EF Core",
-            "prioridade": "Alta",
-            "prazo": "2026-11-01",
-            "situacao": "EmAndamento",
-            "vencida": false
-        }
-    ],
-    "pagina": 1,
-    "tamanho": 10,
-    "totalItens": 1,
-    "totalPaginas": 1
-}
-
-$ curl -i https://localhost:7001/api/v1/tarefas?pagina=99 
-HTTP/2 200 
-content-type: application/json; charset=utf-8
-x-correlation-id: 9bfb8aafeb68
-
-{
-    "itens": [],
-    "pagina": 99,
-    "tamanho": 10,
-    "totalItens": 6,
-    "totalPaginas": 1
-}
-
-$ curl -i https://localhost:7001/api/v1/tarefas/9999 
-HTTP/2 404 
-content-type: application/problem+json
-x-correlation-id: cf8adff9bed7
-
-{
-    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
-    "title": "Tarefa não encontrada",
-    "status": 404,
-    "detail": "Não existe tarefa com id 9999.",
-    "traceId": "00-34662303ecbb584efc66edb73f221415-d1f52795b6696c50-01",
-    "correlationId": "cf8adff9bed7"
-}
-
-$ curl -i -X POST https://localhost:7001/api/v1/tarefas -H Content-Type: application/json -d {"titulo":"Gerar cliente TypeScript","prioridade":"Media","prazo":"2026-10-30"} 
-HTTP/2 201 
-content-type: application/json; charset=utf-8
-location: https://localhost:7001/api/v1/tarefas/7
-x-correlation-id: dfe558dd1357
-
-{
-    "id": 7,
-    "titulo": "Gerar cliente TypeScript",
-    "descricao": null,
-    "prioridade": "Media",
-    "prazo": "2026-10-30",
-    "situacao": "Pendente",
-    "criadaEmUtc": "2026-10-26T16:02:54.8536881Z",
-    "atualizadaEmUtc": null,
-    "versao": "AAAAAAAAB9k="
-}
-
-$ curl -i -X POST https://localhost:7001/api/v1/tarefas -H Content-Type: application/json -d {"titulo":"","prioridade":"Alta"} 
-HTTP/2 400 
-content-type: application/problem+json
-x-correlation-id: b8e40a05c079
-
-{
-    "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-    "title": "One or more validation errors occurred.",
-    "status": 400,
-    "errors": {
-        "titulo": [
-            "The Titulo field is required."
-        ]
-    },
-    "traceId": "00-d289214ff8e06f157831a35897ed8453-ae5f08c284342845-01",
-    "correlationId": "b8e40a05c079"
+    "traceId": "00-1e595029c6e7eabfb6084f80c0c6027b-df5d6dc40292f765-01",
+    "correlationId": "0b09e1a520f6"
 }
 
