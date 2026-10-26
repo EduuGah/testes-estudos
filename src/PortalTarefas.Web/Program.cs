@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using PortalTarefas.Web.Dados;
 using PortalTarefas.Web.Endpoints;
 using PortalTarefas.Web.Filtros;
 using PortalTarefas.Web.Middleware;
@@ -17,7 +19,15 @@ builder.Logging.AddSimpleConsole(o =>
 builder.Services.AddProblemDetails();                 // erros no formato Problem Details
 builder.Services.AddControllersWithViews();             // Unidade 2: controllers + views Razor
 builder.Services.AddScoped<RegistroAcaoFilter>();       // filtro resolvido por injeção ([ServiceFilter])
-builder.Services.AddSingleton<ITarefaServico, TarefaServicoMemoria>();   // trocado por banco na Unidade 3
+
+// Unidade 3: EF Core + SQL Server. A connection string vem de User Secrets em
+// desenvolvimento e de variável de ambiente em produção — nunca do repositório.
+var conexao = builder.Configuration.GetConnectionString("PortalTarefas");
+if (string.IsNullOrWhiteSpace(conexao))
+    throw new InvalidOperationException("ConnectionStrings:PortalTarefas não configurada (use dotnet user-secrets).");
+builder.Services.AddDbContextPool<PortalTarefasDbContext>(opcoes => opcoes.UseSqlServer(conexao));
+builder.Services.AddScoped<ITarefaServico, TarefaServicoEf>();
+builder.Services.AddScoped<PainelConsultas>();
 builder.Services.AddCors(opcoes =>
 {
     // Política nomeada: somente o front-end local (Vite) pode chamar a API pelo navegador.
@@ -28,6 +38,15 @@ builder.Services.AddCors(opcoes =>
 });
 
 var app = builder.Build();
+
+// Em desenvolvimento, aplica migrations pendentes e o seed idempotente na inicialização.
+if (app.Environment.IsDevelopment())
+{
+    using var escopo = app.Services.CreateScope();
+    var db = escopo.ServiceProvider.GetRequiredService<PortalTarefasDbContext>();
+    await db.Database.MigrateAsync();
+    await SeedDados.AplicarAsync(db);
+}
 
 // ---------- Pipeline (a ordem importa) ----------
 app.UseExceptionHandler();        // 0. captura exceções de tudo o que vem depois
@@ -53,6 +72,14 @@ app.MapGet("/api/diagnostico", async (ITarefaServico servico, IWebHostEnvironmen
 // Endpoint que lança exceção de propósito, para testar o tratamento centralizado
 app.MapGet("/api/diagnostico/erro", string () =>
     throw new InvalidOperationException("Falha simulada no repositório (detalhe interno que não deve chegar ao cliente)."));
+
+// Painel: mesma leitura com EF Core e com Dapper, para comparação
+app.MapGet("/api/painel", async (string? fonte, PainelConsultas painel, CancellationToken ct) =>
+{
+    var hoje = DateOnly.FromDateTime(DateTime.Today);
+    var linhas = fonte == "dapper" ? await painel.ComDapperAsync(hoje, ct) : await painel.ComEfCoreAsync(hoje, ct);
+    return Results.Ok(new { fonte = fonte ?? "ef", linhas });
+});
 
 app.MapControllers();                                   // controllers com [Route] (API de diagnóstico)
 app.MapControllerRoute(                                  // rota convencional da interface MVC

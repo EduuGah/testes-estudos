@@ -2,7 +2,7 @@ namespace PortalTarefas.Web.Dominio;
 
 public enum Prioridade { Baixa = 1, Media = 2, Alta = 3 }
 
-/// <summary>Modelo de domínio da tarefa (não é exposto diretamente pela API nem pelas views).</summary>
+/// <summary>Entidade persistida da tarefa.</summary>
 public class Tarefa
 {
     public int Id { get; set; }
@@ -12,6 +12,20 @@ public class Tarefa
     public DateOnly? Prazo { get; set; }
     public string Situacao { get; set; } = Modelos.SituacaoTarefa.Pendente;
     public DateTime CriadaEmUtc { get; set; } = DateTime.UtcNow;
+    public DateTime? AtualizadaEmUtc { get; set; }
+
+    /// <summary>Token de concorrência otimista (rowversion no SQL Server).</summary>
+    public byte[] RowVersion { get; set; } = [];
 
     public bool EstaVencida(DateOnly hoje) => Prazo < hoje && Situacao != Modelos.SituacaoTarefa.Concluida;
+}
+
+/// <summary>Registro de auditoria gravado na mesma transação da alteração.</summary>
+public class EventoAuditoria
+{
+    public long Id { get; set; }
+    public int TarefaId { get; set; }
+    public string Acao { get; set; } = string.Empty;
+    public string? Detalhe { get; set; }
+    public DateTime OcorridoEmUtc { get; set; } = DateTime.UtcNow;
 }

@@ -31,9 +31,13 @@ public class TarefaInputModel
     [Display(Name = "Situação")]
     public string Situacao { get; set; } = SituacaoTarefa.Pendente;
 
+    /// <summary>Token de concorrência (Base64) enviado em campo oculto na edição.</summary>
+    public string? RowVersion { get; set; }
+
     public static TarefaInputModel De(Tarefa t) => new()
     {
-        Id = t.Id, Titulo = t.Titulo, Descricao = t.Descricao, Prioridade = t.Prioridade, Prazo = t.Prazo, Situacao = t.Situacao
+        Id = t.Id, Titulo = t.Titulo, Descricao = t.Descricao, Prioridade = t.Prioridade, Prazo = t.Prazo, Situacao = t.Situacao,
+        RowVersion = Convert.ToBase64String(t.RowVersion)
     };
 
     public void AplicarEm(Tarefa t)
