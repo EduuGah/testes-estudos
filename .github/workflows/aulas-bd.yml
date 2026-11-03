@@ -1,0 +1,54 @@
+name: Aulas Banco de Dados – execução no SQL Server 2022
+
+on:
+  push:
+    branches: [ aulas-bd ]
+    paths: [ 'banco-de-dados/sql/**', 'banco-de-dados/runner/**', '.github/workflows/aulas-bd.yml' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sqlserver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Gerar senha temporária (não é gravada em lugar nenhum)
+        run: |
+          S="Lab#$(openssl rand -hex 12)Aa1"
+          echo "::add-mask::$S"
+          echo "SA_SENHA=$S" >> "$GITHUB_ENV"
+
+      - name: Subir SQL Server 2022 Developer em contêiner
+        run: |
+          docker run -d --name sql -p 1433:1433 \
+            -e ACCEPT_EULA=Y -e MSSQL_PID=Developer -e "MSSQL_SA_PASSWORD=$SA_SENHA" \
+            mcr.microsoft.com/mssql/server:2022-latest
+          sleep 15
+
+      - name: Driver ODBC e pyodbc
+        run: |
+          if ! odbcinst -q -d | grep -q "ODBC Driver 18"; then
+            curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc >/dev/null
+            curl -sSL https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+            sudo apt-get update -q && sudo ACCEPT_EULA=Y apt-get install -y -q msodbcsql18 unixodbc-dev
+          fi
+          pip install -q pyodbc
+
+      - name: Executar os 8 roteiros
+        run: |
+          rm -rf banco-de-dados/evidencias
+          python3 banco-de-dados/runner/executar.py banco-de-dados/evidencias banco-de-dados/sql/r*.sql \
+            2>&1 | tee banco-de-dados/execucao.log
+
+      - name: Salvar evidências na branch
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add banco-de-dados/evidencias banco-de-dados/execucao.log || true
+          git commit -m "Evidências da execução no SQL Server (run ${{ github.run_id }})" || echo "nada novo"
+          git push
