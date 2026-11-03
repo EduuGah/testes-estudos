@@ -27,3 +27,8 @@ dotnet_diagnostic.CA2007.severity = none     # ConfigureAwait: aplicação ASP.N
 dotnet_diagnostic.CA1031.severity = none     # o worker captura exceções para não derrubar os consumidores
 dotnet_diagnostic.CA1861.severity = none
 dotnet_diagnostic.CA1822.severity = suggestion
+
+# Código gerado pelo dotnet ef (migrations): não é revisado pelas regras de estilo do time
+[**/Migrations/*.cs]
+generated_code = true
+dotnet_diagnostic.IDE0161.severity = none

@@ -1,5 +1,6 @@
 using System.Net.Http.Json;
 using HubPedidos.Application.Contratos;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace HubPedidos.Ferramentas;
