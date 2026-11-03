@@ -1,32 +1,32 @@
-tempo total amostrado (todas as threads): 167,412 milliseconds
+tempo total amostrado (todas as threads): 176,343 milliseconds
 
 TOP 12 – tempo próprio
- 73.63%  UNMANAGED_CODE_TIME
- 26.37%  CPU_TIME
+ 73.48%  UNMANAGED_CODE_TIME
+ 26.52%  CPU_TIME
   0.00%  System.Private.CoreLib!System.Threading.PortableThreadPool+WorkerThread.WorkerThreadStart()
-  0.00%  System.Private.CoreLib!System.Threading.Monitor.Wait(class System.Object,int32)
-  0.00%  System.Private.CoreLib!System.Threading.WaitHandle.WaitOneNoCheck(int32,bool,class System.Object,value class W
   0.00%  System.Private.CoreLib!System.Threading.PortableThreadPool+GateThread.GateThreadStart()
-  0.00%  System.Private.CoreLib!System.Threading.LowLevelLifoSemaphore.WaitForSignal(int32)
-  0.00%  System.Private.CoreLib!System.Threading.ThreadPoolWorkQueue.Dispatch()
-  0.00%  Microsoft.AspNetCore.Server.Kestrel.Core!Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol+<
-  0.00%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarAsync>d__11.MoveNext()
+  0.00%  System.Private.CoreLib!System.Threading.WaitHandle.WaitOneNoCheck(int32,bool,class System.Object,value class W
   0.00%  System.Diagnostics.DiagnosticSource!System.Diagnostics.Metrics.AggregationManager.CollectWorker()
-  0.00%  Anonymously Hosted DynamicMethods Assembly!dynamicClass.lambda_method45(pMT: 0x7f9dce288678,class System.Objec
+  0.00%  System.Private.CoreLib!System.Threading.ThreadPoolWorkQueue.Dispatch()
+  0.00%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarAsync>d__11.MoveNext()
+  0.00%  System.Net.Sockets!System.Net.Sockets.SocketAsyncEngine.EventLoop()
+  0.00%  Microsoft.AspNetCore.Server.Kestrel.Core!Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol+<
+  0.00%  System.Private.CoreLib!System.Diagnostics.Tracing.CounterGroup.PollForValues()
+  0.00%  Anonymously Hosted DynamicMethods Assembly!dynamicClass.lambda_method45(pMT: 0x7f5195878678,class System.Objec
 
 TOP 15 – tempo inclusivo em código HubPedidos / EF Core / SQLite
-100.00%  Process64 dotnet (5651) Args: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/HubPed
- 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c.<MapPedidos>b__2_0(class Microsoft.AspNetCore.Htt
- 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c+<<MapPedidos>b__2_0>d.MoveNext()
- 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints.ListarAsync(class System.String,value class System.Nu
- 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<ListarAsync>d__6.MoveNext()
- 23.36%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarAsync>d__11.MoveNext()
- 18.92%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Storage.RelationalCommand+<ExecuteReade
- 18.15%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(value class System.Data.Com
- 18.15%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteCommand+<ExecuteDbDataReaderAsync>d__60.MoveNext()
- 18.14%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(value class System.Data.CommandBehavio
- 18.14%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
- 16.78%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+<ToListAsync>d_
- 15.82%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
- 14.52%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
- 14.52%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+100.00%  Process64 dotnet (5348) Args: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/HubPed
+ 23.20%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c.<MapPedidos>b__2_0(class Microsoft.AspNetCore.Htt
+ 23.20%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c+<<MapPedidos>b__2_0>d.MoveNext()
+ 23.19%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints.ListarAsync(class System.String,value class System.Nu
+ 23.19%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<ListarAsync>d__6.MoveNext()
+ 23.15%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarAsync>d__11.MoveNext()
+ 19.35%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Storage.RelationalCommand+<ExecuteReade
+ 18.69%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(value class System.Data.Com
+ 18.69%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteCommand+<ExecuteDbDataReaderAsync>d__60.MoveNext()
+ 18.69%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(value class System.Data.CommandBehavio
+ 18.69%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+ 17.74%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+<ToListAsync>d_
+ 16.85%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+ 15.57%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+ 15.57%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable

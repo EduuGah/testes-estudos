@@ -1,32 +1,32 @@
-pedido criado: 01a1a2d7-74af-7d7a-9a44-9969f2ae36b3
+pedido criado: 01a1a2e0-ffc5-74bd-b213-8f1cd39e1b57
 
 ################ ROTEIRO 6 – versões
 
 $ GET /api/v1/pedidos/{id}   (contrato v1)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "af18188a0bc811f70a3b"
+ETag: "087663c9edc68a75ffe7"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
-{"id":"01a1a2d7-74af-7d7a-9a44-9969f2ae36b3","cliente":"ana","status":"Processado","total":74.8,"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0}]}
+{"id":"01a1a2e0-ffc5-74bd-b213-8f1cd39e1b57","cliente":"ana","status":"Processado","total":74.8,"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0}]}
 
 $ GET /api/v2/pedidos/{id}   (contrato v2)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "33b7e7bd6a869d9cbb07"
+ETag: "ab002b56a0c3b5114840"
 api-supported-versions: 1, 2
-{"id":"01a1a2d7-74af-7d7a-9a44-9969f2ae36b3","cliente":"ana","situacao":{"codigo":"Processado","descricao":"Pedido processado","atualizadoEmUtc":"2026-11-03T19:16:31.9909537"},"valores":{"total":74.8,"moeda":"BRL"},"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9,"subtotal":39.8},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0,"subtotal":35.0}],"versao":3,"canal":"app"}
+{"id":"01a1a2e0-ffc5-74bd-b213-8f1cd39e1b57","cliente":"ana","situacao":{"codigo":"Processado","descricao":"Pedido processado","atualizadoEmUtc":"2026-11-03T19:26:57.7470902"},"valores":{"total":74.8,"moeda":"BRL"},"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9,"subtotal":39.8},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0,"subtotal":35.0}],"versao":3,"canal":"app"}
 
 $ GET /api/pedidos/{id}   (sem versão -> padrão v1)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "af18188a0bc811f70a3b"
+ETag: "087663c9edc68a75ffe7"
 api-version: 1
 
 $ GET /api/v9/pedidos/{id}   (versão não suportada)
-{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Versão não suportada","status":400,"detail":"A versão 9 não existe. Versões suportadas: 1, 2.","traceId":"00-75b4dc2ddc83fe146df5620e8facafcc-eed8d7f40874a967-00"}
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Versão não suportada","status":400,"detail":"A versão 9 não existe. Versões suportadas: 1, 2.","traceId":"00-a8bedef9be3507bb669ed9119a5704ef-1f249fb0dd390f10-00"}
 HTTP 400
 
 ################ ROTEIRO 7 – ETag
@@ -34,16 +34,16 @@ HTTP 400
 $ GET /api/v1/pedidos/{id}
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "af18188a0bc811f70a3b"
+ETag: "087663c9edc68a75ffe7"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 
-$ GET com If-None-Match: "af18188a0bc811f70a3b"
+$ GET com If-None-Match: "087663c9edc68a75ffe7"
 HTTP/1.1 304 Not Modified
 Cache-Control: private, no-cache
-ETag: "af18188a0bc811f70a3b"
+ETag: "087663c9edc68a75ffe7"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
@@ -57,18 +57,18 @@ HTTP 428
 $ PUT /status com If-Match obsoleto
 HTTP 412
 
-$ PUT /status com If-Match: "af18188a0bc811f70a3b"
+$ PUT /status com If-Match: "087663c9edc68a75ffe7"
 HTTP/1.1 200 OK
-ETag: "894ef4bd10ff97c805ec"
+ETag: "ce41893bdcb7bf3b0343"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 
-$ GET com If-None-Match antigo: "af18188a0bc811f70a3b"
+$ GET com If-None-Match antigo: "087663c9edc68a75ffe7"
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "894ef4bd10ff97c805ec"
+ETag: "ce41893bdcb7bf3b0343"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
@@ -78,30 +78,30 @@ Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 
 $ GET anônimo #1
 HTTP/1.1 200 OK
-X-Gerado-Em: 2026-11-03T19:16:32.8776075+00:00
+X-Gerado-Em: 2026-11-03T19:26:58.1432014+00:00
 
 $ GET anônimo #2
 HTTP/1.1 200 OK
 Content-Length: 226
 Age: 0
-X-Gerado-Em: 2026-11-03T19:16:32.8776075+00:00
+X-Gerado-Em: 2026-11-03T19:26:58.1432014+00:00
 
 $ GET anônimo #3
 HTTP/1.1 200 OK
 Content-Length: 226
 Age: 1
-X-Gerado-Em: 2026-11-03T19:16:32.8776075+00:00
+X-Gerado-Em: 2026-11-03T19:26:58.1432014+00:00
 
 $ GET autenticado (não usa o cache compartilhado)
 HTTP/1.1 200 OK
-X-Gerado-Em: 2026-11-03T19:16:34.4167427+00:00
+X-Gerado-Em: 2026-11-03T19:26:59.6815335+00:00
 
 $ POST novo pedido (invalida a tag 'pedidos') e GET anônimo
 HTTP/1.1 200 OK
-X-Gerado-Em: 2026-11-03T19:16:34.9452414+00:00
+X-Gerado-Em: 2026-11-03T19:27:00.2099914+00:00
 
 $ Latência: 20 GET anônimos com cache
-mediana 0.51 ms, máx 0.79 ms
+mediana 0.39 ms, máx 0.62 ms
 
 $ Latência: 20 GET autenticados (sem cache, consulta o banco)
-mediana 11.19 ms, máx 19.28 ms
+mediana 12.45 ms, máx 17.83 ms

@@ -1,18 +1,18 @@
-19:16:36.280 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2d7-8723-7dc3-a47e-0ff2c4a2b455 (Padrao)
-19:16:36.530 [ana  ] estado: Connected
-19:16:36.569 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
-19:16:36.581 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
-19:16:36.595 [ana  ] stream do pedido 01a1a2d7…: EmProcessamento (v2)
-19:16:36.646 [ana  ] stream do pedido 01a1a2d7…: Processado (v3)
-19:16:36.654 [ana  ] estado inicial via HTTP: Processado
-19:16:36.664 [http ] PUT status=Cancelado (If-Match "f29875b6544d5c46b14b") -> 200
-19:16:36.671 [ana  ] evento PedidoAtualizado: Cancelado (v4)
-19:16:36.970 [proxy] queda de rede simulada: 2 conexão(ões) TCP cortada(s)
-19:16:36.978 [ana  ] estado: Reconectando (ações desabilitadas) – WebSocketException
-19:16:37.176 [http ] PUT status=Recebido (If-Match "f1cf8898e1b215308b35") -> 200
-19:16:37.984 [ana  ] estado: Conectado novamente (nova conexão xlSHf0uA…)
-19:16:38.025 [ana  ] reingressou no grupo do pedido após revalidação
-19:16:38.028 [ana  ] reconciliação HTTP: status atual = Recebido, versão = 5
-19:16:38.032 [http ] PUT status=Cancelado (If-Match "d3fdc1ebc861447ffee8") -> 200
-19:16:38.065 [ana  ] evento PedidoAtualizado: Cancelado (v6)
-19:16:38.343 [ana  ] estado: Desconectado
+19:27:01.707 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2e1-1184-7545-b4a9-9de4211fa6d1 (Padrao)
+19:27:01.814 [ana  ] estado: Connected
+19:27:01.853 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
+19:27:01.863 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
+19:27:01.875 [ana  ] stream do pedido 01a1a2e1…: EmProcessamento (v2)
+19:27:01.924 [ana  ] stream do pedido 01a1a2e1…: Processado (v3)
+19:27:01.931 [ana  ] estado inicial via HTTP: Processado
+19:27:01.942 [http ] PUT status=Cancelado (If-Match "1d2ce53c76ee613f4871") -> 200
+19:27:01.946 [ana  ] evento PedidoAtualizado: Cancelado (v4)
+19:27:02.246 [proxy] queda de rede simulada: 2 conexão(ões) TCP cortada(s)
+19:27:02.255 [ana  ] estado: Reconectando (ações desabilitadas) – WebSocketException
+19:27:02.451 [http ] PUT status=Recebido (If-Match "5489eff4231487482d07") -> 200
+19:27:03.259 [ana  ] estado: Conectado novamente (nova conexão ubVm3V8R…)
+19:27:03.300 [ana  ] reingressou no grupo do pedido após revalidação
+19:27:03.302 [ana  ] reconciliação HTTP: status atual = Recebido, versão = 5
+19:27:03.305 [http ] PUT status=Cancelado (If-Match "845fafd7f1923c39cb33") -> 200
+19:27:03.340 [ana  ] evento PedidoAtualizado: Cancelado (v6)
+19:27:03.613 [ana  ] estado: Desconectado

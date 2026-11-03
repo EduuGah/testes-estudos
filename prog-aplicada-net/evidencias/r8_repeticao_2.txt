@@ -1,2 +1,1 @@
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [594 ms]
-Failed!  - Failed:     1, Passed:    67, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+Passed!  - Failed:     0, Passed:    68, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)

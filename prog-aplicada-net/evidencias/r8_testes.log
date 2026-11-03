@@ -1,54 +1,56 @@
 Test run for /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll (.NETCoreApp,Version=v10.0)
 A total of 1 test files matched the specified pattern.
 [xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
-[xUnit.net 00:00:00.11]   Discovering: HubPedidos.Tests
-[xUnit.net 00:00:00.23]   Discovered:  HubPedidos.Tests
-[xUnit.net 00:00:00.26]   Starting:    HubPedidos.Tests
-  Passed HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo [5 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno [602 ms]
-  Passed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [608 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { }) [3 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorSpan { }) [< 1 ms]
+[xUnit.net 00:00:00.10]   Discovering: HubPedidos.Tests
+[xUnit.net 00:00:00.15]   Discovered:  HubPedidos.Tests
+[xUnit.net 00:00:00.17]   Starting:    HubPedidos.Tests
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "nulo", pedido: null, esperado: Invalido) [6 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "sem itens", pedido: Pedido { Id = 01a1a2db-ca74-7feb-b9b1-f2b2aebd2a92, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "total zero", pedido: Pedido { Id = 01a1a2db-ca74-757a-8eb8-2fded46895b9, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "normal", pedido: Pedido { Id = 01a1a2db-ca74-7db5-b0ba-3aaeb68855ff, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "prioritário", pedido: Pedido { Id = 01a1a2db-ca74-7885-8b87-a7ba01a7db75, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "exterior vence prioridade", pedido: Pedido { Id = 01a1a2db-ca74-7eb9-8df5-d17b31f9d382, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 9.999,99 não é alto valor", pedido: Pedido { Id = 01a1a2db-ca74-7fd3-b402-6dfa5f2ed7db, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 10.000,00 é alto valor", pedido: Pedido { Id = 01a1a2db-ca74-78b9-acd9-1a547ec87e99, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 99 unidades", pedido: Pedido { Id = 01a1a2db-ca74-7744-a380-4f9c7e8b7c70, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 100 unidades", pedido: Pedido { Id = 01a1a2db-ca74-78b6-9385-75a8bdbdd1f0, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "21 itens distintos", pedido: Pedido { Id = 01a1a2db-ca74-7c1d-9861-838f3db85f5f, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array [4 ms]
+  Passed HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original [2 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "00000000-0000-0000-0000-000000000000", valido: False) [2 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "abc", valido: False) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f", valido: True) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio [3 ms]
+  Passed HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel [1 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto [24 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha [< 1 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces [2 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel [2 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico [14 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura [2 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core [< 1 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura [< 1 ms]
+  Passed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [88 ms]
+  Passed HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso [128 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno [397 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { }) [2 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorSpan { }) [1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorUtf8Pooled { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorBaseline { }) [2 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorUtf8Pooled { }) [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { }) [8 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { }) [5 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorBaseline { }) [1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorBaseline { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento [1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_mesmo_com_erro [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes [14 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura [6 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core [1 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura [1 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto [9 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha [2 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces [2 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel [4 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico [9 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "nulo", pedido: null, esperado: Invalido) [1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "sem itens", pedido: Pedido { Id = 01a1a2d1-a0bc-7d6a-a947-107304309440, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "total zero", pedido: Pedido { Id = 01a1a2d1-a0bc-7533-9aa6-b0356da0abfc, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "normal", pedido: Pedido { Id = 01a1a2d1-a0bc-7809-bfd2-13a9195c1729, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "prioritário", pedido: Pedido { Id = 01a1a2d1-a0bc-7334-b068-e74d48d09bef, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "exterior vence prioridade", pedido: Pedido { Id = 01a1a2d1-a0bc-7595-a65d-acbf0afc4129, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 9.999,99 não é alto valor", pedido: Pedido { Id = 01a1a2d1-a0bc-7fc7-b2cf-2dd1c09f9035, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 10.000,00 é alto valor", pedido: Pedido { Id = 01a1a2d1-a0bc-790c-b2e2-778ba92726b8, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 99 unidades", pedido: Pedido { Id = 01a1a2d1-a0bc-7869-8692-fb0a93dac6fd, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 100 unidades", pedido: Pedido { Id = 01a1a2d1-a0bc-70ec-bbb7-a4c57c4367ed, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "21 itens distintos", pedido: Pedido { Id = 01a1a2d1-a0bc-76ca-93e1-f2eb87d45e48, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array [5 ms]
-  Passed HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original [1 ms]
-  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "00000000-0000-0000-0000-000000000000", valido: False) [5 ms]
-  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "abc", valido: False) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f", valido: True) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes [2 ms]
 warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
-      No XML encryptor configured. Key {0ff4aece-38d9-4620-8187-99f9ba6041ef} may be persisted to storage in unencrypted form.
+      No XML encryptor configured. Key {98eeab07-b009-4189-bdc0-d24b989b659d} may be persisted to storage in unencrypted form.
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -67,31 +69,32 @@ info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Testes
 info: Microsoft.Hosting.Lifetime[0]
       Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
-  Passed HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso [120 ms]
-  Passed HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio [7 ms]
-  Passed HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel [1 ms]
-  Passed HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao [119 ms]
+  Passed HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo [< 1 ms]
+  Passed HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao [310 ms]
   Passed HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync [2 ms]
   Passed HubPedidos.Tests.FilaTests.Modo_DropOldest_descarta_e_contabiliza [< 1 ms]
   Passed HubPedidos.Tests.FilaTests.Fila_concluida_nao_aceita_novos_itens [< 1 ms]
   Passed HubPedidos.Tests.ApiIntegracaoTests.Grafo_de_DI_e_valido_e_ambiente_de_testes_recusa_banco_em_arquivo [1 s]
   Passed HubPedidos.Tests.EfCoreTests.Parametros_do_usuario_nao_mudam_a_forma_do_SQL [1 s]
+  Passed HubPedidos.Tests.EfCoreTests.Painel_usa_dois_comandos_e_so_as_colunas_necessarias [101 ms]
 info: Microsoft.Hosting.Lifetime[0]
       Application is shutting down...
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:02.36]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
-[xUnit.net 00:00:02.37]       Assert.Equal() Failure: Strings differ
-[xUnit.net 00:00:02.37]                  ↓ (pos 0)
-[xUnit.net 00:00:02.37]       Expected: "private, no-cache"
-[xUnit.net 00:00:02.37]       Actual:   "no-cache, private"
-[xUnit.net 00:00:02.37]                  ↑ (pos 0)
-[xUnit.net 00:00:02.37]       Stack Trace:
-[xUnit.net 00:00:02.37]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(168,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
-[xUnit.net 00:00:02.37]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(169,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
-[xUnit.net 00:00:02.37]         --- End of stack trace from previous location ---
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -116,37 +119,15 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-  Passed HubPedidos.Tests.EfCoreTests.Painel_usa_dois_comandos_e_so_as_colunas_necessarias [132 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [144 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Versao_obsoleta_gera_conflito [40 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Atualizacao_usa_tracking_e_altera_so_as_colunas_mudadas [13 ms]
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [617 ms]
-  Error Message:
-   Assert.Equal() Failure: Strings differ
-           ↓ (pos 0)
-Expected: "private, no-cache"
-Actual:   "no-cache, private"
-           ↑ (pos 0)
-  Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
-   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
---- End of stack trace from previous location ---
-  Passed HubPedidos.Tests.EfCoreTests.Versao_ingenua_mostra_o_problema_N_mais_1 [87 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [21 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [212 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428 [167 ms]
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: Testes
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
-info: Microsoft.Hosting.Lifetime[0]
-      Application is shutting down...
-info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
-      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
-      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+  Passed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [111 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Versao_obsoleta_gera_conflito [34 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Atualizacao_usa_tracking_e_altera_so_as_colunas_mudadas [10 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [460 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Versao_ingenua_mostra_o_problema_N_mais_1 [75 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [17 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [162 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428 [131 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila [96 ms]
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -228,17 +209,15 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.80]   Finished:    HubPedidos.Tests
-  Passed HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila [123 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.Requisicao_invalida_recebe_400_com_os_campos [99 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando [144 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda [153 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404 [117 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [112 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor [298 ms]
+[xUnit.net 00:00:03.18]   Finished:    HubPedidos.Tests
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Requisicao_invalida_recebe_400_com_os_campos [85 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando [99 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda [135 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404 [101 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [90 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor [281 ms]
 
-Test Run Failed.
+Test Run Successful.
 Total tests: 68
-     Passed: 67
-     Failed: 1
- Total time: 4.2554 Seconds
+     Passed: 68
+ Total time: 3.6346 Seconds

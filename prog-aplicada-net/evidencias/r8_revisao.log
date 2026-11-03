@@ -16,26 +16,16 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:02.68
+Time Elapsed 00:00:01.82
 
 ===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
 
 ===== [revisão] 4/4 testes
 Test run for /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll (.NETCoreApp,Version=v10.0)
 A total of 1 test files matched the specified pattern.
-[xUnit.net 00:00:01.77]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [484 ms]
-  Error Message:
-   Assert.Equal() Failure: Strings differ
-           ↓ (pos 0)
-Expected: "private, no-cache"
-Actual:   "no-cache, private"
-           ↑ (pos 0)
-  Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
-   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
---- End of stack trace from previous location ---
 Results File: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/resultados-testes/resultado.trx
 
-Failed!  - Failed:     1, Passed:    67, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
-revisao.sh saiu com código 1
+Passed!  - Failed:     0, Passed:    68, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+
+===== [revisão] APROVADA
+revisao.sh saiu com código 0

@@ -1,25 +1,25 @@
 
 ===== [revisão] 1/4 restore
   Determining projects to restore...
-  Restored /tmp/gate/src/HubPedidos.Domain/HubPedidos.Domain.csproj (in 176 ms).
-  Restored /tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj (in 200 ms).
-  Restored /tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj (in 470 ms).
-  Restored /tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj (in 488 ms).
-  Restored /tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 283 ms).
-  Restored /tmp/gate/src/HubPedidos.Api/HubPedidos.Api.csproj (in 294 ms).
-  Restored /tmp/gate/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 41 ms).
+  Restored /tmp/gate/src/HubPedidos.Api/HubPedidos.Api.csproj (in 514 ms).
+  Restored /tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj (in 505 ms).
+  Restored /tmp/gate/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 503 ms).
+  Restored /tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj (in 504 ms).
+  Restored /tmp/gate/src/HubPedidos.Domain/HubPedidos.Domain.csproj (in 4 ms).
+  Restored /tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj (in 6 ms).
+  Restored /tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 11 ms).
 
 ===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
   HubPedidos.Domain -> /tmp/gate/src/HubPedidos.Domain/bin/Release/net10.0/HubPedidos.Domain.dll
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(98,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(40,13): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
   HubPedidos.Application -> /tmp/gate/src/HubPedidos.Application/bin/Release/net10.0/HubPedidos.Application.dll
   HubPedidos.Infrastructure -> /tmp/gate/src/HubPedidos.Infrastructure/bin/Release/net10.0/HubPedidos.Infrastructure.dll
 /tmp/gate/ferramentas/HubPedidos.Ferramentas/Carga.cs(33,82): warning CA1869: Avoid creating a new 'JsonSerializerOptions' instance for every serialization operation. Cache and reuse instances instead. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1869) [/tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-  HubPedidos.Ferramentas -> /tmp/gate/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas.dll
   HubPedidos.Benchmarks -> /tmp/gate/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks.dll
+  HubPedidos.Ferramentas -> /tmp/gate/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas.dll
   HubPedidos.Api -> /tmp/gate/src/HubPedidos.Api/bin/Release/net10.0/HubPedidos.Api.dll
 /tmp/gate/tests/HubPedidos.Tests/ImportacaoTests.cs(31,21): warning CA1710: Rename HubPedidos.Tests.StreamGerado to end in 'Stream' (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1710) [/tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
 /tmp/gate/tests/HubPedidos.Tests/ImportacaoTests.cs(70,27): warning CA1859: Change return type of method 'Texto' from 'System.IO.Stream' to 'System.IO.MemoryStream' for improved performance (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1859) [/tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
@@ -27,9 +27,9 @@
 
 Build succeeded.
 
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(98,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(40,13): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/ferramentas/HubPedidos.Ferramentas/Carga.cs(33,82): warning CA1869: Avoid creating a new 'JsonSerializerOptions' instance for every serialization operation. Cache and reuse instances instead. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1869) [/tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
 /tmp/gate/tests/HubPedidos.Tests/ImportacaoTests.cs(31,21): warning CA1710: Rename HubPedidos.Tests.StreamGerado to end in 'Stream' (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1710) [/tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
@@ -37,15 +37,15 @@ Build succeeded.
     7 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:03.65
+Time Elapsed 00:00:03.23
 
 ===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
 
 ===== [revisão] 4/4 testes
 Test run for /tmp/gate/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll (.NETCoreApp,Version=v10.0)
 A total of 1 test files matched the specified pattern.
-[xUnit.net 00:00:00.90]     HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [FAIL]
-  Failed HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [1 ms]
+[xUnit.net 00:00:00.17]     HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [FAIL]
+  Failed HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [5 ms]
   Error Message:
    Assert.Equal() Failure: Values differ
 Expected: 74.80
@@ -54,20 +54,8 @@ Actual:   69.80
      at HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado() in /tmp/gate/tests/HubPedidos.Tests/FalhaProposital.cs:line 6
    at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
-[xUnit.net 00:00:01.89]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [640 ms]
-  Error Message:
-   Assert.Equal() Failure: Strings differ
-           ↓ (pos 0)
-Expected: "private, no-cache"
-Actual:   "no-cache, private"
-           ↑ (pos 0)
-  Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /tmp/gate/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
-   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /tmp/gate/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
---- End of stack trace from previous location ---
 WARNING: Overwriting results file: /tmp/gate/resultados-testes/resultado.trx
 Results File: /tmp/gate/resultados-testes/resultado.trx
 
-Failed!  - Failed:     2, Passed:    67, Skipped:     0, Total:    69, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+Failed!  - Failed:     1, Passed:    68, Skipped:     0, Total:    69, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
 revisao.sh saiu com código 1
