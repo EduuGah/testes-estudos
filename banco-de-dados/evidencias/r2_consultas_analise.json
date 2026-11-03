@@ -1,0 +1,639 @@
+[
+ {
+  "id": "r2_dados",
+  "descricao": "Dados adicionais coerentes (sem apagar os do Roteiro 1)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Diego Rocha',    'diego.rocha@email.com',    'Belo Horizonte', 'MG', '2026-09-20'),\n('Elisa Fernandes','elisa.fernandes@email.com','Santos',         'SP', '2026-10-02');\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-12 16:20', 'Enviado', 119.80),\n(5, '2026-10-22 11:00', 'Entregue', 349.90);\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(4, 7, 2,  59.90),\n(5, 2, 1, 349.90);",
+   "SELECT COUNT(*) AS Clientes FROM dbo.Clientes;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.932",
+    "ms": 0
+   },
+   {
+    "sql": "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Diego Rocha',    'diego.rocha@email.com',    'Belo Horizonte', 'MG', '2026-09-20'),\n('Elisa Fernandes','elisa.fernandes@email.com','Santos',         'SP', '2026-10-02');\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-12 16:20', 'Enviado', 119.80),\n(5, '2026-10-22 11:00', 'Entregue', 349.90);\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(4, 7, 2,  59.90),\n(5, 2, 1, 349.90);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição FOREIGN KEY \"FK_Pedidos_Clientes\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Clientes\", column 'ClienteID'. (547)",
+    "inicio": "16:15:14.932",
+    "ms": 5
+   },
+   {
+    "sql": "SELECT COUNT(*) AS Clientes FROM dbo.Clientes;",
+    "resultados": [
+     {
+      "colunas": [
+       "Clientes"
+      ],
+      "linhas": [
+       [
+        5
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.938",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r2_filtros",
+  "descricao": "Etapa 1 – filtros e ordenação",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "-- clientes de SP em ordem alfabética\nSELECT Nome, Cidade, Estado FROM dbo.Clientes WHERE Estado = 'SP' ORDER BY Nome;\n-- clientes cujo nome contém um trecho\nSELECT Nome, Email FROM dbo.Clientes WHERE Nome LIKE '%ar%';\n-- produtos ativos com preço entre dois valores\nSELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos\nWHERE Ativo = 1 AND Preco BETWEEN 50.00 AND 500.00 ORDER BY Preco DESC;\n-- estoque abaixo de dez unidades\nSELECT Nome, Estoque FROM dbo.Produtos WHERE Estoque < 10 ORDER BY Estoque;\n-- status diferentes existentes\nSELECT DISTINCT StatusPedido FROM dbo.Pedidos;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.939",
+    "ms": 0
+   },
+   {
+    "sql": "-- clientes de SP em ordem alfabética\nSELECT Nome, Cidade, Estado FROM dbo.Clientes WHERE Estado = 'SP' ORDER BY Nome;\n-- clientes cujo nome contém um trecho\nSELECT Nome, Email FROM dbo.Clientes WHERE Nome LIKE '%ar%';\n-- produtos ativos com preço entre dois valores\nSELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos\nWHERE Ativo = 1 AND Preco BETWEEN 50.00 AND 500.00 ORDER BY Preco DESC;\n-- estoque abaixo de dez unidades\nSELECT Nome, Estoque FROM dbo.Produtos WHERE Estoque < 10 ORDER BY Estoque;\n-- status diferentes existentes\nSELECT DISTINCT StatusPedido FROM dbo.Pedidos;",
+    "resultados": [
+     {
+      "colunas": [
+       "Nome",
+       "Cidade",
+       "Estado"
+      ],
+      "linhas": [
+       [
+        "Ana Souza",
+        "São Paulo",
+        "SP"
+       ],
+       [
+        "Carla Mendes",
+        "Campinas",
+        "SP"
+       ],
+       [
+        "Elisa Fernandes",
+        "Santos",
+        "SP"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Nome",
+       "Email"
+      ],
+      "linhas": [
+       [
+        "Carla Mendes",
+        "carla.mendes@email.com"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        2,
+        "Teclado Mecânico",
+        "349.90",
+        12
+       ],
+       [
+        1,
+        "Fone Bluetooth",
+        "199.90",
+        25
+       ],
+       [
+        4,
+        "Livro SQL Server na Prática",
+        "120.00",
+        4
+       ],
+       [
+        3,
+        "Mouse sem Fio",
+        "99.90",
+        50
+       ],
+       [
+        5,
+        "Livro Lógica de Programação",
+        "75.50",
+        0
+       ],
+       [
+        7,
+        "Luminária LED",
+        "59.90",
+        3
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "Livro Lógica de Programação",
+        0
+       ],
+       [
+        "Luminária LED",
+        3
+       ],
+       [
+        "Livro SQL Server na Prática",
+        4
+       ],
+       [
+        "Monitor 27 polegadas",
+        8
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "StatusPedido"
+      ],
+      "linhas": [
+       [
+        "Entregue"
+       ],
+       [
+        "Pago"
+       ],
+       [
+        "Pendente"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.939",
+    "ms": 7
+   }
+  ]
+ },
+ {
+  "id": "r2_joins",
+  "descricao": "Etapa 2 – consultas com relacionamentos",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "-- INNER JOIN: só pedidos que têm cliente correspondente\nSELECT p.PedidoID, c.Nome AS Cliente, c.Email, p.StatusPedido, p.ValorTotal\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.Clientes AS c ON c.ClienteID = p.ClienteID\nORDER BY p.PedidoID;\n-- LEFT JOIN: todos os clientes, inclusive quem ainda não comprou\nSELECT c.Nome AS Cliente, p.PedidoID, p.DataPedido, p.StatusPedido, p.ValorTotal\nFROM dbo.Clientes AS c\nLEFT JOIN dbo.Pedidos AS p ON p.ClienteID = c.ClienteID\nORDER BY c.Nome, p.DataPedido;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.947",
+    "ms": 0
+   },
+   {
+    "sql": "-- INNER JOIN: só pedidos que têm cliente correspondente\nSELECT p.PedidoID, c.Nome AS Cliente, c.Email, p.StatusPedido, p.ValorTotal\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.Clientes AS c ON c.ClienteID = p.ClienteID\nORDER BY p.PedidoID;\n-- LEFT JOIN: todos os clientes, inclusive quem ainda não comprou\nSELECT c.Nome AS Cliente, p.PedidoID, p.DataPedido, p.StatusPedido, p.ValorTotal\nFROM dbo.Clientes AS c\nLEFT JOIN dbo.Pedidos AS p ON p.ClienteID = c.ClienteID\nORDER BY c.Nome, p.DataPedido;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "Cliente",
+       "Email",
+       "StatusPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        "Ana Souza",
+        "ana.souza@email.com",
+        "Entregue",
+        "379.70"
+       ],
+       [
+        2,
+        "Bruno Lima",
+        "bruno.lima@email.com",
+        "Pago",
+        "469.90"
+       ],
+       [
+        3,
+        "Ana Souza",
+        "ana.souza@email.com",
+        "Pendente",
+        "1299.00"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Cliente",
+       "PedidoID",
+       "DataPedido",
+       "StatusPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        "Ana Souza",
+        1,
+        "2026-09-10 10:15:00",
+        "Entregue",
+        "379.70"
+       ],
+       [
+        "Ana Souza",
+        3,
+        "2026-10-20 09:05:00",
+        "Pendente",
+        "1299.00"
+       ],
+       [
+        "Bruno Lima",
+        2,
+        "2026-10-05 14:40:00",
+        "Pago",
+        "469.90"
+       ],
+       [
+        "Carla Mendes",
+        null,
+        null,
+        null,
+        null
+       ],
+       [
+        "Diego Rocha",
+        null,
+        null,
+        null,
+        null
+       ],
+       [
+        "Elisa Fernandes",
+        null,
+        null,
+        null,
+        null
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.947",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r2_agregacoes",
+  "descricao": "Etapa 3 – indicadores com funções agregadas",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT (SELECT COUNT(*) FROM dbo.Clientes) AS Clientes,\n       (SELECT COUNT(*) FROM dbo.Produtos) AS Produtos,\n       (SELECT COUNT(*) FROM dbo.Pedidos)  AS Pedidos;\n\nSELECT MIN(Preco) AS MenorPreco, MAX(Preco) AS MaiorPreco, CAST(AVG(Preco) AS DECIMAL(10,2)) AS PrecoMedio\nFROM dbo.Produtos WHERE Ativo = 1;\n\nSELECT c.Nome AS Categoria, COUNT(*) AS Produtos, CAST(AVG(p.Preco) AS DECIMAL(10,2)) AS PrecoMedio\nFROM dbo.Produtos AS p INNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nGROUP BY c.Nome ORDER BY Produtos DESC;\n\n-- HAVING filtra os grupos (WHERE filtraria as linhas antes do agrupamento)\nSELECT c.Nome AS Categoria, COUNT(*) AS Produtos\nFROM dbo.Produtos AS p INNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nGROUP BY c.Nome HAVING COUNT(*) > 1;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.949",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT (SELECT COUNT(*) FROM dbo.Clientes) AS Clientes,\n       (SELECT COUNT(*) FROM dbo.Produtos) AS Produtos,\n       (SELECT COUNT(*) FROM dbo.Pedidos)  AS Pedidos;\n\nSELECT MIN(Preco) AS MenorPreco, MAX(Preco) AS MaiorPreco, CAST(AVG(Preco) AS DECIMAL(10,2)) AS PrecoMedio\nFROM dbo.Produtos WHERE Ativo = 1;\n\nSELECT c.Nome AS Categoria, COUNT(*) AS Produtos, CAST(AVG(p.Preco) AS DECIMAL(10,2)) AS PrecoMedio\nFROM dbo.Produtos AS p INNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nGROUP BY c.Nome ORDER BY Produtos DESC;\n\n-- HAVING filtra os grupos (WHERE filtraria as linhas antes do agrupamento)\nSELECT c.Nome AS Categoria, COUNT(*) AS Produtos\nFROM dbo.Produtos AS p INNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nGROUP BY c.Nome HAVING COUNT(*) > 1;",
+    "resultados": [
+     {
+      "colunas": [
+       "Clientes",
+       "Produtos",
+       "Pedidos"
+      ],
+      "linhas": [
+       [
+        5,
+        8,
+        3
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "MenorPreco",
+       "MaiorPreco",
+       "PrecoMedio"
+      ],
+      "linhas": [
+       [
+        "59.90",
+        "1299.00",
+        "314.87"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Categoria",
+       "Produtos",
+       "PrecoMedio"
+      ],
+      "linhas": [
+       [
+        "Eletrônicos",
+        4,
+        "487.18"
+       ],
+       [
+        "Livros",
+        2,
+        "97.75"
+       ],
+       [
+        "Casa",
+        2,
+        "154.45"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Categoria",
+       "Produtos"
+      ],
+      "linhas": [
+       [
+        "Casa",
+        2
+       ],
+       [
+        "Eletrônicos",
+        4
+       ],
+       [
+        "Livros",
+        2
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.950",
+    "ms": 6
+   }
+  ]
+ },
+ {
+  "id": "r2_subconsultas",
+  "descricao": "Etapa 4 – subconsultas e CASE",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT ProdutoID, Nome, Preco, Estoque,\n       CASE WHEN Estoque < 5  THEN 'Crítico'\n            WHEN Estoque < 15 THEN 'Baixo'\n            ELSE 'Adequado' END AS SituacaoEstoque\nFROM dbo.Produtos\nWHERE Preco > (SELECT AVG(Preco) FROM dbo.Produtos WHERE Ativo = 1)\nORDER BY Preco DESC;\n\nSELECT Nome FROM dbo.Clientes AS c\nWHERE EXISTS (SELECT 1 FROM dbo.Pedidos AS p WHERE p.ClienteID = c.ClienteID);\n\nSELECT PedidoID, ClienteID, ValorTotal FROM dbo.Pedidos\nWHERE ValorTotal = (SELECT MAX(ValorTotal) FROM dbo.Pedidos);\n\nSELECT Nome, Estoque,\n       CASE WHEN Estoque < 5 THEN 'Crítico' WHEN Estoque < 15 THEN 'Baixo' ELSE 'Adequado' END AS SituacaoEstoque\nFROM dbo.Produtos ORDER BY Estoque;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.956",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT ProdutoID, Nome, Preco, Estoque,\n       CASE WHEN Estoque < 5  THEN 'Crítico'\n            WHEN Estoque < 15 THEN 'Baixo'\n            ELSE 'Adequado' END AS SituacaoEstoque\nFROM dbo.Produtos\nWHERE Preco > (SELECT AVG(Preco) FROM dbo.Produtos WHERE Ativo = 1)\nORDER BY Preco DESC;\n\nSELECT Nome FROM dbo.Clientes AS c\nWHERE EXISTS (SELECT 1 FROM dbo.Pedidos AS p WHERE p.ClienteID = c.ClienteID);\n\nSELECT PedidoID, ClienteID, ValorTotal FROM dbo.Pedidos\nWHERE ValorTotal = (SELECT MAX(ValorTotal) FROM dbo.Pedidos);\n\nSELECT Nome, Estoque,\n       CASE WHEN Estoque < 5 THEN 'Crítico' WHEN Estoque < 15 THEN 'Baixo' ELSE 'Adequado' END AS SituacaoEstoque\nFROM dbo.Produtos ORDER BY Estoque;",
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Estoque",
+       "SituacaoEstoque"
+      ],
+      "linhas": [
+       [
+        6,
+        "Monitor 27 polegadas",
+        "1299.00",
+        8,
+        "Baixo"
+       ],
+       [
+        2,
+        "Teclado Mecânico",
+        "349.90",
+        12,
+        "Baixo"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Nome"
+      ],
+      "linhas": [
+       [
+        "Ana Souza"
+       ],
+       [
+        "Bruno Lima"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "ClienteID",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        3,
+        1,
+        "1299.00"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Nome",
+       "Estoque",
+       "SituacaoEstoque"
+      ],
+      "linhas": [
+       [
+        "Livro Lógica de Programação",
+        0,
+        "Crítico"
+       ],
+       [
+        "Luminária LED",
+        3,
+        "Crítico"
+       ],
+       [
+        "Livro SQL Server na Prática",
+        4,
+        "Crítico"
+       ],
+       [
+        "Monitor 27 polegadas",
+        8,
+        "Baixo"
+       ],
+       [
+        "Teclado Mecânico",
+        12,
+        "Baixo"
+       ],
+       [
+        "Cafeteira Elétrica",
+        15,
+        "Adequado"
+       ],
+       [
+        "Fone Bluetooth",
+        25,
+        "Adequado"
+       ],
+       [
+        "Mouse sem Fio",
+        50,
+        "Adequado"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.957",
+    "ms": 16
+   }
+  ]
+ },
+ {
+  "id": "r2_sintese",
+  "descricao": "Etapa 5 – síntese gerencial",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT c.ClienteID, c.Nome,\n       COUNT(p.PedidoID)               AS QuantidadePedidos,\n       COALESCE(SUM(p.ValorTotal), 0)  AS TotalComprado,\n       CAST(COALESCE(AVG(p.ValorTotal), 0) AS DECIMAL(10,2)) AS ValorMedio\nFROM dbo.Clientes AS c\nLEFT JOIN dbo.Pedidos AS p ON p.ClienteID = c.ClienteID\nGROUP BY c.ClienteID, c.Nome\nORDER BY TotalComprado DESC;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.973",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT c.ClienteID, c.Nome,\n       COUNT(p.PedidoID)               AS QuantidadePedidos,\n       COALESCE(SUM(p.ValorTotal), 0)  AS TotalComprado,\n       CAST(COALESCE(AVG(p.ValorTotal), 0) AS DECIMAL(10,2)) AS ValorMedio\nFROM dbo.Clientes AS c\nLEFT JOIN dbo.Pedidos AS p ON p.ClienteID = c.ClienteID\nGROUP BY c.ClienteID, c.Nome\nORDER BY TotalComprado DESC;",
+    "resultados": [
+     {
+      "colunas": [
+       "ClienteID",
+       "Nome",
+       "QuantidadePedidos",
+       "TotalComprado",
+       "ValorMedio"
+      ],
+      "linhas": [
+       [
+        1,
+        "Ana Souza",
+        2,
+        "1678.70",
+        "839.35"
+       ],
+       [
+        2,
+        "Bruno Lima",
+        1,
+        "469.90",
+        "469.90"
+       ],
+       [
+        3,
+        "Carla Mendes",
+        0,
+        "0.00",
+        "0.00"
+       ],
+       [
+        6,
+        "Diego Rocha",
+        0,
+        "0.00",
+        "0.00"
+       ],
+       [
+        7,
+        "Elisa Fernandes",
+        0,
+        "0.00",
+        "0.00"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.973",
+    "ms": 3
+   }
+  ]
+ }
+]

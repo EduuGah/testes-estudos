@@ -1,0 +1,551 @@
+[
+ {
+  "id": "r3_views",
+  "descricao": "Etapa 1 – views",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER VIEW dbo.vw_ProdutosAtivos\nAS\nSELECT p.ProdutoID, p.Nome AS Produto, c.Nome AS Categoria, p.Preco, p.Estoque\nFROM dbo.Produtos AS p\nINNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nWHERE p.Ativo = 1;",
+   "CREATE OR ALTER VIEW dbo.vw_ResumoPedidos\nAS\nSELECT p.PedidoID, p.DataPedido, p.StatusPedido,\n       c.ClienteID, c.Nome AS Cliente,\n       COUNT(ip.ItemPedidoID)               AS QuantidadeItens,\n       SUM(ip.Quantidade * ip.PrecoUnitario) AS ValorCalculado\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.Clientes    AS c  ON c.ClienteID = p.ClienteID\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nGROUP BY p.PedidoID, p.DataPedido, p.StatusPedido, c.ClienteID, c.Nome;",
+   "CREATE OR ALTER VIEW dbo.vw_ClientesSemPedidos\nAS\nSELECT c.ClienteID, c.Nome, c.Email, c.Cidade\nFROM dbo.Clientes AS c\nLEFT JOIN dbo.Pedidos AS p ON p.ClienteID = c.ClienteID\nWHERE p.PedidoID IS NULL;",
+   "SELECT * FROM dbo.vw_ProdutosAtivos WHERE Categoria = 'Eletrônicos' ORDER BY Preco DESC;\nSELECT * FROM dbo.vw_ResumoPedidos ORDER BY ValorCalculado DESC;\nSELECT * FROM dbo.vw_ClientesSemPedidos;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.977",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER VIEW dbo.vw_ProdutosAtivos\nAS\nSELECT p.ProdutoID, p.Nome AS Produto, c.Nome AS Categoria, p.Preco, p.Estoque\nFROM dbo.Produtos AS p\nINNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nWHERE p.Ativo = 1;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.977",
+    "ms": 2
+   },
+   {
+    "sql": "CREATE OR ALTER VIEW dbo.vw_ResumoPedidos\nAS\nSELECT p.PedidoID, p.DataPedido, p.StatusPedido,\n       c.ClienteID, c.Nome AS Cliente,\n       COUNT(ip.ItemPedidoID)               AS QuantidadeItens,\n       SUM(ip.Quantidade * ip.PrecoUnitario) AS ValorCalculado\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.Clientes    AS c  ON c.ClienteID = p.ClienteID\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nGROUP BY p.PedidoID, p.DataPedido, p.StatusPedido, c.ClienteID, c.Nome;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.979",
+    "ms": 1
+   },
+   {
+    "sql": "CREATE OR ALTER VIEW dbo.vw_ClientesSemPedidos\nAS\nSELECT c.ClienteID, c.Nome, c.Email, c.Cidade\nFROM dbo.Clientes AS c\nLEFT JOIN dbo.Pedidos AS p ON p.ClienteID = c.ClienteID\nWHERE p.PedidoID IS NULL;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.980",
+    "ms": 1
+   },
+   {
+    "sql": "SELECT * FROM dbo.vw_ProdutosAtivos WHERE Categoria = 'Eletrônicos' ORDER BY Preco DESC;\nSELECT * FROM dbo.vw_ResumoPedidos ORDER BY ValorCalculado DESC;\nSELECT * FROM dbo.vw_ClientesSemPedidos;",
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Produto",
+       "Categoria",
+       "Preco",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        6,
+        "Monitor 27 polegadas",
+        "Eletrônicos",
+        "1299.00",
+        8
+       ],
+       [
+        2,
+        "Teclado Mecânico",
+        "Eletrônicos",
+        "349.90",
+        12
+       ],
+       [
+        1,
+        "Fone Bluetooth",
+        "Eletrônicos",
+        "199.90",
+        25
+       ],
+       [
+        3,
+        "Mouse sem Fio",
+        "Eletrônicos",
+        "99.90",
+        50
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "DataPedido",
+       "StatusPedido",
+       "ClienteID",
+       "Cliente",
+       "QuantidadeItens",
+       "ValorCalculado"
+      ],
+      "linhas": [
+       [
+        3,
+        "2026-10-20 09:05:00",
+        "Pendente",
+        1,
+        "Ana Souza",
+        1,
+        "1299.00"
+       ],
+       [
+        2,
+        "2026-10-05 14:40:00",
+        "Pago",
+        2,
+        "Bruno Lima",
+        2,
+        "469.90"
+       ],
+       [
+        1,
+        "2026-09-10 10:15:00",
+        "Entregue",
+        1,
+        "Ana Souza",
+        2,
+        "379.70"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ClienteID",
+       "Nome",
+       "Email",
+       "Cidade"
+      ],
+      "linhas": [
+       [
+        3,
+        "Carla Mendes",
+        "carla.mendes@email.com",
+        "Campinas"
+       ],
+       [
+        6,
+        "Diego Rocha",
+        "diego.rocha@email.com",
+        "Belo Horizonte"
+       ],
+       [
+        7,
+        "Elisa Fernandes",
+        "elisa.fernandes@email.com",
+        "Santos"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.981",
+    "ms": 6
+   }
+  ]
+ },
+ {
+  "id": "r3_functions",
+  "descricao": "Etapa 2 – função escalar e função de tabela",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER FUNCTION dbo.fn_CalcularSubtotal (@Quantidade INT, @PrecoUnitario DECIMAL(10,2))\nRETURNS DECIMAL(12,2)\nAS\nBEGIN\n    RETURN @Quantidade * @PrecoUnitario;\nEND;",
+   "CREATE OR ALTER FUNCTION dbo.fn_PedidosPorCliente (@ClienteID INT)\nRETURNS TABLE\nAS\nRETURN\n(\n    SELECT PedidoID, DataPedido, StatusPedido, ValorTotal\n    FROM dbo.Pedidos\n    WHERE ClienteID = @ClienteID\n);",
+   "SELECT dbo.fn_CalcularSubtotal(3, 19.90) AS TesteDireto;\nSELECT ItemPedidoID, PedidoID, Quantidade, PrecoUnitario,\n       dbo.fn_CalcularSubtotal(Quantidade, PrecoUnitario) AS Subtotal\nFROM dbo.ItensPedido;\nSELECT * FROM dbo.fn_PedidosPorCliente(1);\nSELECT * FROM dbo.fn_PedidosPorCliente(6);   -- cliente sem pedidos: tabela vazia"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.988",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER FUNCTION dbo.fn_CalcularSubtotal (@Quantidade INT, @PrecoUnitario DECIMAL(10,2))\nRETURNS DECIMAL(12,2)\nAS\nBEGIN\n    RETURN @Quantidade * @PrecoUnitario;\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.988",
+    "ms": 1
+   },
+   {
+    "sql": "CREATE OR ALTER FUNCTION dbo.fn_PedidosPorCliente (@ClienteID INT)\nRETURNS TABLE\nAS\nRETURN\n(\n    SELECT PedidoID, DataPedido, StatusPedido, ValorTotal\n    FROM dbo.Pedidos\n    WHERE ClienteID = @ClienteID\n);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.990",
+    "ms": 1
+   },
+   {
+    "sql": "SELECT dbo.fn_CalcularSubtotal(3, 19.90) AS TesteDireto;\nSELECT ItemPedidoID, PedidoID, Quantidade, PrecoUnitario,\n       dbo.fn_CalcularSubtotal(Quantidade, PrecoUnitario) AS Subtotal\nFROM dbo.ItensPedido;\nSELECT * FROM dbo.fn_PedidosPorCliente(1);\nSELECT * FROM dbo.fn_PedidosPorCliente(6);   -- cliente sem pedidos: tabela vazia",
+    "resultados": [
+     {
+      "colunas": [
+       "TesteDireto"
+      ],
+      "linhas": [
+       [
+        "59.70"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ItemPedidoID",
+       "PedidoID",
+       "Quantidade",
+       "PrecoUnitario",
+       "Subtotal"
+      ],
+      "linhas": [
+       [
+        1,
+        1,
+        1,
+        "199.90",
+        "199.90"
+       ],
+       [
+        2,
+        1,
+        2,
+        "89.90",
+        "179.80"
+       ],
+       [
+        3,
+        2,
+        1,
+        "349.90",
+        "349.90"
+       ],
+       [
+        4,
+        2,
+        1,
+        "120.00",
+        "120.00"
+       ],
+       [
+        5,
+        3,
+        1,
+        "1299.00",
+        "1299.00"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "DataPedido",
+       "StatusPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        "2026-09-10 10:15:00",
+        "Entregue",
+        "379.70"
+       ],
+       [
+        3,
+        "2026-10-20 09:05:00",
+        "Pendente",
+        "1299.00"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "DataPedido",
+       "StatusPedido",
+       "ValorTotal"
+      ],
+      "linhas": []
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.991",
+    "ms": 3
+   }
+  ]
+ },
+ {
+  "id": "r3_proc_consulta",
+  "descricao": "Etapa 3 – procedure de consulta com parâmetro opcional",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER PROCEDURE dbo.sp_ListarPedidosCliente\n    @ClienteID    INT,\n    @StatusPedido VARCHAR(20) = NULL\nAS\nBEGIN\n    SET NOCOUNT ON;\n    SELECT PedidoID, DataPedido, StatusPedido, Cliente, QuantidadeItens, ValorCalculado\n    FROM dbo.vw_ResumoPedidos\n    WHERE ClienteID = @ClienteID\n      AND (@StatusPedido IS NULL OR StatusPedido = @StatusPedido)\n    ORDER BY DataPedido DESC;\nEND;",
+   "EXEC dbo.sp_ListarPedidosCliente @ClienteID = 1;\nEXEC dbo.sp_ListarPedidosCliente @ClienteID = 1, @StatusPedido = 'Pendente';"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.994",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER PROCEDURE dbo.sp_ListarPedidosCliente\n    @ClienteID    INT,\n    @StatusPedido VARCHAR(20) = NULL\nAS\nBEGIN\n    SET NOCOUNT ON;\n    SELECT PedidoID, DataPedido, StatusPedido, Cliente, QuantidadeItens, ValorCalculado\n    FROM dbo.vw_ResumoPedidos\n    WHERE ClienteID = @ClienteID\n      AND (@StatusPedido IS NULL OR StatusPedido = @StatusPedido)\n    ORDER BY DataPedido DESC;\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.994",
+    "ms": 1
+   },
+   {
+    "sql": "EXEC dbo.sp_ListarPedidosCliente @ClienteID = 1;\nEXEC dbo.sp_ListarPedidosCliente @ClienteID = 1, @StatusPedido = 'Pendente';",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "DataPedido",
+       "StatusPedido",
+       "Cliente",
+       "QuantidadeItens",
+       "ValorCalculado"
+      ],
+      "linhas": [
+       [
+        3,
+        "2026-10-20 09:05:00",
+        "Pendente",
+        "Ana Souza",
+        1,
+        "1299.00"
+       ],
+       [
+        1,
+        "2026-09-10 10:15:00",
+        "Entregue",
+        "Ana Souza",
+        2,
+        "379.70"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "DataPedido",
+       "StatusPedido",
+       "Cliente",
+       "QuantidadeItens",
+       "ValorCalculado"
+      ],
+      "linhas": [
+       [
+        3,
+        "2026-10-20 09:05:00",
+        "Pendente",
+        "Ana Souza",
+        1,
+        "1299.00"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.995",
+    "ms": 4
+   }
+  ]
+ },
+ {
+  "id": "r3_proc_preco",
+  "descricao": "Etapa 4 – procedure de atualização com OUTPUT",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER PROCEDURE dbo.sp_AtualizarPrecoProduto\n    @ProdutoID      INT,\n    @NovoPreco      DECIMAL(10,2),\n    @LinhasAfetadas INT OUTPUT\nAS\nBEGIN\n    SET NOCOUNT ON;\n    IF @NovoPreco <= 0\n        THROW 50001, 'O preço deve ser maior que zero.', 1;\n    IF NOT EXISTS (SELECT 1 FROM dbo.Produtos WHERE ProdutoID = @ProdutoID)\n        THROW 50002, 'Produto não encontrado.', 1;\n\n    UPDATE dbo.Produtos SET Preco = @NovoPreco WHERE ProdutoID = @ProdutoID;\n    SET @LinhasAfetadas = @@ROWCOUNT;\nEND;",
+   "-- teste 1: produto existente (integração: view -> procedure -> view)\nSELECT ProdutoID, Produto, Preco FROM dbo.vw_ProdutosAtivos WHERE ProdutoID = 1;\nDECLARE @Linhas INT;\nEXEC dbo.sp_AtualizarPrecoProduto @ProdutoID = 1, @NovoPreco = 189.90, @LinhasAfetadas = @Linhas OUTPUT;\nSELECT @Linhas AS LinhasAfetadas;\nSELECT ProdutoID, Produto, Preco FROM dbo.vw_ProdutosAtivos WHERE ProdutoID = 1;",
+   "-- teste 2: produto inexistente\nDECLARE @Linhas INT;\nEXEC dbo.sp_AtualizarPrecoProduto @ProdutoID = 999, @NovoPreco = 50.00, @LinhasAfetadas = @Linhas OUTPUT;",
+   "-- teste 3: preço inválido\nDECLARE @Linhas INT;\nEXEC dbo.sp_AtualizarPrecoProduto @ProdutoID = 1, @NovoPreco = -5.00, @LinhasAfetadas = @Linhas OUTPUT;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.999",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER PROCEDURE dbo.sp_AtualizarPrecoProduto\n    @ProdutoID      INT,\n    @NovoPreco      DECIMAL(10,2),\n    @LinhasAfetadas INT OUTPUT\nAS\nBEGIN\n    SET NOCOUNT ON;\n    IF @NovoPreco <= 0\n        THROW 50001, 'O preço deve ser maior que zero.', 1;\n    IF NOT EXISTS (SELECT 1 FROM dbo.Produtos WHERE ProdutoID = @ProdutoID)\n        THROW 50002, 'Produto não encontrado.', 1;\n\n    UPDATE dbo.Produtos SET Preco = @NovoPreco WHERE ProdutoID = @ProdutoID;\n    SET @LinhasAfetadas = @@ROWCOUNT;\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.000",
+    "ms": 2
+   },
+   {
+    "sql": "-- teste 1: produto existente (integração: view -> procedure -> view)\nSELECT ProdutoID, Produto, Preco FROM dbo.vw_ProdutosAtivos WHERE ProdutoID = 1;\nDECLARE @Linhas INT;\nEXEC dbo.sp_AtualizarPrecoProduto @ProdutoID = 1, @NovoPreco = 189.90, @LinhasAfetadas = @Linhas OUTPUT;\nSELECT @Linhas AS LinhasAfetadas;\nSELECT ProdutoID, Produto, Preco FROM dbo.vw_ProdutosAtivos WHERE ProdutoID = 1;",
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Produto",
+       "Preco"
+      ],
+      "linhas": [
+       [
+        1,
+        "Fone Bluetooth",
+        "199.90"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "LinhasAfetadas"
+      ],
+      "linhas": [
+       [
+        1
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Produto",
+       "Preco"
+      ],
+      "linhas": [
+       [
+        1,
+        "Fone Bluetooth",
+        "189.90"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.001",
+    "ms": 6
+   },
+   {
+    "sql": "-- teste 2: produto inexistente\nDECLARE @Linhas INT;\nEXEC dbo.sp_AtualizarPrecoProduto @ProdutoID = 999, @NovoPreco = 50.00, @LinhasAfetadas = @Linhas OUTPUT;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Produto não encontrado. (50002)",
+    "inicio": "16:15:15.007",
+    "ms": 1
+   },
+   {
+    "sql": "-- teste 3: preço inválido\nDECLARE @Linhas INT;\nEXEC dbo.sp_AtualizarPrecoProduto @ProdutoID = 1, @NovoPreco = -5.00, @LinhasAfetadas = @Linhas OUTPUT;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O preço deve ser maior que zero. (50001)",
+    "inicio": "16:15:15.008",
+    "ms": 0
+   }
+  ]
+ },
+ {
+  "id": "r3_integracao",
+  "descricao": "Etapa 5 – comparação função escalar x view",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT r.PedidoID, r.ValorCalculado AS ValorDaView,\n       (SELECT SUM(dbo.fn_CalcularSubtotal(ip.Quantidade, ip.PrecoUnitario))\n        FROM dbo.ItensPedido AS ip WHERE ip.PedidoID = r.PedidoID) AS ValorDaFuncao,\n       p.ValorTotal AS ValorGravadoNoPedido\nFROM dbo.vw_ResumoPedidos AS r\nINNER JOIN dbo.Pedidos AS p ON p.PedidoID = r.PedidoID\nORDER BY r.PedidoID;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.008",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT r.PedidoID, r.ValorCalculado AS ValorDaView,\n       (SELECT SUM(dbo.fn_CalcularSubtotal(ip.Quantidade, ip.PrecoUnitario))\n        FROM dbo.ItensPedido AS ip WHERE ip.PedidoID = r.PedidoID) AS ValorDaFuncao,\n       p.ValorTotal AS ValorGravadoNoPedido\nFROM dbo.vw_ResumoPedidos AS r\nINNER JOIN dbo.Pedidos AS p ON p.PedidoID = r.PedidoID\nORDER BY r.PedidoID;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "ValorDaView",
+       "ValorDaFuncao",
+       "ValorGravadoNoPedido"
+      ],
+      "linhas": [
+       [
+        1,
+        "379.70",
+        "379.70",
+        "379.70"
+       ],
+       [
+        2,
+        "469.90",
+        "469.90",
+        "469.90"
+       ],
+       [
+        3,
+        "1299.00",
+        "1299.00",
+        "1299.00"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.009",
+    "ms": 10
+   }
+  ]
+ }
+]

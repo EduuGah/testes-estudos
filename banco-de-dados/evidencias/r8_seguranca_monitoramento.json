@@ -1,0 +1,529 @@
+[
+ {
+  "id": "r8_view",
+  "descricao": "Demonstração – interface de leitura do catálogo",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER VIEW dbo.vw_CatalogoPublico\nAS\nSELECT ProdutoID, Nome, Preco,\n       CASE WHEN Estoque > 0 THEN 'Disponível' ELSE 'Indisponível' END AS Disponibilidade\nFROM dbo.Produtos\nWHERE Ativo = 1;",
+   "SELECT ProdutoID, Nome, Preco, Disponibilidade FROM dbo.vw_CatalogoPublico;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.445",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER VIEW dbo.vw_CatalogoPublico\nAS\nSELECT ProdutoID, Nome, Preco,\n       CASE WHEN Estoque > 0 THEN 'Disponível' ELSE 'Indisponível' END AS Disponibilidade\nFROM dbo.Produtos\nWHERE Ativo = 1;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.445",
+    "ms": 1
+   },
+   {
+    "sql": "SELECT ProdutoID, Nome, Preco, Disponibilidade FROM dbo.vw_CatalogoPublico;",
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Disponibilidade"
+      ],
+      "linhas": [
+       [
+        1,
+        "Fone Bluetooth",
+        "189.90",
+        "Disponível"
+       ],
+       [
+        2,
+        "Teclado Mecânico",
+        "339.90",
+        "Disponível"
+       ],
+       [
+        3,
+        "Mouse sem Fio",
+        "99.90",
+        "Disponível"
+       ],
+       [
+        4,
+        "Livro SQL Server na Prática",
+        "132.00",
+        "Disponível"
+       ],
+       [
+        5,
+        "Livro Lógica de Programação",
+        "75.50",
+        "Indisponível"
+       ],
+       [
+        6,
+        "Monitor 27 polegadas",
+        "1299.00",
+        "Disponível"
+       ],
+       [
+        7,
+        "Luminária LED",
+        "65.89",
+        "Disponível"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.446",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r8_papel",
+  "descricao": "Etapa 1 – papel, usuário sem login e permissões mínimas",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE ROLE rl_CatalogoLeitura;",
+   "CREATE USER usr_CatalogoTeste WITHOUT LOGIN;",
+   "ALTER ROLE rl_CatalogoLeitura ADD MEMBER usr_CatalogoTeste;",
+   "GRANT SELECT ON dbo.vw_CatalogoPublico TO rl_CatalogoLeitura;\nDENY  SELECT ON dbo.Produtos           TO rl_CatalogoLeitura;",
+   "SELECT pr.name AS Principal, pe.permission_name AS Permissao, pe.state_desc AS Estado,\n       OBJECT_NAME(pe.major_id) AS Objeto\nFROM sys.database_permissions AS pe\nINNER JOIN sys.database_principals AS pr ON pr.principal_id = pe.grantee_principal_id\nWHERE pr.name = 'rl_CatalogoLeitura'\nORDER BY Objeto;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.448",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE ROLE rl_CatalogoLeitura;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.448",
+    "ms": 1
+   },
+   {
+    "sql": "CREATE USER usr_CatalogoTeste WITHOUT LOGIN;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.449",
+    "ms": 1
+   },
+   {
+    "sql": "ALTER ROLE rl_CatalogoLeitura ADD MEMBER usr_CatalogoTeste;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.450",
+    "ms": 3
+   },
+   {
+    "sql": "GRANT SELECT ON dbo.vw_CatalogoPublico TO rl_CatalogoLeitura;\nDENY  SELECT ON dbo.Produtos           TO rl_CatalogoLeitura;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.452",
+    "ms": 1
+   },
+   {
+    "sql": "SELECT pr.name AS Principal, pe.permission_name AS Permissao, pe.state_desc AS Estado,\n       OBJECT_NAME(pe.major_id) AS Objeto\nFROM sys.database_permissions AS pe\nINNER JOIN sys.database_principals AS pr ON pr.principal_id = pe.grantee_principal_id\nWHERE pr.name = 'rl_CatalogoLeitura'\nORDER BY Objeto;",
+    "resultados": [
+     {
+      "colunas": [
+       "Principal",
+       "Permissao",
+       "Estado",
+       "Objeto"
+      ],
+      "linhas": [
+       [
+        "rl_CatalogoLeitura",
+        "SELECT",
+        "DENY",
+        "Produtos"
+       ],
+       [
+        "rl_CatalogoLeitura",
+        "SELECT",
+        "GRANT",
+        "vw_CatalogoPublico"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.454",
+    "ms": 19
+   }
+  ]
+ },
+ {
+  "id": "r8_teste_acesso",
+  "descricao": "Etapa 2 – acesso permitido e acesso negado",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "EXECUTE AS USER = 'usr_CatalogoTeste';\nSELECT USER_NAME() AS UsuarioAtual;\nSELECT ProdutoID, Nome, Preco, Disponibilidade FROM dbo.vw_CatalogoPublico;   -- permitido\nBEGIN TRY\n    SELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos;                -- negado\nEND TRY\nBEGIN CATCH\n    SELECT ERROR_NUMBER() AS NumeroErro, ERROR_MESSAGE() AS MensagemErro;\nEND CATCH;\nREVERT;\nSELECT USER_NAME() AS UsuarioAposRevert;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.473",
+    "ms": 0
+   },
+   {
+    "sql": "EXECUTE AS USER = 'usr_CatalogoTeste';\nSELECT USER_NAME() AS UsuarioAtual;\nSELECT ProdutoID, Nome, Preco, Disponibilidade FROM dbo.vw_CatalogoPublico;   -- permitido\nBEGIN TRY\n    SELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos;                -- negado\nEND TRY\nBEGIN CATCH\n    SELECT ERROR_NUMBER() AS NumeroErro, ERROR_MESSAGE() AS MensagemErro;\nEND CATCH;\nREVERT;\nSELECT USER_NAME() AS UsuarioAposRevert;",
+    "resultados": [
+     {
+      "colunas": [
+       "UsuarioAtual"
+      ],
+      "linhas": [
+       [
+        "usr_CatalogoTeste"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Disponibilidade"
+      ],
+      "linhas": [
+       [
+        1,
+        "Fone Bluetooth",
+        "189.90",
+        "Disponível"
+       ],
+       [
+        2,
+        "Teclado Mecânico",
+        "339.90",
+        "Disponível"
+       ],
+       [
+        3,
+        "Mouse sem Fio",
+        "99.90",
+        "Disponível"
+       ],
+       [
+        4,
+        "Livro SQL Server na Prática",
+        "132.00",
+        "Disponível"
+       ],
+       [
+        5,
+        "Livro Lógica de Programação",
+        "75.50",
+        "Indisponível"
+       ],
+       [
+        6,
+        "Monitor 27 polegadas",
+        "1299.00",
+        "Disponível"
+       ],
+       [
+        7,
+        "Luminária LED",
+        "65.89",
+        "Disponível"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "NumeroErro",
+       "MensagemErro"
+      ],
+      "linhas": [
+       [
+        229,
+        "A permissão SELECT foi negada no objeto 'Produtos', base de dados 'LojaVirtual', esquema 'dbo'."
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "UsuarioAposRevert"
+      ],
+      "linhas": [
+       [
+        "dbo"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.473",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r8_busca",
+  "descricao": "Etapa 3 – busca parametrizada (sp_executesql)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER PROCEDURE dbo.sp_BuscarProdutoSeguro\n    @Termo NVARCHAR(100)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    DECLARE @SQL NVARCHAR(MAX) =\n        N'SELECT ProdutoID, Nome, Preco, Disponibilidade\n          FROM dbo.vw_CatalogoPublico\n          WHERE Nome LIKE @Filtro;';\n    -- o termo vai como VALOR do parâmetro @Filtro, nunca concatenado ao comando\n    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = N'%' + @Termo + N'%';\nEND;",
+   "GRANT EXECUTE ON dbo.sp_BuscarProdutoSeguro TO rl_CatalogoLeitura;",
+   "EXECUTE AS USER = 'usr_CatalogoTeste';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Livro';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Copo d''água';     -- apóstrofo tratado como texto\nREVERT;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.476",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER PROCEDURE dbo.sp_BuscarProdutoSeguro\n    @Termo NVARCHAR(100)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    DECLARE @SQL NVARCHAR(MAX) =\n        N'SELECT ProdutoID, Nome, Preco, Disponibilidade\n          FROM dbo.vw_CatalogoPublico\n          WHERE Nome LIKE @Filtro;';\n    -- o termo vai como VALOR do parâmetro @Filtro, nunca concatenado ao comando\n    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = N'%' + @Termo + N'%';\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Sintaxe incorreta perto de '+'. (102)",
+    "inicio": "16:15:40.476",
+    "ms": 0
+   },
+   {
+    "sql": "GRANT EXECUTE ON dbo.sp_BuscarProdutoSeguro TO rl_CatalogoLeitura;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não é possível localizar o objeto 'sp_BuscarProdutoSeguro', porque não existe ou porque o utilizador não tem permissão. (15151)",
+    "inicio": "16:15:40.476",
+    "ms": 0
+   },
+   {
+    "sql": "EXECUTE AS USER = 'usr_CatalogoTeste';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Livro';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Copo d''água';     -- apóstrofo tratado como texto\nREVERT;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não foi possível localizar o procedimento armazenado 'dbo.sp_BuscarProdutoSeguro'. (2812)",
+    "inicio": "16:15:40.477",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r8_monitor_carga",
+  "descricao": "Etapa 4 – sessão com uma consulta em andamento",
+  "sessao": "A",
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT COUNT(*) AS Pedidos FROM dbo.Pedidos;\nWAITFOR DELAY '00:00:05';"
+  ],
+  "spid": 52,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.485",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT COUNT(*) AS Pedidos FROM dbo.Pedidos;\nWAITFOR DELAY '00:00:05';",
+    "resultados": [
+     {
+      "colunas": [
+       "Pedidos"
+      ],
+      "linhas": [
+       [
+        4
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.485",
+    "ms": 5001
+   }
+  ]
+ },
+ {
+  "id": "r8_monitor",
+  "descricao": "Etapa 4 – requisições em andamento (dados de identificação omitidos)",
+  "sessao": "M",
+  "atraso": 2,
+  "lotes": [
+   "SELECT r.session_id, DB_NAME(r.database_id) AS Banco,\n       r.status, r.command, r.cpu_time, r.total_elapsed_time, r.wait_type\nFROM sys.dm_exec_requests AS r\nINNER JOIN sys.dm_exec_sessions AS s ON s.session_id = r.session_id\nWHERE r.session_id <> @@SPID AND s.is_user_process = 1\nORDER BY r.total_elapsed_time DESC;"
+  ],
+  "spid": 54,
+  "resultado": [
+   {
+    "sql": "SELECT r.session_id, DB_NAME(r.database_id) AS Banco,\n       r.status, r.command, r.cpu_time, r.total_elapsed_time, r.wait_type\nFROM sys.dm_exec_requests AS r\nINNER JOIN sys.dm_exec_sessions AS s ON s.session_id = r.session_id\nWHERE r.session_id <> @@SPID AND s.is_user_process = 1\nORDER BY r.total_elapsed_time DESC;",
+    "resultados": [
+     {
+      "colunas": [
+       "session_id",
+       "Banco",
+       "status",
+       "command",
+       "cpu_time",
+       "total_elapsed_time",
+       "wait_type"
+      ],
+      "linhas": [
+       [
+        52,
+        "LojaVirtual",
+        "suspended",
+        "WAITFOR",
+        0,
+        2003,
+        "WAITFOR"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:42.485",
+    "ms": 5
+   }
+  ]
+ },
+ {
+  "id": "r8_querystore",
+  "descricao": "Etapa 5 – situação do Query Store (sem alterar a configuração)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT actual_state_desc, desired_state_desc, current_storage_size_mb, readonly_reason\nFROM sys.database_query_store_options;\nSELECT TOP (5)\n       LEFT(REPLACE(REPLACE(qt.query_sql_text, CHAR(13), ' '), CHAR(10), ' '), 60) AS Consulta,\n       rs.count_executions AS Execucoes,\n       CAST(rs.avg_duration / 1000.0 AS DECIMAL(10,2)) AS DuracaoMediaMs,\n       CAST(rs.avg_cpu_time / 1000.0 AS DECIMAL(10,2)) AS CpuMediaMs,\n       CAST(rs.avg_logical_io_reads AS DECIMAL(12,1)) AS LeiturasLogicas\nFROM sys.query_store_runtime_stats AS rs\nINNER JOIN sys.query_store_plan       AS p  ON p.plan_id = rs.plan_id\nINNER JOIN sys.query_store_query      AS q  ON q.query_id = p.query_id\nINNER JOIN sys.query_store_query_text AS qt ON qt.query_text_id = q.query_text_id\nORDER BY rs.avg_duration DESC;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:45.487",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT actual_state_desc, desired_state_desc, current_storage_size_mb, readonly_reason\nFROM sys.database_query_store_options;\nSELECT TOP (5)\n       LEFT(REPLACE(REPLACE(qt.query_sql_text, CHAR(13), ' '), CHAR(10), ' '), 60) AS Consulta,\n       rs.count_executions AS Execucoes,\n       CAST(rs.avg_duration / 1000.0 AS DECIMAL(10,2)) AS DuracaoMediaMs,\n       CAST(rs.avg_cpu_time / 1000.0 AS DECIMAL(10,2)) AS CpuMediaMs,\n       CAST(rs.avg_logical_io_reads AS DECIMAL(12,1)) AS LeiturasLogicas\nFROM sys.query_store_runtime_stats AS rs\nINNER JOIN sys.query_store_plan       AS p  ON p.plan_id = rs.plan_id\nINNER JOIN sys.query_store_query      AS q  ON q.query_id = p.query_id\nINNER JOIN sys.query_store_query_text AS qt ON qt.query_text_id = q.query_text_id\nORDER BY rs.avg_duration DESC;",
+    "resultados": [
+     {
+      "colunas": [
+       "actual_state_desc",
+       "desired_state_desc",
+       "current_storage_size_mb",
+       "readonly_reason"
+      ],
+      "linhas": [
+       [
+        "READ_WRITE",
+        "READ_WRITE",
+        0,
+        0
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Consulta",
+       "Execucoes",
+       "DuracaoMediaMs",
+       "CpuMediaMs",
+       "LeiturasLogicas"
+      ],
+      "linhas": [
+       [
+        "WITH n AS (     SELECT TOP (50000) ROW_NUMBER() OVER (ORDER ",
+        1,
+        "1040.00",
+        "1029.98",
+        "409444.0"
+       ],
+       [
+        "(@PedidoID int,@Status varchar(20),@Valor decimal(10,2))SELE",
+        6,
+        "665.87",
+        "0.03",
+        "2.3"
+       ],
+       [
+        "(@PedidoID int)UPDATE dbo.Pedidos SET StatusPedido = 'Pago' ",
+        2,
+        "5.62",
+        "5.62",
+        "72.0"
+       ],
+       [
+        "INSERT INTO dbo.AuditoriaPrecos (ProdutoID, PrecoAnterior, P",
+        1,
+        "0.35",
+        "0.35",
+        "17.0"
+       ],
+       [
+        "IF NOT EXISTS (SELECT 1 FROM inserted AS i INNER JOIN delete",
+        4,
+        "0.24",
+        "0.24",
+        "0.0"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:45.487",
+    "ms": 52
+   }
+  ]
+ }
+]

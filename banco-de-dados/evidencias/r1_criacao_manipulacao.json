@@ -1,0 +1,675 @@
+[
+ {
+  "id": "r1_banco",
+  "descricao": "Etapa 1 – criação do banco",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "IF DB_ID(N'LojaVirtual') IS NULL\nBEGIN\n    CREATE DATABASE LojaVirtual;\nEND;",
+   "USE LojaVirtual;",
+   "SELECT name AS Banco, create_date AS CriadoEm, collation_name AS Collation\nFROM sys.databases WHERE name = N'LojaVirtual';"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "IF DB_ID(N'LojaVirtual') IS NULL\nBEGIN\n    CREATE DATABASE LojaVirtual;\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.539",
+    "ms": 200
+   },
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.740",
+    "ms": 1
+   },
+   {
+    "sql": "SELECT name AS Banco, create_date AS CriadoEm, collation_name AS Collation\nFROM sys.databases WHERE name = N'LojaVirtual';",
+    "resultados": [
+     {
+      "colunas": [
+       "Banco",
+       "CriadoEm",
+       "Collation"
+      ],
+      "linhas": [
+       [
+        "LojaVirtual",
+        "2026-11-03 16:15:14.537000",
+        "SQL_Latin1_General_CP1_CI_AS"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.741",
+    "ms": 39
+   }
+  ]
+ },
+ {
+  "id": "r1_tabelas",
+  "descricao": "Etapa 1 – tabelas na ordem das dependências",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "-- Tabelas independentes primeiro\nCREATE TABLE dbo.Clientes (\n    ClienteID     INT IDENTITY(1,1) CONSTRAINT PK_Clientes PRIMARY KEY,\n    Nome          VARCHAR(100) NOT NULL,\n    Email         VARCHAR(150) NOT NULL CONSTRAINT UQ_Clientes_Email UNIQUE,\n    Cidade        VARCHAR(80)  NOT NULL,\n    Estado        CHAR(2)      NOT NULL,\n    DataCadastro  DATE         NOT NULL CONSTRAINT DF_Clientes_DataCadastro DEFAULT (CAST(SYSDATETIME() AS DATE))\n);\n\nCREATE TABLE dbo.Categorias (\n    CategoriaID   INT IDENTITY(1,1) CONSTRAINT PK_Categorias PRIMARY KEY,\n    Nome          VARCHAR(60) NOT NULL CONSTRAINT UQ_Categorias_Nome UNIQUE\n);\n\n-- Tabelas dependentes depois\nCREATE TABLE dbo.Produtos (\n    ProdutoID     INT IDENTITY(1,1) CONSTRAINT PK_Produtos PRIMARY KEY,\n    CategoriaID   INT NOT NULL CONSTRAINT FK_Produtos_Categorias REFERENCES dbo.Categorias(CategoriaID),\n    Nome          VARCHAR(100)  NOT NULL,\n    Preco         DECIMAL(10,2) NOT NULL CONSTRAINT CK_Produtos_Preco CHECK (Preco >= 0),\n    Estoque       INT           NOT NULL CONSTRAINT CK_Produtos_Estoque CHECK (Estoque >= 0),\n    Ativo         BIT           NOT NULL CONSTRAINT DF_Produtos_Ativo DEFAULT (1)\n);\n\nCREATE TABLE dbo.Pedidos (\n    PedidoID      INT IDENTITY(1,1) CONSTRAINT PK_Pedidos PRIMARY KEY,\n    ClienteID     INT NOT NULL CONSTRAINT FK_Pedidos_Clientes REFERENCES dbo.Clientes(ClienteID),\n    DataPedido    DATETIME2(0)  NOT NULL CONSTRAINT DF_Pedidos_Data DEFAULT (SYSDATETIME()),\n    StatusPedido  VARCHAR(20)   NOT NULL CONSTRAINT DF_Pedidos_Status DEFAULT ('Pendente')\n                  CONSTRAINT CK_Pedidos_Status CHECK (StatusPedido IN ('Pendente','Pago','Enviado','Entregue','Cancelado')),\n    ValorTotal    DECIMAL(10,2) NOT NULL CONSTRAINT CK_Pedidos_Valor CHECK (ValorTotal >= 0)\n);\n\nCREATE TABLE dbo.ItensPedido (\n    ItemPedidoID  INT IDENTITY(1,1) CONSTRAINT PK_ItensPedido PRIMARY KEY,\n    PedidoID      INT NOT NULL CONSTRAINT FK_Itens_Pedidos  REFERENCES dbo.Pedidos(PedidoID),\n    ProdutoID     INT NOT NULL CONSTRAINT FK_Itens_Produtos REFERENCES dbo.Produtos(ProdutoID),\n    Quantidade    INT           NOT NULL CONSTRAINT CK_Itens_Quantidade CHECK (Quantidade > 0),\n    PrecoUnitario DECIMAL(10,2) NOT NULL CONSTRAINT CK_Itens_Preco CHECK (PrecoUnitario >= 0)  -- preço praticado na venda\n);",
+   "SELECT t.name AS Tabela,\n       (SELECT COUNT(*) FROM sys.columns c WHERE c.object_id = t.object_id) AS Colunas,\n       (SELECT COUNT(*) FROM sys.foreign_keys f WHERE f.parent_object_id = t.object_id) AS ChavesEstrangeiras,\n       (SELECT COUNT(*) FROM sys.check_constraints k WHERE k.parent_object_id = t.object_id) AS RestricoesCheck\nFROM sys.tables t ORDER BY t.object_id;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.780",
+    "ms": 0
+   },
+   {
+    "sql": "-- Tabelas independentes primeiro\nCREATE TABLE dbo.Clientes (\n    ClienteID     INT IDENTITY(1,1) CONSTRAINT PK_Clientes PRIMARY KEY,\n    Nome          VARCHAR(100) NOT NULL,\n    Email         VARCHAR(150) NOT NULL CONSTRAINT UQ_Clientes_Email UNIQUE,\n    Cidade        VARCHAR(80)  NOT NULL,\n    Estado        CHAR(2)      NOT NULL,\n    DataCadastro  DATE         NOT NULL CONSTRAINT DF_Clientes_DataCadastro DEFAULT (CAST(SYSDATETIME() AS DATE))\n);\n\nCREATE TABLE dbo.Categorias (\n    CategoriaID   INT IDENTITY(1,1) CONSTRAINT PK_Categorias PRIMARY KEY,\n    Nome          VARCHAR(60) NOT NULL CONSTRAINT UQ_Categorias_Nome UNIQUE\n);\n\n-- Tabelas dependentes depois\nCREATE TABLE dbo.Produtos (\n    ProdutoID     INT IDENTITY(1,1) CONSTRAINT PK_Produtos PRIMARY KEY,\n    CategoriaID   INT NOT NULL CONSTRAINT FK_Produtos_Categorias REFERENCES dbo.Categorias(CategoriaID),\n    Nome          VARCHAR(100)  NOT NULL,\n    Preco         DECIMAL(10,2) NOT NULL CONSTRAINT CK_Produtos_Preco CHECK (Preco >= 0),\n    Estoque       INT           NOT NULL CONSTRAINT CK_Produtos_Estoque CHECK (Estoque >= 0),\n    Ativo         BIT           NOT NULL CONSTRAINT DF_Produtos_Ativo DEFAULT (1)\n);\n\nCREATE TABLE dbo.Pedidos (\n    PedidoID      INT IDENTITY(1,1) CONSTRAINT PK_Pedidos PRIMARY KEY,\n    ClienteID     INT NOT NULL CONSTRAINT FK_Pedidos_Clientes REFERENCES dbo.Clientes(ClienteID),\n    DataPedido    DATETIME2(0)  NOT NULL CONSTRAINT DF_Pedidos_Data DEFAULT (SYSDATETIME()),\n    StatusPedido  VARCHAR(20)   NOT NULL CONSTRAINT DF_Pedidos_Status DEFAULT ('Pendente')\n                  CONSTRAINT CK_Pedidos_Status CHECK (StatusPedido IN ('Pendente','Pago','Enviado','Entregue','Cancelado')),\n    ValorTotal    DECIMAL(10,2) NOT NULL CONSTRAINT CK_Pedidos_Valor CHECK (ValorTotal >= 0)\n);\n\nCREATE TABLE dbo.ItensPedido (\n    ItemPedidoID  INT IDENTITY(1,1) CONSTRAINT PK_ItensPedido PRIMARY KEY,\n    PedidoID      INT NOT NULL CONSTRAINT FK_Itens_Pedidos  REFERENCES dbo.Pedidos(PedidoID),\n    ProdutoID     INT NOT NULL CONSTRAINT FK_Itens_Produtos REFERENCES dbo.Produtos(ProdutoID),\n    Quantidade    INT           NOT NULL CONSTRAINT CK_Itens_Quantidade CHECK (Quantidade > 0),\n    PrecoUnitario DECIMAL(10,2) NOT NULL CONSTRAINT CK_Itens_Preco CHECK (PrecoUnitario >= 0)  -- preço praticado na venda\n);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.780",
+    "ms": 10
+   },
+   {
+    "sql": "SELECT t.name AS Tabela,\n       (SELECT COUNT(*) FROM sys.columns c WHERE c.object_id = t.object_id) AS Colunas,\n       (SELECT COUNT(*) FROM sys.foreign_keys f WHERE f.parent_object_id = t.object_id) AS ChavesEstrangeiras,\n       (SELECT COUNT(*) FROM sys.check_constraints k WHERE k.parent_object_id = t.object_id) AS RestricoesCheck\nFROM sys.tables t ORDER BY t.object_id;",
+    "resultados": [
+     {
+      "colunas": [
+       "Tabela",
+       "Colunas",
+       "ChavesEstrangeiras",
+       "RestricoesCheck"
+      ],
+      "linhas": [
+       [
+        "Clientes",
+        6,
+        0,
+        0
+       ],
+       [
+        "Categorias",
+        2,
+        0,
+        0
+       ],
+       [
+        "Produtos",
+        6,
+        1,
+        2
+       ],
+       [
+        "Pedidos",
+        5,
+        1,
+        2
+       ],
+       [
+        "ItensPedido",
+        5,
+        2,
+        2
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.791",
+    "ms": 91
+   }
+  ]
+ },
+ {
+  "id": "r1_insercao",
+  "descricao": "Etapa 2 – inserção dos dados",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "INSERT INTO dbo.Categorias (Nome) VALUES ('Eletrônicos'), ('Livros'), ('Casa');\n\nINSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Ana Souza',    'ana.souza@email.com',    'São Paulo',      'SP', '2026-08-02'),\n('Bruno Lima',   'bruno.lima@email.com',   'Rio de Janeiro', 'RJ', '2026-08-15'),\n('Carla Mendes', 'carla.mendes@email.com', 'Campinas',       'SP', '2026-09-01');\n\nINSERT INTO dbo.Produtos (CategoriaID, Nome, Preco, Estoque) VALUES\n(1, 'Fone Bluetooth',               199.90, 25),\n(1, 'Teclado Mecânico',             349.90, 12),\n(1, 'Mouse sem Fio',                 89.90, 40),\n(2, 'Livro SQL Server na Prática',  120.00,  4),\n(2, 'Livro Lógica de Programação',   75.50,  0),\n(1, 'Monitor 27 polegadas',        1299.00,  8),\n(3, 'Luminária LED',                 59.90,  3),\n(3, 'Cafeteira Elétrica',           249.00, 15);\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(1, '2026-09-10 10:15', 'Entregue',  379.70),\n(2, '2026-10-05 14:40', 'Pago',      469.90),\n(1, '2026-10-20 09:05', 'Pendente', 1299.00);\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(1, 1, 1,  199.90),\n(1, 3, 2,   89.90),\n(2, 2, 1,  349.90),\n(2, 4, 1,  120.00),\n(3, 6, 1, 1299.00);",
+   "SELECT 'Categorias' AS Tabela, COUNT(*) AS Registros FROM dbo.Categorias UNION ALL\nSELECT 'Clientes',  COUNT(*) FROM dbo.Clientes  UNION ALL\nSELECT 'Produtos',  COUNT(*) FROM dbo.Produtos  UNION ALL\nSELECT 'Pedidos',   COUNT(*) FROM dbo.Pedidos   UNION ALL\nSELECT 'ItensPedido', COUNT(*) FROM dbo.ItensPedido;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.882",
+    "ms": 0
+   },
+   {
+    "sql": "INSERT INTO dbo.Categorias (Nome) VALUES ('Eletrônicos'), ('Livros'), ('Casa');\n\nINSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Ana Souza',    'ana.souza@email.com',    'São Paulo',      'SP', '2026-08-02'),\n('Bruno Lima',   'bruno.lima@email.com',   'Rio de Janeiro', 'RJ', '2026-08-15'),\n('Carla Mendes', 'carla.mendes@email.com', 'Campinas',       'SP', '2026-09-01');\n\nINSERT INTO dbo.Produtos (CategoriaID, Nome, Preco, Estoque) VALUES\n(1, 'Fone Bluetooth',               199.90, 25),\n(1, 'Teclado Mecânico',             349.90, 12),\n(1, 'Mouse sem Fio',                 89.90, 40),\n(2, 'Livro SQL Server na Prática',  120.00,  4),\n(2, 'Livro Lógica de Programação',   75.50,  0),\n(1, 'Monitor 27 polegadas',        1299.00,  8),\n(3, 'Luminária LED',                 59.90,  3),\n(3, 'Cafeteira Elétrica',           249.00, 15);\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(1, '2026-09-10 10:15', 'Entregue',  379.70),\n(2, '2026-10-05 14:40', 'Pago',      469.90),\n(1, '2026-10-20 09:05', 'Pendente', 1299.00);\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(1, 1, 1,  199.90),\n(1, 3, 2,   89.90),\n(2, 2, 1,  349.90),\n(2, 4, 1,  120.00),\n(3, 6, 1, 1299.00);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.882",
+    "ms": 11
+   },
+   {
+    "sql": "SELECT 'Categorias' AS Tabela, COUNT(*) AS Registros FROM dbo.Categorias UNION ALL\nSELECT 'Clientes',  COUNT(*) FROM dbo.Clientes  UNION ALL\nSELECT 'Produtos',  COUNT(*) FROM dbo.Produtos  UNION ALL\nSELECT 'Pedidos',   COUNT(*) FROM dbo.Pedidos   UNION ALL\nSELECT 'ItensPedido', COUNT(*) FROM dbo.ItensPedido;",
+    "resultados": [
+     {
+      "colunas": [
+       "Tabela",
+       "Registros"
+      ],
+      "linhas": [
+       [
+        "Categorias",
+        3
+       ],
+       [
+        "Clientes",
+        3
+       ],
+       [
+        "Produtos",
+        8
+       ],
+       [
+        "Pedidos",
+        3
+       ],
+       [
+        "ItensPedido",
+        5
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.893",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r1_restricao",
+  "descricao": "Teste das restrições (erros esperados)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "INSERT INTO dbo.Produtos (CategoriaID, Nome, Preco, Estoque) VALUES (1, 'Produto inválido', -10.00, 5);",
+   "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado) VALUES ('Ana Repetida', 'ana.souza@email.com', 'Santos', 'SP');"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.895",
+    "ms": 0
+   },
+   {
+    "sql": "INSERT INTO dbo.Produtos (CategoriaID, Nome, Preco, Estoque) VALUES (1, 'Produto inválido', -10.00, 5);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição CHECK \"CK_Produtos_Preco\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Produtos\", column 'Preco'. (547)",
+    "inicio": "16:15:14.896",
+    "ms": 1
+   },
+   {
+    "sql": "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado) VALUES ('Ana Repetida', 'ana.souza@email.com', 'Santos', 'SP');",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violação da restrição UNIQUE KEY 'UQ_Clientes_Email'. Não é possível inserir uma chave duplicada no objeto 'dbo.Clientes'. O valor de chave duplicada é (ana.souza@email.com). (2627)",
+    "inicio": "16:15:14.897",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r1_consultas",
+  "descricao": "Etapa 3 – consultas de conferência",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "-- 1) clientes em ordem alfabética\nSELECT ClienteID, Nome, Email, Cidade, Estado FROM dbo.Clientes ORDER BY Nome;\n-- 2) produtos ativos com preço inferior a R$ 500,00\nSELECT ProdutoID, Nome, Preco FROM dbo.Produtos WHERE Ativo = 1 AND Preco < 500.00 ORDER BY Preco;\n-- 3) produto, categoria, preço e estoque (INNER JOIN)\nSELECT p.Nome AS Produto, c.Nome AS Categoria, p.Preco, p.Estoque\nFROM dbo.Produtos AS p INNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nORDER BY c.Nome, p.Nome;\n-- 4) pedidos com o nome do cliente\nSELECT p.PedidoID, c.Nome AS Cliente, p.DataPedido, p.StatusPedido, p.ValorTotal\nFROM dbo.Pedidos AS p INNER JOIN dbo.Clientes AS c ON c.ClienteID = p.ClienteID\nORDER BY p.PedidoID;\n-- 5) subtotal de cada item\nSELECT p.PedidoID, c.Nome AS Cliente, pr.Nome AS Produto, ip.Quantidade, ip.PrecoUnitario,\n       ip.Quantidade * ip.PrecoUnitario AS Subtotal\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.Clientes    AS c  ON c.ClienteID = p.ClienteID\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nINNER JOIN dbo.Produtos    AS pr ON pr.ProdutoID = ip.ProdutoID\nORDER BY p.PedidoID, pr.Nome;\n-- 6) valor dos pedidos por cliente (GROUP BY)\nSELECT c.Nome AS Cliente, COUNT(*) AS Pedidos, SUM(p.ValorTotal) AS ValorTotal\nFROM dbo.Pedidos AS p INNER JOIN dbo.Clientes AS c ON c.ClienteID = p.ClienteID\nGROUP BY c.Nome ORDER BY ValorTotal DESC;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.899",
+    "ms": 0
+   },
+   {
+    "sql": "-- 1) clientes em ordem alfabética\nSELECT ClienteID, Nome, Email, Cidade, Estado FROM dbo.Clientes ORDER BY Nome;\n-- 2) produtos ativos com preço inferior a R$ 500,00\nSELECT ProdutoID, Nome, Preco FROM dbo.Produtos WHERE Ativo = 1 AND Preco < 500.00 ORDER BY Preco;\n-- 3) produto, categoria, preço e estoque (INNER JOIN)\nSELECT p.Nome AS Produto, c.Nome AS Categoria, p.Preco, p.Estoque\nFROM dbo.Produtos AS p INNER JOIN dbo.Categorias AS c ON c.CategoriaID = p.CategoriaID\nORDER BY c.Nome, p.Nome;\n-- 4) pedidos com o nome do cliente\nSELECT p.PedidoID, c.Nome AS Cliente, p.DataPedido, p.StatusPedido, p.ValorTotal\nFROM dbo.Pedidos AS p INNER JOIN dbo.Clientes AS c ON c.ClienteID = p.ClienteID\nORDER BY p.PedidoID;\n-- 5) subtotal de cada item\nSELECT p.PedidoID, c.Nome AS Cliente, pr.Nome AS Produto, ip.Quantidade, ip.PrecoUnitario,\n       ip.Quantidade * ip.PrecoUnitario AS Subtotal\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.Clientes    AS c  ON c.ClienteID = p.ClienteID\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nINNER JOIN dbo.Produtos    AS pr ON pr.ProdutoID = ip.ProdutoID\nORDER BY p.PedidoID, pr.Nome;\n-- 6) valor dos pedidos por cliente (GROUP BY)\nSELECT c.Nome AS Cliente, COUNT(*) AS Pedidos, SUM(p.ValorTotal) AS ValorTotal\nFROM dbo.Pedidos AS p INNER JOIN dbo.Clientes AS c ON c.ClienteID = p.ClienteID\nGROUP BY c.Nome ORDER BY ValorTotal DESC;",
+    "resultados": [
+     {
+      "colunas": [
+       "ClienteID",
+       "Nome",
+       "Email",
+       "Cidade",
+       "Estado"
+      ],
+      "linhas": [
+       [
+        1,
+        "Ana Souza",
+        "ana.souza@email.com",
+        "São Paulo",
+        "SP"
+       ],
+       [
+        2,
+        "Bruno Lima",
+        "bruno.lima@email.com",
+        "Rio de Janeiro",
+        "RJ"
+       ],
+       [
+        3,
+        "Carla Mendes",
+        "carla.mendes@email.com",
+        "Campinas",
+        "SP"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco"
+      ],
+      "linhas": [
+       [
+        7,
+        "Luminária LED",
+        "59.90"
+       ],
+       [
+        5,
+        "Livro Lógica de Programação",
+        "75.50"
+       ],
+       [
+        3,
+        "Mouse sem Fio",
+        "89.90"
+       ],
+       [
+        4,
+        "Livro SQL Server na Prática",
+        "120.00"
+       ],
+       [
+        1,
+        "Fone Bluetooth",
+        "199.90"
+       ],
+       [
+        8,
+        "Cafeteira Elétrica",
+        "249.00"
+       ],
+       [
+        2,
+        "Teclado Mecânico",
+        "349.90"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Produto",
+       "Categoria",
+       "Preco",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "Cafeteira Elétrica",
+        "Casa",
+        "249.00",
+        15
+       ],
+       [
+        "Luminária LED",
+        "Casa",
+        "59.90",
+        3
+       ],
+       [
+        "Fone Bluetooth",
+        "Eletrônicos",
+        "199.90",
+        25
+       ],
+       [
+        "Monitor 27 polegadas",
+        "Eletrônicos",
+        "1299.00",
+        8
+       ],
+       [
+        "Mouse sem Fio",
+        "Eletrônicos",
+        "89.90",
+        40
+       ],
+       [
+        "Teclado Mecânico",
+        "Eletrônicos",
+        "349.90",
+        12
+       ],
+       [
+        "Livro Lógica de Programação",
+        "Livros",
+        "75.50",
+        0
+       ],
+       [
+        "Livro SQL Server na Prática",
+        "Livros",
+        "120.00",
+        4
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "Cliente",
+       "DataPedido",
+       "StatusPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        "Ana Souza",
+        "2026-09-10 10:15:00",
+        "Entregue",
+        "379.70"
+       ],
+       [
+        2,
+        "Bruno Lima",
+        "2026-10-05 14:40:00",
+        "Pago",
+        "469.90"
+       ],
+       [
+        3,
+        "Ana Souza",
+        "2026-10-20 09:05:00",
+        "Pendente",
+        "1299.00"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "Cliente",
+       "Produto",
+       "Quantidade",
+       "PrecoUnitario",
+       "Subtotal"
+      ],
+      "linhas": [
+       [
+        1,
+        "Ana Souza",
+        "Fone Bluetooth",
+        1,
+        "199.90",
+        "199.90"
+       ],
+       [
+        1,
+        "Ana Souza",
+        "Mouse sem Fio",
+        2,
+        "89.90",
+        "179.80"
+       ],
+       [
+        2,
+        "Bruno Lima",
+        "Livro SQL Server na Prática",
+        1,
+        "120.00",
+        "120.00"
+       ],
+       [
+        2,
+        "Bruno Lima",
+        "Teclado Mecânico",
+        1,
+        "349.90",
+        "349.90"
+       ],
+       [
+        3,
+        "Ana Souza",
+        "Monitor 27 polegadas",
+        1,
+        "1299.00",
+        "1299.00"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Cliente",
+       "Pedidos",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        "Ana Souza",
+        2,
+        "1678.70"
+       ],
+       [
+        "Bruno Lima",
+        1,
+        "469.90"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.899",
+    "ms": 21
+   }
+  ]
+ },
+ {
+  "id": "r1_atualizacao",
+  "descricao": "Etapa 4 – atualizações conferidas antes e depois",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;   -- antes\nUPDATE dbo.Produtos SET Preco = 99.90, Estoque = Estoque + 10 WHERE ProdutoID = 3;\nSELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;   -- depois\n\nUPDATE dbo.Clientes SET Cidade = 'Niterói' WHERE ClienteID = 2;\nSELECT ClienteID, Nome, Cidade, Estado FROM dbo.Clientes WHERE ClienteID = 2;\n\n-- exclusão lógica: o produto sai do catálogo, mas o histórico continua\nUPDATE dbo.Produtos SET Ativo = 0 WHERE ProdutoID = 8;\nSELECT ProdutoID, Nome, Ativo FROM dbo.Produtos WHERE ProdutoID = 8;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.920",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;   -- antes\nUPDATE dbo.Produtos SET Preco = 99.90, Estoque = Estoque + 10 WHERE ProdutoID = 3;\nSELECT ProdutoID, Nome, Preco, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;   -- depois\n\nUPDATE dbo.Clientes SET Cidade = 'Niterói' WHERE ClienteID = 2;\nSELECT ClienteID, Nome, Cidade, Estado FROM dbo.Clientes WHERE ClienteID = 2;\n\n-- exclusão lógica: o produto sai do catálogo, mas o histórico continua\nUPDATE dbo.Produtos SET Ativo = 0 WHERE ProdutoID = 8;\nSELECT ProdutoID, Nome, Ativo FROM dbo.Produtos WHERE ProdutoID = 8;",
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        3,
+        "Mouse sem Fio",
+        "89.90",
+        40
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        3,
+        "Mouse sem Fio",
+        "99.90",
+        50
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ClienteID",
+       "Nome",
+       "Cidade",
+       "Estado"
+      ],
+      "linhas": [
+       [
+        2,
+        "Bruno Lima",
+        "Niterói",
+        "RJ"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Ativo"
+      ],
+      "linhas": [
+       [
+        8,
+        "Cafeteira Elétrica",
+        false
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.921",
+    "ms": 5
+   }
+  ]
+ },
+ {
+  "id": "r1_exclusao",
+  "descricao": "Etapa 5 – exclusão controlada",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado) VALUES ('Cliente Teste', 'cliente.teste@email.com', 'Santos', 'SP');\nSELECT ClienteID, Nome, Email FROM dbo.Clientes WHERE Email = 'cliente.teste@email.com';\nDELETE FROM dbo.Clientes WHERE Email = 'cliente.teste@email.com';\nSELECT @@ROWCOUNT AS QuantidadeExcluida;",
+   "-- tentativa de excluir cliente com pedidos: a chave estrangeira impede\nDELETE FROM dbo.Clientes WHERE ClienteID = 1;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:14.926",
+    "ms": 0
+   },
+   {
+    "sql": "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado) VALUES ('Cliente Teste', 'cliente.teste@email.com', 'Santos', 'SP');\nSELECT ClienteID, Nome, Email FROM dbo.Clientes WHERE Email = 'cliente.teste@email.com';\nDELETE FROM dbo.Clientes WHERE Email = 'cliente.teste@email.com';\nSELECT @@ROWCOUNT AS QuantidadeExcluida;",
+    "resultados": [
+     {
+      "colunas": [
+       "ClienteID",
+       "Nome",
+       "Email"
+      ],
+      "linhas": [
+       [
+        5,
+        "Cliente Teste",
+        "cliente.teste@email.com"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "QuantidadeExcluida"
+      ],
+      "linhas": [
+       [
+        1
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:14.926",
+    "ms": 3
+   },
+   {
+    "sql": "-- tentativa de excluir cliente com pedidos: a chave estrangeira impede\nDELETE FROM dbo.Clientes WHERE ClienteID = 1;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução DELETE e a restrição REFERENCE \"FK_Pedidos_Clientes\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Pedidos\", column 'ClienteID'. (547)",
+    "inicio": "16:15:14.929",
+    "ms": 1
+   }
+  ]
+ }
+]

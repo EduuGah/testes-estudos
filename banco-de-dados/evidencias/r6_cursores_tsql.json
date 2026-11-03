@@ -1,0 +1,442 @@
+[
+ {
+  "id": "r6_demo",
+  "descricao": "Demonstração: variáveis, WHILE, IF...ELSE e CASE",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "DECLARE @Contador INT = 1, @Limite INT = 5;\nWHILE @Contador <= @Limite\nBEGIN\n    IF @Contador % 2 = 0\n        PRINT CONCAT(@Contador, ' é par.');\n    ELSE\n        PRINT CONCAT(@Contador, ' é ímpar.');\n    SET @Contador += 1;\nEND;\nSELECT ProdutoID, Nome, Estoque,\n       CASE WHEN Estoque = 0  THEN 'Sem estoque'\n            WHEN Estoque <= 5  THEN 'Estoque crítico'\n            WHEN Estoque <= 15 THEN 'Estoque baixo'\n            ELSE 'Estoque adequado' END AS SituacaoEstoque\nFROM dbo.Produtos ORDER BY Estoque;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.163",
+    "ms": 0
+   },
+   {
+    "sql": "DECLARE @Contador INT = 1, @Limite INT = 5;\nWHILE @Contador <= @Limite\nBEGIN\n    IF @Contador % 2 = 0\n        PRINT CONCAT(@Contador, ' é par.');\n    ELSE\n        PRINT CONCAT(@Contador, ' é ímpar.');\n    SET @Contador += 1;\nEND;\nSELECT ProdutoID, Nome, Estoque,\n       CASE WHEN Estoque = 0  THEN 'Sem estoque'\n            WHEN Estoque <= 5  THEN 'Estoque crítico'\n            WHEN Estoque <= 15 THEN 'Estoque baixo'\n            ELSE 'Estoque adequado' END AS SituacaoEstoque\nFROM dbo.Produtos ORDER BY Estoque;",
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Estoque",
+       "SituacaoEstoque"
+      ],
+      "linhas": [
+       [
+        5,
+        "Livro Lógica de Programação",
+        0,
+        "Sem estoque"
+       ],
+       [
+        7,
+        "Luminária LED",
+        3,
+        "Estoque crítico"
+       ],
+       [
+        4,
+        "Livro SQL Server na Prática",
+        4,
+        "Estoque crítico"
+       ],
+       [
+        6,
+        "Monitor 27 polegadas",
+        7,
+        "Estoque baixo"
+       ],
+       [
+        2,
+        "Teclado Mecânico",
+        12,
+        "Estoque baixo"
+       ],
+       [
+        8,
+        "Cafeteira Elétrica",
+        15,
+        "Estoque baixo"
+       ],
+       [
+        1,
+        "Fone Bluetooth",
+        27,
+        "Estoque adequado"
+       ],
+       [
+        3,
+        "Mouse sem Fio",
+        54,
+        "Estoque adequado"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "1 é ímpar.",
+     "2 é par.",
+     "3 é ímpar.",
+     "4 é par.",
+     "5 é ímpar."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.164",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r6_tabela",
+  "descricao": "Etapa 1 – tabela de alertas",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE TABLE dbo.AlertasEstoque (\n    AlertaID    INT IDENTITY PRIMARY KEY,\n    ProdutoID   INT NOT NULL,\n    DataAlerta  DATETIME2 NOT NULL DEFAULT SYSDATETIME(),\n    NivelAlerta VARCHAR(20)  NOT NULL,\n    Mensagem    VARCHAR(200) NOT NULL,\n    CONSTRAINT FK_AlertasEstoque_Produtos FOREIGN KEY (ProdutoID) REFERENCES dbo.Produtos(ProdutoID)\n);"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.165",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE TABLE dbo.AlertasEstoque (\n    AlertaID    INT IDENTITY PRIMARY KEY,\n    ProdutoID   INT NOT NULL,\n    DataAlerta  DATETIME2 NOT NULL DEFAULT SYSDATETIME(),\n    NivelAlerta VARCHAR(20)  NOT NULL,\n    Mensagem    VARCHAR(200) NOT NULL,\n    CONSTRAINT FK_AlertasEstoque_Produtos FOREIGN KEY (ProdutoID) REFERENCES dbo.Produtos(ProdutoID)\n);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:39.166",
+    "ms": 8
+   }
+  ]
+ },
+ {
+  "id": "r6_cursor",
+  "descricao": "Etapas 2 e 3 – cursor LOCAL FAST_FORWARD com TRY...CATCH",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SET STATISTICS TIME ON;\nBEGIN TRY\n    DECLARE @ProdutoID INT, @Nome VARCHAR(100), @Estoque INT;\n    DECLARE @Nivel VARCHAR(20), @Mensagem VARCHAR(200), @Lidos INT = 0;\n\n    DECLARE cur_Estoque CURSOR LOCAL FAST_FORWARD FOR\n        SELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE Estoque <= 5 ORDER BY ProdutoID;\n\n    OPEN cur_Estoque;\n    FETCH NEXT FROM cur_Estoque INTO @ProdutoID, @Nome, @Estoque;\n    WHILE @@FETCH_STATUS = 0\n    BEGIN\n        IF @Estoque = 0 SET @Nivel = 'URGENTE';\n        ELSE            SET @Nivel = 'ATENCAO';\n        SET @Mensagem = CONCAT('Produto ', @Nome, ': estoque atual = ', @Estoque, '.');\n        INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem) VALUES (@ProdutoID, @Nivel, @Mensagem);\n        SET @Lidos += 1;\n        FETCH NEXT FROM cur_Estoque INTO @ProdutoID, @Nome, @Estoque;   -- avança: evita laço infinito\n    END;\n    CLOSE cur_Estoque;\n    DEALLOCATE cur_Estoque;\n    PRINT CONCAT('Cursor processou ', @Lidos, ' produto(s).');\nEND TRY\nBEGIN CATCH\n    IF CURSOR_STATUS('local', 'cur_Estoque') >= 0 CLOSE cur_Estoque;\n    IF CURSOR_STATUS('local', 'cur_Estoque') > -3 DEALLOCATE cur_Estoque;\n    THROW;\nEND CATCH;\nSET STATISTICS TIME OFF;\nSELECT CURSOR_STATUS('local', 'cur_Estoque') AS StatusCursorAoFinal;   -- -3 = não existe mais\nSELECT AlertaID, ProdutoID, NivelAlerta, Mensagem FROM dbo.AlertasEstoque ORDER BY AlertaID;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.174",
+    "ms": 0
+   },
+   {
+    "sql": "SET STATISTICS TIME ON;\nBEGIN TRY\n    DECLARE @ProdutoID INT, @Nome VARCHAR(100), @Estoque INT;\n    DECLARE @Nivel VARCHAR(20), @Mensagem VARCHAR(200), @Lidos INT = 0;\n\n    DECLARE cur_Estoque CURSOR LOCAL FAST_FORWARD FOR\n        SELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE Estoque <= 5 ORDER BY ProdutoID;\n\n    OPEN cur_Estoque;\n    FETCH NEXT FROM cur_Estoque INTO @ProdutoID, @Nome, @Estoque;\n    WHILE @@FETCH_STATUS = 0\n    BEGIN\n        IF @Estoque = 0 SET @Nivel = 'URGENTE';\n        ELSE            SET @Nivel = 'ATENCAO';\n        SET @Mensagem = CONCAT('Produto ', @Nome, ': estoque atual = ', @Estoque, '.');\n        INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem) VALUES (@ProdutoID, @Nivel, @Mensagem);\n        SET @Lidos += 1;\n        FETCH NEXT FROM cur_Estoque INTO @ProdutoID, @Nome, @Estoque;   -- avança: evita laço infinito\n    END;\n    CLOSE cur_Estoque;\n    DEALLOCATE cur_Estoque;\n    PRINT CONCAT('Cursor processou ', @Lidos, ' produto(s).');\nEND TRY\nBEGIN CATCH\n    IF CURSOR_STATUS('local', 'cur_Estoque') >= 0 CLOSE cur_Estoque;\n    IF CURSOR_STATUS('local', 'cur_Estoque') > -3 DEALLOCATE cur_Estoque;\n    THROW;\nEND CATCH;\nSET STATISTICS TIME OFF;\nSELECT CURSOR_STATUS('local', 'cur_Estoque') AS StatusCursorAoFinal;   -- -3 = não existe mais\nSELECT AlertaID, ProdutoID, NivelAlerta, Mensagem FROM dbo.AlertasEstoque ORDER BY AlertaID;",
+    "resultados": [
+     {
+      "colunas": [
+       "StatusCursorAoFinal"
+      ],
+      "linhas": [
+       [
+        -3
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "AlertaID",
+       "ProdutoID",
+       "NivelAlerta",
+       "Mensagem"
+      ],
+      "linhas": [
+       [
+        1,
+        4,
+        "ATENCAO",
+        "Produto Livro SQL Server na Prática: estoque atual = 4."
+       ],
+       [
+        2,
+        5,
+        "URGENTE",
+        "Produto Livro Lógica de Programação: estoque atual = 0."
+       ],
+       [
+        3,
+        7,
+        "ATENCAO",
+        "Produto Luminária LED: estoque atual = 3."
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Cursor processou 3 produto(s).",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.175",
+    "ms": 5
+   }
+  ]
+ },
+ {
+  "id": "r6_cursor_erro",
+  "descricao": "Etapa 3 – erro provocado no meio do cursor e liberação dos recursos",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "BEGIN TRY\n    DECLARE @ProdutoID INT, @Nome VARCHAR(100), @Estoque INT;\n    DECLARE cur_Estoque CURSOR LOCAL FAST_FORWARD FOR\n        SELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE Estoque <= 5 ORDER BY ProdutoID;\n    OPEN cur_Estoque;\n    FETCH NEXT FROM cur_Estoque INTO @ProdutoID, @Nome, @Estoque;\n    -- erro de teste: NivelAlerta não aceita NULL\n    INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem) VALUES (@ProdutoID, NULL, 'teste de erro');\nEND TRY\nBEGIN CATCH\n    SELECT ERROR_NUMBER() AS NumeroErro, ERROR_MESSAGE() AS Mensagem,\n           CURSOR_STATUS('local', 'cur_Estoque') AS StatusAntesDeLiberar;   -- 1 = aberto\n    IF CURSOR_STATUS('local', 'cur_Estoque') >= 0 CLOSE cur_Estoque;\n    IF CURSOR_STATUS('local', 'cur_Estoque') > -3 DEALLOCATE cur_Estoque;\n    SELECT CURSOR_STATUS('local', 'cur_Estoque') AS StatusDepoisDeLiberar;  -- -3 = liberado\nEND CATCH;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.180",
+    "ms": 0
+   },
+   {
+    "sql": "BEGIN TRY\n    DECLARE @ProdutoID INT, @Nome VARCHAR(100), @Estoque INT;\n    DECLARE cur_Estoque CURSOR LOCAL FAST_FORWARD FOR\n        SELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE Estoque <= 5 ORDER BY ProdutoID;\n    OPEN cur_Estoque;\n    FETCH NEXT FROM cur_Estoque INTO @ProdutoID, @Nome, @Estoque;\n    -- erro de teste: NivelAlerta não aceita NULL\n    INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem) VALUES (@ProdutoID, NULL, 'teste de erro');\nEND TRY\nBEGIN CATCH\n    SELECT ERROR_NUMBER() AS NumeroErro, ERROR_MESSAGE() AS Mensagem,\n           CURSOR_STATUS('local', 'cur_Estoque') AS StatusAntesDeLiberar;   -- 1 = aberto\n    IF CURSOR_STATUS('local', 'cur_Estoque') >= 0 CLOSE cur_Estoque;\n    IF CURSOR_STATUS('local', 'cur_Estoque') > -3 DEALLOCATE cur_Estoque;\n    SELECT CURSOR_STATUS('local', 'cur_Estoque') AS StatusDepoisDeLiberar;  -- -3 = liberado\nEND CATCH;",
+    "resultados": [
+     {
+      "colunas": [
+       "NumeroErro",
+       "Mensagem",
+       "StatusAntesDeLiberar"
+      ],
+      "linhas": [
+       [
+        515,
+        "Não é possível inserir o valor NULL na coluna 'NivelAlerta', tabela 'LojaVirtual.dbo.AlertasEstoque'; a coluna não permite valores null. Falha de INSERT.",
+        1
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "StatusDepoisDeLiberar"
+      ],
+      "linhas": [
+       [
+        -3
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:39.180",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r6_conjunto",
+  "descricao": "Etapa 4 – mesma regra com uma única instrução",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT ProdutoID, NivelAlerta, Mensagem INTO #ResultadoCursor FROM dbo.AlertasEstoque;\nDELETE FROM dbo.AlertasEstoque;   -- remove apenas os alertas gerados no laboratório\nSET STATISTICS TIME ON;\nINSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem)\nSELECT ProdutoID,\n       CASE WHEN Estoque = 0 THEN 'URGENTE' ELSE 'ATENCAO' END,\n       CONCAT('Produto ', Nome, ': estoque atual = ', Estoque, '.')\nFROM dbo.Produtos\nWHERE Estoque <= 5;\nSET STATISTICS TIME OFF;\n-- equivalência: diferença entre os dois resultados (vazio = iguais)\nSELECT 'só no cursor' AS Origem, * FROM (SELECT ProdutoID, NivelAlerta, Mensagem FROM #ResultadoCursor\n                                        EXCEPT SELECT ProdutoID, NivelAlerta, Mensagem FROM dbo.AlertasEstoque) x\nUNION ALL\nSELECT 'só no conjunto', * FROM (SELECT ProdutoID, NivelAlerta, Mensagem FROM dbo.AlertasEstoque\n                                EXCEPT SELECT ProdutoID, NivelAlerta, Mensagem FROM #ResultadoCursor) y;\nSELECT (SELECT COUNT(*) FROM #ResultadoCursor) AS LinhasCursor, (SELECT COUNT(*) FROM dbo.AlertasEstoque) AS LinhasConjunto;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.182",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT ProdutoID, NivelAlerta, Mensagem INTO #ResultadoCursor FROM dbo.AlertasEstoque;\nDELETE FROM dbo.AlertasEstoque;   -- remove apenas os alertas gerados no laboratório\nSET STATISTICS TIME ON;\nINSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem)\nSELECT ProdutoID,\n       CASE WHEN Estoque = 0 THEN 'URGENTE' ELSE 'ATENCAO' END,\n       CONCAT('Produto ', Nome, ': estoque atual = ', Estoque, '.')\nFROM dbo.Produtos\nWHERE Estoque <= 5;\nSET STATISTICS TIME OFF;\n-- equivalência: diferença entre os dois resultados (vazio = iguais)\nSELECT 'só no cursor' AS Origem, * FROM (SELECT ProdutoID, NivelAlerta, Mensagem FROM #ResultadoCursor\n                                        EXCEPT SELECT ProdutoID, NivelAlerta, Mensagem FROM dbo.AlertasEstoque) x\nUNION ALL\nSELECT 'só no conjunto', * FROM (SELECT ProdutoID, NivelAlerta, Mensagem FROM dbo.AlertasEstoque\n                                EXCEPT SELECT ProdutoID, NivelAlerta, Mensagem FROM #ResultadoCursor) y;\nSELECT (SELECT COUNT(*) FROM #ResultadoCursor) AS LinhasCursor, (SELECT COUNT(*) FROM dbo.AlertasEstoque) AS LinhasConjunto;",
+    "resultados": [
+     {
+      "colunas": [
+       "Origem",
+       "ProdutoID",
+       "NivelAlerta",
+       "Mensagem"
+      ],
+      "linhas": []
+     },
+     {
+      "colunas": [
+       "LinhasCursor",
+       "LinhasConjunto"
+      ],
+      "linhas": [
+       [
+        3,
+        3
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 0 ms."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.182",
+    "ms": 16
+   }
+  ]
+ },
+ {
+  "id": "r6_medicao",
+  "descricao": "Etapa 4 – medição repetida (50 execuções de cada abordagem)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "DECLARE @i INT, @t0 DATETIME2, @msCursor INT, @msConjunto INT;\nDECLARE @ProdutoID INT, @Nome VARCHAR(100), @Estoque INT;\n\nSET @i = 0; SET @t0 = SYSDATETIME();\nWHILE @i < 50\nBEGIN\n    DELETE FROM dbo.AlertasEstoque;\n    DECLARE cur CURSOR LOCAL FAST_FORWARD FOR SELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE Estoque <= 5;\n    OPEN cur; FETCH NEXT FROM cur INTO @ProdutoID, @Nome, @Estoque;\n    WHILE @@FETCH_STATUS = 0\n    BEGIN\n        INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem)\n        VALUES (@ProdutoID, CASE WHEN @Estoque = 0 THEN 'URGENTE' ELSE 'ATENCAO' END,\n                CONCAT('Produto ', @Nome, ': estoque atual = ', @Estoque, '.'));\n        FETCH NEXT FROM cur INTO @ProdutoID, @Nome, @Estoque;\n    END;\n    CLOSE cur; DEALLOCATE cur;\n    SET @i += 1;\nEND;\nSET @msCursor = DATEDIFF(MILLISECOND, @t0, SYSDATETIME());\n\nSET @i = 0; SET @t0 = SYSDATETIME();\nWHILE @i < 50\nBEGIN\n    DELETE FROM dbo.AlertasEstoque;\n    INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem)\n    SELECT ProdutoID, CASE WHEN Estoque = 0 THEN 'URGENTE' ELSE 'ATENCAO' END,\n           CONCAT('Produto ', Nome, ': estoque atual = ', Estoque, '.')\n    FROM dbo.Produtos WHERE Estoque <= 5;\n    SET @i += 1;\nEND;\nSET @msConjunto = DATEDIFF(MILLISECOND, @t0, SYSDATETIME());\n\nSELECT 'Cursor (linha a linha)' AS Abordagem, @msCursor AS TempoTotalMs, 50 AS Execucoes UNION ALL\nSELECT 'Orientada a conjuntos', @msConjunto, 50;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.199",
+    "ms": 0
+   },
+   {
+    "sql": "DECLARE @i INT, @t0 DATETIME2, @msCursor INT, @msConjunto INT;\nDECLARE @ProdutoID INT, @Nome VARCHAR(100), @Estoque INT;\n\nSET @i = 0; SET @t0 = SYSDATETIME();\nWHILE @i < 50\nBEGIN\n    DELETE FROM dbo.AlertasEstoque;\n    DECLARE cur CURSOR LOCAL FAST_FORWARD FOR SELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE Estoque <= 5;\n    OPEN cur; FETCH NEXT FROM cur INTO @ProdutoID, @Nome, @Estoque;\n    WHILE @@FETCH_STATUS = 0\n    BEGIN\n        INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem)\n        VALUES (@ProdutoID, CASE WHEN @Estoque = 0 THEN 'URGENTE' ELSE 'ATENCAO' END,\n                CONCAT('Produto ', @Nome, ': estoque atual = ', @Estoque, '.'));\n        FETCH NEXT FROM cur INTO @ProdutoID, @Nome, @Estoque;\n    END;\n    CLOSE cur; DEALLOCATE cur;\n    SET @i += 1;\nEND;\nSET @msCursor = DATEDIFF(MILLISECOND, @t0, SYSDATETIME());\n\nSET @i = 0; SET @t0 = SYSDATETIME();\nWHILE @i < 50\nBEGIN\n    DELETE FROM dbo.AlertasEstoque;\n    INSERT INTO dbo.AlertasEstoque (ProdutoID, NivelAlerta, Mensagem)\n    SELECT ProdutoID, CASE WHEN Estoque = 0 THEN 'URGENTE' ELSE 'ATENCAO' END,\n           CONCAT('Produto ', Nome, ': estoque atual = ', Estoque, '.')\n    FROM dbo.Produtos WHERE Estoque <= 5;\n    SET @i += 1;\nEND;\nSET @msConjunto = DATEDIFF(MILLISECOND, @t0, SYSDATETIME());\n\nSELECT 'Cursor (linha a linha)' AS Abordagem, @msCursor AS TempoTotalMs, 50 AS Execucoes UNION ALL\nSELECT 'Orientada a conjuntos', @msConjunto, 50;",
+    "resultados": [
+     {
+      "colunas": [
+       "Abordagem",
+       "TempoTotalMs",
+       "Execucoes"
+      ],
+      "linhas": [
+       [
+        "Cursor (linha a linha)",
+        65,
+        50
+       ],
+       [
+        "Orientada a conjuntos",
+        33,
+        50
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:39.199",
+    "ms": 102
+   }
+  ]
+ },
+ {
+  "id": "r6_desafio",
+  "descricao": "Etapa 5 – desafio: contagem, IF...ELSE com PRINT e risco geral com CASE",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "DECLARE @Urgentes INT, @Atencao INT;\nSELECT @Urgentes = SUM(CASE WHEN NivelAlerta = 'URGENTE' THEN 1 ELSE 0 END),\n       @Atencao  = SUM(CASE WHEN NivelAlerta = 'ATENCAO' THEN 1 ELSE 0 END)\nFROM dbo.AlertasEstoque;\n\nIF @Urgentes > 0\n    PRINT CONCAT('Atenção: ', @Urgentes, ' produto(s) sem estoque precisam de reposição imediata.');\nELSE\n    PRINT 'Nenhum produto sem estoque.';\n\nSELECT @Urgentes AS Urgentes, @Atencao AS Atencao,\n       CASE WHEN @Urgentes >= 2 THEN 'Alto'\n            WHEN @Urgentes = 1 OR @Atencao >= 3 THEN 'Médio'\n            ELSE 'Baixo' END AS RiscoGeral;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.301",
+    "ms": 0
+   },
+   {
+    "sql": "DECLARE @Urgentes INT, @Atencao INT;\nSELECT @Urgentes = SUM(CASE WHEN NivelAlerta = 'URGENTE' THEN 1 ELSE 0 END),\n       @Atencao  = SUM(CASE WHEN NivelAlerta = 'ATENCAO' THEN 1 ELSE 0 END)\nFROM dbo.AlertasEstoque;\n\nIF @Urgentes > 0\n    PRINT CONCAT('Atenção: ', @Urgentes, ' produto(s) sem estoque precisam de reposição imediata.');\nELSE\n    PRINT 'Nenhum produto sem estoque.';\n\nSELECT @Urgentes AS Urgentes, @Atencao AS Atencao,\n       CASE WHEN @Urgentes >= 2 THEN 'Alto'\n            WHEN @Urgentes = 1 OR @Atencao >= 3 THEN 'Médio'\n            ELSE 'Baixo' END AS RiscoGeral;",
+    "resultados": [
+     {
+      "colunas": [
+       "Urgentes",
+       "Atencao",
+       "RiscoGeral"
+      ],
+      "linhas": [
+       [
+        1,
+        2,
+        "Médio"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "Atenção: 1 produto(s) sem estoque precisam de reposição imediata."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.302",
+    "ms": 1
+   }
+  ]
+ }
+]

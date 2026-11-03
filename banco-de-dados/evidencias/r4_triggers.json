@@ -1,0 +1,506 @@
+[
+ {
+  "id": "r4_auditoria",
+  "descricao": "Etapa 1 – tabela e trigger de auditoria de preços",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE TABLE dbo.AuditoriaPrecos (\n    AuditoriaID   INT IDENTITY PRIMARY KEY,\n    ProdutoID     INT NOT NULL,\n    PrecoAnterior DECIMAL(10,2) NOT NULL,\n    PrecoNovo     DECIMAL(10,2) NOT NULL,\n    DataAlteracao DATETIME2 NOT NULL DEFAULT SYSDATETIME(),\n    UsuarioBanco  SYSNAME   NOT NULL DEFAULT SUSER_SNAME()\n);",
+   "CREATE OR ALTER TRIGGER dbo.trg_AuditarPrecoProduto\nON dbo.Produtos\nAFTER UPDATE\nAS\nBEGIN\n    SET NOCOUNT ON;\n    -- inserted = valores novos; deleted = valores anteriores (podem ser várias linhas)\n    INSERT INTO dbo.AuditoriaPrecos (ProdutoID, PrecoAnterior, PrecoNovo)\n    SELECT i.ProdutoID, d.Preco, i.Preco\n    FROM inserted AS i\n    INNER JOIN deleted AS d ON d.ProdutoID = i.ProdutoID\n    WHERE i.Preco <> d.Preco;\nEND;",
+   "-- teste 1: só estoque -> nenhuma auditoria\nUPDATE dbo.Produtos SET Estoque = Estoque + 5 WHERE ProdutoID = 3;\nSELECT COUNT(*) AS AuditoriasAposAlterarEstoque FROM dbo.AuditoriaPrecos;\n-- teste 2: preço de um produto\nUPDATE dbo.Produtos SET Preco = 339.90 WHERE ProdutoID = 2;\n-- teste 3: preço de dois produtos em um único UPDATE\nUPDATE dbo.Produtos SET Preco = Preco * 1.10 WHERE ProdutoID IN (4, 7);\nSELECT a.AuditoriaID, p.Nome AS Produto, a.PrecoAnterior, a.PrecoNovo,\n       CONVERT(VARCHAR(19), a.DataAlteracao, 120) AS DataAlteracao, a.UsuarioBanco\nFROM dbo.AuditoriaPrecos AS a INNER JOIN dbo.Produtos AS p ON p.ProdutoID = a.ProdutoID\nORDER BY a.AuditoriaID;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.020",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE TABLE dbo.AuditoriaPrecos (\n    AuditoriaID   INT IDENTITY PRIMARY KEY,\n    ProdutoID     INT NOT NULL,\n    PrecoAnterior DECIMAL(10,2) NOT NULL,\n    PrecoNovo     DECIMAL(10,2) NOT NULL,\n    DataAlteracao DATETIME2 NOT NULL DEFAULT SYSDATETIME(),\n    UsuarioBanco  SYSNAME   NOT NULL DEFAULT SUSER_SNAME()\n);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.020",
+    "ms": 2
+   },
+   {
+    "sql": "CREATE OR ALTER TRIGGER dbo.trg_AuditarPrecoProduto\nON dbo.Produtos\nAFTER UPDATE\nAS\nBEGIN\n    SET NOCOUNT ON;\n    -- inserted = valores novos; deleted = valores anteriores (podem ser várias linhas)\n    INSERT INTO dbo.AuditoriaPrecos (ProdutoID, PrecoAnterior, PrecoNovo)\n    SELECT i.ProdutoID, d.Preco, i.Preco\n    FROM inserted AS i\n    INNER JOIN deleted AS d ON d.ProdutoID = i.ProdutoID\n    WHERE i.Preco <> d.Preco;\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.022",
+    "ms": 2
+   },
+   {
+    "sql": "-- teste 1: só estoque -> nenhuma auditoria\nUPDATE dbo.Produtos SET Estoque = Estoque + 5 WHERE ProdutoID = 3;\nSELECT COUNT(*) AS AuditoriasAposAlterarEstoque FROM dbo.AuditoriaPrecos;\n-- teste 2: preço de um produto\nUPDATE dbo.Produtos SET Preco = 339.90 WHERE ProdutoID = 2;\n-- teste 3: preço de dois produtos em um único UPDATE\nUPDATE dbo.Produtos SET Preco = Preco * 1.10 WHERE ProdutoID IN (4, 7);\nSELECT a.AuditoriaID, p.Nome AS Produto, a.PrecoAnterior, a.PrecoNovo,\n       CONVERT(VARCHAR(19), a.DataAlteracao, 120) AS DataAlteracao, a.UsuarioBanco\nFROM dbo.AuditoriaPrecos AS a INNER JOIN dbo.Produtos AS p ON p.ProdutoID = a.ProdutoID\nORDER BY a.AuditoriaID;",
+    "resultados": [
+     {
+      "colunas": [
+       "AuditoriasAposAlterarEstoque"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "AuditoriaID",
+       "Produto",
+       "PrecoAnterior",
+       "PrecoNovo",
+       "DataAlteracao",
+       "UsuarioBanco"
+      ],
+      "linhas": [
+       [
+        1,
+        "Teclado Mecânico",
+        "349.90",
+        "339.90",
+        "2026-11-03 16:15:15",
+        "sa"
+       ],
+       [
+        2,
+        "Luminária LED",
+        "59.90",
+        "65.89",
+        "2026-11-03 16:15:15",
+        "sa"
+       ],
+       [
+        3,
+        "Livro SQL Server na Prática",
+        "120.00",
+        "132.00",
+        "2026-11-03 16:15:15",
+        "sa"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.024",
+    "ms": 14
+   }
+  ]
+ },
+ {
+  "id": "r4_preparacao",
+  "descricao": "Etapa 2 – pedidos pendentes para os testes de estoque",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "INSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-26 10:00', 'Pendente',  199.80),   -- pedido 6: estoque suficiente\n(2, '2026-10-26 10:10', 'Pendente', 1320.00),   -- pedido 7: quantidade maior que o estoque\n(6, '2026-10-26 10:20', 'Pendente',  189.90),   -- pedido 8: válido (teste em conjunto)\n(5, '2026-10-26 10:30', 'Pendente',  405.79);   -- pedido 9: válido (teste em conjunto)\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(6, 3,  2,  99.90),\n(7, 4, 10, 132.00),\n(8, 1,  1, 189.90),\n(9, 2,  1, 339.90),\n(9, 7,  1,  65.89);",
+   "SELECT p.PedidoID, p.StatusPedido, pr.Nome AS Produto, ip.Quantidade, pr.Estoque AS EstoqueAtual\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nINNER JOIN dbo.Produtos    AS pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.StatusPedido = 'Pendente'\nORDER BY p.PedidoID;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.038",
+    "ms": 0
+   },
+   {
+    "sql": "INSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-26 10:00', 'Pendente',  199.80),   -- pedido 6: estoque suficiente\n(2, '2026-10-26 10:10', 'Pendente', 1320.00),   -- pedido 7: quantidade maior que o estoque\n(6, '2026-10-26 10:20', 'Pendente',  189.90),   -- pedido 8: válido (teste em conjunto)\n(5, '2026-10-26 10:30', 'Pendente',  405.79);   -- pedido 9: válido (teste em conjunto)\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(6, 3,  2,  99.90),\n(7, 4, 10, 132.00),\n(8, 1,  1, 189.90),\n(9, 2,  1, 339.90),\n(9, 7,  1,  65.89);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição FOREIGN KEY \"FK_Pedidos_Clientes\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Clientes\", column 'ClienteID'. (547)",
+    "inicio": "16:15:15.038",
+    "ms": 5
+   },
+   {
+    "sql": "SELECT p.PedidoID, p.StatusPedido, pr.Nome AS Produto, ip.Quantidade, pr.Estoque AS EstoqueAtual\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nINNER JOIN dbo.Produtos    AS pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.StatusPedido = 'Pendente'\nORDER BY p.PedidoID;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "StatusPedido",
+       "Produto",
+       "Quantidade",
+       "EstoqueAtual"
+      ],
+      "linhas": [
+       [
+        3,
+        "Pendente",
+        "Monitor 27 polegadas",
+        1,
+        8
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.043",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r4_trigger_estoque",
+  "descricao": "Etapas 3 e 4 – validação e baixa automática do estoque",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER TRIGGER dbo.trg_ValidarEstoquePedido\nON dbo.Pedidos\nAFTER UPDATE\nAS\nBEGIN\n    SET NOCOUNT ON;\n\n    -- só interessa quem mudou de \"diferente de Pago\" para \"Pago\"\n    IF NOT EXISTS (SELECT 1 FROM inserted AS i INNER JOIN deleted AS d ON d.PedidoID = i.PedidoID\n                   WHERE i.StatusPedido = 'Pago' AND d.StatusPedido <> 'Pago')\n        RETURN;\n\n    -- validação: soma das quantidades por produto x estoque disponível\n    IF EXISTS (\n        SELECT 1\n        FROM inserted AS i\n        INNER JOIN deleted AS d      ON d.PedidoID = i.PedidoID\n        INNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = i.PedidoID\n        INNER JOIN dbo.Produtos    AS p  ON p.ProdutoID = ip.ProdutoID\n        WHERE i.StatusPedido = 'Pago' AND d.StatusPedido <> 'Pago'\n        GROUP BY ip.ProdutoID, p.Estoque\n        HAVING SUM(ip.Quantidade) > p.Estoque\n    )\n        THROW 50001, 'Não há estoque suficiente para confirmar o pedido.', 1;\n\n    -- baixa orientada a conjuntos: funciona para 1 ou N pedidos no mesmo UPDATE\n    ;WITH ProdutosVendidos AS (\n        SELECT ip.ProdutoID, SUM(ip.Quantidade) AS QuantidadeVendida\n        FROM inserted AS i\n        INNER JOIN deleted AS d      ON d.PedidoID = i.PedidoID\n        INNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = i.PedidoID\n        WHERE i.StatusPedido = 'Pago' AND d.StatusPedido <> 'Pago'\n        GROUP BY ip.ProdutoID\n    )\n    UPDATE p\n    SET p.Estoque = p.Estoque - pv.QuantidadeVendida\n    FROM dbo.Produtos AS p\n    INNER JOIN ProdutosVendidos AS pv ON pv.ProdutoID = p.ProdutoID;\nEND;",
+   "SELECT name AS TriggerCriada, OBJECT_NAME(parent_id) AS Tabela, is_disabled FROM sys.triggers ORDER BY name;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.045",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER TRIGGER dbo.trg_ValidarEstoquePedido\nON dbo.Pedidos\nAFTER UPDATE\nAS\nBEGIN\n    SET NOCOUNT ON;\n\n    -- só interessa quem mudou de \"diferente de Pago\" para \"Pago\"\n    IF NOT EXISTS (SELECT 1 FROM inserted AS i INNER JOIN deleted AS d ON d.PedidoID = i.PedidoID\n                   WHERE i.StatusPedido = 'Pago' AND d.StatusPedido <> 'Pago')\n        RETURN;\n\n    -- validação: soma das quantidades por produto x estoque disponível\n    IF EXISTS (\n        SELECT 1\n        FROM inserted AS i\n        INNER JOIN deleted AS d      ON d.PedidoID = i.PedidoID\n        INNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = i.PedidoID\n        INNER JOIN dbo.Produtos    AS p  ON p.ProdutoID = ip.ProdutoID\n        WHERE i.StatusPedido = 'Pago' AND d.StatusPedido <> 'Pago'\n        GROUP BY ip.ProdutoID, p.Estoque\n        HAVING SUM(ip.Quantidade) > p.Estoque\n    )\n        THROW 50001, 'Não há estoque suficiente para confirmar o pedido.', 1;\n\n    -- baixa orientada a conjuntos: funciona para 1 ou N pedidos no mesmo UPDATE\n    ;WITH ProdutosVendidos AS (\n        SELECT ip.ProdutoID, SUM(ip.Quantidade) AS QuantidadeVendida\n        FROM inserted AS i\n        INNER JOIN deleted AS d      ON d.PedidoID = i.PedidoID\n        INNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = i.PedidoID\n        WHERE i.StatusPedido = 'Pago' AND d.StatusPedido <> 'Pago'\n        GROUP BY ip.ProdutoID\n    )\n    UPDATE p\n    SET p.Estoque = p.Estoque - pv.QuantidadeVendida\n    FROM dbo.Produtos AS p\n    INNER JOIN ProdutosVendidos AS pv ON pv.ProdutoID = p.ProdutoID;\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.046",
+    "ms": 2
+   },
+   {
+    "sql": "SELECT name AS TriggerCriada, OBJECT_NAME(parent_id) AS Tabela, is_disabled FROM sys.triggers ORDER BY name;",
+    "resultados": [
+     {
+      "colunas": [
+       "TriggerCriada",
+       "Tabela",
+       "is_disabled"
+      ],
+      "linhas": [
+       [
+        "trg_AuditarPrecoProduto",
+        "Produtos",
+        false
+       ],
+       [
+        "trg_ValidarEstoquePedido",
+        "Pedidos",
+        false
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.048",
+    "ms": 5
+   }
+  ]
+ },
+ {
+  "id": "r4_teste_valido",
+  "descricao": "Teste 1 e 2 – pagamento válido e repetição sem nova baixa",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT 'antes' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;\nUPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = 6;\nSELECT 'depois do pagamento' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;\nUPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = 6;    -- já estava pago\nSELECT 'depois da repetição' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.053",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT 'antes' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;\nUPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = 6;\nSELECT 'depois do pagamento' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;\nUPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = 6;    -- já estava pago\nSELECT 'depois da repetição' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 3;",
+    "resultados": [
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "antes",
+        3,
+        "Mouse sem Fio",
+        55
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "depois do pagamento",
+        3,
+        "Mouse sem Fio",
+        55
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "depois da repetição",
+        3,
+        "Mouse sem Fio",
+        55
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.053",
+    "ms": 17
+   }
+  ]
+ },
+ {
+  "id": "r4_teste_multiplo",
+  "descricao": "Teste 3 – dois pedidos pagos em um único UPDATE",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT 'antes' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID IN (1, 2, 7);\nUPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID IN (8, 9);\nSELECT @@ROWCOUNT AS PedidosAtualizados;\nSELECT 'depois' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID IN (1, 2, 7);"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.070",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT 'antes' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID IN (1, 2, 7);\nUPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID IN (8, 9);\nSELECT @@ROWCOUNT AS PedidosAtualizados;\nSELECT 'depois' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID IN (1, 2, 7);",
+    "resultados": [
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "antes",
+        1,
+        "Fone Bluetooth",
+        25
+       ],
+       [
+        "antes",
+        2,
+        "Teclado Mecânico",
+        12
+       ],
+       [
+        "antes",
+        7,
+        "Luminária LED",
+        3
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidosAtualizados"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "depois",
+        1,
+        "Fone Bluetooth",
+        25
+       ],
+       [
+        "depois",
+        2,
+        "Teclado Mecânico",
+        12
+       ],
+       [
+        "depois",
+        7,
+        "Luminária LED",
+        3
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.071",
+    "ms": 3
+   }
+  ]
+ },
+ {
+  "id": "r4_teste_invalido",
+  "descricao": "Teste 4 – pedido sem estoque suficiente",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "UPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = 7;",
+   "SELECT p.PedidoID, p.StatusPedido, pr.Nome AS Produto, ip.Quantidade AS Solicitado, pr.Estoque\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nINNER JOIN dbo.Produtos    AS pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.PedidoID = 7;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.074",
+    "ms": 0
+   },
+   {
+    "sql": "UPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = 7;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.074",
+    "ms": 1
+   },
+   {
+    "sql": "SELECT p.PedidoID, p.StatusPedido, pr.Nome AS Produto, ip.Quantidade AS Solicitado, pr.Estoque\nFROM dbo.Pedidos AS p\nINNER JOIN dbo.ItensPedido AS ip ON ip.PedidoID = p.PedidoID\nINNER JOIN dbo.Produtos    AS pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.PedidoID = 7;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "StatusPedido",
+       "Produto",
+       "Solicitado",
+       "Estoque"
+      ],
+      "linhas": []
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.075",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r4_administracao",
+  "descricao": "Teste 5 – desabilitar e reabilitar a trigger",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "DISABLE TRIGGER dbo.trg_ValidarEstoquePedido ON dbo.Pedidos;\nSELECT name, is_disabled FROM sys.triggers WHERE name = 'trg_ValidarEstoquePedido';\nENABLE TRIGGER dbo.trg_ValidarEstoquePedido ON dbo.Pedidos;\nSELECT name, is_disabled FROM sys.triggers ORDER BY name;   -- ambas habilitadas ao final"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.077",
+    "ms": 0
+   },
+   {
+    "sql": "DISABLE TRIGGER dbo.trg_ValidarEstoquePedido ON dbo.Pedidos;\nSELECT name, is_disabled FROM sys.triggers WHERE name = 'trg_ValidarEstoquePedido';\nENABLE TRIGGER dbo.trg_ValidarEstoquePedido ON dbo.Pedidos;\nSELECT name, is_disabled FROM sys.triggers ORDER BY name;   -- ambas habilitadas ao final",
+    "resultados": [
+     {
+      "colunas": [
+       "name",
+       "is_disabled"
+      ],
+      "linhas": [
+       [
+        "trg_ValidarEstoquePedido",
+        true
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "name",
+       "is_disabled"
+      ],
+      "linhas": [
+       [
+        "trg_AuditarPrecoProduto",
+        false
+       ],
+       [
+        "trg_ValidarEstoquePedido",
+        false
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.077",
+    "ms": 8
+   }
+  ]
+ }
+]

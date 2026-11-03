@@ -1,0 +1,1023 @@
+[
+ {
+  "id": "r5_demo",
+  "descricao": "Demonstração: alteração temporária desfeita com ROLLBACK",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT 'antes' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;\nBEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque - 1 WHERE ProdutoID = 1 AND Estoque >= 1;\nSELECT 'dentro da transação' AS Momento, ProdutoID, Nome, Estoque, @@TRANCOUNT AS TranCount FROM dbo.Produtos WHERE ProdutoID = 1;\nROLLBACK TRANSACTION;\nSELECT 'após ROLLBACK' AS Momento, ProdutoID, Nome, Estoque, @@TRANCOUNT AS TranCount FROM dbo.Produtos WHERE ProdutoID = 1;",
+   "BEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque + 2 WHERE ProdutoID = 1;\nCOMMIT TRANSACTION;\nSELECT 'após COMMIT (+2)' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.086",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT 'antes' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;\nBEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque - 1 WHERE ProdutoID = 1 AND Estoque >= 1;\nSELECT 'dentro da transação' AS Momento, ProdutoID, Nome, Estoque, @@TRANCOUNT AS TranCount FROM dbo.Produtos WHERE ProdutoID = 1;\nROLLBACK TRANSACTION;\nSELECT 'após ROLLBACK' AS Momento, ProdutoID, Nome, Estoque, @@TRANCOUNT AS TranCount FROM dbo.Produtos WHERE ProdutoID = 1;",
+    "resultados": [
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "antes",
+        1,
+        "Fone Bluetooth",
+        25
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque",
+       "TranCount"
+      ],
+      "linhas": [
+       [
+        "dentro da transação",
+        1,
+        "Fone Bluetooth",
+        24,
+        1
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque",
+       "TranCount"
+      ],
+      "linhas": [
+       [
+        "após ROLLBACK",
+        1,
+        "Fone Bluetooth",
+        25,
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.087",
+    "ms": 3
+   },
+   {
+    "sql": "BEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque + 2 WHERE ProdutoID = 1;\nCOMMIT TRANSACTION;\nSELECT 'após COMMIT (+2)' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;",
+    "resultados": [
+     {
+      "colunas": [
+       "Momento",
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "após COMMIT (+2)",
+        1,
+        "Fone Bluetooth",
+        27
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.089",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r5_pagamentos",
+  "descricao": "Etapa 1 – tabela de pagamentos",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE TABLE dbo.Pagamentos (\n    PagamentoID    INT IDENTITY PRIMARY KEY,\n    PedidoID       INT NOT NULL UNIQUE,\n    DataPagamento  DATETIME2 NOT NULL DEFAULT SYSDATETIME(),\n    ValorPago      DECIMAL(10,2) NOT NULL CHECK (ValorPago > 0),\n    FormaPagamento VARCHAR(30) NOT NULL,\n    CONSTRAINT FK_Pagamentos_Pedidos FOREIGN KEY (PedidoID) REFERENCES dbo.Pedidos(PedidoID)\n);"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.091",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE TABLE dbo.Pagamentos (\n    PagamentoID    INT IDENTITY PRIMARY KEY,\n    PedidoID       INT NOT NULL UNIQUE,\n    DataPagamento  DATETIME2 NOT NULL DEFAULT SYSDATETIME(),\n    ValorPago      DECIMAL(10,2) NOT NULL CHECK (ValorPago > 0),\n    FormaPagamento VARCHAR(30) NOT NULL,\n    CONSTRAINT FK_Pagamentos_Pedidos FOREIGN KEY (PedidoID) REFERENCES dbo.Pedidos(PedidoID)\n);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.092",
+    "ms": 3
+   }
+  ]
+ },
+ {
+  "id": "r5_procedure",
+  "descricao": "Etapa 2 – procedure transacional de pagamento",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE OR ALTER PROCEDURE dbo.sp_ProcessarPagamento\n    @PedidoID       INT,\n    @FormaPagamento VARCHAR(30)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    SET XACT_ABORT ON;            -- qualquer erro torna a transação não confirmável\n    BEGIN TRY\n        BEGIN TRANSACTION;\n\n        DECLARE @Status VARCHAR(20), @Valor DECIMAL(10,2);\n        -- UPDLOCK + HOLDLOCK: bloqueia o pedido até o fim da transação\n        SELECT @Status = StatusPedido, @Valor = ValorTotal\n        FROM dbo.Pedidos WITH (UPDLOCK, HOLDLOCK)\n        WHERE PedidoID = @PedidoID;\n\n        IF @Status IS NULL      THROW 50010, 'Pedido não encontrado.', 1;\n        IF @Status <> 'Pendente' THROW 50011, 'Pedido não está pendente.', 1;\n\n        INSERT INTO dbo.Pagamentos (PedidoID, ValorPago, FormaPagamento)\n        VALUES (@PedidoID, @Valor, @FormaPagamento);\n\n        -- aciona trg_ValidarEstoquePedido (Roteiro 4) dentro da mesma transação\n        UPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = @PedidoID;\n\n        COMMIT TRANSACTION;\n    END TRY\n    BEGIN CATCH\n        IF XACT_STATE() <> 0 ROLLBACK TRANSACTION;\n        THROW;\n    END CATCH;\nEND;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.095",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE OR ALTER PROCEDURE dbo.sp_ProcessarPagamento\n    @PedidoID       INT,\n    @FormaPagamento VARCHAR(30)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    SET XACT_ABORT ON;            -- qualquer erro torna a transação não confirmável\n    BEGIN TRY\n        BEGIN TRANSACTION;\n\n        DECLARE @Status VARCHAR(20), @Valor DECIMAL(10,2);\n        -- UPDLOCK + HOLDLOCK: bloqueia o pedido até o fim da transação\n        SELECT @Status = StatusPedido, @Valor = ValorTotal\n        FROM dbo.Pedidos WITH (UPDLOCK, HOLDLOCK)\n        WHERE PedidoID = @PedidoID;\n\n        IF @Status IS NULL      THROW 50010, 'Pedido não encontrado.', 1;\n        IF @Status <> 'Pendente' THROW 50011, 'Pedido não está pendente.', 1;\n\n        INSERT INTO dbo.Pagamentos (PedidoID, ValorPago, FormaPagamento)\n        VALUES (@PedidoID, @Valor, @FormaPagamento);\n\n        -- aciona trg_ValidarEstoquePedido (Roteiro 4) dentro da mesma transação\n        UPDATE dbo.Pedidos SET StatusPedido = 'Pago' WHERE PedidoID = @PedidoID;\n\n        COMMIT TRANSACTION;\n    END TRY\n    BEGIN CATCH\n        IF XACT_STATE() <> 0 ROLLBACK TRANSACTION;\n        THROW;\n    END CATCH;\nEND;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.095",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r5_teste_valido",
+  "descricao": "Teste: pagamento válido (pedido 3)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT 'antes' AS Momento, p.PedidoID, p.StatusPedido, pr.Nome AS Produto, pr.Estoque\nFROM dbo.Pedidos p JOIN dbo.ItensPedido ip ON ip.PedidoID = p.PedidoID JOIN dbo.Produtos pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.PedidoID = 3;\nEXEC dbo.sp_ProcessarPagamento @PedidoID = 3, @FormaPagamento = 'Pix';\nSELECT 'depois' AS Momento, p.PedidoID, p.StatusPedido, pr.Nome AS Produto, pr.Estoque\nFROM dbo.Pedidos p JOIN dbo.ItensPedido ip ON ip.PedidoID = p.PedidoID JOIN dbo.Produtos pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.PedidoID = 3;\nSELECT PagamentoID, PedidoID, ValorPago, FormaPagamento FROM dbo.Pagamentos;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.097",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT 'antes' AS Momento, p.PedidoID, p.StatusPedido, pr.Nome AS Produto, pr.Estoque\nFROM dbo.Pedidos p JOIN dbo.ItensPedido ip ON ip.PedidoID = p.PedidoID JOIN dbo.Produtos pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.PedidoID = 3;\nEXEC dbo.sp_ProcessarPagamento @PedidoID = 3, @FormaPagamento = 'Pix';\nSELECT 'depois' AS Momento, p.PedidoID, p.StatusPedido, pr.Nome AS Produto, pr.Estoque\nFROM dbo.Pedidos p JOIN dbo.ItensPedido ip ON ip.PedidoID = p.PedidoID JOIN dbo.Produtos pr ON pr.ProdutoID = ip.ProdutoID\nWHERE p.PedidoID = 3;\nSELECT PagamentoID, PedidoID, ValorPago, FormaPagamento FROM dbo.Pagamentos;",
+    "resultados": [
+     {
+      "colunas": [
+       "Momento",
+       "PedidoID",
+       "StatusPedido",
+       "Produto",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "antes",
+        3,
+        "Pendente",
+        "Monitor 27 polegadas",
+        8
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Momento",
+       "PedidoID",
+       "StatusPedido",
+       "Produto",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        "depois",
+        3,
+        "Pago",
+        "Monitor 27 polegadas",
+        7
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PagamentoID",
+       "PedidoID",
+       "ValorPago",
+       "FormaPagamento"
+      ],
+      "linhas": [
+       [
+        1,
+        3,
+        "1299.00",
+        "Pix"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.097",
+    "ms": 20
+   }
+  ]
+ },
+ {
+  "id": "r5_teste_erros",
+  "descricao": "Testes de erro: inexistente, já pago e sem estoque",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "EXEC dbo.sp_ProcessarPagamento @PedidoID = 999, @FormaPagamento = 'Pix';",
+   "EXEC dbo.sp_ProcessarPagamento @PedidoID = 6, @FormaPagamento = 'Cartão';",
+   "EXEC dbo.sp_ProcessarPagamento @PedidoID = 7, @FormaPagamento = 'Boleto';",
+   "-- nenhum pagamento parcial ficou gravado e nenhuma transação ficou aberta\nSELECT p.PedidoID, p.StatusPedido,\n       (SELECT COUNT(*) FROM dbo.Pagamentos pg WHERE pg.PedidoID = p.PedidoID) AS Pagamentos\nFROM dbo.Pedidos p WHERE p.PedidoID IN (6, 7);\nSELECT @@TRANCOUNT AS TransacoesAbertas;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.117",
+    "ms": 0
+   },
+   {
+    "sql": "EXEC dbo.sp_ProcessarPagamento @PedidoID = 999, @FormaPagamento = 'Pix';",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)",
+    "inicio": "16:15:15.117",
+    "ms": 0
+   },
+   {
+    "sql": "EXEC dbo.sp_ProcessarPagamento @PedidoID = 6, @FormaPagamento = 'Cartão';",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)",
+    "inicio": "16:15:15.118",
+    "ms": 0
+   },
+   {
+    "sql": "EXEC dbo.sp_ProcessarPagamento @PedidoID = 7, @FormaPagamento = 'Boleto';",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)",
+    "inicio": "16:15:15.118",
+    "ms": 0
+   },
+   {
+    "sql": "-- nenhum pagamento parcial ficou gravado e nenhuma transação ficou aberta\nSELECT p.PedidoID, p.StatusPedido,\n       (SELECT COUNT(*) FROM dbo.Pagamentos pg WHERE pg.PedidoID = p.PedidoID) AS Pagamentos\nFROM dbo.Pedidos p WHERE p.PedidoID IN (6, 7);\nSELECT @@TRANCOUNT AS TransacoesAbertas;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "StatusPedido",
+       "Pagamentos"
+      ],
+      "linhas": []
+     },
+     {
+      "colunas": [
+       "TransacoesAbertas"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.119",
+    "ms": 3
+   }
+  ]
+ },
+ {
+  "id": "r5_bloqueio_A",
+  "descricao": "Etapa 3 – Sessão A segura o bloqueio por 8 s",
+  "sessao": "A",
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: BEGIN TRAN + UPDATE' AS Evento, @@SPID AS Sessao;\nBEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque + 1 WHERE ProdutoID = 1;\nWAITFOR DELAY '00:00:08';          -- transação aberta, sem COMMIT\nROLLBACK TRANSACTION;\nSELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: ROLLBACK' AS Evento, @@TRANCOUNT AS TranCount;"
+  ],
+  "spid": 52,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:15.129",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: BEGIN TRAN + UPDATE' AS Evento, @@SPID AS Sessao;\nBEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque + 1 WHERE ProdutoID = 1;\nWAITFOR DELAY '00:00:08';          -- transação aberta, sem COMMIT\nROLLBACK TRANSACTION;\nSELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: ROLLBACK' AS Evento, @@TRANCOUNT AS TranCount;",
+    "resultados": [
+     {
+      "colunas": [
+       "Hora",
+       "Evento",
+       "Sessao"
+      ],
+      "linhas": [
+       [
+        "16:15:15.126",
+        "Sessão A: BEGIN TRAN + UPDATE",
+        52
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Hora",
+       "Evento",
+       "TranCount"
+      ],
+      "linhas": [
+       [
+        "16:15:23.128",
+        "Sessão A: ROLLBACK",
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:15.129",
+    "ms": 8002
+   }
+  ]
+ },
+ {
+  "id": "r5_bloqueio_B",
+  "descricao": "Etapa 3 – Sessão B tenta alterar o mesmo produto",
+  "sessao": "B",
+  "atraso": 2,
+  "lotes": [
+   "USE LojaVirtual;",
+   "DECLARE @Inicio DATETIME2 = SYSDATETIME();\nUPDATE dbo.Produtos SET Estoque = Estoque + 1 WHERE ProdutoID = 1;\nSELECT CONVERT(VARCHAR(12), @Inicio, 114) AS Inicio, CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Fim,\n       DATEDIFF(MILLISECOND, @Inicio, SYSDATETIME()) AS EsperaMs, @@SPID AS Sessao;\nUPDATE dbo.Produtos SET Estoque = Estoque - 1 WHERE ProdutoID = 1;   -- desfaz o +1 do teste\nSELECT @@TRANCOUNT AS TranCount;"
+  ],
+  "spid": 55,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:17.130",
+    "ms": 0
+   },
+   {
+    "sql": "DECLARE @Inicio DATETIME2 = SYSDATETIME();\nUPDATE dbo.Produtos SET Estoque = Estoque + 1 WHERE ProdutoID = 1;\nSELECT CONVERT(VARCHAR(12), @Inicio, 114) AS Inicio, CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Fim,\n       DATEDIFF(MILLISECOND, @Inicio, SYSDATETIME()) AS EsperaMs, @@SPID AS Sessao;\nUPDATE dbo.Produtos SET Estoque = Estoque - 1 WHERE ProdutoID = 1;   -- desfaz o +1 do teste\nSELECT @@TRANCOUNT AS TranCount;",
+    "resultados": [
+     {
+      "colunas": [
+       "Inicio",
+       "Fim",
+       "EsperaMs",
+       "Sessao"
+      ],
+      "linhas": [
+       [
+        "16:15:17.131",
+        "16:15:23.128",
+        5997,
+        55
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "TranCount"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:17.130",
+    "ms": 6002
+   }
+  ]
+ },
+ {
+  "id": "r5_bloqueio_M",
+  "descricao": "Etapa 3 – observação do bloqueio em andamento",
+  "sessao": "M",
+  "atraso": 4,
+  "lotes": [
+   "SELECT r.session_id AS SessaoBloqueada, r.blocking_session_id AS BloqueadaPor,\n       r.command, r.wait_type, r.wait_time AS EsperaMs\nFROM sys.dm_exec_requests AS r\nWHERE r.blocking_session_id <> 0;"
+  ],
+  "spid": 56,
+  "resultado": [
+   {
+    "sql": "SELECT r.session_id AS SessaoBloqueada, r.blocking_session_id AS BloqueadaPor,\n       r.command, r.wait_type, r.wait_time AS EsperaMs\nFROM sys.dm_exec_requests AS r\nWHERE r.blocking_session_id <> 0;",
+    "resultados": [
+     {
+      "colunas": [
+       "SessaoBloqueada",
+       "BloqueadaPor",
+       "command",
+       "wait_type",
+       "EsperaMs"
+      ],
+      "linhas": [
+       [
+        55,
+        52,
+        "UPDATE",
+        "LCK_M_X",
+        2002
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:19.130",
+    "ms": 4
+   }
+  ]
+ },
+ {
+  "id": "r5_preparar_concorrencia",
+  "descricao": "Etapa 4 – novo pedido pendente",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "INSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES (3, '2026-10-27 15:00', 'Pendente', 99.90);\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES (SCOPE_IDENTITY(), 3, 1, 99.90);\nSELECT TOP (1) p.PedidoID, p.StatusPedido, pr.Nome AS Produto, pr.Estoque\nFROM dbo.Pedidos p JOIN dbo.ItensPedido ip ON ip.PedidoID = p.PedidoID JOIN dbo.Produtos pr ON pr.ProdutoID = ip.ProdutoID\nORDER BY p.PedidoID DESC;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:23.133",
+    "ms": 0
+   },
+   {
+    "sql": "INSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES (3, '2026-10-27 15:00', 'Pendente', 99.90);\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES (SCOPE_IDENTITY(), 3, 1, 99.90);\nSELECT TOP (1) p.PedidoID, p.StatusPedido, pr.Nome AS Produto, pr.Estoque\nFROM dbo.Pedidos p JOIN dbo.ItensPedido ip ON ip.PedidoID = p.PedidoID JOIN dbo.Produtos pr ON pr.ProdutoID = ip.ProdutoID\nORDER BY p.PedidoID DESC;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "StatusPedido",
+       "Produto",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        10,
+        "Pendente",
+        "Mouse sem Fio",
+        55
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:23.133",
+    "ms": 6
+   }
+  ]
+ },
+ {
+  "id": "r5_pagto_A",
+  "descricao": "Etapa 4 – Sessão A paga o pedido 10 e demora para confirmar",
+  "sessao": "A",
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "BEGIN TRANSACTION;\nEXEC dbo.sp_ProcessarPagamento @PedidoID = 10, @FormaPagamento = 'Pix';\nSELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: pagamento feito, aguardando COMMIT' AS Evento;\nWAITFOR DELAY '00:00:06';\nCOMMIT TRANSACTION;\nSELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: COMMIT' AS Evento, @@TRANCOUNT AS TranCount;"
+  ],
+  "spid": 55,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:23.141",
+    "ms": 0
+   },
+   {
+    "sql": "BEGIN TRANSACTION;\nEXEC dbo.sp_ProcessarPagamento @PedidoID = 10, @FormaPagamento = 'Pix';\nSELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: pagamento feito, aguardando COMMIT' AS Evento;\nWAITFOR DELAY '00:00:06';\nCOMMIT TRANSACTION;\nSELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão A: COMMIT' AS Evento, @@TRANCOUNT AS TranCount;",
+    "resultados": [
+     {
+      "colunas": [
+       "Hora",
+       "Evento"
+      ],
+      "linhas": [
+       [
+        "16:15:23.141",
+        "Sessão A: pagamento feito, aguardando COMMIT"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Hora",
+       "Evento",
+       "TranCount"
+      ],
+      "linhas": [
+       [
+        "16:15:29.141",
+        "Sessão A: COMMIT",
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:23.141",
+    "ms": 6002
+   }
+  ]
+ },
+ {
+  "id": "r5_pagto_B",
+  "descricao": "Etapa 4 – Sessão B tenta pagar o mesmo pedido",
+  "sessao": "B",
+  "atraso": 2,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão B: chamando a procedure' AS Evento;\nEXEC dbo.sp_ProcessarPagamento @PedidoID = 10, @FormaPagamento = 'Cartão';",
+   "SELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão B: liberada' AS Evento, @@TRANCOUNT AS TranCount;"
+  ],
+  "spid": 52,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:25.147",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão B: chamando a procedure' AS Evento;\nEXEC dbo.sp_ProcessarPagamento @PedidoID = 10, @FormaPagamento = 'Cartão';",
+    "resultados": [
+     {
+      "colunas": [
+       "Hora",
+       "Evento"
+      ],
+      "linhas": [
+       [
+        "16:15:25.145",
+        "Sessão B: chamando a procedure"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não está pendente. (50011)",
+    "inicio": "16:15:25.147",
+    "ms": 3996
+   },
+   {
+    "sql": "SELECT CONVERT(VARCHAR(12), SYSDATETIME(), 114) AS Hora, 'Sessão B: liberada' AS Evento, @@TRANCOUNT AS TranCount;",
+    "resultados": [
+     {
+      "colunas": [
+       "Hora",
+       "Evento",
+       "TranCount"
+      ],
+      "linhas": [
+       [
+        "16:15:29.141",
+        "Sessão B: liberada",
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:29.143",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r5_pagto_conferencia",
+  "descricao": "Etapa 4 – conferência: um único pagamento e uma única baixa",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SELECT p.PedidoID, p.StatusPedido,\n       (SELECT COUNT(*) FROM dbo.Pagamentos pg WHERE pg.PedidoID = p.PedidoID) AS Pagamentos,\n       (SELECT Estoque FROM dbo.Produtos WHERE ProdutoID = 3) AS EstoqueMouse\nFROM dbo.Pedidos p WHERE p.PedidoID = 10;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:29.144",
+    "ms": 0
+   },
+   {
+    "sql": "SELECT p.PedidoID, p.StatusPedido,\n       (SELECT COUNT(*) FROM dbo.Pagamentos pg WHERE pg.PedidoID = p.PedidoID) AS Pagamentos,\n       (SELECT Estoque FROM dbo.Produtos WHERE ProdutoID = 3) AS EstoqueMouse\nFROM dbo.Pedidos p WHERE p.PedidoID = 10;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "StatusPedido",
+       "Pagamentos",
+       "EstoqueMouse"
+      ],
+      "linhas": [
+       [
+        10,
+        "Pago",
+        1,
+        54
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:29.145",
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r5_isolamento",
+  "descricao": "Etapa 5 – nível de isolamento padrão",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "DBCC USEROPTIONS WITH NO_INFOMSGS;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "DBCC USEROPTIONS WITH NO_INFOMSGS;",
+    "resultados": [
+     {
+      "colunas": [
+       "Set Option",
+       "Value"
+      ],
+      "linhas": [
+       [
+        "textsize",
+        "-1"
+       ],
+       [
+        "language",
+        "Português"
+       ],
+       [
+        "dateformat",
+        "dmy"
+       ],
+       [
+        "datefirst",
+        "7"
+       ],
+       [
+        "lock_timeout",
+        "-1"
+       ],
+       [
+        "quoted_identifier",
+        "SET"
+       ],
+       [
+        "ansi_null_dflt_on",
+        "SET"
+       ],
+       [
+        "ansi_warnings",
+        "SET"
+       ],
+       [
+        "ansi_padding",
+        "SET"
+       ],
+       [
+        "ansi_nulls",
+        "SET"
+       ],
+       [
+        "concat_null_yields_null",
+        "SET"
+       ],
+       [
+        "isolation level",
+        "read committed"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:29.147",
+    "ms": 0
+   }
+  ]
+ },
+ {
+  "id": "r5_rc_A",
+  "descricao": "READ COMMITTED: Sessão A mantém uma alteração aberta",
+  "sessao": "A",
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "BEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque + 1 WHERE ProdutoID = 1;\nWAITFOR DELAY '00:00:05';\nROLLBACK TRANSACTION;\nSELECT @@TRANCOUNT AS TranCount;"
+  ],
+  "spid": 52,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:29.149",
+    "ms": 0
+   },
+   {
+    "sql": "BEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque + 1 WHERE ProdutoID = 1;\nWAITFOR DELAY '00:00:05';\nROLLBACK TRANSACTION;\nSELECT @@TRANCOUNT AS TranCount;",
+    "resultados": [
+     {
+      "colunas": [
+       "TranCount"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:29.149",
+    "ms": 5002
+   }
+  ]
+ },
+ {
+  "id": "r5_rc_B",
+  "descricao": "READ COMMITTED: Sessão B tenta ler a linha alterada",
+  "sessao": "B",
+  "atraso": 2,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nSET LOCK_TIMEOUT 2000;     -- desiste depois de 2 s em vez de esperar indefinidamente\nSELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;"
+  ],
+  "spid": 54,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:31.155",
+    "ms": 0
+   },
+   {
+    "sql": "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nSET LOCK_TIMEOUT 2000;     -- desiste depois de 2 s em vez de esperar indefinidamente\nSELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O tempo limite do pedido de bloqueio foi excedido. (1222)",
+    "inicio": "16:15:31.156",
+    "ms": 2002
+   }
+  ]
+ },
+ {
+  "id": "r5_rc_conferencia",
+  "descricao": "Conferência entre os testes de isolamento",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "SELECT ProdutoID, Nome, Estoque FROM LojaVirtual.dbo.Produtos WHERE ProdutoID = 1;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "SELECT ProdutoID, Nome, Estoque FROM LojaVirtual.dbo.Produtos WHERE ProdutoID = 1;",
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Estoque"
+      ],
+      "linhas": [
+       [
+        1,
+        "Fone Bluetooth",
+        27
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:34.151",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r5_ser_A",
+  "descricao": "SERIALIZABLE: Sessão A lê os pedidos de um cliente e mantém a transação",
+  "sessao": "A",
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\nSELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 6;\nWAITFOR DELAY '00:00:05';\nSELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 6;\nCOMMIT TRANSACTION;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;"
+  ],
+  "spid": 52,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:34.154",
+    "ms": 0
+   },
+   {
+    "sql": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\nSELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 6;\nWAITFOR DELAY '00:00:05';\nSELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 6;\nCOMMIT TRANSACTION;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidosDaElisa"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidosDaElisaNovamente"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:34.154",
+    "ms": 5003
+   }
+  ]
+ },
+ {
+  "id": "r5_ser_B",
+  "descricao": "SERIALIZABLE: Sessão B tenta inserir um pedido no mesmo intervalo",
+  "sessao": "B",
+  "atraso": 2,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SET LOCK_TIMEOUT 2000;\nINSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (6, 'Cancelado', 0);"
+  ],
+  "spid": 54,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:36.160",
+    "ms": 0
+   },
+   {
+    "sql": "SET LOCK_TIMEOUT 2000;\nINSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (6, 'Cancelado', 0);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O tempo limite do pedido de bloqueio foi excedido. (1222)",
+    "inicio": "16:15:36.161",
+    "ms": 2003
+   }
+  ]
+ },
+ {
+  "id": "r5_final",
+  "descricao": "Confirmação: nenhuma transação aberta",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "SELECT COUNT(*) AS TransacoesDeUsuarioAbertas\nFROM sys.dm_tran_session_transactions AS t\nINNER JOIN sys.dm_exec_sessions AS s ON s.session_id = t.session_id\nWHERE s.is_user_process = 1 AND t.session_id <> @@SPID;\nSELECT @@TRANCOUNT AS TranCountDestaSessao;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "SELECT COUNT(*) AS TransacoesDeUsuarioAbertas\nFROM sys.dm_tran_session_transactions AS t\nINNER JOIN sys.dm_exec_sessions AS s ON s.session_id = t.session_id\nWHERE s.is_user_process = 1 AND t.session_id <> @@SPID;\nSELECT @@TRANCOUNT AS TranCountDestaSessao;",
+    "resultados": [
+     {
+      "colunas": [
+       "TransacoesDeUsuarioAbertas"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "TranCountDestaSessao"
+      ],
+      "linhas": [
+       [
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:39.158",
+    "ms": 4
+   }
+  ]
+ }
+]

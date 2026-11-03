@@ -1,0 +1,661 @@
+[
+ {
+  "id": "r7_massa",
+  "descricao": "Preparação – massa de teste representativa",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SET NOCOUNT ON;\n;WITH n AS (\n    SELECT TOP (50000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS k\n    FROM sys.all_objects a CROSS JOIN sys.all_objects b\n)\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal)\nSELECT CHOOSE(k % 6 + 1, 1, 2, 3, 5, 6, 2),\n       DATEADD(MINUTE, (k * 37) % 1440, DATEADD(DAY, (k * 7919) % 1035, CAST('2024-01-01' AS DATETIME2(0)))),\n       'Entregue',\n       CAST(50 + (k * 31) % 950 AS DECIMAL(10,2))\nFROM n;\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario)\nSELECT p.PedidoID, 1 + p.PedidoID % 7, 1, p.ValorTotal\nFROM dbo.Pedidos AS p\nWHERE p.PedidoID > 10 AND NOT EXISTS (SELECT 1 FROM dbo.ItensPedido i WHERE i.PedidoID = p.PedidoID);\n\nUPDATE STATISTICS dbo.Pedidos;\nUPDATE STATISTICS dbo.ItensPedido;\nSELECT (SELECT COUNT(*) FROM dbo.Pedidos) AS Pedidos, (SELECT COUNT(*) FROM dbo.ItensPedido) AS ItensPedido;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:39.304",
+    "ms": 0
+   },
+   {
+    "sql": "SET NOCOUNT ON;\n;WITH n AS (\n    SELECT TOP (50000) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS k\n    FROM sys.all_objects a CROSS JOIN sys.all_objects b\n)\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal)\nSELECT CHOOSE(k % 6 + 1, 1, 2, 3, 5, 6, 2),\n       DATEADD(MINUTE, (k * 37) % 1440, DATEADD(DAY, (k * 7919) % 1035, CAST('2024-01-01' AS DATETIME2(0)))),\n       'Entregue',\n       CAST(50 + (k * 31) % 950 AS DECIMAL(10,2))\nFROM n;\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario)\nSELECT p.PedidoID, 1 + p.PedidoID % 7, 1, p.ValorTotal\nFROM dbo.Pedidos AS p\nWHERE p.PedidoID > 10 AND NOT EXISTS (SELECT 1 FROM dbo.ItensPedido i WHERE i.PedidoID = p.PedidoID);\n\nUPDATE STATISTICS dbo.Pedidos;\nUPDATE STATISTICS dbo.ItensPedido;\nSELECT (SELECT COUNT(*) FROM dbo.Pedidos) AS Pedidos, (SELECT COUNT(*) FROM dbo.ItensPedido) AS ItensPedido;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição FOREIGN KEY \"FK_Pedidos_Clientes\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Clientes\", column 'ClienteID'. (547)",
+    "inicio": "16:15:39.304",
+    "ms": 1072
+   }
+  ]
+ },
+ {
+  "id": "r7_indices_iniciais",
+  "descricao": "Etapa 1 – índices existentes em Pedidos",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "EXEC sys.sp_helpindex 'dbo.Pedidos';\nSELECT i.name, i.type_desc, i.is_unique, i.is_disabled\nFROM sys.indexes AS i WHERE i.object_id = OBJECT_ID('dbo.Pedidos') ORDER BY i.index_id;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.377",
+    "ms": 0
+   },
+   {
+    "sql": "EXEC sys.sp_helpindex 'dbo.Pedidos';\nSELECT i.name, i.type_desc, i.is_unique, i.is_disabled\nFROM sys.indexes AS i WHERE i.object_id = OBJECT_ID('dbo.Pedidos') ORDER BY i.index_id;",
+    "resultados": [
+     {
+      "colunas": [
+       "index_name",
+       "index_description",
+       "index_keys"
+      ],
+      "linhas": [
+       [
+        "PK_Pedidos",
+        "clustered, unique, primary key located on PRIMARY",
+        "PedidoID"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "name",
+       "type_desc",
+       "is_unique",
+       "is_disabled"
+      ],
+      "linhas": [
+       [
+        "PK_Pedidos",
+        "CLUSTERED",
+        true,
+        false
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.377",
+    "ms": 38
+   }
+  ]
+ },
+ {
+  "id": "r7_base",
+  "descricao": "Etapa 1 – linha de base (plano real + STATISTICS IO/TIME)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\nSELECT PedidoID, ClienteID, DataPedido, StatusPedido, ValorTotal\nFROM dbo.Pedidos\nWHERE ClienteID = 1 AND DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01';\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.416",
+    "ms": 0
+   },
+   {
+    "sql": "SET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\nSELECT PedidoID, ClienteID, DataPedido, StatusPedido, ValorTotal\nFROM dbo.Pedidos\nWHERE ClienteID = 1 AND DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01';\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "ClienteID",
+       "DataPedido",
+       "StatusPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        1,
+        "2026-09-10 10:15:00",
+        "Entregue",
+        "379.70"
+       ],
+       [
+        3,
+        1,
+        "2026-10-20 09:05:00",
+        "Pago",
+        "1299.00"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tabela “Pedidos”. Contagem de digitalização 1, leituras lógicas 274, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.416",
+    "planos": [
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT [PedidoID],[ClienteID],[DataPedido],[StatusPedido],[ValorTotal] FROM [dbo].[Pedidos] WHERE [ClienteID]=@1 AND [DataPedido]&gt;=@2 AND [DataPedido]&lt;@3\" StatementId=\"1\" StatementCompId=\"4\" StatementType=\"SELECT\" StatementSqlHandle=\"0x0900E9FA00D12D50797453AC7EA5643196C30000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"2\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.204027\" StatementEstRows=\"2\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"TRIVIAL\" QueryHash=\"0x2D386C031FEAAB25\" QueryPlanHash=\"0x6A8E2B9A0DFFA481\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" CachedPlanSize=\"32\" CompileTime=\"1\" CompileCPU=\"1\" CompileMemory=\"200\"><MemoryGrantInfo SerialRequiredMemory=\"0\" SerialDesiredMemory=\"0\" GrantedMemory=\"0\" MaxUsedMemory=\"0\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8927864\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.36\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000002_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.41\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000003_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Clustered Index Scan\" LogicalOp=\"Clustered Index Scan\" EstimateRows=\"2\" EstimatedRowsRead=\"4\" EstimateIO=\"0.203866\" EstimateCPU=\"0.0001614\" AvgRowSize=\"44\" EstimatedTotalSubtreeCost=\"0.204027\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"StatusPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"2\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"274\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"4\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"0\" ForcedIndex=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"StatusPedido\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Index=\"[PK_Pedidos]\" IndexKind=\"Clustered\" Storage=\"RowStore\"></Object><Predicate><ScalarOperator ScalarString=\"[LojaVirtual].[dbo].[Pedidos].[ClienteID]=CONVERT_IMPLICIT(int,[@1],0) AND [LojaVirtual].[dbo].[Pedidos].[DataPedido]&gt;=CONVERT_IMPLICIT(datetime2(7),[@2],0) AND [LojaVirtual].[dbo].[Pedidos].[DataPedido]&lt;CONVERT_IMPLICIT(datetime2(7),[@3],0)\"><Logical Operation=\"AND\"><ScalarOperator><Compare CompareOp=\"EQ\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1002\"><ScalarOperator><Convert DataType=\"int\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@1\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></Compare></ScalarOperator><ScalarOperator><Compare CompareOp=\"GE\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1003\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@2\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></Compare></ScalarOperator><ScalarOperator><Compare CompareOp=\"LT\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1004\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@3\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></Compare></ScalarOperator></Logical></ScalarOperator></Predicate></IndexScan></RelOp><ParameterList><ColumnReference Column=\"@3\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2027-01-01&apos;\" ParameterRuntimeValue=\"&apos;2027-01-01&apos;\"></ColumnReference><ColumnReference Column=\"@2\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2026-01-01&apos;\" ParameterRuntimeValue=\"&apos;2026-01-01&apos;\"></ColumnReference><ColumnReference Column=\"@1\" ParameterDataType=\"tinyint\" ParameterCompiledValue=\"(1)\" ParameterRuntimeValue=\"(1)\"></ColumnReference></ParameterList></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>"
+    ],
+    "ms": 3
+   }
+  ]
+ },
+ {
+  "id": "r7_sargavel",
+  "descricao": "Etapa 2 – predicado não sargável x sargável (índice começando por DataPedido)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "-- índice temporário só para a comparação desta etapa\nCREATE NONCLUSTERED INDEX IX_Pedidos_Data_Temp ON dbo.Pedidos (DataPedido) INCLUDE (ClienteID, ValorTotal);",
+   "-- os dois retornam o mesmo conjunto?\nSELECT (SELECT COUNT(*) FROM dbo.Pedidos WHERE YEAR(DataPedido) = 2026) AS LinhasA,\n       (SELECT COUNT(*) FROM dbo.Pedidos WHERE DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01') AS LinhasB,\n       (SELECT COUNT(*) FROM (SELECT PedidoID FROM dbo.Pedidos WHERE YEAR(DataPedido) = 2026\n                              EXCEPT\n                              SELECT PedidoID FROM dbo.Pedidos WHERE DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01') d) AS Diferencas;",
+   "SET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\n-- Consulta A: função aplicada à coluna\nSELECT PedidoID, ClienteID, DataPedido, ValorTotal FROM dbo.Pedidos WHERE YEAR(DataPedido) = 2026;\n-- Consulta B: intervalo sargável\nSELECT PedidoID, ClienteID, DataPedido, ValorTotal FROM dbo.Pedidos\nWHERE DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01';\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;",
+   "DROP INDEX IX_Pedidos_Data_Temp ON dbo.Pedidos;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.419",
+    "ms": 0
+   },
+   {
+    "sql": "-- índice temporário só para a comparação desta etapa\nCREATE NONCLUSTERED INDEX IX_Pedidos_Data_Temp ON dbo.Pedidos (DataPedido) INCLUDE (ClienteID, ValorTotal);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.420",
+    "ms": 3
+   },
+   {
+    "sql": "-- os dois retornam o mesmo conjunto?\nSELECT (SELECT COUNT(*) FROM dbo.Pedidos WHERE YEAR(DataPedido) = 2026) AS LinhasA,\n       (SELECT COUNT(*) FROM dbo.Pedidos WHERE DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01') AS LinhasB,\n       (SELECT COUNT(*) FROM (SELECT PedidoID FROM dbo.Pedidos WHERE YEAR(DataPedido) = 2026\n                              EXCEPT\n                              SELECT PedidoID FROM dbo.Pedidos WHERE DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01') d) AS Diferencas;",
+    "resultados": [
+     {
+      "colunas": [
+       "LinhasA",
+       "LinhasB",
+       "Diferencas"
+      ],
+      "linhas": [
+       [
+        4,
+        4,
+        0
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.423",
+    "ms": 3
+   },
+   {
+    "sql": "SET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\n-- Consulta A: função aplicada à coluna\nSELECT PedidoID, ClienteID, DataPedido, ValorTotal FROM dbo.Pedidos WHERE YEAR(DataPedido) = 2026;\n-- Consulta B: intervalo sargável\nSELECT PedidoID, ClienteID, DataPedido, ValorTotal FROM dbo.Pedidos\nWHERE DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01';\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "ClienteID",
+       "DataPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        1,
+        "2026-09-10 10:15:00",
+        "379.70"
+       ],
+       [
+        2,
+        2,
+        "2026-10-05 14:40:00",
+        "469.90"
+       ],
+       [
+        3,
+        1,
+        "2026-10-20 09:05:00",
+        "1299.00"
+       ],
+       [
+        10,
+        3,
+        "2026-10-27 15:00:00",
+        "99.90"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "ClienteID",
+       "DataPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        1,
+        "2026-09-10 10:15:00",
+        "379.70"
+       ],
+       [
+        2,
+        2,
+        "2026-10-05 14:40:00",
+        "469.90"
+       ],
+       [
+        3,
+        1,
+        "2026-10-20 09:05:00",
+        "1299.00"
+       ],
+       [
+        10,
+        3,
+        "2026-10-27 15:00:00",
+        "99.90"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tabela “Pedidos”. Contagem de digitalização 1, leituras lógicas 2, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tabela “Pedidos”. Contagem de digitalização 1, leituras lógicas 2, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.426",
+    "planos": [
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT PedidoID, ClienteID, DataPedido, ValorTotal FROM dbo.Pedidos WHERE YEAR(DataPedido) = 2026\" StatementId=\"1\" StatementCompId=\"4\" StatementType=\"SELECT\" StatementSqlHandle=\"0x09004339B2BD93716DF6D54BB1A2ADE743930000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"0\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.0032864\" StatementEstRows=\"4\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"TRIVIAL\" QueryHash=\"0xF8E45A8D1A476C79\" QueryPlanHash=\"0x4C4017BD6F4E94D6\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" CachedPlanSize=\"16\" CompileTime=\"0\" CompileCPU=\"0\" CompileMemory=\"176\"><MemoryGrantInfo SerialRequiredMemory=\"0\" SerialDesiredMemory=\"0\" GrantedMemory=\"0\" MaxUsedMemory=\"0\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8927864\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.41\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000003_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Index Scan\" LogicalOp=\"Index Scan\" EstimateRows=\"4\" EstimatedRowsRead=\"4\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001614\" AvgRowSize=\"30\" EstimatedTotalSubtreeCost=\"0.0032864\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"4\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"2\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"4\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"0\" ForcedIndex=\"0\" ForceSeek=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Index=\"[IX_Pedidos_Data_Temp]\" IndexKind=\"NonClustered\" Storage=\"RowStore\"></Object><Predicate><ScalarOperator ScalarString=\"datepart(year,[LojaVirtual].[dbo].[Pedidos].[DataPedido])=(2026)\"><Compare CompareOp=\"EQ\"><ScalarOperator><Intrinsic FunctionName=\"datepart\"><ScalarOperator><Const ConstValue=\"(0)\"></Const></ScalarOperator><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></Identifier></ScalarOperator></Intrinsic></ScalarOperator><ScalarOperator><Const ConstValue=\"(2026)\"></Const></ScalarOperator></Compare></ScalarOperator></Predicate></IndexScan></RelOp></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>",
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT [PedidoID],[ClienteID],[DataPedido],[ValorTotal] FROM [dbo].[Pedidos] WHERE [DataPedido]&gt;=@1 AND [DataPedido]&lt;@2\" StatementId=\"2\" StatementCompId=\"5\" StatementType=\"SELECT\" StatementSqlHandle=\"0x09005F3F5DDD0CD0E364905E0E9E0A59D2B10000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"2\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.0032864\" StatementEstRows=\"4\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"TRIVIAL\" QueryHash=\"0x87F840F0ACD1B960\" QueryPlanHash=\"0x26890BA7A7EBB64A\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" CachedPlanSize=\"40\" CompileTime=\"0\" CompileCPU=\"0\" CompileMemory=\"152\"><MemoryGrantInfo SerialRequiredMemory=\"0\" SerialDesiredMemory=\"0\" GrantedMemory=\"0\" MaxUsedMemory=\"0\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8927864\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.41\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000003_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Nested Loops\" LogicalOp=\"Inner Join\" EstimateRows=\"4\" EstimatedRowsRead=\"4\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001614\" AvgRowSize=\"30\" EstimatedTotalSubtreeCost=\"0.0032864\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"4\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><NestedLoops Optimized=\"0\"><OuterReferences><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference></OuterReferences><RelOp NodeId=\"1\" PhysicalOp=\"Merge Interval\" LogicalOp=\"Merge Interval\" EstimateRows=\"2\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><MergeInterval><RelOp NodeId=\"2\" PhysicalOp=\"Concatenation\" LogicalOp=\"Concatenation\" EstimateRows=\"2\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"2\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><Concat><DefinedValues><DefinedValue><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1005\"></ColumnReference><ColumnReference Column=\"Expr1008\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1009\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1004\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference></DefinedValue></DefinedValues><RelOp NodeId=\"3\" PhysicalOp=\"Compute Scalar\" LogicalOp=\"Compute Scalar\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1005\"></ColumnReference><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1004\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ComputeScalar><DefinedValues><DefinedValue><ValueVector><ColumnReference Column=\"Expr1005\"></ColumnReference><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1004\"></ColumnReference></ValueVector><ScalarOperator ScalarString=\"GetRangeWithMismatchedTypes(CONVERT_IMPLICIT(datetime2(7),[@1],0),NULL,(22))\"><Intrinsic FunctionName=\"GetRangeWithMismatchedTypes\"><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1002\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@1\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Const ConstValue=\"NULL\"></Const></ScalarOperator><ScalarOperator><Const ConstValue=\"(22)\"></Const></ScalarOperator></Intrinsic></ScalarOperator></DefinedValue></DefinedValues><RelOp NodeId=\"4\" PhysicalOp=\"Constant Scan\" LogicalOp=\"Constant Scan\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"0\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ConstantScan></ConstantScan></RelOp></ComputeScalar></RelOp><RelOp NodeId=\"5\" PhysicalOp=\"Compute Scalar\" LogicalOp=\"Compute Scalar\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1008\"></ColumnReference><ColumnReference Column=\"Expr1009\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ComputeScalar><DefinedValues><DefinedValue><ValueVector><ColumnReference Column=\"Expr1008\"></ColumnReference><ColumnReference Column=\"Expr1009\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference></ValueVector><ScalarOperator ScalarString=\"GetRangeWithMismatchedTypes(NULL,CONVERT_IMPLICIT(datetime2(7),[@2],0),(10))\"><Intrinsic FunctionName=\"GetRangeWithMismatchedTypes\"><ScalarOperator><Const ConstValue=\"NULL\"></Const></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1003\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@2\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Const ConstValue=\"(10)\"></Const></ScalarOperator></Intrinsic></ScalarOperator></DefinedValue></DefinedValues><RelOp NodeId=\"6\" PhysicalOp=\"Constant Scan\" LogicalOp=\"Constant Scan\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"0\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ConstantScan></ConstantScan></RelOp></ComputeScalar></RelOp></Concat></RelOp></MergeInterval></RelOp><RelOp NodeId=\"7\" PhysicalOp=\"Index Seek\" LogicalOp=\"Index Seek\" EstimateRows=\"4\" EstimatedRowsRead=\"4\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001614\" AvgRowSize=\"30\" EstimatedTotalSubtreeCost=\"0.0032864\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"4\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"2\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"4\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"1\" ScanDirection=\"FORWARD\" ForcedIndex=\"0\" ForceSeek=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Index=\"[IX_Pedidos_Data_Temp]\" IndexKind=\"NonClustered\" Storage=\"RowStore\"></Object><SeekPredicates><SeekPredicateNew><SeekKeys><StartRange ScanType=\"GT\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"[Expr1010]\"><Identifier><ColumnReference Column=\"Expr1010\"></ColumnReference></Identifier></ScalarOperator></RangeExpressions></StartRange><EndRange ScanType=\"LT\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"[Expr1011]\"><Identifier><ColumnReference Column=\"Expr1011\"></ColumnReference></Identifier></ScalarOperator></RangeExpressions></EndRange></SeekKeys></SeekPredicateNew></SeekPredicates></IndexScan></RelOp></NestedLoops></RelOp><ParameterList><ColumnReference Column=\"@2\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2027-01-01&apos;\" ParameterRuntimeValue=\"&apos;2027-01-01&apos;\"></ColumnReference><ColumnReference Column=\"@1\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2026-01-01&apos;\" ParameterRuntimeValue=\"&apos;2026-01-01&apos;\"></ColumnReference></ParameterList></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>"
+    ],
+    "ms": 3
+   },
+   {
+    "sql": "DROP INDEX IX_Pedidos_Data_Temp ON dbo.Pedidos;",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.429",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r7_indice",
+  "descricao": "Etapa 3 – índice composto para o relatório e nova medição",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "CREATE NONCLUSTERED INDEX IX_Pedidos_Cliente_Data\nON dbo.Pedidos (ClienteID, DataPedido)\nINCLUDE (StatusPedido, ValorTotal);",
+   "SET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\nSELECT PedidoID, ClienteID, DataPedido, StatusPedido, ValorTotal\nFROM dbo.Pedidos\nWHERE ClienteID = 1 AND DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01';\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.430",
+    "ms": 0
+   },
+   {
+    "sql": "CREATE NONCLUSTERED INDEX IX_Pedidos_Cliente_Data\nON dbo.Pedidos (ClienteID, DataPedido)\nINCLUDE (StatusPedido, ValorTotal);",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.431",
+    "ms": 2
+   },
+   {
+    "sql": "SET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\nSELECT PedidoID, ClienteID, DataPedido, StatusPedido, ValorTotal\nFROM dbo.Pedidos\nWHERE ClienteID = 1 AND DataPedido >= '2026-01-01' AND DataPedido < '2027-01-01';\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "ClienteID",
+       "DataPedido",
+       "StatusPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        1,
+        "2026-09-10 10:15:00",
+        "Entregue",
+        "379.70"
+       ],
+       [
+        3,
+        1,
+        "2026-10-20 09:05:00",
+        "Pago",
+        "1299.00"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 1 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 1 ms.",
+     "Tempo de análise e compilação do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tabela “Pedidos”. Contagem de digitalização 1, leituras lógicas 2, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.433",
+    "planos": [
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT [PedidoID],[ClienteID],[DataPedido],[StatusPedido],[ValorTotal] FROM [dbo].[Pedidos] WHERE [ClienteID]=@1 AND [DataPedido]&gt;=@2 AND [DataPedido]&lt;@3\" StatementId=\"1\" StatementCompId=\"0\" StatementType=\"SELECT\" StatementSqlHandle=\"0x0900E9FA00D12D50797453AC7EA5643196C30000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"2\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.0032842\" StatementEstRows=\"2\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"TRIVIAL\" QueryHash=\"0x2D386C031FEAAB25\" QueryPlanHash=\"0xED3A7E8CCDE0BFCB\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" CachedPlanSize=\"40\" CompileTime=\"0\" CompileCPU=\"0\" CompileMemory=\"208\"><MemoryGrantInfo SerialRequiredMemory=\"0\" SerialDesiredMemory=\"0\" GrantedMemory=\"0\" MaxUsedMemory=\"0\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8916184\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.36\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000002_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.41\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000003_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Nested Loops\" LogicalOp=\"Inner Join\" EstimateRows=\"2\" EstimatedRowsRead=\"2\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001592\" AvgRowSize=\"44\" EstimatedTotalSubtreeCost=\"0.0032842\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"StatusPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"2\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><NestedLoops Optimized=\"0\"><OuterReferences><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1013\"></ColumnReference></OuterReferences><RelOp NodeId=\"1\" PhysicalOp=\"Merge Interval\" LogicalOp=\"Merge Interval\" EstimateRows=\"2\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1013\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><MergeInterval><RelOp NodeId=\"2\" PhysicalOp=\"Concatenation\" LogicalOp=\"Concatenation\" EstimateRows=\"2\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1013\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"2\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><Concat><DefinedValues><DefinedValue><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1009\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference><ColumnReference Column=\"Expr1010\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Column=\"Expr1013\"></ColumnReference><ColumnReference Column=\"Expr1005\"></ColumnReference><ColumnReference Column=\"Expr1008\"></ColumnReference></DefinedValue></DefinedValues><RelOp NodeId=\"3\" PhysicalOp=\"Compute Scalar\" LogicalOp=\"Compute Scalar\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference><ColumnReference Column=\"Expr1005\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ComputeScalar><DefinedValues><DefinedValue><ValueVector><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference><ColumnReference Column=\"Expr1005\"></ColumnReference></ValueVector><ScalarOperator ScalarString=\"GetRangeWithMismatchedTypes(CONVERT_IMPLICIT(datetime2(7),[@2],0),NULL,(22))\"><Intrinsic FunctionName=\"GetRangeWithMismatchedTypes\"><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1003\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@2\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Const ConstValue=\"NULL\"></Const></ScalarOperator><ScalarOperator><Const ConstValue=\"(22)\"></Const></ScalarOperator></Intrinsic></ScalarOperator></DefinedValue></DefinedValues><RelOp NodeId=\"4\" PhysicalOp=\"Constant Scan\" LogicalOp=\"Constant Scan\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"0\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ConstantScan></ConstantScan></RelOp></ComputeScalar></RelOp><RelOp NodeId=\"5\" PhysicalOp=\"Compute Scalar\" LogicalOp=\"Compute Scalar\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1009\"></ColumnReference><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1008\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ComputeScalar><DefinedValues><DefinedValue><ValueVector><ColumnReference Column=\"Expr1009\"></ColumnReference><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1008\"></ColumnReference></ValueVector><ScalarOperator ScalarString=\"GetRangeWithMismatchedTypes(NULL,CONVERT_IMPLICIT(datetime2(7),[@3],0),(10))\"><Intrinsic FunctionName=\"GetRangeWithMismatchedTypes\"><ScalarOperator><Const ConstValue=\"NULL\"></Const></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1004\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@3\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Const ConstValue=\"(10)\"></Const></ScalarOperator></Intrinsic></ScalarOperator></DefinedValue></DefinedValues><RelOp NodeId=\"6\" PhysicalOp=\"Constant Scan\" LogicalOp=\"Constant Scan\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"0\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ConstantScan></ConstantScan></RelOp></ComputeScalar></RelOp></Concat></RelOp></MergeInterval></RelOp><RelOp NodeId=\"7\" PhysicalOp=\"Index Seek\" LogicalOp=\"Index Seek\" EstimateRows=\"2\" EstimatedRowsRead=\"2\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001592\" AvgRowSize=\"44\" EstimatedTotalSubtreeCost=\"0.0032842\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"StatusPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"2\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"2\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"2\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"1\" ScanDirection=\"FORWARD\" ForcedIndex=\"0\" ForceSeek=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"StatusPedido\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Index=\"[IX_Pedidos_Cliente_Data]\" IndexKind=\"NonClustered\" Storage=\"RowStore\"></Object><SeekPredicates><SeekPredicateNew><SeekKeys><Prefix ScanType=\"EQ\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"CONVERT_IMPLICIT(int,[@1],0)\"><Identifier><ColumnReference Column=\"ConstExpr1002\"><ScalarOperator><Convert DataType=\"int\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@1\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></RangeExpressions></Prefix><StartRange ScanType=\"GT\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"[Expr1011]\"><Identifier><ColumnReference Column=\"Expr1011\"></ColumnReference></Identifier></ScalarOperator></RangeExpressions></StartRange><EndRange ScanType=\"LT\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"[Expr1012]\"><Identifier><ColumnReference Column=\"Expr1012\"></ColumnReference></Identifier></ScalarOperator></RangeExpressions></EndRange></SeekKeys></SeekPredicateNew></SeekPredicates></IndexScan></RelOp></NestedLoops></RelOp><ParameterList><ColumnReference Column=\"@3\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2027-01-01&apos;\" ParameterRuntimeValue=\"&apos;2027-01-01&apos;\"></ColumnReference><ColumnReference Column=\"@2\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2026-01-01&apos;\" ParameterRuntimeValue=\"&apos;2026-01-01&apos;\"></ColumnReference><ColumnReference Column=\"@1\" ParameterDataType=\"tinyint\" ParameterCompiledValue=\"(1)\" ParameterRuntimeValue=\"(1)\"></ColumnReference></ParameterList></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>"
+    ],
+    "ms": 2
+   }
+  ]
+ },
+ {
+  "id": "r7_ordem",
+  "descricao": "Etapa 4 – ordem das colunas-chave e seletividade",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "SET STATISTICS IO ON; SET STATISTICS XML ON;\nSELECT PedidoID, DataPedido, ValorTotal FROM dbo.Pedidos WHERE ClienteID = 1;                       -- só ClienteID\nSELECT PedidoID, ClienteID, ValorTotal FROM dbo.Pedidos WHERE DataPedido >= '2026-10-01' AND DataPedido < '2026-10-08'; -- só DataPedido\nSELECT PedidoID, ValorTotal FROM dbo.Pedidos WHERE ClienteID = 1 AND DataPedido >= '2026-10-01' AND DataPedido < '2026-10-08'; -- ambas\nSET STATISTICS XML OFF; SET STATISTICS IO OFF;",
+   "SELECT ClienteID, COUNT(*) AS QuantidadePedidos FROM dbo.Pedidos GROUP BY ClienteID ORDER BY QuantidadePedidos DESC;\nDBCC SHOW_STATISTICS ('dbo.Pedidos', 'IX_Pedidos_Cliente_Data') WITH STAT_HEADER, DENSITY_VECTOR, NO_INFOMSGS;"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.435",
+    "ms": 0
+   },
+   {
+    "sql": "SET STATISTICS IO ON; SET STATISTICS XML ON;\nSELECT PedidoID, DataPedido, ValorTotal FROM dbo.Pedidos WHERE ClienteID = 1;                       -- só ClienteID\nSELECT PedidoID, ClienteID, ValorTotal FROM dbo.Pedidos WHERE DataPedido >= '2026-10-01' AND DataPedido < '2026-10-08'; -- só DataPedido\nSELECT PedidoID, ValorTotal FROM dbo.Pedidos WHERE ClienteID = 1 AND DataPedido >= '2026-10-01' AND DataPedido < '2026-10-08'; -- ambas\nSET STATISTICS XML OFF; SET STATISTICS IO OFF;",
+    "resultados": [
+     {
+      "colunas": [
+       "PedidoID",
+       "DataPedido",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        1,
+        "2026-09-10 10:15:00",
+        "379.70"
+       ],
+       [
+        3,
+        "2026-10-20 09:05:00",
+        "1299.00"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "ClienteID",
+       "ValorTotal"
+      ],
+      "linhas": [
+       [
+        2,
+        2,
+        "469.90"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "PedidoID",
+       "ValorTotal"
+      ],
+      "linhas": []
+     }
+    ],
+    "mensagens": [
+     "Tabela “Pedidos”. Contagem de digitalização 1, leituras lógicas 2, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tabela “Pedidos”. Contagem de digitalização 1, leituras lógicas 2, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tabela “Pedidos”. Contagem de digitalização 1, leituras lógicas 2, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.435",
+    "planos": [
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT [PedidoID],[DataPedido],[ValorTotal] FROM [dbo].[Pedidos] WHERE [ClienteID]=@1\" StatementId=\"1\" StatementCompId=\"3\" StatementType=\"SELECT\" StatementSqlHandle=\"0x090026650EF7FC3A57D0D8522BC99EC79F730000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"2\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.0032842\" StatementEstRows=\"2\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"TRIVIAL\" QueryHash=\"0xFCB20837EC80A3A6\" QueryPlanHash=\"0x8A827D23CB964D5E\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" CachedPlanSize=\"24\" CompileTime=\"0\" CompileCPU=\"0\" CompileMemory=\"128\"><MemoryGrantInfo SerialRequiredMemory=\"0\" SerialDesiredMemory=\"0\" GrantedMemory=\"0\" MaxUsedMemory=\"0\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8916184\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.36\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000002_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Index Seek\" LogicalOp=\"Index Seek\" EstimateRows=\"2\" EstimatedRowsRead=\"2\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001592\" AvgRowSize=\"26\" EstimatedTotalSubtreeCost=\"0.0032842\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"2\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"2\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"2\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"1\" ScanDirection=\"FORWARD\" ForcedIndex=\"0\" ForceSeek=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Index=\"[IX_Pedidos_Cliente_Data]\" IndexKind=\"NonClustered\" Storage=\"RowStore\"></Object><SeekPredicates><SeekPredicateNew><SeekKeys><Prefix ScanType=\"EQ\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"CONVERT_IMPLICIT(int,[@1],0)\"><Identifier><ColumnReference Column=\"ConstExpr1002\"><ScalarOperator><Convert DataType=\"int\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@1\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></RangeExpressions></Prefix></SeekKeys></SeekPredicateNew></SeekPredicates></IndexScan></RelOp><ParameterList><ColumnReference Column=\"@1\" ParameterDataType=\"tinyint\" ParameterCompiledValue=\"(1)\" ParameterRuntimeValue=\"(1)\"></ColumnReference></ParameterList></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>",
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT [PedidoID],[ClienteID],[ValorTotal] FROM [dbo].[Pedidos] WHERE [DataPedido]&gt;=@1 AND [DataPedido]&lt;@2\" StatementId=\"2\" StatementCompId=\"4\" StatementType=\"SELECT\" StatementSqlHandle=\"0x090056DAB1C1118D4CCC9181AD1A6CB3F23B0000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"2\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.0032864\" StatementEstRows=\"1\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"TRIVIAL\" QueryHash=\"0xB1363A97AE7A605B\" QueryPlanHash=\"0x18D4E431BE707020\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" CachedPlanSize=\"24\" CompileTime=\"0\" CompileCPU=\"0\" CompileMemory=\"152\"><MemoryGrantInfo SerialRequiredMemory=\"0\" SerialDesiredMemory=\"0\" GrantedMemory=\"0\" MaxUsedMemory=\"0\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8916184\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.41\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000003_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Index Scan\" LogicalOp=\"Index Scan\" EstimateRows=\"1\" EstimatedRowsRead=\"4\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001614\" AvgRowSize=\"30\" EstimatedTotalSubtreeCost=\"0.0032864\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"2\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"4\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"0\" ForcedIndex=\"0\" ForceSeek=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Index=\"[IX_Pedidos_Cliente_Data]\" IndexKind=\"NonClustered\" Storage=\"RowStore\"></Object><Predicate><ScalarOperator ScalarString=\"[LojaVirtual].[dbo].[Pedidos].[DataPedido]&gt;=CONVERT_IMPLICIT(datetime2(7),[@1],0) AND [LojaVirtual].[dbo].[Pedidos].[DataPedido]&lt;CONVERT_IMPLICIT(datetime2(7),[@2],0)\"><Logical Operation=\"AND\"><ScalarOperator><Compare CompareOp=\"GE\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1002\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@1\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></Compare></ScalarOperator><ScalarOperator><Compare CompareOp=\"LT\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1003\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@2\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></Compare></ScalarOperator></Logical></ScalarOperator></Predicate></IndexScan></RelOp><ParameterList><ColumnReference Column=\"@2\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2026-10-08&apos;\" ParameterRuntimeValue=\"&apos;2026-10-08&apos;\"></ColumnReference><ColumnReference Column=\"@1\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2026-10-01&apos;\" ParameterRuntimeValue=\"&apos;2026-10-01&apos;\"></ColumnReference></ParameterList></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>",
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT [PedidoID],[ValorTotal] FROM [dbo].[Pedidos] WHERE [ClienteID]=@1 AND [DataPedido]&gt;=@2 AND [DataPedido]&lt;@3\" StatementId=\"3\" StatementCompId=\"5\" StatementType=\"SELECT\" StatementSqlHandle=\"0x09000306969AAB12FB4FCB1DFF961EC67D860000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"2\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.0032831\" StatementEstRows=\"1\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"TRIVIAL\" QueryHash=\"0xA1102F6056423AF0\" QueryPlanHash=\"0xED3A7E8CCDE0BFCB\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" CachedPlanSize=\"40\" CompileTime=\"0\" CompileCPU=\"0\" CompileMemory=\"176\"><MemoryGrantInfo SerialRequiredMemory=\"0\" SerialDesiredMemory=\"0\" GrantedMemory=\"0\" MaxUsedMemory=\"0\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8916184\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.36\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000002_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.41\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000003_4222D4EF]\" Table=\"[Pedidos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Nested Loops\" LogicalOp=\"Inner Join\" EstimateRows=\"1\" EstimatedRowsRead=\"1\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001581\" AvgRowSize=\"20\" EstimatedTotalSubtreeCost=\"0.0032831\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"0\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><NestedLoops Optimized=\"0\"><OuterReferences><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1013\"></ColumnReference></OuterReferences><RelOp NodeId=\"1\" PhysicalOp=\"Merge Interval\" LogicalOp=\"Merge Interval\" EstimateRows=\"2\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1013\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><MergeInterval><RelOp NodeId=\"2\" PhysicalOp=\"Concatenation\" LogicalOp=\"Concatenation\" EstimateRows=\"2\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1013\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"2\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><Concat><DefinedValues><DefinedValue><ColumnReference Column=\"Expr1011\"></ColumnReference><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1009\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Column=\"Expr1012\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference><ColumnReference Column=\"Expr1010\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Column=\"Expr1013\"></ColumnReference><ColumnReference Column=\"Expr1005\"></ColumnReference><ColumnReference Column=\"Expr1008\"></ColumnReference></DefinedValue></DefinedValues><RelOp NodeId=\"3\" PhysicalOp=\"Compute Scalar\" LogicalOp=\"Compute Scalar\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference><ColumnReference Column=\"Expr1005\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ComputeScalar><DefinedValues><DefinedValue><ValueVector><ColumnReference Column=\"Expr1006\"></ColumnReference><ColumnReference Column=\"Expr1007\"></ColumnReference><ColumnReference Column=\"Expr1005\"></ColumnReference></ValueVector><ScalarOperator ScalarString=\"GetRangeWithMismatchedTypes(CONVERT_IMPLICIT(datetime2(7),[@2],0),NULL,(22))\"><Intrinsic FunctionName=\"GetRangeWithMismatchedTypes\"><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1003\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@2\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Const ConstValue=\"NULL\"></Const></ScalarOperator><ScalarOperator><Const ConstValue=\"(22)\"></Const></ScalarOperator></Intrinsic></ScalarOperator></DefinedValue></DefinedValues><RelOp NodeId=\"4\" PhysicalOp=\"Constant Scan\" LogicalOp=\"Constant Scan\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"0\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ConstantScan></ConstantScan></RelOp></ComputeScalar></RelOp><RelOp NodeId=\"5\" PhysicalOp=\"Compute Scalar\" LogicalOp=\"Compute Scalar\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"23\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Column=\"Expr1009\"></ColumnReference><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1008\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ComputeScalar><DefinedValues><DefinedValue><ValueVector><ColumnReference Column=\"Expr1009\"></ColumnReference><ColumnReference Column=\"Expr1010\"></ColumnReference><ColumnReference Column=\"Expr1008\"></ColumnReference></ValueVector><ScalarOperator ScalarString=\"GetRangeWithMismatchedTypes(NULL,CONVERT_IMPLICIT(datetime2(7),[@3],0),(10))\"><Intrinsic FunctionName=\"GetRangeWithMismatchedTypes\"><ScalarOperator><Const ConstValue=\"NULL\"></Const></ScalarOperator><ScalarOperator><Identifier><ColumnReference Column=\"ConstExpr1004\"><ScalarOperator><Convert DataType=\"datetime2\" Scale=\"7\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@3\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Const ConstValue=\"(10)\"></Const></ScalarOperator></Intrinsic></ScalarOperator></DefinedValue></DefinedValues><RelOp NodeId=\"6\" PhysicalOp=\"Constant Scan\" LogicalOp=\"Constant Scan\" EstimateRows=\"1\" EstimateIO=\"0\" EstimateCPU=\"0\" AvgRowSize=\"0\" EstimatedTotalSubtreeCost=\"0\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"1\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><ConstantScan></ConstantScan></RelOp></ComputeScalar></RelOp></Concat></RelOp></MergeInterval></RelOp><RelOp NodeId=\"7\" PhysicalOp=\"Index Seek\" LogicalOp=\"Index Seek\" EstimateRows=\"1\" EstimatedRowsRead=\"1\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001581\" AvgRowSize=\"20\" EstimatedTotalSubtreeCost=\"0.0032831\" TableCardinality=\"4\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"0\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"2\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"1\" ScanDirection=\"FORWARD\" ForcedIndex=\"0\" ForceSeek=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"PedidoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ValorTotal\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Index=\"[IX_Pedidos_Cliente_Data]\" IndexKind=\"NonClustered\" Storage=\"RowStore\"></Object><SeekPredicates><SeekPredicateNew><SeekKeys><Prefix ScanType=\"EQ\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"ClienteID\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"CONVERT_IMPLICIT(int,[@1],0)\"><Identifier><ColumnReference Column=\"ConstExpr1002\"><ScalarOperator><Convert DataType=\"int\" Style=\"0\" Implicit=\"1\"><ScalarOperator><Identifier><ColumnReference Column=\"@1\"></ColumnReference></Identifier></ScalarOperator></Convert></ScalarOperator></ColumnReference></Identifier></ScalarOperator></RangeExpressions></Prefix><StartRange ScanType=\"GT\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"[Expr1011]\"><Identifier><ColumnReference Column=\"Expr1011\"></ColumnReference></Identifier></ScalarOperator></RangeExpressions></StartRange><EndRange ScanType=\"LT\"><RangeColumns><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Pedidos]\" Column=\"DataPedido\"></ColumnReference></RangeColumns><RangeExpressions><ScalarOperator ScalarString=\"[Expr1012]\"><Identifier><ColumnReference Column=\"Expr1012\"></ColumnReference></Identifier></ScalarOperator></RangeExpressions></EndRange></SeekKeys></SeekPredicateNew></SeekPredicates></IndexScan></RelOp></NestedLoops></RelOp><ParameterList><ColumnReference Column=\"@3\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2026-10-08&apos;\" ParameterRuntimeValue=\"&apos;2026-10-08&apos;\"></ColumnReference><ColumnReference Column=\"@2\" ParameterDataType=\"varchar(8000)\" ParameterCompiledValue=\"&apos;2026-10-01&apos;\" ParameterRuntimeValue=\"&apos;2026-10-01&apos;\"></ColumnReference><ColumnReference Column=\"@1\" ParameterDataType=\"tinyint\" ParameterCompiledValue=\"(1)\" ParameterRuntimeValue=\"(1)\"></ColumnReference></ParameterList></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>"
+    ],
+    "ms": 3
+   },
+   {
+    "sql": "SELECT ClienteID, COUNT(*) AS QuantidadePedidos FROM dbo.Pedidos GROUP BY ClienteID ORDER BY QuantidadePedidos DESC;\nDBCC SHOW_STATISTICS ('dbo.Pedidos', 'IX_Pedidos_Cliente_Data') WITH STAT_HEADER, DENSITY_VECTOR, NO_INFOMSGS;",
+    "resultados": [
+     {
+      "colunas": [
+       "ClienteID",
+       "QuantidadePedidos"
+      ],
+      "linhas": [
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        1
+       ],
+       [
+        3,
+        1
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "Name",
+       "Updated",
+       "Rows",
+       "Rows Sampled",
+       "Steps",
+       "Density",
+       "Average key length",
+       "String Index",
+       "Filter Expression",
+       "Unfiltered Rows",
+       "Persisted Sample Percent"
+      ],
+      "linhas": [
+       [
+        "IX_Pedidos_Cliente_Data",
+        "nov  3 2026  4:15PM",
+        4,
+        4,
+        2,
+        1.0,
+        14.0,
+        "NO ",
+        null,
+        4,
+        0.0
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "All density",
+       "Average Length",
+       "Columns"
+      ],
+      "linhas": [
+       [
+        0.3333333432674408,
+        4.0,
+        "ClienteID"
+       ],
+       [
+        0.25,
+        10.0,
+        "ClienteID, DataPedido"
+       ],
+       [
+        0.25,
+        14.0,
+        "ClienteID, DataPedido, PedidoID"
+       ]
+      ]
+     }
+    ],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.438",
+    "ms": 1
+   }
+  ]
+ },
+ {
+  "id": "r7_join",
+  "descricao": "Etapa 5 – relatório de produtos vendidos (junção, agregação e ordenação)",
+  "sessao": null,
+  "atraso": 0,
+  "lotes": [
+   "USE LojaVirtual;",
+   "EXEC sys.sp_helpindex 'dbo.ItensPedido';\nSET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\nSELECT p.ProdutoID, p.Nome, SUM(ip.Quantidade) AS QuantidadeVendida\nFROM dbo.Produtos AS p\nINNER JOIN dbo.ItensPedido AS ip ON ip.ProdutoID = p.ProdutoID\nGROUP BY p.ProdutoID, p.Nome\nORDER BY QuantidadeVendida DESC;\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;",
+   "/* Proposta (NÃO executada):\n   CREATE NONCLUSTERED INDEX IX_ItensPedido_Produto\n   ON dbo.ItensPedido (ProdutoID) INCLUDE (Quantidade);\n   Apoia a junção/agrupamento por ProdutoID lendo só duas colunas; em troca, cada INSERT,\n   UPDATE de ProdutoID/Quantidade e DELETE em ItensPedido passa a manter mais uma estrutura. */"
+  ],
+  "spid": 51,
+  "resultado": [
+   {
+    "sql": "USE LojaVirtual;",
+    "resultados": [],
+    "mensagens": [
+     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.440",
+    "ms": 0
+   },
+   {
+    "sql": "EXEC sys.sp_helpindex 'dbo.ItensPedido';\nSET STATISTICS IO ON; SET STATISTICS TIME ON; SET STATISTICS XML ON;\nSELECT p.ProdutoID, p.Nome, SUM(ip.Quantidade) AS QuantidadeVendida\nFROM dbo.Produtos AS p\nINNER JOIN dbo.ItensPedido AS ip ON ip.ProdutoID = p.ProdutoID\nGROUP BY p.ProdutoID, p.Nome\nORDER BY QuantidadeVendida DESC;\nSET STATISTICS XML OFF; SET STATISTICS TIME OFF; SET STATISTICS IO OFF;",
+    "resultados": [
+     {
+      "colunas": [
+       "index_name",
+       "index_description",
+       "index_keys"
+      ],
+      "linhas": [
+       [
+        "PK_ItensPedido",
+        "clustered, unique, primary key located on PRIMARY",
+        "ItemPedidoID"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "QuantidadeVendida"
+      ],
+      "linhas": [
+       [
+        3,
+        "Mouse sem Fio",
+        3
+       ],
+       [
+        4,
+        "Livro SQL Server na Prática",
+        1
+       ],
+       [
+        6,
+        "Monitor 27 polegadas",
+        1
+       ],
+       [
+        1,
+        "Fone Bluetooth",
+        1
+       ],
+       [
+        2,
+        "Teclado Mecânico",
+        1
+       ]
+      ]
+     }
+    ],
+    "mensagens": [
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tabela “Worktable”. Contagem de digitalização 0, leituras lógicas 0, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tabela “ItensPedido”. Contagem de digitalização 1, leituras lógicas 17, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tabela “Produtos”. Contagem de digitalização 1, leituras lógicas 2, leituras físicas 0, servidor de páginas lê 0, lê com antecedência 0, servidor de páginas lê com antecedência 0, leituras lógicas lob 0, leituras físicas lob 0, servidor de páginas lob lê 0, lob lê com antecedência 0, servidor de páginas lob lê com antecedência 0.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms."
+    ],
+    "erro": null,
+    "inicio": "16:15:40.440",
+    "planos": [
+     "<ShowPlanXML xmlns=\"http://schemas.microsoft.com/sqlserver/2004/07/showplan\" Version=\"1.564\" Build=\"16.0.4305.5\"><BatchSequence><Batch><Statements><StmtSimple StatementText=\"SELECT p.ProdutoID, p.Nome, SUM(ip.Quantidade) AS QuantidadeVendida&#xa;FROM dbo.Produtos AS p&#xa;INNER JOIN dbo.ItensPedido AS ip ON ip.ProdutoID = p.ProdutoID&#xa;GROUP BY p.ProdutoID, p.Nome&#xa;ORDER BY QuantidadeVendida DESC\" StatementId=\"1\" StatementCompId=\"5\" StatementType=\"SELECT\" StatementSqlHandle=\"0x09003A235977F6A865CF66C940DCBE97BEFD0000000000000000000000000000000000000000000000000000\" DatabaseContextSettingsId=\"1\" ParentObjectId=\"0\" StatementParameterizationType=\"0\" RetrievedFromCache=\"true\" StatementSubTreeCost=\"0.0187757\" StatementEstRows=\"5\" SecurityPolicyApplied=\"false\" StatementOptmLevel=\"FULL\" QueryHash=\"0x2E4C6E3E870C842E\" QueryPlanHash=\"0x4B57C61F1C2270E0\" StatementOptmEarlyAbortReason=\"GoodEnoughPlanFound\" CardinalityEstimationModelVersion=\"160\"><StatementSetOptions QUOTED_IDENTIFIER=\"true\" ARITHABORT=\"false\" CONCAT_NULL_YIELDS_NULL=\"true\" ANSI_NULLS=\"true\" ANSI_PADDING=\"true\" ANSI_WARNINGS=\"true\" NUMERIC_ROUNDABORT=\"false\"></StatementSetOptions><QueryPlan DegreeOfParallelism=\"1\" MemoryGrant=\"1024\" CachedPlanSize=\"32\" CompileTime=\"1\" CompileCPU=\"1\" CompileMemory=\"296\"><MemoryGrantInfo SerialRequiredMemory=\"512\" SerialDesiredMemory=\"544\" RequiredMemory=\"512\" DesiredMemory=\"544\" RequestedMemory=\"1024\" GrantWaitTime=\"0\" MaxQueryMemory=\"2139608\" GrantedMemory=\"1024\" MaxUsedMemory=\"16\" LastRequestedMemory=\"0\" IsMemoryGrantFeedbackAdjusted=\"No: First Execution\"></MemoryGrantInfo><OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant=\"327321\" EstimatedPagesCached=\"81830\" EstimatedAvailableDegreeOfParallelism=\"2\" MaxCompileMemory=\"8916184\"></OptimizerHardwareDependentProperties><OptimizerStatsUsage><StatisticsInfo LastUpdate=\"2026-11-03T16:15:40.37\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[_WA_Sys_00000003_48CFD27E]\" Table=\"[ItensPedido]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo><StatisticsInfo LastUpdate=\"2026-11-03T16:15:14.91\" ModificationCount=\"0\" SamplingPercent=\"100\" Statistics=\"[PK_Produtos]\" Table=\"[Produtos]\" Schema=\"[dbo]\" Database=\"[LojaVirtual]\"></StatisticsInfo></OptimizerStatsUsage><QueryTimeStats ElapsedTime=\"0\" CpuTime=\"0\"></QueryTimeStats><RelOp NodeId=\"0\" PhysicalOp=\"Sort\" LogicalOp=\"Sort\" EstimateRows=\"5\" EstimateIO=\"0.0112613\" EstimateCPU=\"0.00011818\" AvgRowSize=\"69\" EstimatedTotalSubtreeCost=\"0.0187757\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"ProdutoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"Nome\"></ColumnReference><ColumnReference Column=\"Expr1002\"></ColumnReference></OutputList><MemoryFractions Input=\"1\" Output=\"1\"></MemoryFractions><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"5\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"0\" ActualLogicalReads=\"0\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRebinds=\"1\" ActualRewinds=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" InputMemoryGrant=\"1024\" OutputMemoryGrant=\"640\" UsedMemoryGrant=\"16\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><Sort Distinct=\"0\"><OrderBy><OrderByColumn Ascending=\"0\"><ColumnReference Column=\"Expr1002\"></ColumnReference></OrderByColumn></OrderBy><RelOp NodeId=\"1\" PhysicalOp=\"Stream Aggregate\" LogicalOp=\"Aggregate\" EstimateRows=\"5\" EstimateIO=\"0\" EstimateCPU=\"6.1e-06\" AvgRowSize=\"69\" EstimatedTotalSubtreeCost=\"0.00739624\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"ProdutoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"Nome\"></ColumnReference><ColumnReference Column=\"Expr1002\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"5\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><StreamAggregate><DefinedValues><DefinedValue><ColumnReference Column=\"Expr1002\"></ColumnReference><ScalarOperator ScalarString=\"SUM([LojaVirtual].[dbo].[ItensPedido].[Quantidade] as [ip].[Quantidade])\"><Aggregate Distinct=\"0\" AggType=\"SUM\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Alias=\"[ip]\" Column=\"Quantidade\"></ColumnReference></Identifier></ScalarOperator></Aggregate></ScalarOperator></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"Nome\"></ColumnReference><ScalarOperator ScalarString=\"ANY([LojaVirtual].[dbo].[Produtos].[Nome] as [p].[Nome])\"><Aggregate Distinct=\"0\" AggType=\"ANY\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"Nome\"></ColumnReference></Identifier></ScalarOperator></Aggregate></ScalarOperator></DefinedValue></DefinedValues><GroupBy><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"ProdutoID\"></ColumnReference></GroupBy><RelOp NodeId=\"2\" PhysicalOp=\"Nested Loops\" LogicalOp=\"Inner Join\" EstimateRows=\"6\" EstimateIO=\"0\" EstimateCPU=\"0.00020064\" AvgRowSize=\"69\" EstimatedTotalSubtreeCost=\"0.00739014\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"ProdutoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"Nome\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Alias=\"[ip]\" Column=\"Quantidade\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"6\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><NestedLoops Optimized=\"0\"><Predicate><ScalarOperator ScalarString=\"[LojaVirtual].[dbo].[Produtos].[ProdutoID] as [p].[ProdutoID]=[LojaVirtual].[dbo].[ItensPedido].[ProdutoID] as [ip].[ProdutoID]\"><Compare CompareOp=\"EQ\"><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"ProdutoID\"></ColumnReference></Identifier></ScalarOperator><ScalarOperator><Identifier><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Alias=\"[ip]\" Column=\"ProdutoID\"></ColumnReference></Identifier></ScalarOperator></Compare></ScalarOperator></Predicate><RelOp NodeId=\"3\" PhysicalOp=\"Clustered Index Scan\" LogicalOp=\"Clustered Index Scan\" EstimateRows=\"8\" EstimatedRowsRead=\"8\" EstimateIO=\"0.003125\" EstimateCPU=\"0.0001658\" AvgRowSize=\"65\" EstimatedTotalSubtreeCost=\"0.0032908\" TableCardinality=\"8\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"0\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"ProdutoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"Nome\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"8\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"2\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"8\" ActualEndOfScans=\"1\" ActualExecutions=\"1\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"0\" ForcedIndex=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"ProdutoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Alias=\"[p]\" Column=\"Nome\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[Produtos]\" Index=\"[PK_Produtos]\" Alias=\"[p]\" IndexKind=\"Clustered\" Storage=\"RowStore\"></Object></IndexScan></RelOp><RelOp NodeId=\"4\" PhysicalOp=\"Clustered Index Scan\" LogicalOp=\"Clustered Index Scan\" EstimateRows=\"6\" EstimatedRowsRead=\"6\" EstimateIO=\"0.0032035\" EstimateCPU=\"8.51e-05\" AvgRowSize=\"15\" EstimatedTotalSubtreeCost=\"0.0038843\" TableCardinality=\"6\" Parallel=\"0\" EstimateRebinds=\"0\" EstimateRewinds=\"7\" EstimatedExecutionMode=\"Row\"><OutputList><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Alias=\"[ip]\" Column=\"ProdutoID\"></ColumnReference><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Alias=\"[ip]\" Column=\"Quantidade\"></ColumnReference></OutputList><RunTimeInformation><RunTimeCountersPerThread Thread=\"0\" ActualRows=\"48\" Batches=\"0\" ActualElapsedms=\"0\" ActualCPUms=\"0\" ActualScans=\"1\" ActualLogicalReads=\"17\" ActualPhysicalReads=\"0\" ActualReadAheads=\"0\" ActualLobLogicalReads=\"0\" ActualLobPhysicalReads=\"0\" ActualLobReadAheads=\"0\" ActualRowsRead=\"48\" ActualEndOfScans=\"8\" ActualExecutions=\"8\" ActualExecutionMode=\"Row\"></RunTimeCountersPerThread></RunTimeInformation><IndexScan Ordered=\"0\" ForcedIndex=\"0\" ForceScan=\"0\" NoExpandHint=\"0\" Storage=\"RowStore\"><DefinedValues><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Alias=\"[ip]\" Column=\"ProdutoID\"></ColumnReference></DefinedValue><DefinedValue><ColumnReference Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Alias=\"[ip]\" Column=\"Quantidade\"></ColumnReference></DefinedValue></DefinedValues><Object Database=\"[LojaVirtual]\" Schema=\"[dbo]\" Table=\"[ItensPedido]\" Index=\"[PK_ItensPedido]\" Alias=\"[ip]\" IndexKind=\"Clustered\" Storage=\"RowStore\"></Object></IndexScan></RelOp></NestedLoops></RelOp></StreamAggregate></RelOp></Sort></RelOp></QueryPlan></StmtSimple></Statements></Batch></BatchSequence></ShowPlanXML>"
+    ],
+    "ms": 3
+   },
+   {
+    "sql": "/* Proposta (NÃO executada):\n   CREATE NONCLUSTERED INDEX IX_ItensPedido_Produto\n   ON dbo.ItensPedido (ProdutoID) INCLUDE (Quantidade);\n   Apoia a junção/agrupamento por ProdutoID lendo só duas colunas; em troca, cada INSERT,\n   UPDATE de ProdutoID/Quantidade e DELETE em ItensPedido passa a manter mais uma estrutura. */",
+    "resultados": [],
+    "mensagens": [],
+    "erro": null,
+    "inicio": "16:15:40.443",
+    "ms": 0
+   }
+  ]
+ }
+]
