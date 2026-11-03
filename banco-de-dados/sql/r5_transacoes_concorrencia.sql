@@ -190,6 +190,10 @@ SET LOCK_TIMEOUT 2000;     -- desiste depois de 2 s em vez de esperar indefinida
 SELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;
 GO
 
+-- @passo r5_rc_conferencia | Conferência entre os testes de isolamento
+SELECT ProdutoID, Nome, Estoque FROM LojaVirtual.dbo.Produtos WHERE ProdutoID = 1;
+GO
+
 -- @passo r5_ser_A | SERIALIZABLE: Sessão A lê os pedidos de um cliente e mantém a transação [A]
 USE LojaVirtual;
 GO
