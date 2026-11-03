@@ -20,7 +20,7 @@ CONEXAO = ('DRIVER={ODBC Driver 18 for SQL Server};SERVER=localhost,1433;UID=sa;
            'PWD=' + os.environ['SA_SENHA'] + ';TrustServerCertificate=yes;Encrypt=yes')
 RE_PASSO = re.compile(r'^-- @passo (\S+) \| (.*?)(?:\s*\[([A-Z])(?:\+(\d+))?\])?\s*$')
 RE_GO = re.compile(r'^\s*GO\s*;?\s*$', re.I)
-RE_PREFIXO = re.compile(r'^(\[[^\]]*\])+')
+RE_PREFIXO = re.compile(r'^\s*(\[[^\]]*\])+')
 
 
 def limpar(texto):
@@ -60,7 +60,7 @@ def ler_passos(caminho):
 
 def conectar():
     c = pyodbc.connect(CONEXAO, autocommit=True)
-    c.execute('SET LANGUAGE Português;')
+    c.execute('SET LANGUAGE Brazilian;')
     return c
 
 

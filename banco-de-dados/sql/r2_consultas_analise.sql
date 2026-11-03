@@ -12,7 +12,7 @@ INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES
 
 INSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES
 (3, '2026-10-12 16:20', 'Enviado', 119.80),
-(5, '2026-10-22 11:00', 'Entregue', 349.90);
+(6, '2026-10-22 11:00', 'Entregue', 349.90);   -- Diego (ID 6: o IDENTITY não reaproveita números)
 
 INSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES
 (4, 7, 2,  59.90),

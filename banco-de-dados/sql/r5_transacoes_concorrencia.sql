@@ -199,9 +199,9 @@ USE LojaVirtual;
 GO
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 BEGIN TRANSACTION;
-SELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 6;
+SELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 7;
 WAITFOR DELAY '00:00:05';
-SELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 6;
+SELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 7;
 COMMIT TRANSACTION;
 SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
 GO
@@ -210,7 +210,7 @@ GO
 USE LojaVirtual;
 GO
 SET LOCK_TIMEOUT 2000;
-INSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (6, 'Cancelado', 0);
+INSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (7, 'Cancelado', 0);
 GO
 
 -- @passo r5_final | Confirmação: nenhuma transação aberta

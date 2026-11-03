@@ -14,7 +14,7 @@ SET NOCOUNT ON;
     FROM sys.all_objects a CROSS JOIN sys.all_objects b
 )
 INSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal)
-SELECT CHOOSE(k % 6 + 1, 1, 2, 3, 5, 6, 2),
+SELECT CHOOSE(k % 6 + 1, 1, 2, 3, 6, 7, 2),
        DATEADD(MINUTE, (k * 37) % 1440, DATEADD(DAY, (k * 7919) % 1035, CAST('2024-01-01' AS DATETIME2(0)))),
        'Entregue',
        CAST(50 + (k * 31) % 950 AS DECIMAL(10,2))

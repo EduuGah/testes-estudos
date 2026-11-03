@@ -65,8 +65,10 @@ BEGIN
         N'SELECT ProdutoID, Nome, Preco, Disponibilidade
           FROM dbo.vw_CatalogoPublico
           WHERE Nome LIKE @Filtro;';
+    -- EXEC não aceita expressões como argumento: o filtro é montado antes, em uma variável
+    DECLARE @Filtro NVARCHAR(202) = N'%' + @Termo + N'%';
     -- o termo vai como VALOR do parâmetro @Filtro, nunca concatenado ao comando
-    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = N'%' + @Termo + N'%';
+    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = @Filtro;
 END;
 GO
 GRANT EXECUTE ON dbo.sp_BuscarProdutoSeguro TO rl_CatalogoLeitura;

@@ -48,8 +48,8 @@ GO
 INSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES
 (3, '2026-10-26 10:00', 'Pendente',  199.80),   -- pedido 6: estoque suficiente
 (2, '2026-10-26 10:10', 'Pendente', 1320.00),   -- pedido 7: quantidade maior que o estoque
-(6, '2026-10-26 10:20', 'Pendente',  189.90),   -- pedido 8: válido (teste em conjunto)
-(5, '2026-10-26 10:30', 'Pendente',  405.79);   -- pedido 9: válido (teste em conjunto)
+(7, '2026-10-26 10:20', 'Pendente',  189.90),   -- pedido 8: válido (teste em conjunto)
+(6, '2026-10-26 10:30', 'Pendente',  405.79);   -- pedido 9: válido (teste em conjunto)
 INSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES
 (6, 3,  2,  99.90),
 (7, 4, 10, 132.00),

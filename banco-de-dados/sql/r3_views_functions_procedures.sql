@@ -61,7 +61,7 @@ SELECT ItemPedidoID, PedidoID, Quantidade, PrecoUnitario,
        dbo.fn_CalcularSubtotal(Quantidade, PrecoUnitario) AS Subtotal
 FROM dbo.ItensPedido;
 SELECT * FROM dbo.fn_PedidosPorCliente(1);
-SELECT * FROM dbo.fn_PedidosPorCliente(6);   -- cliente sem pedidos: tabela vazia
+SELECT * FROM dbo.fn_PedidosPorCliente(7);   -- cliente sem pedidos: tabela vazia
 GO
 
 -- @passo r3_proc_consulta | Etapa 3 – procedure de consulta com parâmetro opcional
