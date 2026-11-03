@@ -1,44 +1,43 @@
 Test run for /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll (.NETCoreApp,Version=v10.0)
 A total of 1 test files matched the specified pattern.
 [xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
-[xUnit.net 00:00:00.23]   Discovering: HubPedidos.Tests
-[xUnit.net 00:00:00.38]   Discovered:  HubPedidos.Tests
-[xUnit.net 00:00:00.41]   Starting:    HubPedidos.Tests
-  Passed HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto [35 ms]
+[xUnit.net 00:00:00.11]   Discovering: HubPedidos.Tests
+[xUnit.net 00:00:00.18]   Discovered:  HubPedidos.Tests
+[xUnit.net 00:00:00.21]   Starting:    HubPedidos.Tests
+  Passed HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo [8 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto [41 ms]
   Passed HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha [1 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces [3 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel [4 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico [15 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura [3 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core [2 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura [2 ms]
-  Passed HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo [6 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "nulo", pedido: null, esperado: Invalido) [2 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "sem itens", pedido: Pedido { Id = 01a1a2c4-5341-77ae-a748-8161fc295ac4, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "total zero", pedido: Pedido { Id = 01a1a2c4-5341-744d-a651-d95d1e88b138, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "normal", pedido: Pedido { Id = 01a1a2c4-5341-75f5-9f7a-f21c503dfd92, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "prioritário", pedido: Pedido { Id = 01a1a2c4-5341-71f5-be82-43a99b256790, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "exterior vence prioridade", pedido: Pedido { Id = 01a1a2c4-5341-796f-b639-e50bae0c209c, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 9.999,99 não é alto valor", pedido: Pedido { Id = 01a1a2c4-5341-7037-9d5d-a02e74f320ca, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 10.000,00 é alto valor", pedido: Pedido { Id = 01a1a2c4-5341-7ba4-a2c4-07d3b49d9218, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 99 unidades", pedido: Pedido { Id = 01a1a2c4-5341-7802-9b6c-146a6494dfb5, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 100 unidades", pedido: Pedido { Id = 01a1a2c4-5341-7622-9f22-294bcb41714c, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "21 itens distintos", pedido: Pedido { Id = 01a1a2c4-5341-7d57-b610-d0b454d5e321, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array [6 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces [2 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel [2 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico [11 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "nulo", pedido: null, esperado: Invalido) [1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "sem itens", pedido: Pedido { Id = 01a1a2c5-8bda-7ed8-b8bf-8d62947eb706, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "total zero", pedido: Pedido { Id = 01a1a2c5-8bda-7048-90bb-52dfc3ed675e, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "normal", pedido: Pedido { Id = 01a1a2c5-8bda-71d7-afa8-a81bb0bf0f04, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "prioritário", pedido: Pedido { Id = 01a1a2c5-8bda-7bd0-8b1d-9f8859e18ac5, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "exterior vence prioridade", pedido: Pedido { Id = 01a1a2c5-8bda-7667-9f36-c684d4d82360, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 9.999,99 não é alto valor", pedido: Pedido { Id = 01a1a2c5-8bda-7cef-893d-8eeef90434fe, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 10.000,00 é alto valor", pedido: Pedido { Id = 01a1a2c5-8bda-7af4-be23-5f845a34cba8, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 99 unidades", pedido: Pedido { Id = 01a1a2c5-8bda-7211-9078-bfae17a07d46, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 100 unidades", pedido: Pedido { Id = 01a1a2c5-8bda-7976-9d63-52ec0fa5bc80, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "21 itens distintos", pedido: Pedido { Id = 01a1a2c5-8bda-72a3-b6fa-a3659f7e6027, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array [4 ms]
   Passed HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original [1 ms]
   Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "00000000-0000-0000-0000-000000000000", valido: False) [3 ms]
   Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "abc", valido: False) [< 1 ms]
   Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f", valido: True) [< 1 ms]
-[xUnit.net 00:00:00.61]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
-[xUnit.net 00:00:00.61]       Assert.Equal() Failure: Values differ
-[xUnit.net 00:00:00.61]       Expected: 9
-[xUnit.net 00:00:00.61]       Actual:   0
-[xUnit.net 00:00:00.62]       Stack Trace:
-[xUnit.net 00:00:00.62]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs(115,0): at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes()
-[xUnit.net 00:00:00.62]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs(120,0): at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes()
-[xUnit.net 00:00:00.62]         --- End of stack trace from previous location ---
   Passed HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado [< 1 ms]
-  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [87 ms]
+  Passed HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio [6 ms]
+  Passed HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel [3 ms]
+[xUnit.net 00:00:00.41]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
+[xUnit.net 00:00:00.41]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:00.41]       Expected: 9
+[xUnit.net 00:00:00.41]       Actual:   0
+[xUnit.net 00:00:00.41]       Stack Trace:
+[xUnit.net 00:00:00.42]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs(115,0): at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes()
+[xUnit.net 00:00:00.42]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs(120,0): at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes()
+[xUnit.net 00:00:00.42]         --- End of stack trace from previous location ---
+  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [83 ms]
   Error Message:
    Assert.Equal() Failure: Values differ
 Expected: 9
@@ -47,23 +46,25 @@ Actual:   0
      at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs:line 115
    at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs:line 120
 --- End of stack trace from previous location ---
-  Passed HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio [5 ms]
-  Passed HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel [4 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno [460 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { }) [1 ms]
+  Passed HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso [238 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno [535 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { }) [2 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorUtf8Pooled { }) [< 1 ms]
-  Passed HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso [421 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorBaseline { }) [2 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorUtf8Pooled { }) [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { }) [9 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorSpan { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { }) [11 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorSpan { }) [2 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorBaseline { }) [1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorSpan { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_mesmo_com_erro [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes [3 ms]
 warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
-      No XML encryptor configured. Key {ec14855a-fc4b-4309-ba5d-fc6d4ff8cf03} may be persisted to storage in unencrypted form.
+      No XML encryptor configured. Key {24f4dd52-3ec6-408a-ad2a-909899b60acc} may be persisted to storage in unencrypted form.
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -76,30 +77,21 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-  Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento [1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_mesmo_com_erro [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes [4 ms]
-  Passed HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao [130 ms]
-  Passed HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync [2 ms]
-  Passed HubPedidos.Tests.FilaTests.Modo_DropOldest_descarta_e_contabiliza [< 1 ms]
-  Passed HubPedidos.Tests.FilaTests.Fila_concluida_nao_aceita_novos_itens [< 1 ms]
-  Passed HubPedidos.Tests.ApiIntegracaoTests.Grafo_de_DI_e_valido_e_ambiente_de_testes_recusa_banco_em_arquivo [1 s]
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Testes
 info: Microsoft.Hosting.Lifetime[0]
       Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
-[xUnit.net 00:00:02.84]     HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [FAIL]
-[xUnit.net 00:00:02.84]       Assert.Contains() Failure: Sub-string not found
-[xUnit.net 00:00:02.84]       String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
-[xUnit.net 00:00:02.84]       Not found: "json_extract"
-[xUnit.net 00:00:02.84]       Stack Trace:
-[xUnit.net 00:00:02.84]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
-[xUnit.net 00:00:02.84]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
-[xUnit.net 00:00:02.84]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
-[xUnit.net 00:00:02.84]         --- End of stack trace from previous location ---
+  Passed HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura [1 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core [2 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura [< 1 ms]
+  Passed HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao [234 ms]
+  Passed HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync [1 ms]
+  Passed HubPedidos.Tests.FilaTests.Modo_DropOldest_descarta_e_contabiliza [< 1 ms]
+  Passed HubPedidos.Tests.FilaTests.Fila_concluida_nao_aceita_novos_itens [< 1 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Grafo_de_DI_e_valido_e_ambiente_de_testes_recusa_banco_em_arquivo [1 s]
+  Passed HubPedidos.Tests.EfCoreTests.Parametros_do_usuario_nao_mudam_a_forma_do_SQL [1 s]
 fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
       An unhandled exception has occurred while executing the request.
       System.InvalidOperationException: The compiled query '(ctx, id, _) => ctx.Pedidos
@@ -143,22 +135,31 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:02.94]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
-[xUnit.net 00:00:02.94]       Assert.Equal() Failure: Strings differ
-[xUnit.net 00:00:02.94]                  ↓ (pos 0)
-[xUnit.net 00:00:02.94]       Expected: "private, no-cache"
-[xUnit.net 00:00:02.94]       Actual:   "no-store, no-cache"
-[xUnit.net 00:00:02.94]                  ↑ (pos 0)
-[xUnit.net 00:00:02.94]       Stack Trace:
-[xUnit.net 00:00:02.94]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(168,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
-[xUnit.net 00:00:02.94]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(169,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
-[xUnit.net 00:00:02.94]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:02.44]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
+[xUnit.net 00:00:02.44]       Assert.Equal() Failure: Strings differ
+[xUnit.net 00:00:02.44]                  ↓ (pos 0)
+[xUnit.net 00:00:02.44]       Expected: "private, no-cache"
+[xUnit.net 00:00:02.44]       Actual:   "no-store, no-cache"
+[xUnit.net 00:00:02.44]                  ↑ (pos 0)
+[xUnit.net 00:00:02.44]       Stack Trace:
+[xUnit.net 00:00:02.44]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(168,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
+[xUnit.net 00:00:02.44]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(169,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
+[xUnit.net 00:00:02.44]         --- End of stack trace from previous location ---
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: Testes
 info: Microsoft.Hosting.Lifetime[0]
       Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+[xUnit.net 00:00:02.52]     HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [FAIL]
+[xUnit.net 00:00:02.52]       Assert.Contains() Failure: Sub-string not found
+[xUnit.net 00:00:02.52]       String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
+[xUnit.net 00:00:02.52]       Not found: "json_extract"
+[xUnit.net 00:00:02.52]       Stack Trace:
+[xUnit.net 00:00:02.52]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
+[xUnit.net 00:00:02.52]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
+[xUnit.net 00:00:02.52]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
+[xUnit.net 00:00:02.52]         --- End of stack trace from previous location ---
 fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
       An unhandled exception has occurred while executing the request.
       System.InvalidOperationException: The LINQ expression 'DbSet<PedidoEntidade>()
@@ -243,50 +244,14 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.10]     HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [FAIL]
-[xUnit.net 00:00:03.10]       Assert.Equal() Failure: Values differ
-[xUnit.net 00:00:03.10]       Expected: 1
-[xUnit.net 00:00:03.10]       Actual:   2
-[xUnit.net 00:00:03.10]       Stack Trace:
-[xUnit.net 00:00:03.10]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(154,0): at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag()
-[xUnit.net 00:00:03.10]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(159,0): at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag()
-[xUnit.net 00:00:03.10]         --- End of stack trace from previous location ---
-  Passed HubPedidos.Tests.EfCoreTests.Parametros_do_usuario_nao_mudam_a_forma_do_SQL [1 s]
-  Passed HubPedidos.Tests.EfCoreTests.Painel_usa_dois_comandos_e_so_as_colunas_necessarias [87 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [118 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Versao_obsoleta_gera_conflito [112 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Atualizacao_usa_tracking_e_altera_so_as_colunas_mudadas [20 ms]
-  Passed HubPedidos.Tests.EfCoreTests.Versao_ingenua_mostra_o_problema_N_mais_1 [92 ms]
-  Failed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [24 ms]
-  Error Message:
-   Assert.Contains() Failure: Sub-string not found
-String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
-Not found: "json_extract"
-  Stack Trace:
-     at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
-   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
-   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
---- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [613 ms]
-  Error Message:
-   Assert.Equal() Failure: Strings differ
-           ↓ (pos 0)
-Expected: "private, no-cache"
-Actual:   "no-store, no-cache"
-           ↑ (pos 0)
-  Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
-   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
---- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [156 ms]
-  Error Message:
-   Assert.Equal() Failure: Values differ
-Expected: 1
-Actual:   2
-  Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 154
-   at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 159
---- End of stack trace from previous location ---
+[xUnit.net 00:00:02.58]     HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [FAIL]
+[xUnit.net 00:00:02.58]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:02.58]       Expected: 1
+[xUnit.net 00:00:02.58]       Actual:   2
+[xUnit.net 00:00:02.58]       Stack Trace:
+[xUnit.net 00:00:02.58]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(154,0): at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag()
+[xUnit.net 00:00:02.58]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(159,0): at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag()
+[xUnit.net 00:00:02.58]         --- End of stack trace from previous location ---
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -338,14 +303,58 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.25]     HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428 [FAIL]
-[xUnit.net 00:00:03.25]       Assert.Equal() Failure: Values differ
-[xUnit.net 00:00:03.25]       Expected: PreconditionRequired
-[xUnit.net 00:00:03.25]       Actual:   InternalServerError
-[xUnit.net 00:00:03.25]       Stack Trace:
-[xUnit.net 00:00:03.25]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(138,0): at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428()
-[xUnit.net 00:00:03.25]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(142,0): at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428()
-[xUnit.net 00:00:03.25]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:02.71]     HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428 [FAIL]
+[xUnit.net 00:00:02.71]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:02.71]       Expected: PreconditionRequired
+[xUnit.net 00:00:02.71]       Actual:   InternalServerError
+[xUnit.net 00:00:02.71]       Stack Trace:
+[xUnit.net 00:00:02.71]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(138,0): at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428()
+[xUnit.net 00:00:02.71]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(142,0): at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428()
+[xUnit.net 00:00:02.71]         --- End of stack trace from previous location ---
+  Passed HubPedidos.Tests.EfCoreTests.Painel_usa_dois_comandos_e_so_as_colunas_necessarias [140 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [102 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Versao_obsoleta_gera_conflito [25 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Atualizacao_usa_tracking_e_altera_so_as_colunas_mudadas [12 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [616 ms]
+  Error Message:
+   Assert.Equal() Failure: Strings differ
+           ↓ (pos 0)
+Expected: "private, no-cache"
+Actual:   "no-store, no-cache"
+           ↑ (pos 0)
+  Stack Trace:
+     at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
+   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
+--- End of stack trace from previous location ---
+  Passed HubPedidos.Tests.EfCoreTests.Versao_ingenua_mostra_o_problema_N_mais_1 [93 ms]
+  Failed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [22 ms]
+  Error Message:
+   Assert.Contains() Failure: Sub-string not found
+String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
+Not found: "json_extract"
+  Stack Trace:
+     at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+--- End of stack trace from previous location ---
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [139 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   2
+  Stack Trace:
+     at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 154
+   at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 159
+--- End of stack trace from previous location ---
+  Failed HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428 [131 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: PreconditionRequired
+Actual:   InternalServerError
+  Stack Trace:
+     at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 138
+   at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 142
+--- End of stack trace from previous location ---
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -395,14 +404,14 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.38]     HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila [FAIL]
-[xUnit.net 00:00:03.38]       System.Net.Http.HttpRequestException : Response status code does not indicate success: 500 (Internal Server Error).
-[xUnit.net 00:00:03.38]       Stack Trace:
-[xUnit.net 00:00:03.38]            at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
-[xUnit.net 00:00:03.38]            at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
-[xUnit.net 00:00:03.38]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(38,0): at HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila()
-[xUnit.net 00:00:03.38]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(40,0): at HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila()
-[xUnit.net 00:00:03.38]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:02.82]     HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila [FAIL]
+[xUnit.net 00:00:02.83]       System.Net.Http.HttpRequestException : Response status code does not indicate success: 500 (Internal Server Error).
+[xUnit.net 00:00:02.83]       Stack Trace:
+[xUnit.net 00:00:02.83]            at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+[xUnit.net 00:00:02.83]            at System.Net.Http.Json.HttpClientJsonExtensions.<FromJsonAsyncCore>g__Core|12_0[TValue,TJsonOptions](HttpClient client, Task`1 responseTask, Boolean usingResponseHeadersRead, CancellationTokenSource linkedCTS, Func`4 deserializeMethod, TJsonOptions jsonOptions, CancellationToken cancellationToken)
+[xUnit.net 00:00:02.83]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(38,0): at HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila()
+[xUnit.net 00:00:02.83]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(40,0): at HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila()
+[xUnit.net 00:00:02.83]         --- End of stack trace from previous location ---
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -464,28 +473,28 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.60]     HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando [FAIL]
-[xUnit.net 00:00:03.60]       System.Text.Json.JsonException : The JSON value could not be converted to HubPedidos.Tests.ClienteV1Pedido. Path: $.status | LineNumber: 0 | BytePositionInLine: 132.
-[xUnit.net 00:00:03.60]       ---- System.InvalidOperationException : Cannot get the value of a token type 'Number' as a string.
-[xUnit.net 00:00:03.60]       Stack Trace:
-[xUnit.net 00:00:03.60]            at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
-[xUnit.net 00:00:03.60]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize[TReadBufferState,TStream](TReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, T& value)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync[TReadBufferState,TStream](TStream utf8Json, TReadBufferState bufferState, CancellationToken cancellationToken)
-[xUnit.net 00:00:03.61]            at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
-[xUnit.net 00:00:03.61]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(71,0): at HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando()
-[xUnit.net 00:00:03.61]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(80,0): at HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando()
-[xUnit.net 00:00:03.61]         --- End of stack trace from previous location ---
-[xUnit.net 00:00:03.61]         ----- Inner Stack Trace -----
-[xUnit.net 00:00:03.61]            at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Utf8JsonReader.GetString()
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.JsonConverter`1.TryReadAsObject(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, Object& value)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.Converters.LargeObjectWithParameterizedConstructorConverter`1.ReadAndCacheConstructorArgument(ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.ReadConstructorArgumentsWithContinuation(ReadStack& state, Utf8JsonReader& reader, JsonSerializerOptions options)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
-[xUnit.net 00:00:03.61]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+[xUnit.net 00:00:03.10]     HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando [FAIL]
+[xUnit.net 00:00:03.10]       System.Text.Json.JsonException : The JSON value could not be converted to HubPedidos.Tests.ClienteV1Pedido. Path: $.status | LineNumber: 0 | BytePositionInLine: 132.
+[xUnit.net 00:00:03.10]       ---- System.InvalidOperationException : Cannot get the value of a token type 'Number' as a string.
+[xUnit.net 00:00:03.10]       Stack Trace:
+[xUnit.net 00:00:03.10]            at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+[xUnit.net 00:00:03.10]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+[xUnit.net 00:00:03.10]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize[TReadBufferState,TStream](TReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, T& value)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync[TReadBufferState,TStream](TStream utf8Json, TReadBufferState bufferState, CancellationToken cancellationToken)
+[xUnit.net 00:00:03.11]            at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
+[xUnit.net 00:00:03.11]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(71,0): at HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando()
+[xUnit.net 00:00:03.11]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(80,0): at HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando()
+[xUnit.net 00:00:03.11]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.11]         ----- Inner Stack Trace -----
+[xUnit.net 00:00:03.11]            at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Utf8JsonReader.GetString()
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.JsonConverter`1.TryReadAsObject(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, Object& value)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.Converters.LargeObjectWithParameterizedConstructorConverter`1.ReadAndCacheConstructorArgument(ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.ReadConstructorArgumentsWithContinuation(ReadStack& state, Utf8JsonReader& reader, JsonSerializerOptions options)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+[xUnit.net 00:00:03.11]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -572,16 +581,16 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.75]     HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda [FAIL]
-[xUnit.net 00:00:03.75]       System.ArgumentNullException : Value cannot be null. (Parameter 'item')
-[xUnit.net 00:00:03.75]       Stack Trace:
-[xUnit.net 00:00:03.75]            at System.ArgumentNullException.Throw(String paramName)
-[xUnit.net 00:00:03.75]            at System.ArgumentNullException.ThrowIfNull(Object argument, String paramName)
-[xUnit.net 00:00:03.75]            at System.Net.Http.Headers.HttpHeaderValueCollection`1.CheckValue(T item)
-[xUnit.net 00:00:03.75]            at System.Net.Http.Headers.HttpHeaderValueCollection`1.Add(T item)
-[xUnit.net 00:00:03.75]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(113,0): at HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda()
-[xUnit.net 00:00:03.75]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(126,0): at HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda()
-[xUnit.net 00:00:03.75]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.23]     HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda [FAIL]
+[xUnit.net 00:00:03.23]       System.ArgumentNullException : Value cannot be null. (Parameter 'item')
+[xUnit.net 00:00:03.23]       Stack Trace:
+[xUnit.net 00:00:03.23]            at System.ArgumentNullException.Throw(String paramName)
+[xUnit.net 00:00:03.23]            at System.ArgumentNullException.ThrowIfNull(Object argument, String paramName)
+[xUnit.net 00:00:03.23]            at System.Net.Http.Headers.HttpHeaderValueCollection`1.CheckValue(T item)
+[xUnit.net 00:00:03.23]            at System.Net.Http.Headers.HttpHeaderValueCollection`1.Add(T item)
+[xUnit.net 00:00:03.23]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(113,0): at HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda()
+[xUnit.net 00:00:03.23]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(126,0): at HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda()
+[xUnit.net 00:00:03.23]         --- End of stack trace from previous location ---
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -633,14 +642,14 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.87]     HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404 [FAIL]
-[xUnit.net 00:00:03.87]       Assert.Equal() Failure: Values differ
-[xUnit.net 00:00:03.87]       Expected: NotFound
-[xUnit.net 00:00:03.87]       Actual:   InternalServerError
-[xUnit.net 00:00:03.87]       Stack Trace:
-[xUnit.net 00:00:03.87]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(60,0): at HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404()
-[xUnit.net 00:00:03.87]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(60,0): at HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404()
-[xUnit.net 00:00:03.87]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.34]     HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404 [FAIL]
+[xUnit.net 00:00:03.34]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:03.34]       Expected: NotFound
+[xUnit.net 00:00:03.34]       Actual:   InternalServerError
+[xUnit.net 00:00:03.34]       Stack Trace:
+[xUnit.net 00:00:03.34]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(60,0): at HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404()
+[xUnit.net 00:00:03.34]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(60,0): at HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404()
+[xUnit.net 00:00:03.34]         --- End of stack trace from previous location ---
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -687,14 +696,14 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:03.99]     HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [FAIL]
-[xUnit.net 00:00:03.99]       Assert.Equal() Failure: Values differ
-[xUnit.net 00:00:03.99]       Expected: OK
-[xUnit.net 00:00:03.99]       Actual:   InternalServerError
-[xUnit.net 00:00:03.99]       Stack Trace:
-[xUnit.net 00:00:03.99]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(91,0): at HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400()
-[xUnit.net 00:00:03.99]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(96,0): at HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400()
-[xUnit.net 00:00:03.99]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.46]     HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [FAIL]
+[xUnit.net 00:00:03.46]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:03.46]       Expected: OK
+[xUnit.net 00:00:03.46]       Actual:   InternalServerError
+[xUnit.net 00:00:03.46]       Stack Trace:
+[xUnit.net 00:00:03.46]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(91,0): at HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400()
+[xUnit.net 00:00:03.46]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(96,0): at HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400()
+[xUnit.net 00:00:03.46]         --- End of stack trace from previous location ---
 info: Microsoft.Hosting.Lifetime[0]
       Application started. Press Ctrl+C to shut down.
 info: Microsoft.Hosting.Lifetime[0]
@@ -739,27 +748,18 @@ info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
 info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
       Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
-[xUnit.net 00:00:04.30]     HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor [FAIL]
-[xUnit.net 00:00:04.30]       Microsoft.AspNetCore.SignalR.HubException : An unexpected error occurred invoking 'AcompanharPedido' on the server.
-[xUnit.net 00:00:04.30]       Stack Trace:
-[xUnit.net 00:00:04.30]            at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsyncCore(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
-[xUnit.net 00:00:04.30]            at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsync(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
-[xUnit.net 00:00:04.30]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(188,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
-[xUnit.net 00:00:04.30]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(200,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
-[xUnit.net 00:00:04.30]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(200,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
-[xUnit.net 00:00:04.30]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(200,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
-[xUnit.net 00:00:04.30]         --- End of stack trace from previous location ---
-[xUnit.net 00:00:04.30]   Finished:    HubPedidos.Tests
-  Failed HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428 [153 ms]
-  Error Message:
-   Assert.Equal() Failure: Values differ
-Expected: PreconditionRequired
-Actual:   InternalServerError
-  Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 138
-   at HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 142
---- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila [126 ms]
+[xUnit.net 00:00:03.74]     HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor [FAIL]
+[xUnit.net 00:00:03.74]       Microsoft.AspNetCore.SignalR.HubException : An unexpected error occurred invoking 'AcompanharPedido' on the server.
+[xUnit.net 00:00:03.74]       Stack Trace:
+[xUnit.net 00:00:03.74]            at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsyncCore(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
+[xUnit.net 00:00:03.74]            at Microsoft.AspNetCore.SignalR.Client.HubConnection.InvokeCoreAsync(String methodName, Type returnType, Object[] args, CancellationToken cancellationToken)
+[xUnit.net 00:00:03.74]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(188,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
+[xUnit.net 00:00:03.74]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(200,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
+[xUnit.net 00:00:03.74]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(200,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
+[xUnit.net 00:00:03.74]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(200,0): at HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor()
+[xUnit.net 00:00:03.74]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.74]   Finished:    HubPedidos.Tests
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila [109 ms]
   Error Message:
    System.Net.Http.HttpRequestException : Response status code does not indicate success: 500 (Internal Server Error).
   Stack Trace:
@@ -768,8 +768,8 @@ Actual:   InternalServerError
    at HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 38
    at HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 40
 --- End of stack trace from previous location ---
-  Passed HubPedidos.Tests.ApiIntegracaoTests.Requisicao_invalida_recebe_400_com_os_campos [100 ms]
-  Failed HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando [125 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Requisicao_invalida_recebe_400_com_os_campos [132 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando [144 ms]
   Error Message:
    System.Text.Json.JsonException : The JSON value could not be converted to HubPedidos.Tests.ClienteV1Pedido. Path: $.status | LineNumber: 0 | BytePositionInLine: 132.
 ---- System.InvalidOperationException : Cannot get the value of a token type 'Number' as a string.
@@ -792,7 +792,7 @@ Actual:   InternalServerError
    at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
    at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
    at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
-  Failed HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda [147 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda [128 ms]
   Error Message:
    System.ArgumentNullException : Value cannot be null. (Parameter 'item')
   Stack Trace:
@@ -803,7 +803,7 @@ Actual:   InternalServerError
    at HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 113
    at HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 126
 --- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404 [112 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404 [106 ms]
   Error Message:
    Assert.Equal() Failure: Values differ
 Expected: NotFound
@@ -812,7 +812,7 @@ Actual:   InternalServerError
      at HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 60
    at HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 60
 --- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [124 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [117 ms]
   Error Message:
    Assert.Equal() Failure: Values differ
 Expected: OK
@@ -821,7 +821,7 @@ Actual:   InternalServerError
      at HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 91
    at HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 96
 --- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor [292 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor [280 ms]
   Error Message:
    Microsoft.AspNetCore.SignalR.HubException : An unexpected error occurred invoking 'AcompanharPedido' on the server.
   Stack Trace:
@@ -837,4 +837,4 @@ Test Run Failed.
 Total tests: 68
      Passed: 57
      Failed: 11
- Total time: 4.8185 Seconds
+ Total time: 4.2247 Seconds

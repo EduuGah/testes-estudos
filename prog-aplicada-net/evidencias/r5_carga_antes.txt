@@ -1,1 +1,1 @@
-painel   conc= 16  amostras=   102  erros=   0  p50= 3067.4 ms  p95= 4378.5 ms  p99= 4967.7 ms  máx= 4970.6 ms  vazão=    5.1 req/s
+painel   conc= 16  amostras=    86  erros=   3  p50= 2580.5 ms  p95= 4522.4 ms  p99= 4864.6 ms  máx= 4864.6 ms  vazão=    4.5 req/s

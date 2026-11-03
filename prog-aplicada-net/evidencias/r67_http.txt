@@ -1,32 +1,32 @@
-pedido criado: 01a1a2cb-9152-7656-9f8d-ca1c97d32acc
+pedido criado: 01a1a2cc-d427-7f0c-9d23-1c1c683c7f35
 
 ################ ROTEIRO 6 – versões
 
 $ GET /api/v1/pedidos/{id}   (contrato v1)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "a8b33dddb91068a58e1b"
+ETag: "05337948da321e78ae24"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
-{"id":"01a1a2cb-9152-7656-9f8d-ca1c97d32acc","cliente":"ana","status":"Processado","total":74.8,"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0}]}
+{"id":"01a1a2cc-d427-7f0c-9d23-1c1c683c7f35","cliente":"ana","status":"Processado","total":74.8,"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0}]}
 
 $ GET /api/v2/pedidos/{id}   (contrato v2)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "e2b1175406ae70f221df"
+ETag: "14728f3aade483292355"
 api-supported-versions: 1, 2
-{"id":"01a1a2cb-9152-7656-9f8d-ca1c97d32acc","cliente":"ana","situacao":{"codigo":"Processado","descricao":"Pedido processado","atualizadoEmUtc":"2026-11-03T19:03:32.7413267"},"valores":{"total":74.8,"moeda":"BRL"},"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9,"subtotal":39.8},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0,"subtotal":35.0}],"versao":3,"canal":"app"}
+{"id":"01a1a2cc-d427-7f0c-9d23-1c1c683c7f35","cliente":"ana","situacao":{"codigo":"Processado","descricao":"Pedido processado","atualizadoEmUtc":"2026-11-03T19:04:55.6155144"},"valores":{"total":74.8,"moeda":"BRL"},"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9,"subtotal":39.8},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0,"subtotal":35.0}],"versao":3,"canal":"app"}
 
 $ GET /api/pedidos/{id}   (sem versão -> padrão v1)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "a8b33dddb91068a58e1b"
+ETag: "05337948da321e78ae24"
 api-version: 1
 
 $ GET /api/v9/pedidos/{id}   (versão não suportada)
-{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Versão não suportada","status":400,"detail":"A versão 9 não existe. Versões suportadas: 1, 2.","traceId":"00-77aad82a3c0f4953f78b5e121089b102-c7d1d9bdc525346e-00"}
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Versão não suportada","status":400,"detail":"A versão 9 não existe. Versões suportadas: 1, 2.","traceId":"00-0eaed9e44926ef5c1faa6a790172547a-8f03e00398281894-00"}
 HTTP 400
 
 ################ ROTEIRO 7 – ETag
@@ -34,16 +34,16 @@ HTTP 400
 $ GET /api/v1/pedidos/{id}
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "a8b33dddb91068a58e1b"
+ETag: "05337948da321e78ae24"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 
-$ GET com If-None-Match: "a8b33dddb91068a58e1b"
+$ GET com If-None-Match: "05337948da321e78ae24"
 HTTP/1.1 304 Not Modified
 Cache-Control: private, no-cache
-ETag: "a8b33dddb91068a58e1b"
+ETag: "05337948da321e78ae24"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
@@ -57,18 +57,18 @@ HTTP 428
 $ PUT /status com If-Match obsoleto
 HTTP 412
 
-$ PUT /status com If-Match: "a8b33dddb91068a58e1b"
+$ PUT /status com If-Match: "05337948da321e78ae24"
 HTTP/1.1 200 OK
-ETag: "66b76fc60f71bfe364a3"
+ETag: "8083b658ea02fa7dd6e1"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 
-$ GET com If-None-Match antigo: "a8b33dddb91068a58e1b"
+$ GET com If-None-Match antigo: "05337948da321e78ae24"
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "66b76fc60f71bfe364a3"
+ETag: "8083b658ea02fa7dd6e1"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
@@ -97,7 +97,7 @@ HTTP/1.1 500 Internal Server Error
 Cache-Control: no-cache,no-store
 
 $ Latência: 20 GET anônimos com cache
-mediana 1.11 ms, máx 1.51 ms
+mediana 1.18 ms, máx 2.97 ms
 
 $ Latência: 20 GET autenticados (sem cache, consulta o banco)
-mediana 1.10 ms, máx 1.52 ms
+mediana 1.06 ms, máx 1.44 ms

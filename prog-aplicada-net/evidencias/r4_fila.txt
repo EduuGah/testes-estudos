@@ -1,6 +1,6 @@
 Produtor: 2.000 pedidos a ~500/s. Banco simulado: 4 ms + 3 ms por operação concorrente extra (contenção).
 
 Configuração                          Aceitos  Rejeit. Descart. Process.  FilaMáx Banco máx   p50 ms   p95 ms  Vazão/s
-A: cap 50, 4 consumidores, banco 4       1270      730        0     1270       50         4      171      180      304
-B: cap 500, 16 consumidores, banco 16     1815      185        0     1815      500        16      981     1583      325
-C: cap 50, 4 cons., DropOldest           2000        0      729     1271       50         4      108      114      305
+A: cap 50, 4 consumidores, banco 4       1262      738        0     1262       50         4      173      181      302
+B: cap 500, 16 consumidores, banco 16     1813      187        0     1813      500        16      984     1585      325
+C: cap 50, 4 cons., DropOldest           2000        0      738     1262       50         4      108      114      302

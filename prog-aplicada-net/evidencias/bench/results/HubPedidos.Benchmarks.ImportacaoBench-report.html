@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>HubPedidos.Benchmarks.ImportacaoBench-20261103-185734</title>
+<title>HubPedidos.Benchmarks.ImportacaoBench-20261103-185852</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,7 +14,7 @@
 <body>
 <pre><code>
 BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
-AMD EPYC 7763 3.18GHz, 1 CPU, 4 logical and 2 physical cores
+AMD EPYC 7763 2.79GHz, 1 CPU, 4 logical and 2 physical cores
 .NET SDK 10.0.403
   [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
   Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
@@ -25,14 +25,14 @@ AMD EPYC 7763 3.18GHz, 1 CPU, 4 logical and 2 physical cores
 <table>
 <thead><tr><th>Method       </th><th>Linhas</th><th>Mean </th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th><th>Alloc Ratio</th>
 </tr>
-</thead><tbody><tr><td>Baseline</td><td>1000</td><td>313.6 &mu;s</td><td>3.70 &mu;s</td><td>2.20 &mu;s</td><td>1.00</td><td>0.01</td><td>66.4063</td><td>33.2031</td><td>33.2031</td><td>679.34 KB</td><td>1.00</td>
-</tr><tr><td>Span</td><td>1000</td><td>249.1 &mu;s</td><td>1.42 &mu;s</td><td>0.94 &mu;s</td><td>0.79</td><td>0.01</td><td>21.9727</td><td>7.8125</td><td>-</td><td>361.19 KB</td><td>0.53</td>
-</tr><tr><td>Utf8Pooled</td><td>1000</td><td>125.3 &mu;s</td><td>0.65 &mu;s</td><td>0.39 &mu;s</td><td>0.40</td><td>0.00</td><td>7.0801</td><td>1.7090</td><td>-</td><td>117.91 KB</td><td>0.17</td>
-</tr><tr><td>Utf8PooledStreaming</td><td>1000</td><td>126.2 &mu;s</td><td>0.37 &mu;s</td><td>0.22 &mu;s</td><td>0.40</td><td>0.00</td><td>6.1035</td><td>-</td><td>-</td><td>101.57 KB</td><td>0.15</td>
-</tr><tr><td>Baseline</td><td>50000</td><td>32,628.1 &mu;s</td><td>815.90 &mu;s</td><td>539.67 &mu;s</td><td>1.00</td><td>0.02</td><td>2333.3333</td><td>1933.3333</td><td>666.6667</td><td>33759.15 KB</td><td>1.00</td>
-</tr><tr><td>Span</td><td>50000</td><td>23,497.2 &mu;s</td><td>516.70 &mu;s</td><td>341.76 &mu;s</td><td>0.72</td><td>0.02</td><td>1187.5000</td><td>812.5000</td><td>281.2500</td><td>15904.87 KB</td><td>0.47</td>
-</tr><tr><td>Utf8Pooled</td><td>50000</td><td>10,062.9 &mu;s</td><td>194.15 &mu;s</td><td>128.42 &mu;s</td><td>0.31</td><td>0.01</td><td>531.2500</td><td>515.6250</td><td>218.7500</td><td>6095.29 KB</td><td>0.18</td>
-</tr><tr><td>Utf8PooledStreaming</td><td>50000</td><td>5,979.2 &mu;s</td><td>33.97 &mu;s</td><td>22.47 &mu;s</td><td>0.18</td><td>0.00</td><td>304.6875</td><td>-</td><td>-</td><td>5070.48 KB</td><td>0.15</td>
+</thead><tbody><tr><td>Baseline</td><td>1000</td><td>307.9 &mu;s</td><td>1.84 &mu;s</td><td>1.09 &mu;s</td><td>1.00</td><td>0.00</td><td>66.4063</td><td>33.2031</td><td>33.2031</td><td>679.34 KB</td><td>1.00</td>
+</tr><tr><td>Span</td><td>1000</td><td>244.7 &mu;s</td><td>1.24 &mu;s</td><td>0.82 &mu;s</td><td>0.79</td><td>0.00</td><td>21.9727</td><td>8.0566</td><td>-</td><td>361.19 KB</td><td>0.53</td>
+</tr><tr><td>Utf8Pooled</td><td>1000</td><td>124.5 &mu;s</td><td>0.54 &mu;s</td><td>0.28 &mu;s</td><td>0.40</td><td>0.00</td><td>7.0801</td><td>1.7090</td><td>-</td><td>117.91 KB</td><td>0.17</td>
+</tr><tr><td>Utf8PooledStreaming</td><td>1000</td><td>123.4 &mu;s</td><td>1.48 &mu;s</td><td>0.98 &mu;s</td><td>0.40</td><td>0.00</td><td>6.1035</td><td>-</td><td>-</td><td>101.57 KB</td><td>0.15</td>
+</tr><tr><td>Baseline</td><td>50000</td><td>32,001.5 &mu;s</td><td>1,016.33 &mu;s</td><td>672.24 &mu;s</td><td>1.00</td><td>0.03</td><td>2333.3333</td><td>1933.3333</td><td>666.6667</td><td>33759.14 KB</td><td>1.00</td>
+</tr><tr><td>Span</td><td>50000</td><td>23,870.8 &mu;s</td><td>267.03 &mu;s</td><td>158.90 &mu;s</td><td>0.75</td><td>0.02</td><td>1187.5000</td><td>812.5000</td><td>281.2500</td><td>15904.82 KB</td><td>0.47</td>
+</tr><tr><td>Utf8Pooled</td><td>50000</td><td>10,632.0 &mu;s</td><td>317.33 &mu;s</td><td>209.90 &mu;s</td><td>0.33</td><td>0.01</td><td>531.2500</td><td>515.6250</td><td>218.7500</td><td>6095.21 KB</td><td>0.18</td>
+</tr><tr><td>Utf8PooledStreaming</td><td>50000</td><td>6,146.7 &mu;s</td><td>64.52 &mu;s</td><td>42.67 &mu;s</td><td>0.19</td><td>0.00</td><td>304.6875</td><td>-</td><td>-</td><td>5070.48 KB</td><td>0.15</td>
 </tr></tbody></table>
 </body>
 </html>

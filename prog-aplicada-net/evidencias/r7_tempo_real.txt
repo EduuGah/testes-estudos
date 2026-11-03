@@ -1,15 +1,15 @@
-19:03:36.947 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2cb-a2df-79d2-bbdb-8288d41d88df (Padrao)
-19:03:37.083 [ana  ] estado: Connected
-19:03:37.104 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
-19:03:37.107 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
-19:03:37.119 [ana  ] stream do pedido 01a1a2cb…: EmProcessamento (v2)
-19:03:37.168 [ana  ] stream do pedido 01a1a2cb…: Processado (v3)
-19:03:37.177 [ana  ] estado inicial via HTTP: Processado
-19:03:37.186 [http ] PUT status=Cancelado (If-Match "4a10e6d47d08dee5ea70") -> 200
-19:03:37.194 [ana  ] evento PedidoAtualizado: Cancelado (v4)
-19:03:37.491 [http ] POST /dev/hub/derrubar -> 200 {"derrubadas":2}
-19:03:37.507 [ana  ] estado: Desconectado
-19:03:37.696 [http ] PUT status=Recebido (If-Match "b68bde0d8625124d6f4a") -> 200
+19:04:59.592 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2cc-e5b0-7e68-bba6-31182e9be946 (Padrao)
+19:04:59.718 [ana  ] estado: Connected
+19:04:59.739 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
+19:04:59.742 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
+19:04:59.755 [ana  ] stream do pedido 01a1a2cc…: EmProcessamento (v2)
+19:04:59.804 [ana  ] stream do pedido 01a1a2cc…: Processado (v3)
+19:04:59.812 [ana  ] estado inicial via HTTP: Processado
+19:04:59.823 [http ] PUT status=Cancelado (If-Match "59f93adf3d0de05df517") -> 200
+19:04:59.830 [ana  ] evento PedidoAtualizado: Cancelado (v4)
+19:05:00.128 [http ] POST /dev/hub/derrubar -> 200 {"derrubadas":2}
+19:05:00.145 [ana  ] estado: Desconectado
+19:05:00.332 [http ] PUT status=Recebido (If-Match "e44bd04e84e7667dadcb") -> 200
 Unhandled exception. System.TimeoutException: The operation has timed out.
    at HubPedidos.Ferramentas.TempoReal.ExecutarAsync(String url) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/TempoReal.cs:line 67
    at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 12
