@@ -30,4 +30,5 @@ jobs:
           git add prog-aplicada-net/evidencias
           [ -d prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations ] && git add prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations
           git commit -m "Evidências da execução (run ${{ github.run_id }})" || echo "nada novo"
+          git pull --rebase -X theirs || true
           git push

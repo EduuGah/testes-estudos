@@ -66,7 +66,7 @@ public sealed class ImportadorSpan : IImportadorLote
         {
             numero++;
             bytes += Encoding.UTF8.GetByteCount(linha) + 1;
-            if (bytes > limiteBytes + 1) throw new LoteMuitoGrandeException(limiteBytes);
+            if (bytes - 1 > limiteBytes) throw new LoteMuitoGrandeException(limiteBytes);   // (bytes - 1) evita estouro quando o limite é long.MaxValue
             if (linha.Length == 0) continue;
             resultado.Add(Parse(linha, numero));   // o span vive só dentro de Parse: não atravessa await
         }

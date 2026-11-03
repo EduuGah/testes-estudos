@@ -14,7 +14,8 @@ namespace HubPedidos.Ferramentas;
 
 public static class Experimentos
 {
-    private static readonly CultureInfo Br = CultureInfo.GetCultureInfo("pt-BR");
+    // a solução usa InvariantGlobalization: o formato brasileiro é montado à mão
+    private static readonly NumberFormatInfo Br = new() { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
 
     private static Pedido Pedido(Regiao r, Prioridade p, params (int q, decimal v)[] itens) =>
         new(PedidoId.Novo(), "ana", r, p, [.. itens.Select((x, i) => new ItemPedido($"SKU-{i}", x.q, x.v))]);
