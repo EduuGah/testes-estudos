@@ -25,10 +25,13 @@ jobs:
         if: always()
         run: |
           mkdir -p prog-aplicada-net/evidencias && cp prog-aplicada-net-execucao.log prog-aplicada-net/evidencias/execucao.log || true
+          # o GitHub recusa arquivos acima de 100 MB: comprime ou remove os maiores
+          find prog-aplicada-net/evidencias -type f -size +20M ! -name '*.gz' -exec gzip -9 {} \;
+          find prog-aplicada-net/evidencias -type f -size +45M -print -delete
+          du -ah prog-aplicada-net/evidencias | sort -h | tail -8
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add prog-aplicada-net/evidencias
           [ -d prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations ] && git add prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations
           git commit -m "Evidências da execução (run ${{ github.run_id }})" || echo "nada novo"
-          git pull --rebase -X theirs || true
-          git push
+          for t in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done

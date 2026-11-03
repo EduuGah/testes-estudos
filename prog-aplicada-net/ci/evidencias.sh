@@ -95,7 +95,7 @@ passo "Roteiro 5: traces convertidos"
 for t in antes depois; do
   [ -f "$EV/r5_trace_$t.nettrace" ] && dotnet-trace convert "$EV/r5_trace_$t.nettrace" --format Speedscope -o "$EV/r5_trace_$t.speedscope.json" > /dev/null 2>&1
   python3 ci/analisar_trace.py "$EV/r5_trace_$t.speedscope.json" > "$EV/r5_trace_$t.txt" 2>&1; head -25 "$EV/r5_trace_$t.txt"
-  rm -f "$EV/r5_trace_$t.nettrace"; gzip -f "$EV/r5_trace_$t.speedscope.json" 2>/dev/null
+  rm -f "$EV/r5_trace_$t.nettrace" "$EV/r5_trace_$t.speedscope.json"
 done
 
 passo "Roteiro 8: a revisão automatizada bloqueia falhas"
