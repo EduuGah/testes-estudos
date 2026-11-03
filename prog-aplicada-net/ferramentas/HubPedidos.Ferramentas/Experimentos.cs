@@ -65,9 +65,15 @@ public static class Experimentos
             {
                 db.Pedidos.Add(new PedidoEntidade
                 {
-                    Id = Guid.CreateVersion7(), Cliente = i % 2 == 0 ? "ana" : "bruno", Regiao = "Sudeste", Prioridade = "Normal",
-                    Status = i % 5 == 0 ? "Processado" : "Recebido", TotalCentavos = 1_000 + i, CriadoEmUtc = DateTime.UtcNow.AddSeconds(-i),
-                    AtualizadoEmUtc = DateTime.UtcNow, Versao = 1,
+                    Id = Guid.CreateVersion7(),
+                    Cliente = i % 2 == 0 ? "ana" : "bruno",
+                    Regiao = "Sudeste",
+                    Prioridade = "Normal",
+                    Status = i % 5 == 0 ? "Processado" : "Recebido",
+                    TotalCentavos = 1_000 + i,
+                    CriadoEmUtc = DateTime.UtcNow.AddSeconds(-i),
+                    AtualizadoEmUtc = DateTime.UtcNow,
+                    Versao = 1,
                     Itens = [new ItemEntidade { Sku = "A", Quantidade = 1, PrecoCentavos = 1_000 + i }],
                     Metadados = new MetadadosEntidade { Canal = i % 3 == 0 ? "app" : "site", Tags = ["lote"] },
                 });
@@ -209,10 +215,17 @@ public static class Experimentos
             var itens = Enumerable.Range(0, i % 4 + 1).Select(k => new ItemEntidade { Sku = $"SKU-{k}", Quantidade = k + 1, PrecoCentavos = 990 + k * 100 }).ToList();
             db.Pedidos.Add(new PedidoEntidade
             {
-                Id = Guid.CreateVersion7(), Cliente = $"cliente{i % 200}", Regiao = "Sudeste", Prioridade = "Normal",
+                Id = Guid.CreateVersion7(),
+                Cliente = $"cliente{i % 200}",
+                Regiao = "Sudeste",
+                Prioridade = "Normal",
                 Status = (i % 10) switch { 0 => "Falhou", < 4 => "Recebido", _ => "Processado" },
-                TotalCentavos = itens.Sum(x => x.Quantidade * x.PrecoCentavos), CriadoEmUtc = agora.AddSeconds(-i), AtualizadoEmUtc = agora, Versao = 1,
-                Itens = itens, Metadados = new MetadadosEntidade { Canal = i % 3 == 0 ? "app" : "site" },
+                TotalCentavos = itens.Sum(x => x.Quantidade * x.PrecoCentavos),
+                CriadoEmUtc = agora.AddSeconds(-i),
+                AtualizadoEmUtc = agora,
+                Versao = 1,
+                Itens = itens,
+                Metadados = new MetadadosEntidade { Canal = i % 3 == 0 ? "app" : "site" },
             });
             if (i % 2_000 == 1_999) { await db.SaveChangesAsync(); db.ChangeTracker.Clear(); }
         }

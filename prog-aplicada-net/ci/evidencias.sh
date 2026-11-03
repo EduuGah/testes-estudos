@@ -27,6 +27,10 @@ if [ ! -d src/HubPedidos.Infrastructure/Migrations ]; then
 fi
 dotnet ef migrations script -p src/HubPedidos.Infrastructure -s src/HubPedidos.Api -o "$EV/r3_migration.sql" 2>&1 | tail -2
 
+passo "Roteiro 8: suíte de testes com saída detalhada"
+dotnet test HubPedidos.sln -c Release --no-build --logger "console;verbosity=normal" > "$EV/r8_testes.log" 2>&1
+grep -E "^\s+(Failed|Passed|Aprovado|Com falha)|Total|Error Message" -A2 "$EV/r8_testes.log" | head -60
+
 passo "Roteiro 8: revisão automatizada completa (3 execuções da suíte)"
 ./revisao.sh > "$EV/r8_revisao.log" 2>&1; echo "revisao.sh saiu com código $?" | tee -a "$EV/r8_revisao.log"
 tail -15 "$EV/r8_revisao.log"
@@ -56,7 +60,7 @@ iniciar_api() {   # $1 = modo do painel, $2 = arquivo de log
   for _ in $(seq 1 60); do curl -sf http://localhost:5080/api/v1/estatisticas >/dev/null && break; sleep 1; done
   echo "API ($1) no PID $API"
 }
-parar_api() { kill -INT "$API"; wait "$API" 2>/dev/null; }
+parar_api() { kill -TERM "$API"; timeout 40 tail --pid="$API" -f /dev/null || kill -KILL "$API"; wait "$API" 2>/dev/null; }   # SIGINT é ignorado por processos em segundo plano
 
 medir() {   # $1 = rótulo
   ( sleep 6; dotnet-counters collect -p "$API" --refresh-interval 1 --duration 00:00:00:18 --format csv -o "$EV/r5_counters_$1.csv" \

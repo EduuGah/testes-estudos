@@ -11,7 +11,7 @@ builder.Host.UseDefaultServiceProvider(o => { o.ValidateScopes = true; o.Validat
 
 // ---------------- Composition root: cada módulo registra o que é seu ----------------
 builder.Services.AddModuloProcessamento(builder.Configuration);                      // Application
-builder.Services.AddModuloPersistencia(builder.Configuration, builder.Environment);   // Infrastructure
+builder.Services.AddModuloPersistencia();                                            // Infrastructure
 builder.Services.AddModuloApi();                                                     // API, tempo real e cache
 
 var app = builder.Build();

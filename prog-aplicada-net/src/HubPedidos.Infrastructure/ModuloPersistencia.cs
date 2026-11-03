@@ -9,18 +9,21 @@ namespace HubPedidos.Infrastructure;
 
 public static class ModuloPersistencia
 {
-    public static IServiceCollection AddModuloPersistencia(this IServiceCollection services, IConfiguration configuracao, IHostEnvironment ambiente)
+    public static IServiceCollection AddModuloPersistencia(this IServiceCollection services)
     {
-        var conexao = configuracao.GetConnectionString("Hub") ?? "Data Source=hub.db";
-
-        // proteção: em testes, só banco em memória (nunca o arquivo de desenvolvimento)
-        if (ambiente.IsEnvironment("Testes") && !conexao.Contains("Mode=Memory", StringComparison.OrdinalIgnoreCase))
-            throw new InvalidOperationException("O ambiente de testes só aceita SQLite em memória.");
-
-        services.AddDbContext<HubDbContext>(o =>
+        // a conexão é resolvida quando o DbContext é criado (e não no registro): assim a configuração
+        // aplicada pelo WebApplicationFactory nos testes já está disponível
+        services.AddDbContext<HubDbContext>((sp, o) =>
         {
+            var cfg = sp.GetRequiredService<IConfiguration>();
+            var conexao = cfg.GetConnectionString("Hub") ?? "Data Source=hub.db";
+
+            // proteção: em testes, só banco em memória (nunca o arquivo de desenvolvimento)
+            if (sp.GetRequiredService<IHostEnvironment>().IsEnvironment("Testes") && !conexao.Contains("Mode=Memory", StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("O ambiente de testes só aceita SQLite em memória.");
+
             o.UseSqlite(conexao);
-            if (configuracao.GetValue<bool>("Hub:LogarSql")) o.LogTo(Console.WriteLine, [DbLoggerCategory.Database.Command.Name]);
+            if (cfg.GetValue<bool>("Hub:LogarSql")) o.LogTo(Console.WriteLine, [DbLoggerCategory.Database.Command.Name]);
         });
         services.AddScoped<IPedidoRepositorio, RepositorioPedidos>();
         services.AddScoped<RepositorioPedidos>();
