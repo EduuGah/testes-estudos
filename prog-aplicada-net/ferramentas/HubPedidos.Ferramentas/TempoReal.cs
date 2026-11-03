@@ -1,4 +1,7 @@
 using System.Net.Http.Json;
+using System.Collections.Concurrent;
+using System.Net;
+using System.Net.Sockets;
 using HubPedidos.Application.Contratos;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.SignalR.Client;
@@ -20,7 +23,11 @@ public static class TempoReal
         var pedido = (await resp.Content.ReadFromJsonAsync<PedidoCriadoResponse>())!;
         Log("http", $"POST /api/v1/pedidos -> {(int)resp.StatusCode} pedido {pedido.Id} ({pedido.Categoria})");
 
-        var ana = Conexao(url, "ana");
+        // proxy TCP de falha controlada: a conexão SignalR da Ana passa por ele; "Derrubar" corta o socket
+        // de forma abrupta (como uma queda de rede), o que dispara a reconexão automática do cliente
+        var destino = new Uri(url);
+        await using var proxy = new ProxyFalha(5090, destino.Port);
+        var ana = Conexao("http://127.0.0.1:5090", "ana");
         var bruno = Conexao(url, "bruno");
         var reconciliado = new TaskCompletionSource();
 
@@ -58,10 +65,8 @@ public static class TempoReal
         await AlterarAsync(anaHttp, pedido.Id, "Cancelado");     // gera evento com a conexão ativa
         await Task.Delay(300);
 
-        // queda forçada: o servidor aborta as conexões
-        using var dev = Http(url, null);
-        var queda = await dev.PostAsync("/dev/hub/derrubar", null);
-        Log("http", $"POST /dev/hub/derrubar -> {(int)queda.StatusCode} {await queda.Content.ReadAsStringAsync()}");
+        // queda de rede simulada no proxy (o servidor continua de pé)
+        Log("proxy", $"queda de rede simulada: {proxy.Derrubar()} conexão(ões) TCP cortada(s)");
         await Task.Delay(200);
         await AlterarAsync(anaHttp, pedido.Id, "Recebido");      // mudança DURANTE a queda: o evento se perde
         await reconciliado.Task.WaitAsync(TimeSpan.FromSeconds(15));
@@ -83,7 +88,7 @@ public static class TempoReal
     private static HubConnection Conexao(string url, string usuario) =>
         new HubConnectionBuilder()
             .WithUrl($"{url}/hubs/pedidos?usuario={usuario}")
-            .WithAutomaticReconnect([TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5)])
+            .WithAutomaticReconnect([TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5)])   // backoff
             .Build();
 
     private sealed record DetalheV1(Guid Id, string Status, decimal Total);
@@ -102,5 +107,68 @@ public static class TempoReal
         put.Headers.IfMatch.Add(get.Headers.ETag!);
         var r = await http.SendAsync(put);
         Log("http", $"PUT status={status} (If-Match {get.Headers.ETag}) -> {(int)r.StatusCode}");
+    }
+}
+
+/// <summary>Proxy TCP mínimo que permite cortar todas as conexões ativas para simular perda de rede.</summary>
+public sealed class ProxyFalha : IAsyncDisposable
+{
+    private readonly TcpListener _ouvinte;
+    private readonly int _destino;
+    private readonly CancellationTokenSource _cts = new();
+    private readonly ConcurrentDictionary<TcpClient, TcpClient> _pares = new();
+
+    public ProxyFalha(int porta, int destino)
+    {
+        _destino = destino;
+        _ouvinte = new TcpListener(IPAddress.Loopback, porta);
+        _ouvinte.Start();
+        _ = AceitarAsync();
+    }
+
+    private async Task AceitarAsync()
+    {
+        try
+        {
+            while (!_cts.IsCancellationRequested)
+            {
+                var cliente = await _ouvinte.AcceptTcpClientAsync(_cts.Token);
+                var servidor = new TcpClient();
+                await servidor.ConnectAsync(IPAddress.Loopback, _destino, _cts.Token);
+                _pares[cliente] = servidor;
+                _ = CopiarAsync(cliente.GetStream(), servidor.GetStream());
+                _ = CopiarAsync(servidor.GetStream(), cliente.GetStream());
+            }
+        }
+        catch (OperationCanceledException) { }
+    }
+
+    private static async Task CopiarAsync(Stream origem, Stream destino)
+    {
+        try { await origem.CopyToAsync(destino); }
+        catch (IOException) { }
+        catch (ObjectDisposedException) { }
+    }
+
+    public int Derrubar()
+    {
+        var n = 0;
+        foreach (var (cliente, servidor) in _pares)
+        {
+            cliente.Client.LingerState = new LingerOption(true, 0);   // fecha com RST: queda abrupta
+            cliente.Close();
+            servidor.Close();
+            _pares.TryRemove(cliente, out _);
+            n++;
+        }
+        return n;
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await _cts.CancelAsync();
+        Derrubar();
+        _ouvinte.Stop();
+        _cts.Dispose();
     }
 }

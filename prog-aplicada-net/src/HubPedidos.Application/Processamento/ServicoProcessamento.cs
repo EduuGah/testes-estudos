@@ -56,13 +56,8 @@ public sealed class WorkerProcessamento(
     Microsoft.Extensions.Options.IOptions<OpcoesFila> opcoes,
     ILogger<WorkerProcessamento> logger) : Microsoft.Extensions.Hosting.BackgroundService
 {
-    private Task _consumidores = Task.CompletedTask;
-
-    protected override Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        _consumidores = Task.WhenAll(Enumerable.Range(1, opcoes.Value.Consumidores).Select(n => ConsumirAsync(n, stoppingToken)));
-        return _consumidores;
-    }
+    protected override Task ExecuteAsync(CancellationToken stoppingToken) =>
+        Task.WhenAll(Enumerable.Range(1, opcoes.Value.Consumidores).Select(n => ConsumirAsync(n, stoppingToken)));
 
     private async Task ConsumirAsync(int numero, CancellationToken stoppingToken)
     {
@@ -102,7 +97,8 @@ public sealed class WorkerProcessamento(
         fila.Concluir();   // 1) para de aceitar novos itens
         logger.LogInformation("Encerrando: {Pendentes} item(ns) na fila serão drenados até o prazo do host", fila.Profundidade);
         // 2) espera a drenagem até o prazo do host; 3) depois disso, cancela o que ainda estiver em andamento
-        await Task.WhenAny(_consumidores, Task.Delay(Timeout.Infinite, cancellationToken));
+        // no .NET 10 o ExecuteAsync roda em outra thread: aguarda-se o ExecuteTask, não uma variável preenchida por ele
+        await Task.WhenAny(ExecuteTask ?? Task.CompletedTask, Task.Delay(Timeout.Infinite, cancellationToken));
         await base.StopAsync(cancellationToken);
     }
 }

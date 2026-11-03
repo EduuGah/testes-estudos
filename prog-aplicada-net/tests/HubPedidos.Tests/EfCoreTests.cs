@@ -139,7 +139,8 @@ public class EfCoreTests
         await using var db = banco.Contexto();
         var app = await db.Pedidos.AsNoTracking().CountAsync(p => p.Metadados.Canal == "app");
         Assert.Equal(3, app);
-        Assert.Contains("json_extract", banco.Captura.Comandos.Last(), StringComparison.OrdinalIgnoreCase);
+        var sql = banco.Captura.Comandos.Last();
+        Assert.True(sql.Contains("->>", StringComparison.Ordinal) || sql.Contains("json_extract", StringComparison.OrdinalIgnoreCase), sql);
     }
 
     [Fact]

@@ -1,6 +1,8 @@
 using HubPedidos.Application.Contratos;
 using HubPedidos.Domain;
+using System.Collections.Concurrent;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HubPedidos.Infrastructure;
 
@@ -9,8 +11,12 @@ public sealed class RepositorioPedidos(HubDbContext db, TimeProvider relogio) : 
     internal static long Centavos(decimal valor) => (long)Math.Round(valor * 100m, MidpointRounding.AwayFromZero);
     internal static decimal Reais(long centavos) => centavos / 100m;
 
-    // Consulta compilada: expressão traduzida uma vez e reutilizada (rota quente: GET por id)
-    private static readonly Func<HubDbContext, Guid, CancellationToken, Task<PedidoDetalhe?>> DetalheCompilado =
+    // Consulta compilada: a expressão é traduzida uma vez e reutilizada (rota quente: GET por id).
+    // Restrição do EF: o delegate vale para UM modelo. Como os testes sobem várias APIs (cada uma com seu
+    // modelo), guardamos um delegate por modelo – na aplicação real existe um só.
+    private static readonly ConcurrentDictionary<IModel, Func<HubDbContext, Guid, CancellationToken, Task<PedidoDetalhe?>>> DetalheCompilado = new();
+
+    private static Func<HubDbContext, Guid, CancellationToken, Task<PedidoDetalhe?>> Compilar() =>
         EF.CompileAsyncQuery((HubDbContext ctx, Guid id, CancellationToken _) =>
             ctx.Pedidos.AsNoTracking()
                 .Where(p => p.Id == id)
@@ -41,7 +47,8 @@ public sealed class RepositorioPedidos(HubDbContext db, TimeProvider relogio) : 
         await db.SaveChangesAsync(ct);
     }
 
-    public Task<PedidoDetalhe?> ObterDetalheAsync(PedidoId id, CancellationToken ct) => DetalheCompilado(db, id.Valor, ct);
+    public Task<PedidoDetalhe?> ObterDetalheAsync(PedidoId id, CancellationToken ct) =>
+        DetalheCompilado.GetOrAdd(db.Model, _ => Compilar())(db, id.Valor, ct);
 
     public async Task<Pedido?> ObterDominioAsync(PedidoId id, CancellationToken ct)
     {
@@ -99,10 +106,15 @@ public sealed class RepositorioPedidos(HubDbContext db, TimeProvider relogio) : 
         return new PaginaDto<PedidoResumoDto>(resultado, pagina, tamanho, filtrados.Count);
     }
 
-    public async Task<IReadOnlyList<EstatisticaStatusDto>> EstatisticasAsync(CancellationToken ct) =>
-        await db.Pedidos.AsNoTracking()
+    public async Task<IReadOnlyList<EstatisticaStatusDto>> EstatisticasAsync(CancellationToken ct)
+    {
+        // a soma é feita em centavos (long) no banco; a conversão para reais acontece em memória,
+        // porque o SQLite não soma nem divide decimal dentro do GROUP BY
+        var linhas = await db.Pedidos.AsNoTracking()
             .GroupBy(p => p.Status)
-            .Select(g => new EstatisticaStatusDto(g.Key, g.Count(), g.Sum(p => p.TotalCentavos) / 100m))
+            .Select(g => new { Status = g.Key, Quantidade = g.Count(), Centavos = g.Sum(p => p.TotalCentavos) })
             .OrderBy(e => e.Status)
             .ToListAsync(ct);
+        return [.. linhas.Select(l => new EstatisticaStatusDto(l.Status, l.Quantidade, Reais(l.Centavos)))];
+    }
 }

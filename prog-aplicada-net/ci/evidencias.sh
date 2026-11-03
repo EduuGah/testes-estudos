@@ -55,7 +55,7 @@ dotnet publish src/HubPedidos.Api -c Release -o out/api --no-restore 2>&1 | tail
 $F semear --db "$PWD/out/hub.db" --n 20000
 iniciar_api() {   # $1 = modo do painel, $2 = arquivo de log
   ASPNETCORE_ENVIRONMENT=Laboratorio ConnectionStrings__Hub="Data Source=$PWD/out/hub.db" Hub__ModoPainel="$1" \
-    dotnet out/api/HubPedidos.Api.dll --urls http://localhost:5080 > "$2" 2>&1 &
+    dotnet out/api/HubPedidos.Api.dll --urls http://localhost:5080 --contentRoot "$PWD/out/api" > "$2" 2>&1 &
   API=$!
   for _ in $(seq 1 60); do curl -sf http://localhost:5080/api/v1/estatisticas >/dev/null && break; sleep 1; done
   echo "API ($1) no PID $API"
@@ -93,7 +93,7 @@ parar_api
 
 passo "Roteiro 5: traces convertidos"
 for t in antes depois; do
-  [ -f "$EV/r5_trace_$t.nettrace" ] && dotnet-trace convert "$EV/r5_trace_$t.nettrace" --format Speedscope -o "$EV/r5_trace_$t.speedscope.json" > /dev/null 2>&1
+  [ -f "$EV/r5_trace_$t.nettrace" ] && dotnet-trace convert "$EV/r5_trace_$t.nettrace" --format Speedscope -o "$EV/r5_trace_$t" > /dev/null 2>&1
   python3 ci/analisar_trace.py "$EV/r5_trace_$t.speedscope.json" > "$EV/r5_trace_$t.txt" 2>&1; head -25 "$EV/r5_trace_$t.txt"
   rm -f "$EV/r5_trace_$t.nettrace" "$EV/r5_trace_$t.speedscope.json"
 done
