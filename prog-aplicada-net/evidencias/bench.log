@@ -1,33 +1,1206 @@
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-23rf-6693-g89p [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-37gx-xxp4-5rgx [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6588-8gv4-xfgh [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7hqp-7c5m-4vq6 [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-8q5v-6pqq-x66h [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-c399-9853-6jmj [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cvvh-rhrc-wg4q [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g8r8-53c2-pm3f [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mmjf-rqrv-855v [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-r955-8q5j-3h83 [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-w3x6-4m5h-cxqf [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-23rf-6693-g89p
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-37gx-xxp4-5rgx
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6588-8gv4-xfgh
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7hqp-7c5m-4vq6
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-8q5v-6pqq-x66h
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-c399-9853-6jmj
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cvvh-rhrc-wg4q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g8r8-53c2-pm3f
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mmjf-rqrv-855v
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-r955-8q5j-3h83
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-w3x6-4m5h-cxqf
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations/20261103173455_Inicial.cs(6,11): error IDE0161: Convert to file-scoped namespace (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0161) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj]
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 11 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet  restore --nodeReuse:false /p:UseSharedCompilation=false /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/" /p:OutDir="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0/" /p:OutputPath="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0/" /p:PublishDir="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/publish/" in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1
+// command took 1.16 sec and exited with 0
+// start dotnet  build -c Release --no-restore --nodeReuse:false /p:UseSharedCompilation=false /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/" /p:OutDir="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0/" /p:OutputPath="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0/" /p:PublishDir="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/publish/" --output "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0/" in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1
+// command took 11.68 sec and exited with 0
+// ***** Done, took 00:00:12 (12.89 sec)   *****
+// Found 2 benchmarks:
+//   ConsultaBench.Comum: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+//   ConsultaBench.Compilada: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
 
-The build failed. Fix the build errors and run again.
+// **************************
+// Benchmark: ConsultaBench.Comum: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 151 152 --benchmarkName HubPedidos.Benchmarks.ConsultaBench.Comum --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 0 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 240813.00 ns, 240.8130 us/op
+WorkloadJitting  1: 1 op, 195844535.00 ns, 195.8445 ms/op
+
+WorkloadPilot    1: 2 op, 2558038.00 ns, 1.2790 ms/op
+WorkloadPilot    2: 3 op, 815997.00 ns, 271.9990 us/op
+WorkloadPilot    3: 4 op, 1038573.00 ns, 259.6433 us/op
+WorkloadPilot    4: 5 op, 1260917.00 ns, 252.1834 us/op
+WorkloadPilot    5: 6 op, 2230486.00 ns, 371.7477 us/op
+WorkloadPilot    6: 7 op, 1845126.00 ns, 263.5894 us/op
+WorkloadPilot    7: 8 op, 1986979.00 ns, 248.3724 us/op
+WorkloadPilot    8: 9 op, 2636656.00 ns, 292.9618 us/op
+WorkloadPilot    9: 10 op, 2472981.00 ns, 247.2981 us/op
+WorkloadPilot   10: 11 op, 2865180.00 ns, 260.4709 us/op
+WorkloadPilot   11: 12 op, 3026363.00 ns, 252.1969 us/op
+WorkloadPilot   12: 13 op, 3208637.00 ns, 246.8182 us/op
+WorkloadPilot   13: 14 op, 4133419.00 ns, 295.2442 us/op
+WorkloadPilot   14: 15 op, 3527707.00 ns, 235.1805 us/op
+WorkloadPilot   15: 16 op, 3867208.00 ns, 241.7005 us/op
+WorkloadPilot   16: 32 op, 7754898.00 ns, 242.3406 us/op
+WorkloadPilot   17: 64 op, 15236323.00 ns, 238.0675 us/op
+WorkloadPilot   18: 128 op, 35360309.00 ns, 276.2524 us/op
+WorkloadPilot   19: 256 op, 58196346.00 ns, 227.3295 us/op
+WorkloadPilot   20: 512 op, 121471142.00 ns, 237.2483 us/op
+WorkloadPilot   21: 1024 op, 231814242.00 ns, 226.3811 us/op
+WorkloadPilot   22: 2048 op, 462619304.00 ns, 225.8883 us/op
+WorkloadPilot   23: 4096 op, 822928404.00 ns, 200.9103 us/op
+
+WorkloadWarmup   1: 4096 op, 469089759.00 ns, 114.5239 us/op
+WorkloadWarmup   2: 4096 op, 426113011.00 ns, 104.0315 us/op
+WorkloadWarmup   3: 4096 op, 426913814.00 ns, 104.2270 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 4096 op, 428926958.00 ns, 104.7185 us/op
+WorkloadActual   2: 4096 op, 429561352.00 ns, 104.8734 us/op
+WorkloadActual   3: 4096 op, 429443615.00 ns, 104.8446 us/op
+WorkloadActual   4: 4096 op, 426012665.00 ns, 104.0070 us/op
+WorkloadActual   5: 4096 op, 428965646.00 ns, 104.7279 us/op
+WorkloadActual   6: 4096 op, 425813816.00 ns, 103.9585 us/op
+WorkloadActual   7: 4096 op, 429605018.00 ns, 104.8840 us/op
+WorkloadActual   8: 4096 op, 426258605.00 ns, 104.0670 us/op
+WorkloadActual   9: 4096 op, 427016124.00 ns, 104.2520 us/op
+WorkloadActual  10: 4096 op, 427169515.00 ns, 104.2894 us/op
+
+// AfterActualRun
+WorkloadResult   1: 4096 op, 428926958.00 ns, 104.7185 us/op
+WorkloadResult   2: 4096 op, 429561352.00 ns, 104.8734 us/op
+WorkloadResult   3: 4096 op, 429443615.00 ns, 104.8446 us/op
+WorkloadResult   4: 4096 op, 426012665.00 ns, 104.0070 us/op
+WorkloadResult   5: 4096 op, 428965646.00 ns, 104.7279 us/op
+WorkloadResult   6: 4096 op, 425813816.00 ns, 103.9585 us/op
+WorkloadResult   7: 4096 op, 429605018.00 ns, 104.8840 us/op
+WorkloadResult   8: 4096 op, 426258605.00 ns, 104.0670 us/op
+WorkloadResult   9: 4096 op, 427016124.00 ns, 104.2520 us/op
+WorkloadResult  10: 4096 op, 427169515.00 ns, 104.2894 us/op
+// GC:  6 0 0 107545064 4096
+// Threading:  0 0 4096
+
+// AfterAll
+// Benchmark Process 4255 has exited with code 0.
+
+Mean = 104.462 us, StdErr = 0.121 us (0.12%), N = 10, StdDev = 0.383 us
+Min = 103.958 us, Q1 = 104.113 us, Median = 104.504 us, Q3 = 104.815 us, Max = 104.884 us
+IQR = 0.702 us, LowerFence = 103.060 us, UpperFence = 105.869 us
+ConfidenceInterval = [103.883 us; 105.041 us] (CI 99.9%), Margin = 0.579 us (0.55% of Mean)
+Skewness = -0.11, Kurtosis = 1.05, MValue = 2
+
+// ** Remained 10 (90.9 %) benchmark(s) to run. Estimated finish 2026-11-03 17:43 (0h 2m from now) **
+// **************************
+// Benchmark: ConsultaBench.Compilada: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 151 152 --benchmarkName HubPedidos.Benchmarks.ConsultaBench.Compilada --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 1 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 234953.00 ns, 234.9530 us/op
+WorkloadJitting  1: 1 op, 194592465.00 ns, 194.5925 ms/op
+
+WorkloadPilot    1: 2 op, 1060445.00 ns, 530.2225 us/op
+WorkloadPilot    2: 3 op, 340422.00 ns, 113.4740 us/op
+WorkloadPilot    3: 4 op, 383337.00 ns, 95.8343 us/op
+WorkloadPilot    4: 5 op, 456266.00 ns, 91.2532 us/op
+WorkloadPilot    5: 6 op, 474544.00 ns, 79.0907 us/op
+WorkloadPilot    6: 7 op, 551630.00 ns, 78.8043 us/op
+WorkloadPilot    7: 8 op, 694074.00 ns, 86.7593 us/op
+WorkloadPilot    8: 9 op, 695676.00 ns, 77.2973 us/op
+WorkloadPilot    9: 10 op, 763649.00 ns, 76.3649 us/op
+WorkloadPilot   10: 11 op, 809407.00 ns, 73.5825 us/op
+WorkloadPilot   11: 12 op, 839252.00 ns, 69.9377 us/op
+WorkloadPilot   12: 13 op, 926344.00 ns, 71.2572 us/op
+WorkloadPilot   13: 14 op, 1007055.00 ns, 71.9325 us/op
+WorkloadPilot   14: 15 op, 1049869.00 ns, 69.9913 us/op
+WorkloadPilot   15: 16 op, 1154437.00 ns, 72.1523 us/op
+WorkloadPilot   16: 32 op, 2250285.00 ns, 70.3214 us/op
+WorkloadPilot   17: 64 op, 4480010.00 ns, 70.0002 us/op
+WorkloadPilot   18: 128 op, 9280121.00 ns, 72.5009 us/op
+WorkloadPilot   19: 256 op, 17421049.00 ns, 68.0510 us/op
+WorkloadPilot   20: 512 op, 36262395.00 ns, 70.8250 us/op
+WorkloadPilot   21: 1024 op, 66560096.00 ns, 65.0001 us/op
+WorkloadPilot   22: 2048 op, 132207720.00 ns, 64.5546 us/op
+WorkloadPilot   23: 4096 op, 232697773.00 ns, 56.8110 us/op
+WorkloadPilot   24: 8192 op, 345439918.00 ns, 42.1680 us/op
+WorkloadPilot   25: 16384 op, 691341560.00 ns, 42.1961 us/op
+
+WorkloadWarmup   1: 16384 op, 697679945.00 ns, 42.5830 us/op
+WorkloadWarmup   2: 16384 op, 691122420.00 ns, 42.1828 us/op
+WorkloadWarmup   3: 16384 op, 691620249.00 ns, 42.2131 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 16384 op, 690391239.00 ns, 42.1381 us/op
+WorkloadActual   2: 16384 op, 691753288.00 ns, 42.2213 us/op
+WorkloadActual   3: 16384 op, 689955915.00 ns, 42.1116 us/op
+WorkloadActual   4: 16384 op, 690214323.00 ns, 42.1273 us/op
+WorkloadActual   5: 16384 op, 689268020.00 ns, 42.0696 us/op
+WorkloadActual   6: 16384 op, 690631060.00 ns, 42.1528 us/op
+WorkloadActual   7: 16384 op, 690652502.00 ns, 42.1541 us/op
+WorkloadActual   8: 16384 op, 689907201.00 ns, 42.1086 us/op
+WorkloadActual   9: 16384 op, 692557908.00 ns, 42.2704 us/op
+WorkloadActual  10: 16384 op, 690845483.00 ns, 42.1659 us/op
+
+// AfterActualRun
+WorkloadResult   1: 16384 op, 690391239.00 ns, 42.1381 us/op
+WorkloadResult   2: 16384 op, 691753288.00 ns, 42.2213 us/op
+WorkloadResult   3: 16384 op, 689955915.00 ns, 42.1116 us/op
+WorkloadResult   4: 16384 op, 690214323.00 ns, 42.1273 us/op
+WorkloadResult   5: 16384 op, 689268020.00 ns, 42.0696 us/op
+WorkloadResult   6: 16384 op, 690631060.00 ns, 42.1528 us/op
+WorkloadResult   7: 16384 op, 690652502.00 ns, 42.1541 us/op
+WorkloadResult   8: 16384 op, 689907201.00 ns, 42.1086 us/op
+WorkloadResult   9: 16384 op, 690845483.00 ns, 42.1659 us/op
+// GC:  6 0 0 114032640 16384
+// Threading:  0 0 16384
+
+// AfterAll
+// Benchmark Process 4274 has exited with code 0.
+
+Mean = 42.139 us, StdErr = 0.014 us (0.03%), N = 9, StdDev = 0.043 us
+Min = 42.070 us, Q1 = 42.112 us, Median = 42.138 us, Q3 = 42.154 us, Max = 42.221 us
+IQR = 0.043 us, LowerFence = 42.048 us, UpperFence = 42.218 us
+ConfidenceInterval = [42.067 us; 42.210 us] (CI 99.9%), Margin = 0.072 us (0.17% of Mean)
+Skewness = 0.3, Kurtosis = 2.4, MValue = 2
+
+// ** Remained 9 (81.8 %) benchmark(s) to run. Estimated finish 2026-11-03 17:43 (0h 2m from now) **
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  evidencias/bench/results/HubPedidos.Benchmarks.ConsultaBench-report.csv
+  evidencias/bench/results/HubPedidos.Benchmarks.ConsultaBench-report-github.md
+  evidencias/bench/results/HubPedidos.Benchmarks.ConsultaBench-report.html
+
+// * Detailed results *
+ConsultaBench.Comum: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 104.462 us, StdErr = 0.121 us (0.12%), N = 10, StdDev = 0.383 us
+Min = 103.958 us, Q1 = 104.113 us, Median = 104.504 us, Q3 = 104.815 us, Max = 104.884 us
+IQR = 0.702 us, LowerFence = 103.060 us, UpperFence = 105.869 us
+ConfidenceInterval = [103.883 us; 105.041 us] (CI 99.9%), Margin = 0.579 us (0.55% of Mean)
+Skewness = -0.11, Kurtosis = 1.05, MValue = 2
+-------------------- Histogram --------------------
+[103.725 us ; 105.117 us) | @@@@@@@@@@
+---------------------------------------------------
+
+ConsultaBench.Compilada: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 42.139 us, StdErr = 0.014 us (0.03%), N = 9, StdDev = 0.043 us
+Min = 42.070 us, Q1 = 42.112 us, Median = 42.138 us, Q3 = 42.154 us, Max = 42.221 us
+IQR = 0.043 us, LowerFence = 42.048 us, UpperFence = 42.218 us
+ConfidenceInterval = [42.067 us; 42.210 us] (CI 99.9%), Margin = 0.072 us (0.17% of Mean)
+Skewness = 0.3, Kurtosis = 2.4, MValue = 2
+-------------------- Histogram --------------------
+[42.043 us ; 42.248 us) | @@@@@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
+AMD EPYC 9V74 2.60GHz, 1 CPU, 4 logical and 2 physical cores
+.NET SDK 10.0.403
+  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+
+IterationCount=10  LaunchCount=1  WarmupCount=3  
+
+| Method    | Mean      | Error    | StdDev   | Ratio | Gen0   | Allocated | Alloc Ratio |
+|---------- |----------:|---------:|---------:|------:|-------:|----------:|------------:|
+| Comum     | 104.46 us | 0.579 us | 0.383 us |  1.00 | 1.4648 |  25.64 KB |        1.00 |
+| Compilada |  42.14 us | 0.072 us | 0.043 us |  0.40 | 0.3662 |    6.8 KB |        0.27 |
+
+// * Hints *
+Outliers
+  ConsultaBench.Compilada: IterationCount=10, LaunchCount=1, WarmupCount=3 -> 1 outlier  was  removed (42.27 us)
+
+// * Legends *
+  Mean        : Arithmetic mean of all measurements
+  Error       : Half of 99.9% confidence interval
+  StdDev      : Standard deviation of all measurements
+  Ratio       : Mean of the ratio distribution ([Current]/[Baseline])
+  Gen0        : GC Generation 0 collects per 1000 operations
+  Allocated   : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  Alloc Ratio : Allocated memory ratio distribution ([Current]/[Baseline])
+  1 us        : 1 Microsecond (0.000001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:00:33 (33.24 sec), executed benchmarks: 2
+
+// Found 8 benchmarks:
+//   ImportacaoBench.Baseline: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+//   ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+//   ImportacaoBench.Utf8Pooled: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+//   ImportacaoBench.Utf8PooledStreaming: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+//   ImportacaoBench.Baseline: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+//   ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+//   ImportacaoBench.Utf8Pooled: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+//   ImportacaoBench.Utf8PooledStreaming: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+
+// **************************
+// Benchmark: ImportacaoBench.Baseline: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Baseline(Linhas: 1000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 2 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 192009.00 ns, 192.0090 us/op
+WorkloadJitting  1: 1 op, 2559189.00 ns, 2.5592 ms/op
+
+OverheadJitting  2: 16 op, 417528.00 ns, 26.0955 us/op
+WorkloadJitting  2: 16 op, 20525621.00 ns, 1.2829 ms/op
+
+WorkloadPilot    1: 16 op, 8016567.00 ns, 501.0354 us/op
+WorkloadPilot    2: 32 op, 18452282.00 ns, 576.6338 us/op
+WorkloadPilot    3: 64 op, 25813604.00 ns, 403.3376 us/op
+WorkloadPilot    4: 128 op, 47792800.00 ns, 373.3813 us/op
+WorkloadPilot    5: 256 op, 126756212.00 ns, 495.1415 us/op
+WorkloadPilot    6: 512 op, 242281632.00 ns, 473.2063 us/op
+WorkloadPilot    7: 1024 op, 288675799.00 ns, 281.9100 us/op
+WorkloadPilot    8: 2048 op, 552797686.00 ns, 269.9207 us/op
+
+OverheadWarmup   1: 2048 op, 9344.00 ns, 4.5625 ns/op
+OverheadWarmup   2: 2048 op, 7381.00 ns, 3.6040 ns/op
+OverheadWarmup   3: 2048 op, 7241.00 ns, 3.5356 ns/op
+OverheadWarmup   4: 2048 op, 7301.00 ns, 3.5649 ns/op
+OverheadWarmup   5: 2048 op, 7331.00 ns, 3.5796 ns/op
+OverheadWarmup   6: 2048 op, 7241.00 ns, 3.5356 ns/op
+OverheadWarmup   7: 2048 op, 7251.00 ns, 3.5405 ns/op
+OverheadWarmup   8: 2048 op, 7241.00 ns, 3.5356 ns/op
+
+OverheadActual   1: 2048 op, 7442.00 ns, 3.6338 ns/op
+OverheadActual   2: 2048 op, 7431.00 ns, 3.6284 ns/op
+OverheadActual   3: 2048 op, 7451.00 ns, 3.6382 ns/op
+OverheadActual   4: 2048 op, 7421.00 ns, 3.6235 ns/op
+OverheadActual   5: 2048 op, 7421.00 ns, 3.6235 ns/op
+OverheadActual   6: 2048 op, 7291.00 ns, 3.5601 ns/op
+OverheadActual   7: 2048 op, 7291.00 ns, 3.5601 ns/op
+OverheadActual   8: 2048 op, 7271.00 ns, 3.5503 ns/op
+OverheadActual   9: 2048 op, 7240.00 ns, 3.5352 ns/op
+OverheadActual  10: 2048 op, 7281.00 ns, 3.5552 ns/op
+OverheadActual  11: 2048 op, 7371.00 ns, 3.5991 ns/op
+OverheadActual  12: 2048 op, 7371.00 ns, 3.5991 ns/op
+OverheadActual  13: 2048 op, 7361.00 ns, 3.5942 ns/op
+OverheadActual  14: 2048 op, 7291.00 ns, 3.5601 ns/op
+OverheadActual  15: 2048 op, 7301.00 ns, 3.5649 ns/op
+
+WorkloadWarmup   1: 2048 op, 544341850.00 ns, 265.7919 us/op
+WorkloadWarmup   2: 2048 op, 539928337.00 ns, 263.6369 us/op
+WorkloadWarmup   3: 2048 op, 530375964.00 ns, 258.9726 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 2048 op, 545522303.00 ns, 266.3683 us/op
+WorkloadActual   2: 2048 op, 544112034.00 ns, 265.6797 us/op
+WorkloadActual   3: 2048 op, 542869086.00 ns, 265.0728 us/op
+WorkloadActual   4: 2048 op, 554762768.00 ns, 270.8803 us/op
+WorkloadActual   5: 2048 op, 544406676.00 ns, 265.8236 us/op
+WorkloadActual   6: 2048 op, 546532528.00 ns, 266.8616 us/op
+WorkloadActual   7: 2048 op, 548931727.00 ns, 268.0331 us/op
+WorkloadActual   8: 2048 op, 529571923.00 ns, 258.5800 us/op
+WorkloadActual   9: 2048 op, 536984454.00 ns, 262.1994 us/op
+WorkloadActual  10: 2048 op, 545897843.00 ns, 266.5517 us/op
+
+// AfterActualRun
+WorkloadResult   1: 2048 op, 545514942.00 ns, 266.3647 us/op
+WorkloadResult   2: 2048 op, 544104673.00 ns, 265.6761 us/op
+WorkloadResult   3: 2048 op, 542861725.00 ns, 265.0692 us/op
+WorkloadResult   4: 2048 op, 544399315.00 ns, 265.8200 us/op
+WorkloadResult   5: 2048 op, 546525167.00 ns, 266.8580 us/op
+WorkloadResult   6: 2048 op, 548924366.00 ns, 268.0295 us/op
+WorkloadResult   7: 2048 op, 529564562.00 ns, 258.5764 us/op
+WorkloadResult   8: 2048 op, 536977093.00 ns, 262.1958 us/op
+WorkloadResult   9: 2048 op, 545890482.00 ns, 266.5481 us/op
+// GC:  136 68 68 1424683648 2048
+// Threading:  0 0 2048
+
+// AfterAll
+// Benchmark Process 4297 has exited with code 0.
+
+Mean = 265.015 us, StdErr = 0.966 us (0.36%), N = 9, StdDev = 2.897 us
+Min = 258.576 us, Q1 = 265.069 us, Median = 265.820 us, Q3 = 266.548 us, Max = 268.029 us
+IQR = 1.479 us, LowerFence = 262.851 us, UpperFence = 268.766 us
+ConfidenceInterval = [260.147 us; 269.884 us] (CI 99.9%), Margin = 4.868 us (1.84% of Mean)
+Skewness = -1.14, Kurtosis = 2.97, MValue = 2
+
+// ** Remained 8 (72.7 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 1m from now) **
+// **************************
+// Benchmark: ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Span(Linhas: 1000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 3 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 209566.00 ns, 209.5660 us/op
+
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> HubPedidos.Application.Importacao.LoteMuitoGrandeException: O lote ultrapassou o limite de 9223372036854775807 bytes.
+   at HubPedidos.Application.Importacao.ImportadorSpan.ImportarAsync(Stream origem, Int64 limiteBytes, CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Application/Importacao/Importadores.cs:line 69
+   at BenchmarkDotNet.Helpers.AwaitHelper.GetResult[T](Task`1 task)
+   at BenchmarkDotNet.Autogenerated.Runnable_3.<.ctor>b__3_3() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 796
+   at BenchmarkDotNet.Autogenerated.Runnable_3.WorkloadActionNoUnroll(Int64 invokeCount) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 912
+   at BenchmarkDotNet.Engines.Engine.Measure(Action`1 action, Int64 invokeCount)
+   at BenchmarkDotNet.Engines.Engine.RunIteration(IterationData data)
+   at BenchmarkDotNet.Engines.EngineFactory.Jit(Engine engine, Int32 jitIndex, Int32 invokeCount, Int32 unrollFactor)
+   at BenchmarkDotNet.Engines.EngineFactory.CreateReadyToRun(EngineParameters engineParameters)
+   at BenchmarkDotNet.Autogenerated.Runnable_3.Run(IHost host, String benchmarkName) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 775
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   --- End of inner exception stack trace ---
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at BenchmarkDotNet.Autogenerated.UniqueProgramName.AfterAssemblyLoadingAttached(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 57
+// AfterAll
+No Workload Results were obtained from the run.
+// Benchmark Process 4308 has exited with code 255.
+
+// ** Remained 7 (63.6 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 1m from now) **
+// **************************
+// Benchmark: ImportacaoBench.Utf8Pooled: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Utf8Pooled(Linhas: 1000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 4 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 198479.00 ns, 198.4790 us/op
+WorkloadJitting  1: 1 op, 3383630.00 ns, 3.3836 ms/op
+
+OverheadJitting  2: 16 op, 400553.00 ns, 25.0346 us/op
+WorkloadJitting  2: 16 op, 5697781.00 ns, 356.1113 us/op
+
+WorkloadPilot    1: 16 op, 5311850.00 ns, 331.9906 us/op
+WorkloadPilot    2: 32 op, 9491848.00 ns, 296.6203 us/op
+WorkloadPilot    3: 64 op, 19897982.00 ns, 310.9060 us/op
+WorkloadPilot    4: 128 op, 40593676.00 ns, 317.1381 us/op
+WorkloadPilot    5: 256 op, 71831387.00 ns, 280.5914 us/op
+WorkloadPilot    6: 512 op, 219901171.00 ns, 429.4945 us/op
+WorkloadPilot    7: 1024 op, 178072928.00 ns, 173.8993 us/op
+WorkloadPilot    8: 2048 op, 217874572.00 ns, 106.3841 us/op
+WorkloadPilot    9: 4096 op, 441506855.00 ns, 107.7898 us/op
+WorkloadPilot   10: 8192 op, 885029192.00 ns, 108.0358 us/op
+
+OverheadWarmup   1: 8192 op, 31908.00 ns, 3.8950 ns/op
+OverheadWarmup   2: 8192 op, 28333.00 ns, 3.4586 ns/op
+OverheadWarmup   3: 8192 op, 28443.00 ns, 3.4720 ns/op
+OverheadWarmup   4: 8192 op, 28292.00 ns, 3.4536 ns/op
+OverheadWarmup   5: 8192 op, 28333.00 ns, 3.4586 ns/op
+OverheadWarmup   6: 8192 op, 28403.00 ns, 3.4672 ns/op
+OverheadWarmup   7: 8192 op, 30436.00 ns, 3.7153 ns/op
+OverheadWarmup   8: 8192 op, 28423.00 ns, 3.4696 ns/op
+
+OverheadActual   1: 8192 op, 28893.00 ns, 3.5270 ns/op
+OverheadActual   2: 8192 op, 26169.00 ns, 3.1945 ns/op
+OverheadActual   3: 8192 op, 26189.00 ns, 3.1969 ns/op
+OverheadActual   4: 8192 op, 26129.00 ns, 3.1896 ns/op
+OverheadActual   5: 8192 op, 26160.00 ns, 3.1934 ns/op
+OverheadActual   6: 8192 op, 28303.00 ns, 3.4550 ns/op
+OverheadActual   7: 8192 op, 26140.00 ns, 3.1909 ns/op
+OverheadActual   8: 8192 op, 28333.00 ns, 3.4586 ns/op
+OverheadActual   9: 8192 op, 28954.00 ns, 3.5344 ns/op
+OverheadActual  10: 8192 op, 28342.00 ns, 3.4597 ns/op
+OverheadActual  11: 8192 op, 30656.00 ns, 3.7422 ns/op
+OverheadActual  12: 8192 op, 28412.00 ns, 3.4683 ns/op
+OverheadActual  13: 8192 op, 30525.00 ns, 3.7262 ns/op
+OverheadActual  14: 8192 op, 26129.00 ns, 3.1896 ns/op
+OverheadActual  15: 8192 op, 26120.00 ns, 3.1885 ns/op
+OverheadActual  16: 8192 op, 26089.00 ns, 3.1847 ns/op
+OverheadActual  17: 8192 op, 30776.00 ns, 3.7568 ns/op
+OverheadActual  18: 8192 op, 26100.00 ns, 3.1860 ns/op
+OverheadActual  19: 8192 op, 28273.00 ns, 3.4513 ns/op
+OverheadActual  20: 8192 op, 26169.00 ns, 3.1945 ns/op
+
+WorkloadWarmup   1: 8192 op, 893023428.00 ns, 109.0116 us/op
+WorkloadWarmup   2: 8192 op, 889389411.00 ns, 108.5680 us/op
+WorkloadWarmup   3: 8192 op, 875238859.00 ns, 106.8407 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 8192 op, 880066317.00 ns, 107.4300 us/op
+WorkloadActual   2: 8192 op, 876632931.00 ns, 107.0109 us/op
+WorkloadActual   3: 8192 op, 873890686.00 ns, 106.6761 us/op
+WorkloadActual   4: 8192 op, 866239136.00 ns, 105.7421 us/op
+WorkloadActual   5: 8192 op, 869043455.00 ns, 106.0844 us/op
+WorkloadActual   6: 8192 op, 872469809.00 ns, 106.5027 us/op
+WorkloadActual   7: 8192 op, 868708952.00 ns, 106.0436 us/op
+WorkloadActual   8: 8192 op, 880027465.00 ns, 107.4252 us/op
+WorkloadActual   9: 8192 op, 878501390.00 ns, 107.2389 us/op
+WorkloadActual  10: 8192 op, 883807512.00 ns, 107.8867 us/op
+
+// AfterActualRun
+WorkloadResult   1: 8192 op, 880039086.00 ns, 107.4266 us/op
+WorkloadResult   2: 8192 op, 876605700.00 ns, 107.0075 us/op
+WorkloadResult   3: 8192 op, 873863455.00 ns, 106.6728 us/op
+WorkloadResult   4: 8192 op, 866211905.00 ns, 105.7388 us/op
+WorkloadResult   5: 8192 op, 869016224.00 ns, 106.0811 us/op
+WorkloadResult   6: 8192 op, 872442578.00 ns, 106.4993 us/op
+WorkloadResult   7: 8192 op, 868681721.00 ns, 106.0402 us/op
+WorkloadResult   8: 8192 op, 880000234.00 ns, 107.4219 us/op
+WorkloadResult   9: 8192 op, 878474159.00 ns, 107.2356 us/op
+WorkloadResult  10: 8192 op, 883780281.00 ns, 107.8833 us/op
+// GC:  59 16 0 989134848 8192
+// Threading:  0 0 8192
+
+// AfterAll
+// Benchmark Process 4315 has exited with code 0.
+
+Mean = 106.801 us, StdErr = 0.224 us (0.21%), N = 10, StdDev = 0.708 us
+Min = 105.739 us, Q1 = 106.186 us, Median = 106.840 us, Q3 = 107.375 us, Max = 107.883 us
+IQR = 1.190 us, LowerFence = 104.401 us, UpperFence = 109.160 us
+ConfidenceInterval = [105.730 us; 107.871 us] (CI 99.9%), Margin = 1.071 us (1.00% of Mean)
+Skewness = -0.05, Kurtosis = 1.43, MValue = 2
+
+// ** Remained 6 (54.5 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 1m from now) **
+// **************************
+// Benchmark: ImportacaoBench.Utf8PooledStreaming: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Utf8PooledStreaming(Linhas: 1000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 5 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 225940.00 ns, 225.9400 us/op
+WorkloadJitting  1: 1 op, 3021305.00 ns, 3.0213 ms/op
+
+OverheadJitting  2: 16 op, 319811.00 ns, 19.9882 us/op
+WorkloadJitting  2: 16 op, 5415656.00 ns, 338.4785 us/op
+
+WorkloadPilot    1: 16 op, 5051949.00 ns, 315.7468 us/op
+WorkloadPilot    2: 32 op, 8875259.00 ns, 277.3518 us/op
+WorkloadPilot    3: 64 op, 18833908.00 ns, 294.2798 us/op
+WorkloadPilot    4: 128 op, 36803066.00 ns, 287.5240 us/op
+WorkloadPilot    5: 256 op, 67552428.00 ns, 263.8767 us/op
+WorkloadPilot    6: 512 op, 208317276.00 ns, 406.8697 us/op
+WorkloadPilot    7: 1024 op, 197762856.00 ns, 193.1278 us/op
+WorkloadPilot    8: 2048 op, 215883232.00 ns, 105.4117 us/op
+WorkloadPilot    9: 4096 op, 430582935.00 ns, 105.1228 us/op
+WorkloadPilot   10: 8192 op, 859949920.00 ns, 104.9744 us/op
+
+OverheadWarmup   1: 8192 op, 18077.00 ns, 2.2067 ns/op
+OverheadWarmup   2: 8192 op, 16575.00 ns, 2.0233 ns/op
+OverheadWarmup   3: 8192 op, 16545.00 ns, 2.0197 ns/op
+OverheadWarmup   4: 8192 op, 16525.00 ns, 2.0172 ns/op
+OverheadWarmup   5: 8192 op, 16555.00 ns, 2.0209 ns/op
+OverheadWarmup   6: 8192 op, 16535.00 ns, 2.0184 ns/op
+OverheadWarmup   7: 8192 op, 16464.00 ns, 2.0098 ns/op
+OverheadWarmup   8: 8192 op, 16514.00 ns, 2.0159 ns/op
+OverheadWarmup   9: 8192 op, 17106.00 ns, 2.0881 ns/op
+OverheadWarmup  10: 8192 op, 16475.00 ns, 2.0111 ns/op
+
+OverheadActual   1: 8192 op, 16545.00 ns, 2.0197 ns/op
+OverheadActual   2: 8192 op, 16605.00 ns, 2.0270 ns/op
+OverheadActual   3: 8192 op, 16645.00 ns, 2.0319 ns/op
+OverheadActual   4: 8192 op, 16615.00 ns, 2.0282 ns/op
+OverheadActual   5: 8192 op, 16625.00 ns, 2.0294 ns/op
+OverheadActual   6: 8192 op, 16545.00 ns, 2.0197 ns/op
+OverheadActual   7: 8192 op, 17115.00 ns, 2.0892 ns/op
+OverheadActual   8: 8192 op, 16545.00 ns, 2.0197 ns/op
+OverheadActual   9: 8192 op, 16495.00 ns, 2.0135 ns/op
+OverheadActual  10: 8192 op, 16535.00 ns, 2.0184 ns/op
+OverheadActual  11: 8192 op, 16515.00 ns, 2.0160 ns/op
+OverheadActual  12: 8192 op, 16595.00 ns, 2.0258 ns/op
+OverheadActual  13: 8192 op, 16575.00 ns, 2.0233 ns/op
+OverheadActual  14: 8192 op, 16455.00 ns, 2.0087 ns/op
+OverheadActual  15: 8192 op, 16835.00 ns, 2.0551 ns/op
+
+WorkloadWarmup   1: 8192 op, 866936945.00 ns, 105.8273 us/op
+WorkloadWarmup   2: 8192 op, 864934211.00 ns, 105.5828 us/op
+WorkloadWarmup   3: 8192 op, 862202410.00 ns, 105.2493 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 8192 op, 857783480.00 ns, 104.7099 us/op
+WorkloadActual   2: 8192 op, 857982069.00 ns, 104.7341 us/op
+WorkloadActual   3: 8192 op, 859891392.00 ns, 104.9672 us/op
+WorkloadActual   4: 8192 op, 847472954.00 ns, 103.4513 us/op
+WorkloadActual   5: 8192 op, 853502400.00 ns, 104.1873 us/op
+WorkloadActual   6: 8192 op, 856359609.00 ns, 104.5361 us/op
+WorkloadActual   7: 8192 op, 861870380.00 ns, 105.2088 us/op
+WorkloadActual   8: 8192 op, 855521068.00 ns, 104.4337 us/op
+WorkloadActual   9: 8192 op, 856416044.00 ns, 104.5430 us/op
+WorkloadActual  10: 8192 op, 857220736.00 ns, 104.6412 us/op
+
+// AfterActualRun
+WorkloadResult   1: 8192 op, 857766905.00 ns, 104.7079 us/op
+WorkloadResult   2: 8192 op, 857965494.00 ns, 104.7321 us/op
+WorkloadResult   3: 8192 op, 859874817.00 ns, 104.9652 us/op
+WorkloadResult   4: 8192 op, 847456379.00 ns, 103.4493 us/op
+WorkloadResult   5: 8192 op, 853485825.00 ns, 104.1853 us/op
+WorkloadResult   6: 8192 op, 856343034.00 ns, 104.5341 us/op
+WorkloadResult   7: 8192 op, 855504493.00 ns, 104.4317 us/op
+WorkloadResult   8: 8192 op, 856399469.00 ns, 104.5410 us/op
+WorkloadResult   9: 8192 op, 857204161.00 ns, 104.6392 us/op
+// GC:  50 0 0 852033536 8192
+// Threading:  0 0 8192
+
+// AfterAll
+// Benchmark Process 4326 has exited with code 0.
+
+Mean = 104.465 us, StdErr = 0.146 us (0.14%), N = 9, StdDev = 0.438 us
+Min = 103.449 us, Q1 = 104.432 us, Median = 104.541 us, Q3 = 104.708 us, Max = 104.965 us
+IQR = 0.276 us, LowerFence = 104.017 us, UpperFence = 105.122 us
+ConfidenceInterval = [103.730 us; 105.201 us] (CI 99.9%), Margin = 0.735 us (0.70% of Mean)
+Skewness = -1.2, Kurtosis = 3.46, MValue = 2
+
+// ** Remained 5 (45.5 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 0m from now) **
+// **************************
+// Benchmark: ImportacaoBench.Baseline: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Baseline(Linhas: 50000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 6 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 218960.00 ns, 218.9600 us/op
+WorkloadJitting  1: 1 op, 33258672.00 ns, 33.2587 ms/op
+
+OverheadJitting  2: 16 op, 475666.00 ns, 29.7291 us/op
+WorkloadJitting  2: 16 op, 530620155.00 ns, 33.1638 ms/op
+
+WorkloadPilot    1: 16 op, 390472461.00 ns, 24.4045 ms/op
+WorkloadPilot    2: 32 op, 823126537.00 ns, 25.7227 ms/op
+
+OverheadWarmup   1: 32 op, 2073.00 ns, 64.7813 ns/op
+OverheadWarmup   2: 32 op, 551.00 ns, 17.2188 ns/op
+OverheadWarmup   3: 32 op, 451.00 ns, 14.0938 ns/op
+OverheadWarmup   4: 32 op, 411.00 ns, 12.8438 ns/op
+OverheadWarmup   5: 32 op, 500.00 ns, 15.6250 ns/op
+OverheadWarmup   6: 32 op, 490.00 ns, 15.3125 ns/op
+OverheadWarmup   7: 32 op, 511.00 ns, 15.9688 ns/op
+OverheadWarmup   8: 32 op, 410.00 ns, 12.8125 ns/op
+
+OverheadActual   1: 32 op, 691.00 ns, 21.5938 ns/op
+OverheadActual   2: 32 op, 671.00 ns, 20.9688 ns/op
+OverheadActual   3: 32 op, 581.00 ns, 18.1563 ns/op
+OverheadActual   4: 32 op, 541.00 ns, 16.9063 ns/op
+OverheadActual   5: 32 op, 541.00 ns, 16.9063 ns/op
+OverheadActual   6: 32 op, 511.00 ns, 15.9688 ns/op
+OverheadActual   7: 32 op, 411.00 ns, 12.8438 ns/op
+OverheadActual   8: 32 op, 461.00 ns, 14.4063 ns/op
+OverheadActual   9: 32 op, 491.00 ns, 15.3438 ns/op
+OverheadActual  10: 32 op, 481.00 ns, 15.0313 ns/op
+OverheadActual  11: 32 op, 490.00 ns, 15.3125 ns/op
+OverheadActual  12: 32 op, 420.00 ns, 13.1250 ns/op
+OverheadActual  13: 32 op, 501.00 ns, 15.6563 ns/op
+OverheadActual  14: 32 op, 521.00 ns, 16.2813 ns/op
+OverheadActual  15: 32 op, 491.00 ns, 15.3438 ns/op
+OverheadActual  16: 32 op, 491.00 ns, 15.3438 ns/op
+OverheadActual  17: 32 op, 471.00 ns, 14.7188 ns/op
+OverheadActual  18: 32 op, 530.00 ns, 16.5625 ns/op
+OverheadActual  19: 32 op, 501.00 ns, 15.6563 ns/op
+OverheadActual  20: 32 op, 481.00 ns, 15.0313 ns/op
+
+WorkloadWarmup   1: 32 op, 917999495.00 ns, 28.6875 ms/op
+WorkloadWarmup   2: 32 op, 813832559.00 ns, 25.4323 ms/op
+WorkloadWarmup   3: 32 op, 797320694.00 ns, 24.9163 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 32 op, 824776799.00 ns, 25.7743 ms/op
+WorkloadActual   2: 32 op, 812329699.00 ns, 25.3853 ms/op
+WorkloadActual   3: 32 op, 852366860.00 ns, 26.6365 ms/op
+WorkloadActual   4: 32 op, 840538676.00 ns, 26.2668 ms/op
+WorkloadActual   5: 32 op, 823365796.00 ns, 25.7302 ms/op
+WorkloadActual   6: 32 op, 841328188.00 ns, 26.2915 ms/op
+WorkloadActual   7: 32 op, 849583172.00 ns, 26.5495 ms/op
+WorkloadActual   8: 32 op, 795839519.00 ns, 24.8700 ms/op
+WorkloadActual   9: 32 op, 804450851.00 ns, 25.1391 ms/op
+WorkloadActual  10: 32 op, 836694140.00 ns, 26.1467 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 32 op, 824776303.00 ns, 25.7743 ms/op
+WorkloadResult   2: 32 op, 812329203.00 ns, 25.3853 ms/op
+WorkloadResult   3: 32 op, 852366364.00 ns, 26.6364 ms/op
+WorkloadResult   4: 32 op, 840538180.00 ns, 26.2668 ms/op
+WorkloadResult   5: 32 op, 823365300.00 ns, 25.7302 ms/op
+WorkloadResult   6: 32 op, 841327692.00 ns, 26.2915 ms/op
+WorkloadResult   7: 32 op, 849582676.00 ns, 26.5495 ms/op
+WorkloadResult   8: 32 op, 795839023.00 ns, 24.8700 ms/op
+WorkloadResult   9: 32 op, 804450355.00 ns, 25.1391 ms/op
+WorkloadResult  10: 32 op, 836693644.00 ns, 26.1467 ms/op
+// GC:  74 62 21 1106258664 32
+// Threading:  0 0 32
+
+// AfterAll
+// Benchmark Process 4338 has exited with code 0.
+
+Mean = 25.879 ms, StdErr = 0.190 ms (0.74%), N = 10, StdDev = 0.602 ms
+Min = 24.870 ms, Q1 = 25.472 ms, Median = 25.960 ms, Q3 = 26.285 ms, Max = 26.636 ms
+IQR = 0.814 ms, LowerFence = 24.251 ms, UpperFence = 27.506 ms
+ConfidenceInterval = [24.969 ms; 26.789 ms] (CI 99.9%), Margin = 0.910 ms (3.51% of Mean)
+Skewness = -0.31, Kurtosis = 1.51, MValue = 2
+
+// ** Remained 4 (36.4 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 0m from now) **
+// **************************
+// Benchmark: ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Span(Linhas: 50000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 7 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 218850.00 ns, 218.8500 us/op
+
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> HubPedidos.Application.Importacao.LoteMuitoGrandeException: O lote ultrapassou o limite de 9223372036854775807 bytes.
+   at HubPedidos.Application.Importacao.ImportadorSpan.ImportarAsync(Stream origem, Int64 limiteBytes, CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Application/Importacao/Importadores.cs:line 69
+   at BenchmarkDotNet.Helpers.AwaitHelper.GetResult[T](Task`1 task)
+   at BenchmarkDotNet.Autogenerated.Runnable_7.<.ctor>b__3_3() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 1592
+   at BenchmarkDotNet.Autogenerated.Runnable_7.WorkloadActionNoUnroll(Int64 invokeCount) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 1708
+   at BenchmarkDotNet.Engines.Engine.Measure(Action`1 action, Int64 invokeCount)
+   at BenchmarkDotNet.Engines.Engine.RunIteration(IterationData data)
+   at BenchmarkDotNet.Engines.EngineFactory.Jit(Engine engine, Int32 jitIndex, Int32 invokeCount, Int32 unrollFactor)
+   at BenchmarkDotNet.Engines.EngineFactory.CreateReadyToRun(EngineParameters engineParameters)
+   at BenchmarkDotNet.Autogenerated.Runnable_7.Run(IHost host, String benchmarkName) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 1571
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   --- End of inner exception stack trace ---
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at BenchmarkDotNet.Autogenerated.UniqueProgramName.AfterAssemblyLoadingAttached(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/HubPedidos.Benchmarks-Job-UWLSOM-1.notcs:line 57
+// AfterAll
+No Workload Results were obtained from the run.
+// Benchmark Process 4350 has exited with code 255.
+
+// ** Remained 3 (27.3 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 0m from now) **
+// **************************
+// Benchmark: ImportacaoBench.Utf8Pooled: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Utf8Pooled(Linhas: 50000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 8 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 242165.00 ns, 242.1650 us/op
+WorkloadJitting  1: 1 op, 17368681.00 ns, 17.3687 ms/op
+
+OverheadJitting  2: 16 op, 497779.00 ns, 31.1112 us/op
+WorkloadJitting  2: 16 op, 395590248.00 ns, 24.7244 ms/op
+
+WorkloadPilot    1: 16 op, 198421281.00 ns, 12.4013 ms/op
+WorkloadPilot    2: 32 op, 311281828.00 ns, 9.7276 ms/op
+WorkloadPilot    3: 64 op, 585350729.00 ns, 9.1461 ms/op
+
+OverheadWarmup   1: 64 op, 2013.00 ns, 31.4531 ns/op
+OverheadWarmup   2: 64 op, 621.00 ns, 9.7031 ns/op
+OverheadWarmup   3: 64 op, 551.00 ns, 8.6094 ns/op
+OverheadWarmup   4: 64 op, 621.00 ns, 9.7031 ns/op
+OverheadWarmup   5: 64 op, 611.00 ns, 9.5469 ns/op
+OverheadWarmup   6: 64 op, 621.00 ns, 9.7031 ns/op
+OverheadWarmup   7: 64 op, 631.00 ns, 9.8594 ns/op
+OverheadWarmup   8: 64 op, 561.00 ns, 8.7656 ns/op
+
+OverheadActual   1: 64 op, 651.00 ns, 10.1719 ns/op
+OverheadActual   2: 64 op, 811.00 ns, 12.6719 ns/op
+OverheadActual   3: 64 op, 781.00 ns, 12.2031 ns/op
+OverheadActual   4: 64 op, 661.00 ns, 10.3281 ns/op
+OverheadActual   5: 64 op, 681.00 ns, 10.6406 ns/op
+OverheadActual   6: 64 op, 571.00 ns, 8.9219 ns/op
+OverheadActual   7: 64 op, 701.00 ns, 10.9531 ns/op
+OverheadActual   8: 64 op, 601.00 ns, 9.3906 ns/op
+OverheadActual   9: 64 op, 571.00 ns, 8.9219 ns/op
+OverheadActual  10: 64 op, 641.00 ns, 10.0156 ns/op
+OverheadActual  11: 64 op, 611.00 ns, 9.5469 ns/op
+OverheadActual  12: 64 op, 641.00 ns, 10.0156 ns/op
+OverheadActual  13: 64 op, 631.00 ns, 9.8594 ns/op
+OverheadActual  14: 64 op, 631.00 ns, 9.8594 ns/op
+OverheadActual  15: 64 op, 671.00 ns, 10.4844 ns/op
+OverheadActual  16: 64 op, 611.00 ns, 9.5469 ns/op
+OverheadActual  17: 64 op, 601.00 ns, 9.3906 ns/op
+OverheadActual  18: 64 op, 671.00 ns, 10.4844 ns/op
+OverheadActual  19: 64 op, 650.00 ns, 10.1563 ns/op
+OverheadActual  20: 64 op, 621.00 ns, 9.7031 ns/op
+
+WorkloadWarmup   1: 64 op, 615062840.00 ns, 9.6104 ms/op
+WorkloadWarmup   2: 64 op, 570272688.00 ns, 8.9105 ms/op
+WorkloadWarmup   3: 64 op, 564147239.00 ns, 8.8148 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 64 op, 572899497.00 ns, 8.9516 ms/op
+WorkloadActual   2: 64 op, 581584683.00 ns, 9.0873 ms/op
+WorkloadActual   3: 64 op, 561325183.00 ns, 8.7707 ms/op
+WorkloadActual   4: 64 op, 559834363.00 ns, 8.7474 ms/op
+WorkloadActual   5: 64 op, 561233698.00 ns, 8.7693 ms/op
+WorkloadActual   6: 64 op, 562641416.00 ns, 8.7913 ms/op
+WorkloadActual   7: 64 op, 562709128.00 ns, 8.7923 ms/op
+WorkloadActual   8: 64 op, 560926566.00 ns, 8.7645 ms/op
+WorkloadActual   9: 64 op, 564695907.00 ns, 8.8234 ms/op
+WorkloadActual  10: 64 op, 564382976.00 ns, 8.8185 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 64 op, 561324542.00 ns, 8.7707 ms/op
+WorkloadResult   2: 64 op, 559833722.00 ns, 8.7474 ms/op
+WorkloadResult   3: 64 op, 561233057.00 ns, 8.7693 ms/op
+WorkloadResult   4: 64 op, 562640775.00 ns, 8.7913 ms/op
+WorkloadResult   5: 64 op, 562708487.00 ns, 8.7923 ms/op
+WorkloadResult   6: 64 op, 560925925.00 ns, 8.7645 ms/op
+WorkloadResult   7: 64 op, 564695266.00 ns, 8.8234 ms/op
+WorkloadResult   8: 64 op, 564382335.00 ns, 8.8185 ms/op
+// GC:  34 33 14 399455112 64
+// Threading:  0 0 64
+
+// AfterAll
+// Benchmark Process 4358 has exited with code 0.
+
+Mean = 8.785 ms, StdErr = 0.009 ms (0.11%), N = 8, StdDev = 0.027 ms
+Min = 8.747 ms, Q1 = 8.768 ms, Median = 8.781 ms, Q3 = 8.799 ms, Max = 8.823 ms
+IQR = 0.031 ms, LowerFence = 8.722 ms, UpperFence = 8.845 ms
+ConfidenceInterval = [8.734 ms; 8.836 ms] (CI 99.9%), Margin = 0.051 ms (0.58% of Mean)
+Skewness = 0.21, Kurtosis = 1.42, MValue = 2
+
+// ** Remained 2 (18.2 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 0m from now) **
+// **************************
+// Benchmark: ImportacaoBench.Utf8PooledStreaming: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName "HubPedidos.Benchmarks.ImportacaoBench.Utf8PooledStreaming(Linhas: 50000)" --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 9 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 240342.00 ns, 240.3420 us/op
+WorkloadJitting  1: 1 op, 16107601.00 ns, 16.1076 ms/op
+
+OverheadJitting  2: 16 op, 408374.00 ns, 25.5234 us/op
+WorkloadJitting  2: 16 op, 286085150.00 ns, 17.8803 ms/op
+
+WorkloadPilot    1: 16 op, 232921255.00 ns, 14.5576 ms/op
+WorkloadPilot    2: 32 op, 173969874.00 ns, 5.4366 ms/op
+WorkloadPilot    3: 64 op, 344368957.00 ns, 5.3808 ms/op
+WorkloadPilot    4: 128 op, 681911745.00 ns, 5.3274 ms/op
+
+OverheadWarmup   1: 128 op, 1963.00 ns, 15.3359 ns/op
+OverheadWarmup   2: 128 op, 1032.00 ns, 8.0625 ns/op
+OverheadWarmup   3: 128 op, 631.00 ns, 4.9297 ns/op
+OverheadWarmup   4: 128 op, 962.00 ns, 7.5156 ns/op
+OverheadWarmup   5: 128 op, 1072.00 ns, 8.3750 ns/op
+OverheadWarmup   6: 128 op, 922.00 ns, 7.2031 ns/op
+OverheadWarmup   7: 128 op, 1042.00 ns, 8.1406 ns/op
+OverheadWarmup   8: 128 op, 991.00 ns, 7.7422 ns/op
+
+OverheadActual   1: 128 op, 1252.00 ns, 9.7813 ns/op
+OverheadActual   2: 128 op, 751.00 ns, 5.8672 ns/op
+OverheadActual   3: 128 op, 901.00 ns, 7.0391 ns/op
+OverheadActual   4: 128 op, 962.00 ns, 7.5156 ns/op
+OverheadActual   5: 128 op, 991.00 ns, 7.7422 ns/op
+OverheadActual   6: 128 op, 821.00 ns, 6.4141 ns/op
+OverheadActual   7: 128 op, 611.00 ns, 4.7734 ns/op
+OverheadActual   8: 128 op, 611.00 ns, 4.7734 ns/op
+OverheadActual   9: 128 op, 691.00 ns, 5.3984 ns/op
+OverheadActual  10: 128 op, 801.00 ns, 6.2578 ns/op
+OverheadActual  11: 128 op, 892.00 ns, 6.9688 ns/op
+OverheadActual  12: 128 op, 841.00 ns, 6.5703 ns/op
+OverheadActual  13: 128 op, 842.00 ns, 6.5781 ns/op
+OverheadActual  14: 128 op, 641.00 ns, 5.0078 ns/op
+OverheadActual  15: 128 op, 761.00 ns, 5.9453 ns/op
+OverheadActual  16: 128 op, 861.00 ns, 6.7266 ns/op
+OverheadActual  17: 128 op, 881.00 ns, 6.8828 ns/op
+OverheadActual  18: 128 op, 901.00 ns, 7.0391 ns/op
+OverheadActual  19: 128 op, 851.00 ns, 6.6484 ns/op
+OverheadActual  20: 128 op, 811.00 ns, 6.3359 ns/op
+
+WorkloadWarmup   1: 128 op, 693968402.00 ns, 5.4216 ms/op
+WorkloadWarmup   2: 128 op, 712769508.00 ns, 5.5685 ms/op
+WorkloadWarmup   3: 128 op, 686018631.00 ns, 5.3595 ms/op
+
+// BeforeActualRun
+WorkloadActual   1: 128 op, 683335776.00 ns, 5.3386 ms/op
+WorkloadActual   2: 128 op, 680003584.00 ns, 5.3125 ms/op
+WorkloadActual   3: 128 op, 670355351.00 ns, 5.2372 ms/op
+WorkloadActual   4: 128 op, 666563577.00 ns, 5.2075 ms/op
+WorkloadActual   5: 128 op, 670928222.00 ns, 5.2416 ms/op
+WorkloadActual   6: 128 op, 667379575.00 ns, 5.2139 ms/op
+WorkloadActual   7: 128 op, 663520409.00 ns, 5.1838 ms/op
+WorkloadActual   8: 128 op, 673444848.00 ns, 5.2613 ms/op
+WorkloadActual   9: 128 op, 678212019.00 ns, 5.2985 ms/op
+WorkloadActual  10: 128 op, 672987931.00 ns, 5.2577 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 128 op, 683334934.50 ns, 5.3386 ms/op
+WorkloadResult   2: 128 op, 680002742.50 ns, 5.3125 ms/op
+WorkloadResult   3: 128 op, 670354509.50 ns, 5.2371 ms/op
+WorkloadResult   4: 128 op, 666562735.50 ns, 5.2075 ms/op
+WorkloadResult   5: 128 op, 670927380.50 ns, 5.2416 ms/op
+WorkloadResult   6: 128 op, 667378733.50 ns, 5.2139 ms/op
+WorkloadResult   7: 128 op, 663519567.50 ns, 5.1837 ms/op
+WorkloadResult   8: 128 op, 673444006.50 ns, 5.2613 ms/op
+WorkloadResult   9: 128 op, 678211177.50 ns, 5.2985 ms/op
+WorkloadResult  10: 128 op, 672987089.50 ns, 5.2577 ms/op
+// GC:  39 0 0 664597504 128
+// Threading:  0 0 128
+
+// AfterAll
+// Benchmark Process 4371 has exited with code 0.
+
+Mean = 5.255 ms, StdErr = 0.016 ms (0.30%), N = 10, StdDev = 0.049 ms
+Min = 5.184 ms, Q1 = 5.220 ms, Median = 5.250 ms, Q3 = 5.289 ms, Max = 5.339 ms
+IQR = 0.070 ms, LowerFence = 5.115 ms, UpperFence = 5.393 ms
+ConfidenceInterval = [5.181 ms; 5.330 ms] (CI 99.9%), Margin = 0.074 ms (1.41% of Mean)
+Skewness = 0.25, Kurtosis = 1.66, MValue = 2
+
+// ** Remained 1 (9.1 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 0m from now) **
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  evidencias/bench/results/HubPedidos.Benchmarks.ImportacaoBench-report.csv
+  evidencias/bench/results/HubPedidos.Benchmarks.ImportacaoBench-report-github.md
+  evidencias/bench/results/HubPedidos.Benchmarks.ImportacaoBench-report.html
+
+// * Detailed results *
+ImportacaoBench.Baseline: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 265.015 us, StdErr = 0.966 us (0.36%), N = 9, StdDev = 2.897 us
+Min = 258.576 us, Q1 = 265.069 us, Median = 265.820 us, Q3 = 266.548 us, Max = 268.029 us
+IQR = 1.479 us, LowerFence = 262.851 us, UpperFence = 268.766 us
+ConfidenceInterval = [260.147 us; 269.884 us] (CI 99.9%), Margin = 4.868 us (1.84% of Mean)
+Skewness = -1.14, Kurtosis = 2.97, MValue = 2
+-------------------- Histogram --------------------
+[257.782 us ; 269.215 us) | @@@@@@@@@
+---------------------------------------------------
+
+ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+There are not any results runs
+
+ImportacaoBench.Utf8Pooled: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 106.801 us, StdErr = 0.224 us (0.21%), N = 10, StdDev = 0.708 us
+Min = 105.739 us, Q1 = 106.186 us, Median = 106.840 us, Q3 = 107.375 us, Max = 107.883 us
+IQR = 1.190 us, LowerFence = 104.401 us, UpperFence = 109.160 us
+ConfidenceInterval = [105.730 us; 107.871 us] (CI 99.9%), Margin = 1.071 us (1.00% of Mean)
+Skewness = -0.05, Kurtosis = 1.43, MValue = 2
+-------------------- Histogram --------------------
+[105.307 us ; 108.120 us) | @@@@@@@@@@
+---------------------------------------------------
+
+ImportacaoBench.Utf8PooledStreaming: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 104.465 us, StdErr = 0.146 us (0.14%), N = 9, StdDev = 0.438 us
+Min = 103.449 us, Q1 = 104.432 us, Median = 104.541 us, Q3 = 104.708 us, Max = 104.965 us
+IQR = 0.276 us, LowerFence = 104.017 us, UpperFence = 105.122 us
+ConfidenceInterval = [103.730 us; 105.201 us] (CI 99.9%), Margin = 0.735 us (0.70% of Mean)
+Skewness = -1.2, Kurtosis = 3.46, MValue = 2
+-------------------- Histogram --------------------
+[103.173 us ; 105.241 us) | @@@@@@@@@
+---------------------------------------------------
+
+ImportacaoBench.Baseline: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 25.879 ms, StdErr = 0.190 ms (0.74%), N = 10, StdDev = 0.602 ms
+Min = 24.870 ms, Q1 = 25.472 ms, Median = 25.960 ms, Q3 = 26.285 ms, Max = 26.636 ms
+IQR = 0.814 ms, LowerFence = 24.251 ms, UpperFence = 27.506 ms
+ConfidenceInterval = [24.969 ms; 26.789 ms] (CI 99.9%), Margin = 0.910 ms (3.51% of Mean)
+Skewness = -0.31, Kurtosis = 1.51, MValue = 2
+-------------------- Histogram --------------------
+[24.503 ms ; 25.090 ms) | @
+[25.090 ms ; 26.025 ms) | @@@@
+[26.025 ms ; 26.758 ms) | @@@@@
+---------------------------------------------------
+
+ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+There are not any results runs
+
+ImportacaoBench.Utf8Pooled: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 8.785 ms, StdErr = 0.009 ms (0.11%), N = 8, StdDev = 0.027 ms
+Min = 8.747 ms, Q1 = 8.768 ms, Median = 8.781 ms, Q3 = 8.799 ms, Max = 8.823 ms
+IQR = 0.031 ms, LowerFence = 8.722 ms, UpperFence = 8.845 ms
+ConfidenceInterval = [8.734 ms; 8.836 ms] (CI 99.9%), Margin = 0.051 ms (0.58% of Mean)
+Skewness = 0.21, Kurtosis = 1.42, MValue = 2
+-------------------- Histogram --------------------
+[8.730 ms ; 8.841 ms) | @@@@@@@@
+---------------------------------------------------
+
+ImportacaoBench.Utf8PooledStreaming: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 5.255 ms, StdErr = 0.016 ms (0.30%), N = 10, StdDev = 0.049 ms
+Min = 5.184 ms, Q1 = 5.220 ms, Median = 5.250 ms, Q3 = 5.289 ms, Max = 5.339 ms
+IQR = 0.070 ms, LowerFence = 5.115 ms, UpperFence = 5.393 ms
+ConfidenceInterval = [5.181 ms; 5.330 ms] (CI 99.9%), Margin = 0.074 ms (1.41% of Mean)
+Skewness = 0.25, Kurtosis = 1.66, MValue = 2
+-------------------- Histogram --------------------
+[5.182 ms ; 5.369 ms) | @@@@@@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
+AMD EPYC 9V74 2.60GHz, 1 CPU, 4 logical and 2 physical cores
+.NET SDK 10.0.403
+  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+
+IterationCount=10  LaunchCount=1  WarmupCount=3  
+
+| Method              | Linhas | Mean        | Error     | StdDev    | Ratio | RatioSD | Gen0      | Gen1      | Gen2     | Allocated   | Alloc Ratio |
+|-------------------- |------- |------------:|----------:|----------:|------:|--------:|----------:|----------:|---------:|------------:|------------:|
+| Baseline            | 1000   |    265.0 us |   4.87 us |   2.90 us |  1.00 |    0.01 |   66.4063 |   33.2031 |  33.2031 |   679.34 KB |        1.00 |
+| Span                | 1000   |          NA |        NA |        NA |     ? |       ? |        NA |        NA |       NA |          NA |           ? |
+| Utf8Pooled          | 1000   |    106.8 us |   1.07 us |   0.71 us |  0.40 |    0.00 |    7.2021 |    1.9531 |        - |   117.91 KB |        0.17 |
+| Utf8PooledStreaming | 1000   |    104.5 us |   0.74 us |   0.44 us |  0.39 |    0.00 |    6.1035 |         - |        - |   101.57 KB |        0.15 |
+|                     |        |             |           |           |       |         |           |           |          |             |             |
+| Baseline            | 50000  | 25,879.0 us | 909.62 us | 601.66 us |  1.00 |    0.03 | 2312.5000 | 1937.5000 | 656.2500 | 33760.33 KB |        1.00 |
+| Span                | 50000  |          NA |        NA |        NA |     ? |       ? |        NA |        NA |       NA |          NA |           ? |
+| Utf8Pooled          | 50000  |  8,784.7 us |  50.95 us |  26.65 us |  0.34 |    0.01 |  531.2500 |  515.6250 | 218.7500 |   6095.2 KB |        0.18 |
+| Utf8PooledStreaming | 50000  |  5,255.3 us |  74.32 us |  49.16 us |  0.20 |    0.00 |  304.6875 |         - |        - |  5070.48 KB |        0.15 |
+
+Benchmarks with issues:
+  ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=1000]
+  ImportacaoBench.Span: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3) [Linhas=50000]
+
+// * Warnings *
+BaselineCustomAnalyzer
+  Summary -> A question mark '?' symbol indicates that it was not possible to compute the (Ratio, RatioSD, Alloc Ratio) column(s) because the baseline or benchmark could not be found, or the baseline value is too close to zero.
+
+// * Hints *
+Outliers
+  ImportacaoBench.Baseline: IterationCount=10, LaunchCount=1, WarmupCount=3            -> 1 outlier  was  removed, 3 outliers were detected (258.58 us, 262.20 us, 270.88 us)
+  ImportacaoBench.Utf8PooledStreaming: IterationCount=10, LaunchCount=1, WarmupCount=3 -> 1 outlier  was  removed, 2 outliers were detected (103.45 us, 105.21 us)
+  ImportacaoBench.Utf8Pooled: IterationCount=10, LaunchCount=1, WarmupCount=3          -> 2 outliers were removed (8.95 ms, 9.09 ms)
+
+// * Legends *
+  Linhas      : Value of the 'Linhas' parameter
+  Mean        : Arithmetic mean of all measurements
+  Error       : Half of 99.9% confidence interval
+  StdDev      : Standard deviation of all measurements
+  Ratio       : Mean of the ratio distribution ([Current]/[Baseline])
+  RatioSD     : Standard deviation of the ratio distribution ([Current]/[Baseline])
+  Gen0        : GC Generation 0 collects per 1000 operations
+  Gen1        : GC Generation 1 collects per 1000 operations
+  Gen2        : GC Generation 2 collects per 1000 operations
+  Allocated   : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  Alloc Ratio : Allocated memory ratio distribution ([Current]/[Baseline])
+  1 us        : 1 Microsecond (0.000001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:01:13 (73.06 sec), executed benchmarks: 8
+
+// Found 1 benchmarks:
+//   MapeamentoBench.MapearEClassificar: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+// **************************
+// Benchmark: MapeamentoBench.MapearEClassificar: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet HubPedidos.Benchmarks-Job-UWLSOM-1.dll --anonymousPipes 157 158 --benchmarkName HubPedidos.Benchmarks.MapeamentoBench.MapearEClassificar --job "IterationCount=10, LaunchCount=1, WarmupCount=3" --benchmarkId 10 in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks-Job-UWLSOM-1/bin/Release/net10.0
+// Failed to set up high priority (Permission denied). In order to run benchmarks with high priority, make sure you have the right permissions.
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.8
+// Runtime=.NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX512 BITALG+VBMI2+VNNI+VPOPCNTDQ,AVX512 IFMA+VBMI,AVX512 F+BW+CD+DQ+VL,AVX2+BMI1+BMI2+F16C+FMA+LZCNT+MOVBE,AVX,SSE3+SSSE3+SSE4.1+SSE4.2+POPCNT,X86Base+SSE+SSE2,AES+PCLMUL VectorSize=256
+// Job: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+
+OverheadJitting  1: 1 op, 175083.00 ns, 175.0830 us/op
+WorkloadJitting  1: 1 op, 4541230.00 ns, 4.5412 ms/op
+
+OverheadJitting  2: 16 op, 179390.00 ns, 11.2119 us/op
+WorkloadJitting  2: 16 op, 295054.00 ns, 18.4409 us/op
+
+WorkloadPilot    1: 16 op, 64567.00 ns, 4.0354 us/op
+WorkloadPilot    2: 32 op, 105329.00 ns, 3.2915 us/op
+WorkloadPilot    3: 64 op, 186471.00 ns, 2.9136 us/op
+WorkloadPilot    4: 128 op, 375695.00 ns, 2.9351 us/op
+WorkloadPilot    5: 256 op, 730048.00 ns, 2.8518 us/op
+WorkloadPilot    6: 512 op, 1377482.00 ns, 2.6904 us/op
+WorkloadPilot    7: 1024 op, 2718329.00 ns, 2.6546 us/op
+WorkloadPilot    8: 2048 op, 5618441.00 ns, 2.7434 us/op
+WorkloadPilot    9: 4096 op, 11112144.00 ns, 2.7129 us/op
+WorkloadPilot   10: 8192 op, 22557600.00 ns, 2.7536 us/op
+WorkloadPilot   11: 16384 op, 47414437.00 ns, 2.8939 us/op
+WorkloadPilot   12: 32768 op, 79568290.00 ns, 2.4282 us/op
+WorkloadPilot   13: 65536 op, 74540097.00 ns, 1.1374 us/op
+WorkloadPilot   14: 131072 op, 135087287.00 ns, 1.0306 us/op
+WorkloadPilot   15: 262144 op, 268177900.00 ns, 1.0230 us/op
+WorkloadPilot   16: 524288 op, 535346312.00 ns, 1.0211 us/op
+
+OverheadWarmup   1: 524288 op, 1186715.00 ns, 2.2635 ns/op
+OverheadWarmup   2: 524288 op, 1198883.00 ns, 2.2867 ns/op
+OverheadWarmup   3: 524288 op, 1185823.00 ns, 2.2618 ns/op
+OverheadWarmup   4: 524288 op, 1195378.00 ns, 2.2800 ns/op
+OverheadWarmup   5: 524288 op, 1189059.00 ns, 2.2680 ns/op
+
+OverheadActual   1: 524288 op, 1186965.00 ns, 2.2640 ns/op
+OverheadActual   2: 524288 op, 1186034.00 ns, 2.2622 ns/op
+OverheadActual   3: 524288 op, 1189369.00 ns, 2.2685 ns/op
+OverheadActual   4: 524288 op, 1190891.00 ns, 2.2714 ns/op
+OverheadActual   5: 524288 op, 1184982.00 ns, 2.2602 ns/op
+OverheadActual   6: 524288 op, 1191963.00 ns, 2.2735 ns/op
+OverheadActual   7: 524288 op, 1184271.00 ns, 2.2588 ns/op
+OverheadActual   8: 524288 op, 1193215.00 ns, 2.2759 ns/op
+OverheadActual   9: 524288 op, 1194807.00 ns, 2.2789 ns/op
+OverheadActual  10: 524288 op, 1185443.00 ns, 2.2611 ns/op
+OverheadActual  11: 524288 op, 1188027.00 ns, 2.2660 ns/op
+OverheadActual  12: 524288 op, 1187195.00 ns, 2.2644 ns/op
+OverheadActual  13: 524288 op, 1185903.00 ns, 2.2619 ns/op
+OverheadActual  14: 524288 op, 1198863.00 ns, 2.2866 ns/op
+OverheadActual  15: 524288 op, 1187977.00 ns, 2.2659 ns/op
+
+WorkloadWarmup   1: 524288 op, 544770037.00 ns, 1.0391 us/op
+WorkloadWarmup   2: 524288 op, 536449242.00 ns, 1.0232 us/op
+WorkloadWarmup   3: 524288 op, 539816807.00 ns, 1.0296 us/op
+
+// BeforeActualRun
+WorkloadActual   1: 524288 op, 536101859.00 ns, 1.0225 us/op
+WorkloadActual   2: 524288 op, 552324490.00 ns, 1.0535 us/op
+WorkloadActual   3: 524288 op, 534924359.00 ns, 1.0203 us/op
+WorkloadActual   4: 524288 op, 532851069.00 ns, 1.0163 us/op
+WorkloadActual   5: 524288 op, 534909466.00 ns, 1.0203 us/op
+WorkloadActual   6: 524288 op, 539172799.00 ns, 1.0284 us/op
+WorkloadActual   7: 524288 op, 538263731.00 ns, 1.0267 us/op
+WorkloadActual   8: 524288 op, 532925912.00 ns, 1.0165 us/op
+WorkloadActual   9: 524288 op, 539485241.00 ns, 1.0290 us/op
+WorkloadActual  10: 524288 op, 537480691.00 ns, 1.0252 us/op
+
+// AfterActualRun
+WorkloadResult   1: 524288 op, 534913882.00 ns, 1.0203 us/op
+WorkloadResult   2: 524288 op, 533736382.00 ns, 1.0180 us/op
+WorkloadResult   3: 524288 op, 531663092.00 ns, 1.0141 us/op
+WorkloadResult   4: 524288 op, 533721489.00 ns, 1.0180 us/op
+WorkloadResult   5: 524288 op, 537984822.00 ns, 1.0261 us/op
+WorkloadResult   6: 524288 op, 537075754.00 ns, 1.0244 us/op
+WorkloadResult   7: 524288 op, 531737935.00 ns, 1.0142 us/op
+WorkloadResult   8: 524288 op, 538297264.00 ns, 1.0267 us/op
+WorkloadResult   9: 524288 op, 536292714.00 ns, 1.0229 us/op
+// GC:  17 0 0 289423392 524288
+// Threading:  0 0 524288
+
+// AfterAll
+// Benchmark Process 4383 has exited with code 0.
+
+Mean = 1.021 us, StdErr = 0.002 us (0.16%), N = 9, StdDev = 0.005 us
+Min = 1.014 us, Q1 = 1.018 us, Median = 1.020 us, Q3 = 1.024 us, Max = 1.027 us
+IQR = 0.006 us, LowerFence = 1.008 us, UpperFence = 1.034 us
+ConfidenceInterval = [1.012 us; 1.029 us] (CI 99.9%), Margin = 0.008 us (0.79% of Mean)
+Skewness = -0.07, Kurtosis = 1.28, MValue = 2
+
+// ** Remained 0 (0.0 %) benchmark(s) to run. Estimated finish 2026-11-03 17:42 (0h 0m from now) **
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  evidencias/bench/results/HubPedidos.Benchmarks.MapeamentoBench-report.csv
+  evidencias/bench/results/HubPedidos.Benchmarks.MapeamentoBench-report-github.md
+  evidencias/bench/results/HubPedidos.Benchmarks.MapeamentoBench-report.html
+
+// * Detailed results *
+MapeamentoBench.MapearEClassificar: Job-UWLSOM(IterationCount=10, LaunchCount=1, WarmupCount=3)
+Runtime = .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4; GC = Concurrent Workstation
+Mean = 1.021 us, StdErr = 0.002 us (0.16%), N = 9, StdDev = 0.005 us
+Min = 1.014 us, Q1 = 1.018 us, Median = 1.020 us, Q3 = 1.024 us, Max = 1.027 us
+IQR = 0.006 us, LowerFence = 1.008 us, UpperFence = 1.034 us
+ConfidenceInterval = [1.012 us; 1.029 us] (CI 99.9%), Margin = 0.008 us (0.79% of Mean)
+Skewness = -0.07, Kurtosis = 1.28, MValue = 2
+-------------------- Histogram --------------------
+[1.011 us ; 1.030 us) | @@@@@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
+AMD EPYC 9V74 2.60GHz, 1 CPU, 4 logical and 2 physical cores
+.NET SDK 10.0.403
+  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+
+IterationCount=10  LaunchCount=1  WarmupCount=3  
+
+| Method             | Mean     | Error     | StdDev    | Gen0   | Allocated |
+|------------------- |---------:|----------:|----------:|-------:|----------:|
+| MapearEClassificar | 1.021 us | 0.0081 us | 0.0048 us | 0.0324 |     552 B |
+
+// * Hints *
+Outliers
+  MapeamentoBench.MapearEClassificar: IterationCount=10, LaunchCount=1, WarmupCount=3 -> 1 outlier  was  removed (1.05 us)
+
+// * Legends *
+  Mean      : Arithmetic mean of all measurements
+  Error     : Half of 99.9% confidence interval
+  StdDev    : Standard deviation of all measurements
+  Gen0      : GC Generation 0 collects per 1000 operations
+  Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  1 us      : 1 Microsecond (0.000001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:00:08 (8.92 sec), executed benchmarks: 1
+
+Global total time: 00:02:08 (128.24 sec), executed benchmarks: 11
+// * Artifacts cleanup *
+Artifacts cleanup is finished

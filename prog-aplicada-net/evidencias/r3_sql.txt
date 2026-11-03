@@ -1,1 +1,19 @@
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
+==== Painel: projeção + AsNoTracking + paginação (2 comando(s))
+Executed DbCommand (1ms) [Parameters=[@filtro_Status='?' (Size = 8)], CommandType='Text', CommandTimeout='30'] SELECT COUNT(*) FROM "Pedidos" AS "p" WHERE "p"."Status" = @filtro_Status
+Executed DbCommand (3ms) [Parameters=[@filtro_Status='?' (Size = 8), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30'] SELECT "p"."Id", "p"."Cliente", "p"."Status", ef_divide(CAST("p"."TotalCentavos" AS TEXT), '100.0'), ( SELECT COUNT(*) FROM "ItensPedido" AS "i" WHERE "p"."Id" = "i"."PedidoId"), "p"."CriadoEmUtc" FROM "Pedidos" AS "p" WHERE "p"."Status" = @filtro_Status ORDER BY "p"."CriadoEmUtc" DESC, "p"."Id" LIMIT @p2 OFFSET @p
+
+==== Atualização com tracking (só colunas alteradas + token de concorrência) (2 comando(s))
+Executed DbCommand (0ms) [Parameters=[@id_Valor='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30'] SELECT "p"."Id", "p"."AtualizadoEmUtc", "p"."Cliente", "p"."CriadoEmUtc", "p"."Prioridade", "p"."Regiao", "p"."Status", "p"."TotalCentavos", "p"."Versao", "p"."Metadados" FROM "Pedidos" AS "p" WHERE "p"."Id" = @id_Valor LIMIT 1
+Executed DbCommand (0ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (Size = 10), @p2='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30'] UPDATE "Pedidos" SET "AtualizadoEmUtc" = @p0, "Status" = @p1, "Versao" = @p2 WHERE "Id" = @p3 AND "Versao" = @p4 RETURNING 1;
+
+==== Filtro em campo JSON (Metadados.Canal) (1 comando(s))
+Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30'] SELECT COUNT(*) FROM "Pedidos" AS "p" WHERE "p"."Metadados" ->> 'Canal' = 'app'
+
+==== Atualização de campo JSON (1 comando(s))
+Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Guid), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30'] UPDATE "Pedidos" SET "Metadados" = json_set("Metadados", '$.Cupom', @p0) WHERE "Id" = @p1 AND "Versao" = @p2 RETURNING 1;
+
+==== Comandos para a mesma página: ingênuo (N+1) = 21, projeção = 2
+
+==== Página profunda (posição 15.000 de 20.000), média de 50 execuções
+  Deslocamento (Skip/Take): 6.75 ms
+  Cursor (keyset/WHERE):    1.32 ms

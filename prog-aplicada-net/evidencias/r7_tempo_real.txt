@@ -1,1 +1,0 @@
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory

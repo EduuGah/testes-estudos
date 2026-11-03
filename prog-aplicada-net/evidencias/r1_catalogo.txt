@@ -1,1 +1,10 @@
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
+Caso                                  Total  Categoria
+Unhandled exception. System.TypeInitializationException: The type initializer for 'HubPedidos.Ferramentas.Experimentos' threw an exception.
+ ---> System.Globalization.CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode. See https://aka.ms/GlobalizationInvariantMode for more information. (Parameter 'name')
+pt-br is an invalid culture identifier.
+   at System.Globalization.CultureInfo.GetCultureInfo(String name)
+   at HubPedidos.Ferramentas.Experimentos..cctor() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 17
+   --- End of inner exception stack trace ---
+   at HubPedidos.Ferramentas.Experimentos.Catalogo() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 39
+   at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 8
+   at Program.<Main>(String[] args)

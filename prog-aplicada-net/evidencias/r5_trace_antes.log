@@ -4,6 +4,10 @@ Provider Name                           Keywords            Level               
 Microsoft-Windows-DotNETRuntime         0x000000100003801D  Informational(4)    --profile
 Microsoft-DotNETCore-SampleProfiler     0x0000F00000000000  Informational(4)    --profile
 
-[ERROR] System.ArgumentException: Process with an Id of 3529 is not running.
-   at System.Diagnostics.Process.GetProcessById(Int32 processId, String machineName)
-   at Microsoft.Diagnostics.Tools.Trace.CollectCommandHandler.Collect(CancellationToken ct, CommandLineConfiguration cliConfig, Int32 processId, FileInfo output, UInt32 buffersize, String[] providers, String[] profile, TraceFileFormat format, TimeSpan duration, String clrevents, String clreventlevel, String name, String diagnosticPort, Boolean showchildio, Boolean resumeRuntime, String stoppingEventProviderName, String stoppingEventEventName, String stoppingEventPayloadFilter, Nullable`1 rundown, String dsrouter, EventPipeBufferingMode bufferingMode) in /_/src/Tools/dotnet-trace/CommandLine/Commands/CollectCommand.cs:line 223
+Process        : /usr/share/dotnet/dotnet
+Output File    : /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/evidencias/r5_trace_antes.nettrace
+Trace Duration : 00:00:00:08
+
+Stopping the trace. This may take several minutes depending on the application being traced.
+
+Trace completed.

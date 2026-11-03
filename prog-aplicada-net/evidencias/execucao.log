@@ -1,11 +1,11 @@
 
 ######## Ambiente
-Data: 2026-11-03 17:33 UTC
+Data: 2026-11-03 17:38 UTC
 Linux 7.0.0-1017-azure
 CPU(s):                                  4
-Model name:                              AMD EPYC 7763 64-Core Processor
+Model name:                              AMD EPYC 9V74 80-Core Processor
                total        used        free      shared  buff/cache   available
-Mem:            15Gi       939Mi        14Gi        45Mi       898Mi        14Gi
+Mem:            15Gi       943Mi        14Gi        42Mi       899Mi        14Gi
 10.0.403
 Microsoft.AspNetCore.App 8.0.6 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
 Microsoft.AspNetCore.App 8.0.22 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
@@ -30,198 +30,111 @@ Microsoft.NETCore.App 10.0.14 [/usr/share/dotnet/shared/Microsoft.NETCore.App]
 10.0.750501+ad724c4b85e7ae775e42f393c6e95a7557a57954
 
 ######## Restore + build Release
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 3.47 sec).
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 3.53 sec).
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj (in 78 ms).
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(188,47): error CS0246: The type or namespace name 'HubException' could not be found (are you missing a using directive or an assembly reference?) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
-    31 Warning(s)
-    2 Error(s)
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 2.2 sec).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj (in 2.2 sec).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 741 ms).
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ImportacaoTests.cs(70,27): warning CA1859: Change return type of method 'Texto' from 'System.IO.Stream' to 'System.IO.MemoryStream' for improved performance (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1859) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
+    7 Warning(s)
+    0 Error(s)
 
-Time Elapsed 00:00:32.14
+Time Elapsed 00:00:11.48
 
 ######## Roteiro 3: migration
 Build started...
 Build succeeded.
-Done. To undo this action, use 'ef migrations remove'
-
-Time Elapsed 00:00:01.25
-Build started...
-Build failed. Use dotnet build to see the errors.
 
 ######## Roteiro 8: revisão automatizada completa (3 execuções da suíte)
-revisao.sh saiu com código 1
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj : warning NU1903: Package 'Microsoft.AspNetCore.SignalR.Common' 10.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-334f-vvp4-7g6p
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj : warning NU1903: Package 'Microsoft.AspNetCore.SignalR.Common' 10.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-334f-vvp4-7g6p
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj : warning NU1903: Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations/20261103173455_Inicial.cs(6,11): error IDE0161: Convert to file-scoped namespace (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0161) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj]
-    24 Warning(s)
-    1 Error(s)
-
-Time Elapsed 00:00:01.09
-revisao.sh saiu com código 1
+revisao.sh saiu com código 2
+===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,48): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,88): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,108): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(69,69): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(69,96): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(70,55): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,44): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,75): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,95): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,80): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,116): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,141): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(215,31): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
+revisao.sh saiu com código 2
 
 ######## Roteiro 1: classificação e catálogo
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
+Caso                                  Total  Categoria
+Unhandled exception. System.TypeInitializationException: The type initializer for 'HubPedidos.Ferramentas.Experimentos' threw an exception.
+ ---> System.Globalization.CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode. See https://aka.ms/GlobalizationInvariantMode for more information. (Parameter 'name')
+pt-br is an invalid culture identifier.
+   at System.Globalization.CultureInfo.GetCultureInfo(String name)
+   at HubPedidos.Ferramentas.Experimentos..cctor() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 17
+   --- End of inner exception stack trace ---
+   at HubPedidos.Ferramentas.Experimentos.Catalogo() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 39
+   at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 8
+   at Program.<Main>(String[] args)
 
 ######## Roteiro 3: SQL gerado
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
+==== Atualização de campo JSON (1 comando(s))
+Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Guid), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30'] UPDATE "Pedidos" SET "Metadados" = json_set("Metadados", '$.Cupom', @p0) WHERE "Id" = @p1 AND "Versao" = @p2 RETURNING 1;
+
+==== Comandos para a mesma página: ingênuo (N+1) = 21, projeção = 2
+
+==== Página profunda (posição 15.000 de 20.000), média de 50 execuções
+  Deslocamento (Skip/Take): 6.75 ms
+  Cursor (keyset/WHERE):    1.32 ms
 
 ######## Roteiro 4: experimentos da fila
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
+Produtor: 2.000 pedidos a ~500/s. Banco simulado: 4 ms + 3 ms por operação concorrente extra (contenção).
+
+Configuração                          Aceitos  Rejeit. Descart. Process.  FilaMáx Banco máx   p50 ms   p95 ms  Vazão/s
+A: cap 50, 4 consumidores, banco 4       1268      732        0     1268       50         4      172      179      304
+B: cap 500, 16 consumidores, banco 16     1814      186        0     1814      500        16      985     1582      325
+C: cap 50, 4 cons., DropOldest           2000        0      727     1273       50         4      109      114      305
 
 ######## Roteiros 2, 3 e 5: BenchmarkDotNet
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7 [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-23rf-6693-g89p [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-37gx-xxp4-5rgx [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6588-8gv4-xfgh [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7hqp-7c5m-4vq6 [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-8q5v-6pqq-x66h [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-c399-9853-6jmj [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cvvh-rhrc-wg4q [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g8r8-53c2-pm3f [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mmjf-rqrv-855v [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-r955-8q5j-3h83 [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-w3x6-4m5h-cxqf [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1902: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Pkcs' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-23rf-6693-g89p
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-37gx-xxp4-5rgx
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6588-8gv4-xfgh
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7hqp-7c5m-4vq6
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-8q5v-6pqq-x66h
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-c399-9853-6jmj
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cvvh-rhrc-wg4q
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g8r8-53c2-pm3f
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-mmjf-rqrv-855v
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-r955-8q5j-3h83
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj : warning NU1903: Package 'System.Security.Cryptography.Xml' 9.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-w3x6-4m5h-cxqf
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations/20261103173455_Inicial.cs(6,11): error IDE0161: Convert to file-scoped namespace (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0161) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj]
+Skewness = -0.07, Kurtosis = 1.28, MValue = 2
+-------------------- Histogram --------------------
+[1.011 us ; 1.030 us) | @@@@@@@@@
+---------------------------------------------------
 
-The build failed. Fix the build errors and run again.
+// * Summary *
+
+BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
+AMD EPYC 9V74 2.60GHz, 1 CPU, 4 logical and 2 physical cores
+.NET SDK 10.0.403
+  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+
+IterationCount=10  LaunchCount=1  WarmupCount=3  
+
+| Method             | Mean     | Error     | StdDev    | Gen0   | Allocated |
+|------------------- |---------:|----------:|----------:|-------:|----------:|
+| MapearEClassificar | 1.021 us | 0.0081 us | 0.0048 us | 0.0324 |     552 B |
+
+// * Hints *
+Outliers
+  MapeamentoBench.MapearEClassificar: IterationCount=10, LaunchCount=1, WarmupCount=3 -> 1 outlier  was  removed (1.05 us)
+
+// * Legends *
+  Mean      : Arithmetic mean of all measurements
+  Error     : Half of 99.9% confidence interval
+  StdDev    : Standard deviation of all measurements
+  Gen0      : GC Generation 0 collects per 1000 operations
+  Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  1 us      : 1 Microsecond (0.000001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:00:08 (8.92 sec), executed benchmarks: 1
+
+Global total time: 00:02:08 (128.24 sec), executed benchmarks: 11
+// * Artifacts cleanup *
+Artifacts cleanup is finished
 
 ######## Roteiro 5: publicação Release, massa de dados e carga
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations/20261103173455_Inicial.cs(6,11): error IDE0161: Convert to file-scoped namespace (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0161) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj]
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
-API (Ingenuo) no PID 3529
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
-prog-aplicada-net/ci/evidencias.sh: line 59: kill: (3529) - No such process
-API (Otimizado) no PID 3719
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
-
-
-######## Roteiros 6 e 7: HTTP (versões, ETag, cache)
-Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
-    return loads(fp.read(),
-           ^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-pedido criado: 
-
-################ ROTEIRO 6 – versões
-
-$ GET /api/v1/pedidos/{id}   (contrato v1)
-usage: python -m json.tool [-h] [--sort-keys] [--no-ensure-ascii]
-                           [--json-lines]
-                           [--indent INDENT | --tab | --no-indent | --compact]
-                           [infile] [outfile]
-python -m json.tool: error: argument infile: can't open '/tmp/v1.json': [Errno 2] No such file or directory: '/tmp/v1.json'
-
-$ GET /api/v2/pedidos/{id}   (contrato v2)
-usage: python -m json.tool [-h] [--sort-keys] [--no-ensure-ascii]
-                           [--json-lines]
-                           [--indent INDENT | --tab | --no-indent | --compact]
-                           [infile] [outfile]
-python -m json.tool: error: argument infile: can't open '/tmp/v2.json': [Errno 2] No such file or directory: '/tmp/v2.json'
-
-$ GET /api/pedidos/{id}   (sem versão -> padrão v1)
-
-$ GET /api/v9/pedidos/{id}   (versão não suportada)
-
-HTTP 000
-
-################ ROTEIRO 7 – ETag
-
-$ GET /api/v1/pedidos/{id}
-
-$ GET com If-None-Match: 
-ci/http.sh: line 28: /tmp/corpo304: No such file or directory
-bytes no corpo: 
-
-$ PUT /status sem If-Match
-HTTP 000
-
-$ PUT /status com If-Match obsoleto
-HTTP 000
-
-$ PUT /status com If-Match: 
-
-$ GET com If-None-Match antigo: 
-
-################ ROTEIRO 7 – output cache (rota pública /api/v1/estatisticas)
-
-$ GET anônimo #1
-
-$ GET anônimo #2
-
-$ GET anônimo #3
-
-$ GET autenticado (não usa o cache compartilhado)
-
-$ POST novo pedido (invalida a tag 'pedidos') e GET anônimo
-
-$ Latência: 20 GET anônimos com cache
-mediana 0.13 ms, máx 0.18 ms
-
-$ Latência: 20 GET autenticados (sem cache, consulta o banco)
-mediana 0.13 ms, máx 0.19 ms
-
-######## Roteiro 7: SignalR (autorização, streaming, queda e reconexão)
-Unhandled exception: An error occurred trying to start process '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas' with working directory '/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net'. No such file or directory
-prog-aplicada-net/ci/evidencias.sh: line 59: kill: (3719) - No such process
-
-######## Roteiro 5: traces convertidos
-Traceback (most recent call last):
-  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
-    d = json.load(open(sys.argv[1]))
-                  ^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_antes.speedscope.json'
-Traceback (most recent call last):
-  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
-    d = json.load(open(sys.argv[1]))
-                  ^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_depois.speedscope.json'
-
-######## Roteiro 8: a revisão automatizada bloqueia falhas
-===== [revisão] 1/4 restore
-===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
-/tmp/gate/src/HubPedidos.Application/ViolacaoProposital.cs(6,62): error CA2016: Forward the 'ct' parameter to the 'Delay' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2016) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/ViolacaoProposital.cs(6,62): error CA2016: Forward the 'ct' parameter to the 'Delay' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2016) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-revisao.sh saiu com código 1
-===== [revisão] 1/4 restore
-===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
-/tmp/gate/src/HubPedidos.Infrastructure/Migrations/20261103173455_Inicial.cs(6,11): error IDE0161: Convert to file-scoped namespace (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0161) [/tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj]
-/tmp/gate/src/HubPedidos.Infrastructure/Migrations/20261103173455_Inicial.cs(6,11): error IDE0161: Convert to file-scoped namespace (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0161) [/tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj]
-revisao.sh saiu com código 1
-fim
+  HubPedidos.Api -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/
+20000 pedidos gravados em /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/hub.db
+API (Ingenuo) no PID 4477
+painel   conc= 16  amostras=   125  erros=   0  p50= 1890.2 ms  p95= 3357.8 ms  p99= 3482.7 ms  máx= 3894.9 ms  vazão=    6.2 req/s
