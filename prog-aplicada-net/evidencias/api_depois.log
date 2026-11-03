@@ -1,0 +1,19 @@
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5080
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Laboratorio
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api
+fail: Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher[8]
+      Failed to invoke hub method 'AcompanharPedido'.
+      Microsoft.AspNetCore.SignalR.HubException: Acesso negado: o pedido não pertence ao usuário conectado.
+         at HubPedidos.Api.TempoReal.PedidosHub.AutorizarAsync(Guid pedidoId, CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/TempoReal/PedidosHub.cs:line 65
+         at HubPedidos.Api.TempoReal.PedidosHub.AcompanharPedido(Guid pedidoId) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/TempoReal/PedidosHub.cs:line 37
+         at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+         at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.<Invoke>g__ExecuteInvocation|22_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host

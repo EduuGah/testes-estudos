@@ -9,7 +9,7 @@ Limite: R$ 10.000,00              10.000,00  AltoValor
 Limite: 99 unidades                   99,00  Padrao
 Limite: 100 unidades                 100,00  GrandeVolume
 
-Catálogo construído por reflexão restrita em 21.30 ms (assembly HubPedidos.Application):
+Catálogo construído por reflexão restrita em 18.55 ms (assembly HubPedidos.Application):
   Internacional  -> ProcessadorInternacional
   AltoValor      -> ProcessadorConferenciaManual
   Expresso       -> ProcessadorExpresso

@@ -1,5 +1,32 @@
-Traceback (most recent call last):
-  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
-    d = json.load(open(sys.argv[1]))
-                  ^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_antes.speedscope.json'
+tempo total amostrado (todas as threads): 121,217 milliseconds
+
+TOP 12 – tempo próprio
+ 67.20%  UNMANAGED_CODE_TIME
+ 32.80%  CPU_TIME
+  0.00%  System.Private.CoreLib!System.Threading.ThreadPoolWorkQueue.Dispatch()
+  0.00%  ?!?
+  0.00%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarIngenuoAsync>d__12.MoveNext()
+  0.00%  System.Private.CoreLib!System.Threading.WaitHandle.WaitOneNoCheck(int32,bool,class System.Object,value class W
+  0.00%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+  0.00%  Microsoft.AspNetCore.Server.Kestrel.Core!Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol+<
+  0.00%  System.Private.CoreLib!System.Diagnostics.Tracing.CounterGroup.PollForValues()
+  0.00%  Anonymously Hosted DynamicMethods Assembly!dynamicClass.lambda_method45(pMT: 0x7ff80f258678,class System.Objec
+  0.00%  Anonymously Hosted DynamicMethods Assembly!dynamicClass.lambda_method73(pMT: 0x7ff80f258678,pMT: 0x7ff811f4ea9
+  0.00%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+<ToListAsync>d_
+
+TOP 15 – tempo inclusivo em código HubPedidos / EF Core / SQLite
+100.00%  Process64 dotnet (5491) Args: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/HubPed
+ 38.42%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c.<MapPedidos>b__2_0(class Microsoft.AspNetCore.Htt
+ 38.42%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c+<<MapPedidos>b__2_0>d.MoveNext()
+ 38.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints.ListarAsync(class System.String,value class System.Nu
+ 38.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<ListarAsync>d__6.MoveNext()
+ 38.41%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos.ListarIngenuoAsync(class HubPedidos.App
+ 38.41%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarIngenuoAsync>d__12.MoveNext()
+ 37.61%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+ 37.55%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync(cla
+ 37.55%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+<ToListAsync>d_
+ 24.81%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+ 12.96%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking
+ 12.16%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExp
+  6.66%  HubPedidos.Api!Program.<Main>(class System.String[])
+  4.89%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntrySubscriber.Sn

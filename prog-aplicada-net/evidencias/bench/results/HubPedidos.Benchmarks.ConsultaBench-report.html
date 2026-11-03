@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>HubPedidos.Benchmarks.ConsultaBench-20261103-185816</title>
+<title>HubPedidos.Benchmarks.ConsultaBench-20261103-191125</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,10 +14,10 @@
 <body>
 <pre><code>
 BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
-AMD EPYC 7763 2.79GHz, 1 CPU, 4 logical and 2 physical cores
+INTEL XEON PLATINUM 8573C 3.10GHz, 1 CPU, 4 logical and 2 physical cores
 .NET SDK 10.0.403
-  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
-  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
+  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
 </code></pre>
 <pre><code>IterationCount=10  LaunchCount=1  WarmupCount=3  
 </code></pre>
@@ -25,8 +25,8 @@ AMD EPYC 7763 2.79GHz, 1 CPU, 4 logical and 2 physical cores
 <table>
 <thead><tr><th>Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>Gen0</th><th>Allocated</th><th>Alloc Ratio</th>
 </tr>
-</thead><tbody><tr><td>Comum</td><td>157.94 &mu;s</td><td>0.406 &mu;s</td><td>0.241 &mu;s</td><td>1.00</td><td>1.4648</td><td>25.06 KB</td><td>1.00</td>
-</tr><tr><td>Compilada</td><td>76.36 &mu;s</td><td>0.146 &mu;s</td><td>0.097 &mu;s</td><td>0.48</td><td>0.3662</td><td>6.8 KB</td><td>0.27</td>
+</thead><tbody><tr><td>Comum</td><td>82.42 &mu;s</td><td>1.320 &mu;s</td><td>0.873 &mu;s</td><td>1.00</td><td>0.2441</td><td>25.44 KB</td><td>1.00</td>
+</tr><tr><td>Compilada</td><td>45.94 &mu;s</td><td>0.092 &mu;s</td><td>0.061 &mu;s</td><td>0.56</td><td>0.0610</td><td>6.8 KB</td><td>0.27</td>
 </tr></tbody></table>
 </body>
 </html>

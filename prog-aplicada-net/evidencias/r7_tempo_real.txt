@@ -1,16 +1,18 @@
-19:04:59.592 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2cc-e5b0-7e68-bba6-31182e9be946 (Padrao)
-19:04:59.718 [ana  ] estado: Connected
-19:04:59.739 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
-19:04:59.742 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
-19:04:59.755 [ana  ] stream do pedido 01a1a2cc…: EmProcessamento (v2)
-19:04:59.804 [ana  ] stream do pedido 01a1a2cc…: Processado (v3)
-19:04:59.812 [ana  ] estado inicial via HTTP: Processado
-19:04:59.823 [http ] PUT status=Cancelado (If-Match "59f93adf3d0de05df517") -> 200
-19:04:59.830 [ana  ] evento PedidoAtualizado: Cancelado (v4)
-19:05:00.128 [http ] POST /dev/hub/derrubar -> 200 {"derrubadas":2}
-19:05:00.145 [ana  ] estado: Desconectado
-19:05:00.332 [http ] PUT status=Recebido (If-Match "e44bd04e84e7667dadcb") -> 200
-Unhandled exception. System.TimeoutException: The operation has timed out.
-   at HubPedidos.Ferramentas.TempoReal.ExecutarAsync(String url) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/TempoReal.cs:line 67
-   at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 12
-   at Program.<Main>(String[] args)
+19:16:36.280 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2d7-8723-7dc3-a47e-0ff2c4a2b455 (Padrao)
+19:16:36.530 [ana  ] estado: Connected
+19:16:36.569 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
+19:16:36.581 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
+19:16:36.595 [ana  ] stream do pedido 01a1a2d7…: EmProcessamento (v2)
+19:16:36.646 [ana  ] stream do pedido 01a1a2d7…: Processado (v3)
+19:16:36.654 [ana  ] estado inicial via HTTP: Processado
+19:16:36.664 [http ] PUT status=Cancelado (If-Match "f29875b6544d5c46b14b") -> 200
+19:16:36.671 [ana  ] evento PedidoAtualizado: Cancelado (v4)
+19:16:36.970 [proxy] queda de rede simulada: 2 conexão(ões) TCP cortada(s)
+19:16:36.978 [ana  ] estado: Reconectando (ações desabilitadas) – WebSocketException
+19:16:37.176 [http ] PUT status=Recebido (If-Match "f1cf8898e1b215308b35") -> 200
+19:16:37.984 [ana  ] estado: Conectado novamente (nova conexão xlSHf0uA…)
+19:16:38.025 [ana  ] reingressou no grupo do pedido após revalidação
+19:16:38.028 [ana  ] reconciliação HTTP: status atual = Recebido, versão = 5
+19:16:38.032 [http ] PUT status=Cancelado (If-Match "d3fdc1ebc861447ffee8") -> 200
+19:16:38.065 [ana  ] evento PedidoAtualizado: Cancelado (v6)
+19:16:38.343 [ana  ] estado: Desconectado

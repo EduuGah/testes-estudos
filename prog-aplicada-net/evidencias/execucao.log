@@ -1,11 +1,12 @@
 
 ######## Ambiente
-Data: 2026-11-03 18:56 UTC
+Data: 2026-11-03 19:09 UTC
 Linux 7.0.0-1017-azure
 CPU(s):                                  4
-Model name:                              AMD EPYC 7763 64-Core Processor
+Model name:                              INTEL(R) XEON(R) PLATINUM 8573C
+CPU(s) scaling MHz:                      135%
                total        used        free      shared  buff/cache   available
-Mem:            15Gi       944Mi        14Gi        43Mi       899Mi        14Gi
+Mem:            15Gi       1.0Gi        14Gi        45Mi       890Mi        14Gi
 10.0.403
 Microsoft.AspNetCore.App 8.0.6 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
 Microsoft.AspNetCore.App 8.0.22 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
@@ -30,97 +31,97 @@ Microsoft.NETCore.App 10.0.14 [/usr/share/dotnet/shared/Microsoft.NETCore.App]
 10.0.750501+ad724c4b85e7ae775e42f393c6e95a7557a57954
 
 ######## Restore + build Release
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 2.19 sec).
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj (in 2.19 sec).
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 779 ms).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Application/HubPedidos.Application.csproj (in 2 ms).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 173 ms).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj (in 3.47 sec).
 /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ImportacaoTests.cs(70,27): warning CA1859: Change return type of method 'Texto' from 'System.IO.Stream' to 'System.IO.MemoryStream' for improved performance (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1859) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
     7 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:13.12
+Time Elapsed 00:00:13.25
 
 ######## Roteiro 3: migration
 Build started...
 Build succeeded.
 
 ######## Roteiro 8: suíte de testes com saída detalhada
-  Passed HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo [8 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto [41 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha [1 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces [2 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel [2 ms]
-  Passed HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico [11 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "nulo", pedido: null, esperado: Invalido) [1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "sem itens", pedido: Pedido { Id = 01a1a2c5-8bda-7ed8-b8bf-8d62947eb706, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "total zero", pedido: Pedido { Id = 01a1a2c5-8bda-7048-90bb-52dfc3ed675e, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "normal", pedido: Pedido { Id = 01a1a2c5-8bda-71d7-afa8-a81bb0bf0f04, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "prioritário", pedido: Pedido { Id = 01a1a2c5-8bda-7bd0-8b1d-9f8859e18ac5, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "exterior vence prioridade", pedido: Pedido { Id = 01a1a2c5-8bda-7667-9f36-c684d4d82360, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 9.999,99 não é alto valor", pedido: Pedido { Id = 01a1a2c5-8bda-7cef-893d-8eeef90434fe, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 10.000,00 é alto valor", pedido: Pedido { Id = 01a1a2c5-8bda-7af4-be23-5f845a34cba8, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 99 unidades", pedido: Pedido { Id = 01a1a2c5-8bda-7211-9078-bfae17a07d46, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 100 unidades", pedido: Pedido { Id = 01a1a2c5-8bda-7976-9d63-52ec0fa5bc80, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "21 itens distintos", pedido: Pedido { Id = 01a1a2c5-8bda-72a3-b6fa-a3659f7e6027, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array [4 ms]
-  Passed HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original [1 ms]
-  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "00000000-0000-0000-0000-000000000000", valido: False) [3 ms]
-  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "abc", valido: False) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f", valido: True) [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado [< 1 ms]
-  Passed HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio [6 ms]
-  Passed HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel [3 ms]
-[xUnit.net 00:00:00.41]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
-[xUnit.net 00:00:00.41]       Assert.Equal() Failure: Values differ
---
-  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [83 ms]
-  Error Message:
-   Assert.Equal() Failure: Values differ
-Expected: 9
---
-  Passed HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso [238 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno [535 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { }) [2 ms]
+  Passed HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo [5 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno [602 ms]
+  Passed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [608 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { }) [3 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorUtf8Pooled { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorBaseline { }) [2 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorUtf8Pooled { }) [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { }) [11 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorSpan { }) [2 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { }) [8 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorBaseline { }) [1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorSpan { }) [< 1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento [1 ms]
   Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_mesmo_com_erro [< 1 ms]
-  Passed HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes [3 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes [14 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura [6 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core [1 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura [1 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto [9 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha [2 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces [2 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel [4 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico [9 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "nulo", pedido: null, esperado: Invalido) [1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "sem itens", pedido: Pedido { Id = 01a1a2d1-a0bc-7d6a-a947-107304309440, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "total zero", pedido: Pedido { Id = 01a1a2d1-a0bc-7533-9aa6-b0356da0abfc, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "normal", pedido: Pedido { Id = 01a1a2d1-a0bc-7809-bfd2-13a9195c1729, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "prioritário", pedido: Pedido { Id = 01a1a2d1-a0bc-7334-b068-e74d48d09bef, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "exterior vence prioridade", pedido: Pedido { Id = 01a1a2d1-a0bc-7595-a65d-acbf0afc4129, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 9.999,99 não é alto valor", pedido: Pedido { Id = 01a1a2d1-a0bc-7fc7-b2cf-2dd1c09f9035, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 10.000,00 é alto valor", pedido: Pedido { Id = 01a1a2d1-a0bc-790c-b2e2-778ba92726b8, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 99 unidades", pedido: Pedido { Id = 01a1a2d1-a0bc-7869-8692-fb0a93dac6fd, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 100 unidades", pedido: Pedido { Id = 01a1a2d1-a0bc-70ec-bbb7-a4c57c4367ed, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "21 itens distintos", pedido: Pedido { Id = 01a1a2d1-a0bc-76ca-93e1-f2eb87d45e48, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array [5 ms]
+  Passed HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original [1 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "00000000-0000-0000-0000-000000000000", valido: False) [5 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "abc", valido: False) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f", valido: True) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado [< 1 ms]
 warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
-      No XML encryptor configured. Key {24f4dd52-3ec6-408a-ad2a-909899b60acc} may be persisted to storage in unencrypted form.
+      No XML encryptor configured. Key {0ff4aece-38d9-4620-8187-99f9ba6041ef} may be persisted to storage in unencrypted form.
 --
-  Passed HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura [1 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core [2 ms]
-  Passed HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura [< 1 ms]
-  Passed HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao [234 ms]
-  Passed HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync [1 ms]
+  Passed HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso [120 ms]
+  Passed HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio [7 ms]
+  Passed HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel [1 ms]
+  Passed HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao [119 ms]
+  Passed HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync [2 ms]
   Passed HubPedidos.Tests.FilaTests.Modo_DropOldest_descarta_e_contabiliza [< 1 ms]
   Passed HubPedidos.Tests.FilaTests.Fila_concluida_nao_aceita_novos_itens [< 1 ms]
+  Passed HubPedidos.Tests.ApiIntegracaoTests.Grafo_de_DI_e_valido_e_ambiente_de_testes_recusa_banco_em_arquivo [1 s]
+  Passed HubPedidos.Tests.EfCoreTests.Parametros_do_usuario_nao_mudam_a_forma_do_SQL [1 s]
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+--
+  Passed HubPedidos.Tests.EfCoreTests.Painel_usa_dois_comandos_e_so_as_colunas_necessarias [132 ms]
+  Passed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [144 ms]
 
 ######## Roteiro 8: revisão automatizada completa (3 execuções da suíte)
 revisao.sh saiu com código 1
-   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
---- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [167 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [484 ms]
   Error Message:
-   Assert.Equal() Failure: Values differ
-Expected: 1
-Actual:   2
+   Assert.Equal() Failure: Strings differ
+           ↓ (pos 0)
+Expected: "private, no-cache"
+Actual:   "no-cache, private"
+           ↑ (pos 0)
   Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 154
-   at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 159
+     at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
+   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
 --- End of stack trace from previous location ---
 Results File: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/resultados-testes/resultado.trx
 
-Failed!  - Failed:     5, Passed:    63, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+Failed!  - Failed:     1, Passed:    67, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
 revisao.sh saiu com código 1
 
 ######## Roteiro 1: classificação e catálogo
@@ -135,7 +136,7 @@ Limite: R$ 10.000,00              10.000,00  AltoValor
 Limite: 99 unidades                   99,00  Padrao
 Limite: 100 unidades                 100,00  GrandeVolume
 
-Catálogo construído por reflexão restrita em 21.30 ms (assembly HubPedidos.Application):
+Catálogo construído por reflexão restrita em 18.55 ms (assembly HubPedidos.Application):
   Internacional  -> ProcessadorInternacional
   AltoValor      -> ProcessadorConferenciaManual
   Expresso       -> ProcessadorExpresso
@@ -149,40 +150,40 @@ Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Guid
 ==== Comandos para a mesma página: ingênuo (N+1) = 21, projeção = 2
 
 ==== Página profunda (posição 15.000 de 20.000), média de 50 execuções
-  Deslocamento (Skip/Take): 7.67 ms
-  Cursor (keyset/WHERE):    1.67 ms
+  Deslocamento (Skip/Take): 7.95 ms
+  Cursor (keyset/WHERE):    1.60 ms
 
 ######## Roteiro 4: experimentos da fila
 Produtor: 2.000 pedidos a ~500/s. Banco simulado: 4 ms + 3 ms por operação concorrente extra (contenção).
 
 Configuração                          Aceitos  Rejeit. Descart. Process.  FilaMáx Banco máx   p50 ms   p95 ms  Vazão/s
-A: cap 50, 4 consumidores, banco 4       1262      738        0     1262       50         4      173      181      302
-B: cap 500, 16 consumidores, banco 16     1813      187        0     1813      500        16      984     1585      325
-C: cap 50, 4 cons., DropOldest           2000        0      738     1262       50         4      108      114      302
+A: cap 50, 4 consumidores, banco 4       1265      735        0     1265       50         4      173      180      304
+B: cap 500, 16 consumidores, banco 16     1813      187        0     1813      500        16      986     1583      325
+C: cap 50, 4 cons., DropOldest           2000        0      733     1267       50         4      109      114      304
 
 ######## Roteiros 2, 3 e 5: BenchmarkDotNet
-Skewness = -0.12, Kurtosis = 1.33, MValue = 2
+Mean = 805.384 ns, StdErr = 1.112 ns (0.14%), N = 10, StdDev = 3.515 ns
+Min = 801.293 ns, Q1 = 801.657 ns, Median = 806.335 ns, Q3 = 807.591 ns, Max = 810.359 ns
+IQR = 5.934 ns, LowerFence = 792.757 ns, UpperFence = 816.491 ns
+ConfidenceInterval = [800.070 ns; 810.698 ns] (CI 99.9%), Margin = 5.314 ns (0.66% of Mean)
+Skewness = -0.02, Kurtosis = 1.19, MValue = 2
 -------------------- Histogram --------------------
-[1.117 us ; 1.120 us) | @@@@@@@@@
+[799.152 ns ; 812.500 ns) | @@@@@@@@@@
 ---------------------------------------------------
 
 // * Summary *
 
 BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
-AMD EPYC 7763 2.79GHz, 1 CPU, 4 logical and 2 physical cores
+INTEL XEON PLATINUM 8573C 3.10GHz, 1 CPU, 4 logical and 2 physical cores
 .NET SDK 10.0.403
-  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
-  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
+  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
 
 IterationCount=10  LaunchCount=1  WarmupCount=3  
 
-| Method             | Mean     | Error     | StdDev    | Gen0   | Allocated |
-|------------------- |---------:|----------:|----------:|-------:|----------:|
-| MapearEClassificar | 1.118 us | 0.0011 us | 0.0007 us | 0.0324 |     552 B |
-
-// * Hints *
-Outliers
-  MapeamentoBench.MapearEClassificar: IterationCount=10, LaunchCount=1, WarmupCount=3 -> 1 outlier  was  removed (1.12 us)
+| Method             | Mean     | Error   | StdDev  | Gen0   | Allocated |
+|------------------- |---------:|--------:|--------:|-------:|----------:|
+| MapearEClassificar | 805.4 ns | 5.31 ns | 3.52 ns | 0.0057 |     552 B |
 
 // * Legends *
   Mean      : Arithmetic mean of all measurements
@@ -190,63 +191,63 @@ Outliers
   StdDev    : Standard deviation of all measurements
   Gen0      : GC Generation 0 collects per 1000 operations
   Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
-  1 us      : 1 Microsecond (0.000001 sec)
+  1 ns      : 1 Nanosecond (0.000000001 sec)
 
 // * Diagnostic Output - MemoryDiagnoser *
 
 
 // ***** BenchmarkRunner: End *****
-Run time: 00:00:09 (9.86 sec), executed benchmarks: 1
+Run time: 00:00:14 (14.14 sec), executed benchmarks: 1
 
-Global total time: 00:02:35 (155.07 sec), executed benchmarks: 11
+Global total time: 00:02:59 (179.22 sec), executed benchmarks: 11
 // * Artifacts cleanup *
 Artifacts cleanup is finished
 
 ######## Roteiro 5: publicação Release, massa de dados e carga
   HubPedidos.Api -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/
 20000 pedidos gravados em /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/hub.db
-API (Ingenuo) no PID 5442
-painel   conc= 16  amostras=    86  erros=   3  p50= 2580.5 ms  p95= 4522.4 ms  p99= 4864.6 ms  máx= 4864.6 ms  vazão=    4.5 req/s
-API (Otimizado) no PID 5730
-painel   conc= 16  amostras= 17355  erros=   0  p50=   17.1 ms  p95=   28.9 ms  p99=   34.8 ms  máx=   60.0 ms  vazão=  867.8 req/s
-painel   conc=  4  amostras=  6928  erros=   0  p50=    4.6 ms  p95=    7.1 ms  p99=    8.3 ms  máx=   14.7 ms  vazão=  866.0 req/s
-painel   conc=  8  amostras=  7494  erros=   0  p50=    8.2 ms  p95=   13.5 ms  p99=   16.1 ms  máx=   22.7 ms  vazão=  936.8 req/s
-painel   conc= 16  amostras=  7557  erros=   0  p50=   16.0 ms  p95=   25.4 ms  p99=   29.0 ms  máx=   36.9 ms  vazão=  944.6 req/s
-painel   conc= 32  amostras=  7508  erros=   0  p50=   31.8 ms  p95=   50.9 ms  p99=   58.1 ms  máx=   66.3 ms  vazão=  938.5 req/s
-painel   conc= 64  amostras=  7535  erros=   0  p50=   65.9 ms  p95=   92.7 ms  p99=  112.3 ms  máx=  132.7 ms  vazão=  941.9 req/s
-criar    conc=  8  amostras=  2020  erros=3816  p50=    5.1 ms  p95=   72.3 ms  p99=  451.7 ms  máx= 1354.1 ms  vazão=  389.1 req/s
-{"fila":{"aceitos":2583,"rejeitados":3847,"descartados":0,"processados":2491,"falhas":0,"duplicados":0,"profundidade":88,"profundidadeMaxima":100,"latenciaP50Ms":612.7936,"latenciaP95Ms":1267.8977},"capacidade":100,"modo":"Wait","limiteBanco":4,"maximoBancoObservado":4}
+API (Ingenuo) no PID 5491
+painel   conc= 16  amostras=    69  erros=   9  p50= 2407.5 ms  p95= 4570.0 ms  p99= 4570.1 ms  máx= 4570.1 ms  vazão=    3.9 req/s
+API (Otimizado) no PID 5651
+painel   conc= 16  amostras= 17322  erros=   0  p50=   16.1 ms  p95=   35.5 ms  p99=   46.1 ms  máx=   75.7 ms  vazão=  866.1 req/s
+painel   conc=  4  amostras=  8598  erros=   0  p50=    3.7 ms  p95=    5.8 ms  p99=    7.0 ms  máx=   11.3 ms  vazão= 1074.8 req/s
+painel   conc=  8  amostras=  9200  erros=   0  p50=    6.6 ms  p95=   11.2 ms  p99=   13.3 ms  máx=   19.5 ms  vazão= 1150.0 req/s
+painel   conc= 16  amostras=  9377  erros=   0  p50=   12.9 ms  p95=   21.2 ms  p99=   24.3 ms  máx=   33.6 ms  vazão= 1172.1 req/s
+painel   conc= 32  amostras=  9476  erros=   0  p50=   25.2 ms  p95=   40.8 ms  p99=   47.0 ms  máx=   55.7 ms  vazão= 1184.5 req/s
+painel   conc= 64  amostras=  9426  erros=   0  p50=   52.3 ms  p95=   75.1 ms  p99=   88.4 ms  máx=  105.8 ms  vazão= 1178.2 req/s
+criar    conc=  8  amostras=  1909  erros=3578  p50=    6.5 ms  p95=  152.6 ms  p99=  466.7 ms  máx= 1204.5 ms  vazão=  365.8 req/s
+{"fila":{"aceitos":2433,"rejeitados":3580,"descartados":0,"processados":2333,"falhas":0,"duplicados":0,"profundidade":97,"profundidadeMaxima":200,"latenciaP50Ms":921.8422,"latenciaP95Ms":3665.0346},"capacidade":200,"modo":"Wait","limiteBanco":4,"maximoBancoObservado":4}
 
 ######## Roteiros 6 e 7: HTTP (versões, ETag, cache)
-pedido criado: 01a1a2cc-d427-7f0c-9d23-1c1c683c7f35
+pedido criado: 01a1a2d7-74af-7d7a-9a44-9969f2ae36b3
 
 ################ ROTEIRO 6 – versões
 
 $ GET /api/v1/pedidos/{id}   (contrato v1)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "05337948da321e78ae24"
+ETag: "af18188a0bc811f70a3b"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
-{"id":"01a1a2cc-d427-7f0c-9d23-1c1c683c7f35","cliente":"ana","status":"Processado","total":74.8,"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0}]}
+{"id":"01a1a2d7-74af-7d7a-9a44-9969f2ae36b3","cliente":"ana","status":"Processado","total":74.8,"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0}]}
 
 $ GET /api/v2/pedidos/{id}   (contrato v2)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "14728f3aade483292355"
+ETag: "33b7e7bd6a869d9cbb07"
 api-supported-versions: 1, 2
-{"id":"01a1a2cc-d427-7f0c-9d23-1c1c683c7f35","cliente":"ana","situacao":{"codigo":"Processado","descricao":"Pedido processado","atualizadoEmUtc":"2026-11-03T19:04:55.6155144"},"valores":{"total":74.8,"moeda":"BRL"},"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9,"subtotal":39.8},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0,"subtotal":35.0}],"versao":3,"canal":"app"}
+{"id":"01a1a2d7-74af-7d7a-9a44-9969f2ae36b3","cliente":"ana","situacao":{"codigo":"Processado","descricao":"Pedido processado","atualizadoEmUtc":"2026-11-03T19:16:31.9909537"},"valores":{"total":74.8,"moeda":"BRL"},"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9,"subtotal":39.8},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0,"subtotal":35.0}],"versao":3,"canal":"app"}
 
 $ GET /api/pedidos/{id}   (sem versão -> padrão v1)
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "05337948da321e78ae24"
+ETag: "af18188a0bc811f70a3b"
 api-version: 1
 
 $ GET /api/v9/pedidos/{id}   (versão não suportada)
-{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Versão não suportada","status":400,"detail":"A versão 9 não existe. Versões suportadas: 1, 2.","traceId":"00-0eaed9e44926ef5c1faa6a790172547a-8f03e00398281894-00"}
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Versão não suportada","status":400,"detail":"A versão 9 não existe. Versões suportadas: 1, 2.","traceId":"00-75b4dc2ddc83fe146df5620e8facafcc-eed8d7f40874a967-00"}
 HTTP 400
 
 ################ ROTEIRO 7 – ETag
@@ -254,16 +255,16 @@ HTTP 400
 $ GET /api/v1/pedidos/{id}
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "05337948da321e78ae24"
+ETag: "af18188a0bc811f70a3b"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 
-$ GET com If-None-Match: "05337948da321e78ae24"
+$ GET com If-None-Match: "af18188a0bc811f70a3b"
 HTTP/1.1 304 Not Modified
 Cache-Control: private, no-cache
-ETag: "05337948da321e78ae24"
+ETag: "af18188a0bc811f70a3b"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
@@ -277,18 +278,18 @@ HTTP 428
 $ PUT /status com If-Match obsoleto
 HTTP 412
 
-$ PUT /status com If-Match: "05337948da321e78ae24"
+$ PUT /status com If-Match: "af18188a0bc811f70a3b"
 HTTP/1.1 200 OK
-ETag: "8083b658ea02fa7dd6e1"
+ETag: "894ef4bd10ff97c805ec"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
 Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 
-$ GET com If-None-Match antigo: "05337948da321e78ae24"
+$ GET com If-None-Match antigo: "af18188a0bc811f70a3b"
 HTTP/1.1 200 OK
 Cache-Control: private, no-cache
-ETag: "8083b658ea02fa7dd6e1"
+ETag: "894ef4bd10ff97c805ec"
 api-supported-versions: 1, 2
 api-deprecated-versions: 1
 Deprecation: @1798761600
@@ -297,37 +298,79 @@ Sunset: Sat, 01 Jan 2028 00:00:00 GMT
 ################ ROTEIRO 7 – output cache (rota pública /api/v1/estatisticas)
 
 $ GET anônimo #1
-HTTP/1.1 500 Internal Server Error
+HTTP/1.1 200 OK
 
 ######## Roteiro 7: SignalR (autorização, streaming, queda e reconexão)
-19:04:59.592 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2cc-e5b0-7e68-bba6-31182e9be946 (Padrao)
-19:04:59.718 [ana  ] estado: Connected
-19:04:59.739 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
-19:04:59.742 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
-19:04:59.755 [ana  ] stream do pedido 01a1a2cc…: EmProcessamento (v2)
-19:04:59.804 [ana  ] stream do pedido 01a1a2cc…: Processado (v3)
-19:04:59.812 [ana  ] estado inicial via HTTP: Processado
-19:04:59.823 [http ] PUT status=Cancelado (If-Match "59f93adf3d0de05df517") -> 200
-19:04:59.830 [ana  ] evento PedidoAtualizado: Cancelado (v4)
-19:05:00.128 [http ] POST /dev/hub/derrubar -> 200 {"derrubadas":2}
-19:05:00.145 [ana  ] estado: Desconectado
-19:05:00.332 [http ] PUT status=Recebido (If-Match "e44bd04e84e7667dadcb") -> 200
-Unhandled exception. System.TimeoutException: The operation has timed out.
-   at HubPedidos.Ferramentas.TempoReal.ExecutarAsync(String url) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/TempoReal.cs:line 67
-   at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 12
-   at Program.<Main>(String[] args)
+19:16:36.280 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2d7-8723-7dc3-a47e-0ff2c4a2b455 (Padrao)
+19:16:36.530 [ana  ] estado: Connected
+19:16:36.569 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
+19:16:36.581 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
+19:16:36.595 [ana  ] stream do pedido 01a1a2d7…: EmProcessamento (v2)
+19:16:36.646 [ana  ] stream do pedido 01a1a2d7…: Processado (v3)
+19:16:36.654 [ana  ] estado inicial via HTTP: Processado
+19:16:36.664 [http ] PUT status=Cancelado (If-Match "f29875b6544d5c46b14b") -> 200
+19:16:36.671 [ana  ] evento PedidoAtualizado: Cancelado (v4)
+19:16:36.970 [proxy] queda de rede simulada: 2 conexão(ões) TCP cortada(s)
+19:16:36.978 [ana  ] estado: Reconectando (ações desabilitadas) – WebSocketException
+19:16:37.176 [http ] PUT status=Recebido (If-Match "f1cf8898e1b215308b35") -> 200
+19:16:37.984 [ana  ] estado: Conectado novamente (nova conexão xlSHf0uA…)
+19:16:38.025 [ana  ] reingressou no grupo do pedido após revalidação
+19:16:38.028 [ana  ] reconciliação HTTP: status atual = Recebido, versão = 5
+19:16:38.032 [http ] PUT status=Cancelado (If-Match "d3fdc1ebc861447ffee8") -> 200
+19:16:38.065 [ana  ] evento PedidoAtualizado: Cancelado (v6)
+19:16:38.343 [ana  ] estado: Desconectado
 
 ######## Roteiro 5: traces convertidos
-Traceback (most recent call last):
-  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
-    d = json.load(open(sys.argv[1]))
-                  ^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_antes.speedscope.json'
-Traceback (most recent call last):
-  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
-    d = json.load(open(sys.argv[1]))
-                  ^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_depois.speedscope.json'
+tempo total amostrado (todas as threads): 121,217 milliseconds
+
+TOP 12 – tempo próprio
+ 67.20%  UNMANAGED_CODE_TIME
+ 32.80%  CPU_TIME
+  0.00%  System.Private.CoreLib!System.Threading.ThreadPoolWorkQueue.Dispatch()
+  0.00%  ?!?
+  0.00%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarIngenuoAsync>d__12.MoveNext()
+  0.00%  System.Private.CoreLib!System.Threading.WaitHandle.WaitOneNoCheck(int32,bool,class System.Object,value class W
+  0.00%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+  0.00%  Microsoft.AspNetCore.Server.Kestrel.Core!Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol+<
+  0.00%  System.Private.CoreLib!System.Diagnostics.Tracing.CounterGroup.PollForValues()
+  0.00%  Anonymously Hosted DynamicMethods Assembly!dynamicClass.lambda_method45(pMT: 0x7ff80f258678,class System.Objec
+  0.00%  Anonymously Hosted DynamicMethods Assembly!dynamicClass.lambda_method73(pMT: 0x7ff80f258678,pMT: 0x7ff811f4ea9
+  0.00%  Microsoft.EntityFrameworkCore!Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+<ToListAsync>d_
+
+TOP 15 – tempo inclusivo em código HubPedidos / EF Core / SQLite
+100.00%  Process64 dotnet (5491) Args: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/HubPed
+ 38.42%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c.<MapPedidos>b__2_0(class Microsoft.AspNetCore.Htt
+ 38.42%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c+<<MapPedidos>b__2_0>d.MoveNext()
+ 38.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints.ListarAsync(class System.String,value class System.Nu
+ 38.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<ListarAsync>d__6.MoveNext()
+ 38.41%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos.ListarIngenuoAsync(class HubPedidos.App
+ 38.41%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarIngenuoAsync>d__12.MoveNext()
+ 37.61%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable
+tempo total amostrado (todas as threads): 167,412 milliseconds
+
+TOP 12 – tempo próprio
+ 73.63%  UNMANAGED_CODE_TIME
+ 26.37%  CPU_TIME
+  0.00%  System.Private.CoreLib!System.Threading.PortableThreadPool+WorkerThread.WorkerThreadStart()
+  0.00%  System.Private.CoreLib!System.Threading.Monitor.Wait(class System.Object,int32)
+  0.00%  System.Private.CoreLib!System.Threading.WaitHandle.WaitOneNoCheck(int32,bool,class System.Object,value class W
+  0.00%  System.Private.CoreLib!System.Threading.PortableThreadPool+GateThread.GateThreadStart()
+  0.00%  System.Private.CoreLib!System.Threading.LowLevelLifoSemaphore.WaitForSignal(int32)
+  0.00%  System.Private.CoreLib!System.Threading.ThreadPoolWorkQueue.Dispatch()
+  0.00%  Microsoft.AspNetCore.Server.Kestrel.Core!Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol+<
+  0.00%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarAsync>d__11.MoveNext()
+  0.00%  System.Diagnostics.DiagnosticSource!System.Diagnostics.Metrics.AggregationManager.CollectWorker()
+  0.00%  Anonymously Hosted DynamicMethods Assembly!dynamicClass.lambda_method45(pMT: 0x7f9dce288678,class System.Objec
+
+TOP 15 – tempo inclusivo em código HubPedidos / EF Core / SQLite
+100.00%  Process64 dotnet (5651) Args: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/HubPed
+ 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c.<MapPedidos>b__2_0(class Microsoft.AspNetCore.Htt
+ 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<>c+<<MapPedidos>b__2_0>d.MoveNext()
+ 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints.ListarAsync(class System.String,value class System.Nu
+ 23.41%  HubPedidos.Api!HubPedidos.Api.Endpoints.PedidosEndpoints+<ListarAsync>d__6.MoveNext()
+ 23.36%  HubPedidos.Infrastructure!HubPedidos.Infrastructure.RepositorioPedidos+<ListarAsync>d__11.MoveNext()
+ 18.92%  Microsoft.EntityFrameworkCore.Relational!Microsoft.EntityFrameworkCore.Storage.RelationalCommand+<ExecuteReade
+ 18.15%  Microsoft.Data.Sqlite!Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(value class System.Data.Com
 
 ######## Roteiro 8: a revisão automatizada bloqueia falhas
 ===== [revisão] 1/4 restore
@@ -339,12 +382,10 @@ revisao.sh saiu com código 1
 ===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
 ===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
 ===== [revisão] 4/4 testes
-[xUnit.net 00:00:00.39]     HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [FAIL]
-[xUnit.net 00:00:00.40]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
-  Failed HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [4 ms]
+[xUnit.net 00:00:00.90]     HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [FAIL]
+  Failed HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [1 ms]
      at HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado() in /tmp/gate/tests/HubPedidos.Tests/FalhaProposital.cs:line 6
-  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [104 ms]
-     at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /tmp/gate/tests/HubPedidos.Tests/FilaTests.cs:line 115
-   at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /tmp/gate/tests/HubPedidos.Tests/FilaTests.cs:line 120
-  Failed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [37 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [640 ms]
+Failed!  - Failed:     2, Passed:    67, Skipped:     0, Total:    69, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+revisao.sh saiu com código 1
 fim

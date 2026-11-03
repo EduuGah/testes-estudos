@@ -1,1 +1,1 @@
-{"fila":{"aceitos":2583,"rejeitados":3847,"descartados":0,"processados":2491,"falhas":0,"duplicados":0,"profundidade":88,"profundidadeMaxima":100,"latenciaP50Ms":612.7936,"latenciaP95Ms":1267.8977},"capacidade":100,"modo":"Wait","limiteBanco":4,"maximoBancoObservado":4}
+{"fila":{"aceitos":2433,"rejeitados":3580,"descartados":0,"processados":2333,"falhas":0,"duplicados":0,"profundidade":97,"profundidadeMaxima":200,"latenciaP50Ms":921.8422,"latenciaP95Ms":3665.0346},"capacidade":200,"modo":"Wait","limiteBanco":4,"maximoBancoObservado":4}

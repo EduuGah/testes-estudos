@@ -1,19 +1,19 @@
 
 ===== [revisão] 1/4 restore
   Determining projects to restore...
-  Restored /tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj (in 214 ms).
-  Restored /tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj (in 408 ms).
-  Restored /tmp/gate/src/HubPedidos.Domain/HubPedidos.Domain.csproj (in 2 ms).
-  Restored /tmp/gate/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 449 ms).
-  Restored /tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj (in 214 ms).
-  Restored /tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 469 ms).
-  Restored /tmp/gate/src/HubPedidos.Api/HubPedidos.Api.csproj (in 16 ms).
+  Restored /tmp/gate/src/HubPedidos.Domain/HubPedidos.Domain.csproj (in 176 ms).
+  Restored /tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj (in 200 ms).
+  Restored /tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj (in 470 ms).
+  Restored /tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj (in 488 ms).
+  Restored /tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 283 ms).
+  Restored /tmp/gate/src/HubPedidos.Api/HubPedidos.Api.csproj (in 294 ms).
+  Restored /tmp/gate/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 41 ms).
 
 ===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
   HubPedidos.Domain -> /tmp/gate/src/HubPedidos.Domain/bin/Release/net10.0/HubPedidos.Domain.dll
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(95,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(103,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(98,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(40,13): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
   HubPedidos.Application -> /tmp/gate/src/HubPedidos.Application/bin/Release/net10.0/HubPedidos.Application.dll
   HubPedidos.Infrastructure -> /tmp/gate/src/HubPedidos.Infrastructure/bin/Release/net10.0/HubPedidos.Infrastructure.dll
@@ -27,9 +27,9 @@
 
 Build succeeded.
 
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(95,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(103,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(98,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(40,13): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/ferramentas/HubPedidos.Ferramentas/Carga.cs(33,82): warning CA1869: Avoid creating a new 'JsonSerializerOptions' instance for every serialization operation. Cache and reuse instances instead. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1869) [/tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
 /tmp/gate/tests/HubPedidos.Tests/ImportacaoTests.cs(31,21): warning CA1710: Rename HubPedidos.Tests.StreamGerado to end in 'Stream' (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1710) [/tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
@@ -37,16 +37,15 @@ Build succeeded.
     7 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:03.02
+Time Elapsed 00:00:03.65
 
 ===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
 
 ===== [revisão] 4/4 testes
 Test run for /tmp/gate/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll (.NETCoreApp,Version=v10.0)
 A total of 1 test files matched the specified pattern.
-[xUnit.net 00:00:00.39]     HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [FAIL]
-[xUnit.net 00:00:00.40]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
-  Failed HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [4 ms]
+[xUnit.net 00:00:00.90]     HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [FAIL]
+  Failed HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [1 ms]
   Error Message:
    Assert.Equal() Failure: Values differ
 Expected: 74.80
@@ -55,53 +54,8 @@ Actual:   69.80
      at HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado() in /tmp/gate/tests/HubPedidos.Tests/FalhaProposital.cs:line 6
    at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
    at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
-  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [104 ms]
-  Error Message:
-   Assert.Equal() Failure: Values differ
-Expected: 9
-Actual:   0
-  Stack Trace:
-     at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /tmp/gate/tests/HubPedidos.Tests/FilaTests.cs:line 115
-   at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /tmp/gate/tests/HubPedidos.Tests/FilaTests.cs:line 120
---- End of stack trace from previous location ---
-[xUnit.net 00:00:01.87]     HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [FAIL]
-[xUnit.net 00:00:01.88]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
-[xUnit.net 00:00:01.99]     HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [FAIL]
-[xUnit.net 00:00:02.04]     HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [FAIL]
-  Failed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [37 ms]
-  Error Message:
-   System.InvalidOperationException : The compiled query '(ctx, id, _) => ctx.Pedidos
-    .AsNoTracking()
-    .Where(p => p.Id == id)
-    .Select(p => new PedidoDetalhe(
-        p.Id, 
-        p.Cliente, 
-        p.Regiao, 
-        p.Prioridade, 
-        p.Status, 
-        (decimal)p.TotalCentavos / 100, 
-        p.Versao, 
-        p.AtualizadoEmUtc, 
-        p.Itens
-            .OrderBy(i => i.Id)
-            .Select(i => new ItemDetalhe(
-                i.Sku, 
-                i.Quantidade, 
-                (decimal)i.PrecoCentavos / 100
-            ))
-            .ToList(), 
-        p.Metadados.Canal
-    ))
-    .FirstOrDefault()' was executed with a different model than it was compiled against. Compiled queries can only be used with a single model.
-  Stack Trace:
-     at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryBase`2.ExecuteCore(TContext context, CancellationToken cancellationToken, Object[] parameters)
-   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledAsyncTaskQuery`2.ExecuteAsync[TParam1](TContext context, TParam1 param1, CancellationToken cancellationToken)
-   at HubPedidos.Infrastructure.RepositorioPedidos.ObterDetalheAsync(PedidoId id, CancellationToken ct) in /tmp/gate/src/HubPedidos.Infrastructure/RepositorioPedidos.cs:line 44
-   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /tmp/gate/tests/HubPedidos.Tests/EfCoreTests.cs:line 151
-   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /tmp/gate/tests/HubPedidos.Tests/EfCoreTests.cs:line 155
-   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /tmp/gate/tests/HubPedidos.Tests/EfCoreTests.cs:line 155
---- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [442 ms]
+[xUnit.net 00:00:01.89]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [640 ms]
   Error Message:
    Assert.Equal() Failure: Strings differ
            ↓ (pos 0)
@@ -112,27 +66,8 @@ Actual:   "no-cache, private"
      at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /tmp/gate/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
    at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /tmp/gate/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
 --- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [15 ms]
-  Error Message:
-   Assert.Contains() Failure: Sub-string not found
-String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
-Not found: "json_extract"
-  Stack Trace:
-     at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /tmp/gate/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
-   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /tmp/gate/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
-   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /tmp/gate/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
---- End of stack trace from previous location ---
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [159 ms]
-  Error Message:
-   Assert.Equal() Failure: Values differ
-Expected: 1
-Actual:   2
-  Stack Trace:
-     at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /tmp/gate/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 154
-   at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /tmp/gate/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 159
---- End of stack trace from previous location ---
 WARNING: Overwriting results file: /tmp/gate/resultados-testes/resultado.trx
 Results File: /tmp/gate/resultados-testes/resultado.trx
 
-Failed!  - Failed:     6, Passed:    63, Skipped:     0, Total:    69, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+Failed!  - Failed:     2, Passed:    67, Skipped:     0, Total:    69, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
 revisao.sh saiu com código 1

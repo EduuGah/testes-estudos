@@ -1,3 +1,2 @@
-  Failed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [15 ms]
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [154 ms]
-Failed!  - Failed:     5, Passed:    63, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [518 ms]
+Failed!  - Failed:     1, Passed:    67, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)

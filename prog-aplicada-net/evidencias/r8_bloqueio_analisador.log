@@ -1,31 +1,31 @@
 
 ===== [revisão] 1/4 restore
   Determining projects to restore...
-  Restored /tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 488 ms).
-  Restored /tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj (in 477 ms).
-  Restored /tmp/gate/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 477 ms).
-  Restored /tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj (in 477 ms).
+  Restored /tmp/gate/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 524 ms).
+  Restored /tmp/gate/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 513 ms).
+  Restored /tmp/gate/src/HubPedidos.Api/HubPedidos.Api.csproj (in 524 ms).
+  Restored /tmp/gate/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj (in 512 ms).
   Restored /tmp/gate/src/HubPedidos.Domain/HubPedidos.Domain.csproj (in 3 ms).
-  Restored /tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj (in 2 ms).
-  Restored /tmp/gate/src/HubPedidos.Api/HubPedidos.Api.csproj (in 12 ms).
+  Restored /tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj (in 3 ms).
+  Restored /tmp/gate/tests/HubPedidos.Tests/HubPedidos.Tests.csproj (in 31 ms).
 
 ===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
   HubPedidos.Domain -> /tmp/gate/src/HubPedidos.Domain/bin/Release/net10.0/HubPedidos.Domain.dll
 /tmp/gate/src/HubPedidos.Application/ViolacaoProposital.cs(6,62): error CA2016: Forward the 'ct' parameter to the 'Delay' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2016) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(95,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(103,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(98,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(40,13): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 
 Build FAILED.
 
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(95,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
-/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(103,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(98,9): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(90,17): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Fila/Fila.cs(134,21): warning CA1001: Type 'LimitadorBanco' owns disposable field(s) '_semaforo' but is not disposable (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1001) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/Processamento/ServicoProcessamento.cs(40,13): warning CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
 /tmp/gate/src/HubPedidos.Application/ViolacaoProposital.cs(6,62): error CA2016: Forward the 'ct' parameter to the 'Delay' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2016) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
     4 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:01.06
+Time Elapsed 00:00:00.85
 revisao.sh saiu com código 1

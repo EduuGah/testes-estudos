@@ -1,667 +1,667 @@
 Timestamp,Provider,Counter Name,Counter Type,Mean/Increment
-11/03/2026 19:03:21,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:21,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:21,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00516510009765625
-11/03/2026 19:03:21,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0129852294921875
-11/03/2026 19:03:21,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01776123046875
-11/03/2026 19:03:21,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,181976
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,13800
-11/03/2026 19:03:21,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:21,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:21,System.Runtime,dotnet.process.memory.working_set (By),Metric,188411904
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,448816
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,165360
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,926048
-11/03/2026 19:03:21,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18096128
-11/03/2026 19:03:22,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.03215000000000001
-11/03/2026 19:03:22,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.4422790000000028
-11/03/2026 19:03:22,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.12344600000000006
-11/03/2026 19:03:22,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,6
-11/03/2026 19:03:22,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,509
-11/03/2026 19:03:22,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:22,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:22,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,9768
-11/03/2026 19:03:22,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00501251220703125
-11/03/2026 19:03:22,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0110321044921875
-11/03/2026 19:03:22,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.013824462890625
-11/03/2026 19:03:22,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:22,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:22,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:22,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,3
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,2320328
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,13800
-11/03/2026 19:03:22,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:22,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:22,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1496
-11/03/2026 19:03:22,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,109
-11/03/2026 19:03:22,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,297114504
-11/03/2026 19:03:22,System.Runtime,dotnet.process.memory.working_set (By),Metric,193380352
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,2668984
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,165360
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,926048
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,27
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:22,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.05892009999999992
-11/03/2026 19:03:22,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,23146496
-11/03/2026 19:03:23,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.034065999999999985
-11/03/2026 19:03:23,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.514054999999999
-11/03/2026 19:03:23,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.12110899999999991
-11/03/2026 19:03:23,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:23,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,357
-11/03/2026 19:03:23,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:23,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:23,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,11687
-11/03/2026 19:03:23,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.004791259765625
-11/03/2026 19:03:23,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0119781494140625
-11/03/2026 19:03:23,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01702880859375
-11/03/2026 19:03:23,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:23,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:23,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:23,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,1
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,4104
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,13800
-11/03/2026 19:03:23,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:23,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:23,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1605
-11/03/2026 19:03:23,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,84
-11/03/2026 19:03:23,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,299626304
-11/03/2026 19:03:23,System.Runtime,dotnet.process.memory.working_set (By),Metric,196034560
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,256680
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,165360
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,926048
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,24
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:23,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.1378143999999999
-11/03/2026 19:03:23,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25554944
-11/03/2026 19:03:24,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.029364
-11/03/2026 19:03:24,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.3181119999999993
-11/03/2026 19:03:24,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.12827999999999995
-11/03/2026 19:03:24,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
-11/03/2026 19:03:24,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,464
-11/03/2026 19:03:24,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:24,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:24,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,6155
-11/03/2026 19:03:24,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00492095947265625
-11/03/2026 19:03:24,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.011444091796875
-11/03/2026 19:03:24,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0142669677734375
-11/03/2026 19:03:24,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:24,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:24,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:24,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,0
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,107296
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,21600
-11/03/2026 19:03:24,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:24,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:24,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1478
-11/03/2026 19:03:24,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,85
-11/03/2026 19:03:24,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,283066576
-11/03/2026 19:03:24,System.Runtime,dotnet.process.memory.working_set (By),Metric,194793472
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,332512
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,169480
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1477016
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,24
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:24,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.08086310000000019
-11/03/2026 19:03:24,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,24883200
-11/03/2026 19:03:25,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.03311700000000001
-11/03/2026 19:03:25,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.392470000000003
-11/03/2026 19:03:25,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.12317700000000009
-11/03/2026 19:03:25,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:25,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,513
-11/03/2026 19:03:25,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:25,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:25,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,14248
-11/03/2026 19:03:25,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00499725341796875
-11/03/2026 19:03:25,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0100250244140625
-11/03/2026 19:03:25,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01318359375
-11/03/2026 19:03:25,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:25,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:25,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:25,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-5
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,2760
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,16480
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,21600
-11/03/2026 19:03:25,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:25,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:25,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1446
-11/03/2026 19:03:25,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,94
-11/03/2026 19:03:25,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,282385056
-11/03/2026 19:03:25,System.Runtime,dotnet.process.memory.working_set (By),Metric,194682880
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,213664
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,169480
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1477016
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,31
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:25,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.12007089999999998
-11/03/2026 19:03:25,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,23191552
-11/03/2026 19:03:26,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.029007999999999978
-11/03/2026 19:03:26,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.3886970000000005
-11/03/2026 19:03:26,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.13295999999999997
-11/03/2026 19:03:26,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:26,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,516
-11/03/2026 19:03:26,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:26,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:26,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,2656
-11/03/2026 19:03:26,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0050811767578125
-11/03/2026 19:03:26,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.011505126953125
-11/03/2026 19:03:26,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0151214599609375
-11/03/2026 19:03:26,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:26,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:26,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:26,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,2
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3152
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,16480
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,21600
-11/03/2026 19:03:26,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:26,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:26,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1490
-11/03/2026 19:03:26,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,45
-11/03/2026 19:03:26,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,287637800
-11/03/2026 19:03:26,System.Runtime,dotnet.process.memory.working_set (By),Metric,199340032
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,234576
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,169480
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1477016
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,26
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:26,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.04470200000000091
-11/03/2026 19:03:26,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,27774976
-11/03/2026 19:03:27,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.03434200000000004
-11/03/2026 19:03:27,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.3160899999999955
-11/03/2026 19:03:27,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.131162
-11/03/2026 19:03:27,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
-11/03/2026 19:03:27,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,545
-11/03/2026 19:03:27,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:27,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:27,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,2521
-11/03/2026 19:03:27,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00489044189453125
-11/03/2026 19:03:27,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.009979248046875
-11/03/2026 19:03:27,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.014739990234375
-11/03/2026 19:03:27,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:27,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:27,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:27,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,1
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,4080
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,16480
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,21600
-11/03/2026 19:03:27,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:27,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:27,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1429
-11/03/2026 19:03:27,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,14
-11/03/2026 19:03:27,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,283489520
-11/03/2026 19:03:27,System.Runtime,dotnet.process.memory.working_set (By),Metric,193593344
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,274528
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,169480
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1477016
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,31
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:27,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.022175400000000067
-11/03/2026 19:03:27,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,22093824
-11/03/2026 19:03:28,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.032472
-11/03/2026 19:03:28,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.381793000000002
-11/03/2026 19:03:28,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.13776699999999997
-11/03/2026 19:03:28,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,3
-11/03/2026 19:03:28,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,527
-11/03/2026 19:03:28,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:28,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:28,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,869
-11/03/2026 19:03:28,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00482940673828125
-11/03/2026 19:03:28,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.009796142578125
-11/03/2026 19:03:28,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01422119140625
-11/03/2026 19:03:28,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:28,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:28,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:28,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,2
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3120
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9248
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,12360
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,21600
-11/03/2026 19:03:28,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:28,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:28,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1470
-11/03/2026 19:03:28,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,22
-11/03/2026 19:03:28,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,289160520
-11/03/2026 19:03:28,System.Runtime,dotnet.process.memory.working_set (By),Metric,189747200
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,206304
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3963536
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,169480
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1477016
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,30
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:28,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.01634050000000009
-11/03/2026 19:03:28,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18165760
-11/03/2026 19:03:29,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.03973399999999999
-11/03/2026 19:03:29,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.406221000000002
-11/03/2026 19:03:29,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.13066899999999992
-11/03/2026 19:03:29,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:29,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,515
-11/03/2026 19:03:29,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:29,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:29,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,337
-11/03/2026 19:03:29,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00475311279296875
-11/03/2026 19:03:29,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0095367431640625
-11/03/2026 19:03:29,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01324462890625
-11/03/2026 19:03:29,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:29,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:29,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:29,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-4
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,4663264
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:29,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:29,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:29,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1481
-11/03/2026 19:03:29,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,8
-11/03/2026 19:03:29,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,289277896
-11/03/2026 19:03:29,System.Runtime,dotnet.process.memory.working_set (By),Metric,190533632
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,4844312
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,173600
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,32
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,1
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:29,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.011963099999999116
-11/03/2026 19:03:29,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,19034112
-11/03/2026 19:03:30,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.025009999999999977
-11/03/2026 19:03:30,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.462531999999996
-11/03/2026 19:03:30,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.14476800000000023
-11/03/2026 19:03:30,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
-11/03/2026 19:03:30,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,619
-11/03/2026 19:03:30,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:30,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:30,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,856
-11/03/2026 19:03:30,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00450897216796875
-11/03/2026 19:03:30,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.00743865966796875
-11/03/2026 19:03:30,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.00933837890625
-11/03/2026 19:03:30,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:30,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:30,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:30,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,7
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,2547256
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:30,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:30,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:30,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1517
-11/03/2026 19:03:30,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,20
-11/03/2026 19:03:30,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,296431768
-11/03/2026 19:03:30,System.Runtime,dotnet.process.memory.working_set (By),Metric,190509056
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,2772872
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,173600
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,29
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:30,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.006606100000000836
-11/03/2026 19:03:30,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18657280
-11/03/2026 19:03:31,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.024005999999999972
-11/03/2026 19:03:31,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.4531430000000043
-11/03/2026 19:03:31,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.14244199999999996
-11/03/2026 19:03:31,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
-11/03/2026 19:03:31,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,557
-11/03/2026 19:03:31,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:31,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:31,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,108
-11/03/2026 19:03:31,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0048980712890625
-11/03/2026 19:03:31,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0100860595703125
-11/03/2026 19:03:31,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.013763427734375
-11/03/2026 19:03:31,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:31,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:31,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:31,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-4
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3608
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:31,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:31,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:31,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1550
-11/03/2026 19:03:31,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,3
-11/03/2026 19:03:31,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,296737704
-11/03/2026 19:03:31,System.Runtime,dotnet.process.memory.working_set (By),Metric,190451712
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,250720
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,173600
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,28
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:31,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.001217600000000374
-11/03/2026 19:03:31,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18636800
-11/03/2026 19:03:32,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.028576000000000046
-11/03/2026 19:03:32,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.454096
-11/03/2026 19:03:32,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.1548370000000001
-11/03/2026 19:03:32,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
-11/03/2026 19:03:32,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,576
-11/03/2026 19:03:32,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:32,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:32,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,1695
-11/03/2026 19:03:32,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00490570068359375
-11/03/2026 19:03:32,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0094451904296875
-11/03/2026 19:03:32,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01446533203125
-11/03/2026 19:03:32,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:32,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:32,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:32,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-1
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3944
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:32,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:32,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:32,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1453
-11/03/2026 19:03:32,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,24
-11/03/2026 19:03:32,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,290681328
-11/03/2026 19:03:32,System.Runtime,dotnet.process.memory.working_set (By),Metric,199208960
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,263656
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,173600
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,27
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:32,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.02616469999999893
-11/03/2026 19:03:32,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18628608
-11/03/2026 19:03:33,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.045665999999999984
-11/03/2026 19:03:33,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.6366769999999917
-11/03/2026 19:03:33,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.14028799999999997
-11/03/2026 19:03:33,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:33,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,629
-11/03/2026 19:03:33,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:33,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:33,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,425
-11/03/2026 19:03:33,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00438690185546875
-11/03/2026 19:03:33,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.009002685546875
-11/03/2026 19:03:33,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01361083984375
-11/03/2026 19:03:33,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:33,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:33,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:33,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,7
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3248
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:33,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:33,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:33,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1523
-11/03/2026 19:03:33,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,4
-11/03/2026 19:03:33,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,305679976
-11/03/2026 19:03:33,System.Runtime,dotnet.process.memory.working_set (By),Metric,191033344
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,226472
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,173600
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,29
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:33,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.008192199999999872
-11/03/2026 19:03:33,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18976768
-11/03/2026 19:03:34,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.02456400000000003
-11/03/2026 19:03:34,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.781215000000003
-11/03/2026 19:03:34,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.12016699999999991
-11/03/2026 19:03:34,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
-11/03/2026 19:03:34,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,533
-11/03/2026 19:03:34,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:34,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:34,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,14
-11/03/2026 19:03:34,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00418853759765625
-11/03/2026 19:03:34,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.00740814208984375
-11/03/2026 19:03:34,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0113525390625
-11/03/2026 19:03:34,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:34,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:34,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:34,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-2
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3512
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:34,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:34,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:34,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1699
-11/03/2026 19:03:34,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,2
-11/03/2026 19:03:34,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,327247296
-11/03/2026 19:03:34,System.Runtime,dotnet.process.memory.working_set (By),Metric,190894080
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,236456
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,173600
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,31
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:34,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.0003232999999998043
-11/03/2026 19:03:34,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18796544
-11/03/2026 19:03:35,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.02795700000000001
-11/03/2026 19:03:35,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.761402000000004
-11/03/2026 19:03:35,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.12639099999999992
-11/03/2026 19:03:35,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
-11/03/2026 19:03:35,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,612
-11/03/2026 19:03:35,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:35,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:35,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,1678
-11/03/2026 19:03:35,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00431060791015625
-11/03/2026 19:03:35,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.00823974609375
-11/03/2026 19:03:35,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0120697021484375
-11/03/2026 19:03:35,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:35,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:35,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:35,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-6
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3560
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:35,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:35,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:35,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1644
-11/03/2026 19:03:35,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,13
-11/03/2026 19:03:35,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,325630384
-11/03/2026 19:03:35,System.Runtime,dotnet.process.memory.working_set (By),Metric,191188992
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,250472
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,177720
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,31
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:35,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.02020130000000009
-11/03/2026 19:03:35,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,19050496
-11/03/2026 19:03:36,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.027463999999999933
-11/03/2026 19:03:36,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.791844999999995
-11/03/2026 19:03:36,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.08869900000000008
-11/03/2026 19:03:36,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:36,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,353
-11/03/2026 19:03:36,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:36,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:36,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,294
-11/03/2026 19:03:36,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.004364013671875
-11/03/2026 19:03:36,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0096282958984375
-11/03/2026 19:03:36,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.012664794921875
-11/03/2026 19:03:36,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:36,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:36,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:36,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,6
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,4953816
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:36,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:36,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:36,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1672
-11/03/2026 19:03:36,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,8
-11/03/2026 19:03:36,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,326704776
-11/03/2026 19:03:36,System.Runtime,dotnet.process.memory.working_set (By),Metric,190914560
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,5128880
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,177720
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,31
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:36,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.007548800000000355
-11/03/2026 19:03:36,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18780160
-11/03/2026 19:03:37,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.02868000000000004
-11/03/2026 19:03:37,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.744912999999997
-11/03/2026 19:03:37,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.10376200000000013
-11/03/2026 19:03:37,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:37,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,400
-11/03/2026 19:03:37,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:37,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:37,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,2334
-11/03/2026 19:03:37,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0045166015625
-11/03/2026 19:03:37,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0089874267578125
-11/03/2026 19:03:37,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0126190185546875
-11/03/2026 19:03:37,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:37,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:37,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:37,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,0
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3248
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:37,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:37,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:37,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1664
-11/03/2026 19:03:37,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,21
-11/03/2026 19:03:37,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,323234128
-11/03/2026 19:03:37,System.Runtime,dotnet.process.memory.working_set (By),Metric,190832640
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,223408
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,177720
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,30
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:37,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.01864450000000062
-11/03/2026 19:03:37,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18616320
-11/03/2026 19:03:38,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.038734999999999964
-11/03/2026 19:03:38,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.68878500000001
-11/03/2026 19:03:38,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.0814499999999998
-11/03/2026 19:03:38,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
-11/03/2026 19:03:38,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,301
-11/03/2026 19:03:38,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
-11/03/2026 19:03:38,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
-11/03/2026 19:03:38,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,565
-11/03/2026 19:03:38,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00443267822265625
-11/03/2026 19:03:38,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0098724365234375
-11/03/2026 19:03:38,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.012451171875
-11/03/2026 19:03:38,System.Runtime,dotnet.assembly.count ({assembly}),Metric,144
-11/03/2026 19:03:38,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
-11/03/2026 19:03:38,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
-11/03/2026 19:03:38,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-7
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,2642408
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,9624
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,20600
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,15624
-11/03/2026 19:03:38,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
-11/03/2026 19:03:38,System.Runtime,dotnet.timer.count ({timer}),Metric,3
-11/03/2026 19:03:38,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1629
-11/03/2026 19:03:38,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,10
-11/03/2026 19:03:38,HubPedidos.Fila,fila.profundidade,Metric,0
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,317468400
-11/03/2026 19:03:38,System.Runtime,dotnet.process.memory.working_set (By),Metric,190951424
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,2836584
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4335128
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,177720
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,990752
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,31
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
-11/03/2026 19:03:38,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.013104900000000086
-11/03/2026 19:03:38,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,18845696
+11/03/2026 19:14:58,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,8
+11/03/2026 19:14:58,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,622128
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3774416
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1256384
+11/03/2026 19:14:58,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:14:58,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0094757080078125
+11/03/2026 19:14:58,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.022216796875
+11/03/2026 19:14:58,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.026458740234375
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,115824
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,20616
+11/03/2026 19:14:58,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,34885632
+11/03/2026 19:14:58,System.Runtime,dotnet.process.memory.working_set (By),Metric,195100672
+11/03/2026 19:14:58,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:14:58,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:14:59,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:14:59,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:14:59,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:14:59,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,4393032
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3774416
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1256384
+11/03/2026 19:14:59,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:14:59,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.009246826171875
+11/03/2026 19:14:59,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0233154296875
+11/03/2026 19:14:59,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.02960205078125
+11/03/2026 19:14:59,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:14:59,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.04463600000000001
+11/03/2026 19:14:59,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.638240999999997
+11/03/2026 19:14:59,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.5039099
+11/03/2026 19:14:59,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:14:59,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,199508952
+11/03/2026 19:14:59,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1114
+11/03/2026 19:14:59,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,104
+11/03/2026 19:14:59,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,68517
+11/03/2026 19:14:59,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,763
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.019764999999999977
+11/03/2026 19:14:59,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-2
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,3965160
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,20616
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,40701952
+11/03/2026 19:14:59,System.Runtime,dotnet.process.memory.working_set (By),Metric,201261056
+11/03/2026 19:14:59,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:14:59,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,11
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:14:59,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:00,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:00,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:00,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:00,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,647208
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3774416
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1256384
+11/03/2026 19:15:00,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:00,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.008636474609375
+11/03/2026 19:15:00,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.021453857421875
+11/03/2026 19:15:00,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.027862548828125
+11/03/2026 19:15:00,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:00,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.04051199999999999
+11/03/2026 19:15:00,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.6998099999999994
+11/03/2026 19:15:00,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.2722880999999999
+11/03/2026 19:15:00,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:00,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,191851288
+11/03/2026 19:15:00,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1081
+11/03/2026 19:15:00,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,64
+11/03/2026 19:15:00,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,29483
+11/03/2026 19:15:00,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,344
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.02157199999999998
+11/03/2026 19:15:00,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-1
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,111608
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,20616
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,41590784
+11/03/2026 19:15:00,System.Runtime,dotnet.process.memory.working_set (By),Metric,203694080
+11/03/2026 19:15:00,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:00,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,11
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:00,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:01,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,7
+11/03/2026 19:15:01,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:01,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:01,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,666464
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,3774416
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1256384
+11/03/2026 19:15:01,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:01,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0091400146484375
+11/03/2026 19:15:01,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.02508544921875
+11/03/2026 19:15:01,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.03106689453125
+11/03/2026 19:15:01,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:01,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.02789700000000006
+11/03/2026 19:15:01,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.502118000000003
+11/03/2026 19:15:01,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.5689491000000002
+11/03/2026 19:15:01,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:01,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,174794488
+11/03/2026 19:15:01,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,988
+11/03/2026 19:15:01,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,44
+11/03/2026 19:15:01,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,33452
+11/03/2026 19:15:01,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,492
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.028832999999999998
+11/03/2026 19:15:01,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-1
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,158936
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,20616
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,41574400
+11/03/2026 19:15:01,System.Runtime,dotnet.process.memory.working_set (By),Metric,205979648
+11/03/2026 19:15:01,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:01,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,10
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:01,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:02,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:02,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:02,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:02,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,293368
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:02,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:02,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.008331298828125
+11/03/2026 19:15:02,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.02130126953125
+11/03/2026 19:15:02,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.02777099609375
+11/03/2026 19:15:02,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:02,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.06315799999999994
+11/03/2026 19:15:02,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.4814330000000027
+11/03/2026 19:15:02,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.7989011000000001
+11/03/2026 19:15:02,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:02,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,186503520
+11/03/2026 19:15:02,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1085
+11/03/2026 19:15:02,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,83
+11/03/2026 19:15:02,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,53344
+11/03/2026 19:15:02,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,548
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.02312000000000003
+11/03/2026 19:15:02,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,6
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,117088
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25235456
+11/03/2026 19:15:02,System.Runtime,dotnet.process.memory.working_set (By),Metric,193675264
+11/03/2026 19:15:02,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:02,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,13
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:02,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,1
+11/03/2026 19:15:03,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,7
+11/03/2026 19:15:03,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:03,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:03,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,470744
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:03,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:03,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0074005126953125
+11/03/2026 19:15:03,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.022186279296875
+11/03/2026 19:15:03,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.030029296875
+11/03/2026 19:15:03,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:03,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.06581999999999999
+11/03/2026 19:15:03,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.458345999999999
+11/03/2026 19:15:03,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.7644827999999997
+11/03/2026 19:15:03,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:03,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,200079312
+11/03/2026 19:15:03,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1078
+11/03/2026 19:15:03,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,93
+11/03/2026 19:15:03,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,46386
+11/03/2026 19:15:03,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,558
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.024212999999999985
+11/03/2026 19:15:03,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-6
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,108928
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,26578944
+11/03/2026 19:15:03,System.Runtime,dotnet.process.memory.working_set (By),Metric,197197824
+11/03/2026 19:15:03,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:03,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,18
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:03,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:04,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,7
+11/03/2026 19:15:04,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:04,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:04,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,425248
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:04,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:04,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00736236572265625
+11/03/2026 19:15:04,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.01904296875
+11/03/2026 19:15:04,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.023834228515625
+11/03/2026 19:15:04,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:04,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.05826500000000001
+11/03/2026 19:15:04,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.499913999999997
+11/03/2026 19:15:04,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.8572283
+11/03/2026 19:15:04,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:04,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,202950344
+11/03/2026 19:15:04,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1090
+11/03/2026 19:15:04,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,87
+11/03/2026 19:15:04,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,38940
+11/03/2026 19:15:04,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,503
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.02632000000000001
+11/03/2026 19:15:04,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,2
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,122280
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,26173440
+11/03/2026 19:15:04,System.Runtime,dotnet.process.memory.working_set (By),Metric,197447680
+11/03/2026 19:15:04,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:04,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,17
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:04,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:05,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:05,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:05,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:05,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,390464
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:05,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:05,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00525665283203125
+11/03/2026 19:15:05,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.015716552734375
+11/03/2026 19:15:05,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.021820068359375
+11/03/2026 19:15:05,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:05,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.05907200000000001
+11/03/2026 19:15:05,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.478925000000004
+11/03/2026 19:15:05,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.8698069999999998
+11/03/2026 19:15:05,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:05,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,243111168
+11/03/2026 19:15:05,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1287
+11/03/2026 19:15:05,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,87
+11/03/2026 19:15:05,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,58928
+11/03/2026 19:15:05,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,493
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.02863500000000002
+11/03/2026 19:15:05,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-1
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,146216
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25612288
+11/03/2026 19:15:05,System.Runtime,dotnet.process.memory.working_set (By),Metric,197890048
+11/03/2026 19:15:05,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:05,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,21
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:05,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:06,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:06,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:06,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:06,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,427472
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:06,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:06,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0045928955078125
+11/03/2026 19:15:06,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0144500732421875
+11/03/2026 19:15:06,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.021087646484375
+11/03/2026 19:15:06,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:06,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.05910000000000004
+11/03/2026 19:15:06,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.476672999999998
+11/03/2026 19:15:06,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.5949568999999997
+11/03/2026 19:15:06,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:06,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,290211016
+11/03/2026 19:15:06,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1572
+11/03/2026 19:15:06,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,84
+11/03/2026 19:15:06,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,53072
+11/03/2026 19:15:06,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,485
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.03478199999999998
+11/03/2026 19:15:06,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-3
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,185960
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25153536
+11/03/2026 19:15:06,System.Runtime,dotnet.process.memory.working_set (By),Metric,198213632
+11/03/2026 19:15:06,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:06,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,26
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:06,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:07,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:07,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:07,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:07,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,359080
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:07,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:07,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00469970703125
+11/03/2026 19:15:07,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0118408203125
+11/03/2026 19:15:07,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0153656005859375
+11/03/2026 19:15:07,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:07,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.05785599999999991
+11/03/2026 19:15:07,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.5161930000000012
+11/03/2026 19:15:07,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.01778720000000078
+11/03/2026 19:15:07,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:07,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,336054632
+11/03/2026 19:15:07,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1849
+11/03/2026 19:15:07,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,125
+11/03/2026 19:15:07,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,1254
+11/03/2026 19:15:07,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,27
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.030625999999999987
+11/03/2026 19:15:07,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,3
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,146680
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25407488
+11/03/2026 19:15:07,System.Runtime,dotnet.process.memory.working_set (By),Metric,198238208
+11/03/2026 19:15:07,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:07,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,30
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:07,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:08,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:08,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:08,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:08,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,384832
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:08,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:08,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00421142578125
+11/03/2026 19:15:08,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.01007080078125
+11/03/2026 19:15:08,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0139923095703125
+11/03/2026 19:15:08,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:08,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.08155900000000005
+11/03/2026 19:15:08,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.4669019999999975
+11/03/2026 19:15:08,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.04282699999999906
+11/03/2026 19:15:08,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:08,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,334674392
+11/03/2026 19:15:08,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1806
+11/03/2026 19:15:08,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,115
+11/03/2026 19:15:08,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,3149
+11/03/2026 19:15:08,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,46
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.03220299999999998
+11/03/2026 19:15:08,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,0
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,149048
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25358336
+11/03/2026 19:15:08,System.Runtime,dotnet.process.memory.working_set (By),Metric,198234112
+11/03/2026 19:15:08,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:08,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,30
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:08,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:09,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:09,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:09,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:09,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,417024
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:09,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:09,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00431060791015625
+11/03/2026 19:15:09,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.010955810546875
+11/03/2026 19:15:09,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01446533203125
+11/03/2026 19:15:09,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:09,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.057037000000000004
+11/03/2026 19:15:09,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.531661999999997
+11/03/2026 19:15:09,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.019927800000001383
+11/03/2026 19:15:09,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:09,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,335739200
+11/03/2026 19:15:09,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1796
+11/03/2026 19:15:09,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,115
+11/03/2026 19:15:09,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,1168
+11/03/2026 19:15:09,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,29
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.032951000000000064
+11/03/2026 19:15:09,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,5
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,115224
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25157632
+11/03/2026 19:15:09,System.Runtime,dotnet.process.memory.working_set (By),Metric,198025216
+11/03/2026 19:15:09,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:09,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,30
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:09,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:10,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:10,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:10,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:10,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,356128
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:10,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:10,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00408935546875
+11/03/2026 19:15:10,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0099334716796875
+11/03/2026 19:15:10,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0119476318359375
+11/03/2026 19:15:10,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:10,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.060680999999999985
+11/03/2026 19:15:10,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.719754000000009
+11/03/2026 19:15:10,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.025052399999999864
+11/03/2026 19:15:10,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:10,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,349600432
+11/03/2026 19:15:10,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1842
+11/03/2026 19:15:10,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,100
+11/03/2026 19:15:10,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,1130
+11/03/2026 19:15:10,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,12
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.039231000000000016
+11/03/2026 19:15:10,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-2
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,151544
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25440256
+11/03/2026 19:15:10,System.Runtime,dotnet.process.memory.working_set (By),Metric,198647808
+11/03/2026 19:15:10,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:10,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,31
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:10,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:11,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,6
+11/03/2026 19:15:11,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:11,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:11,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,2908960
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:11,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:11,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.003452301025390625
+11/03/2026 19:15:11,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0068817138671875
+11/03/2026 19:15:11,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01129150390625
+11/03/2026 19:15:11,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:11,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.06730400000000003
+11/03/2026 19:15:11,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.7550369999999873
+11/03/2026 19:15:11,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.010046599999999017
+11/03/2026 19:15:11,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:11,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,370048520
+11/03/2026 19:15:11,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1946
+11/03/2026 19:15:11,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,104
+11/03/2026 19:15:11,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,1360
+11/03/2026 19:15:11,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,9
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.032544999999999935
+11/03/2026 19:15:11,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-3
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,2621696
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25174016
+11/03/2026 19:15:11,System.Runtime,dotnet.process.memory.working_set (By),Metric,198385664
+11/03/2026 19:15:11,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:11,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,33
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:11,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:12,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:12,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:12,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:12,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,388696
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:12,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:12,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.00376129150390625
+11/03/2026 19:15:12,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0086212158203125
+11/03/2026 19:15:12,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.0112152099609375
+11/03/2026 19:15:12,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:12,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.050688000000000066
+11/03/2026 19:15:12,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.7974390000000113
+11/03/2026 19:15:12,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.008306300000000988
+11/03/2026 19:15:12,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:12,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,377303424
+11/03/2026 19:15:12,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1984
+11/03/2026 19:15:12,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,86
+11/03/2026 19:15:12,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,543
+11/03/2026 19:15:12,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,6
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.034348000000000045
+11/03/2026 19:15:12,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,1
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,144528
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,25284608
+11/03/2026 19:15:12,System.Runtime,dotnet.process.memory.working_set (By),Metric,198434816
+11/03/2026 19:15:12,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:12,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,34
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:12,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:13,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,5
+11/03/2026 19:15:13,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:13,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:13,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,400152
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:13,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:13,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.003734588623046875
+11/03/2026 19:15:13,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.009552001953125
+11/03/2026 19:15:13,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.01141357421875
+11/03/2026 19:15:13,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:13,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.08228499999999994
+11/03/2026 19:15:13,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.7696729999999974
+11/03/2026 19:15:13,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.05205029999999944
+11/03/2026 19:15:13,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:13,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,373370888
+11/03/2026 19:15:13,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,2010
+11/03/2026 19:15:13,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,117
+11/03/2026 19:15:13,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,2801
+11/03/2026 19:15:13,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,29
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.035626999999999964
+11/03/2026 19:15:13,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,0
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,158616
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,26562560
+11/03/2026 19:15:13,System.Runtime,dotnet.process.memory.working_set (By),Metric,199675904
+11/03/2026 19:15:13,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:13,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,32
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:13,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:14,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:14,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:14,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:14,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,-1
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,359696
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:14,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:14,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.0035552978515625
+11/03/2026 19:15:14,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.00628662109375
+11/03/2026 19:15:14,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.009857177734375
+11/03/2026 19:15:14,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:14,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.04743000000000008
+11/03/2026 19:15:14,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.827051999999995
+11/03/2026 19:15:14,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.014092099999999164
+11/03/2026 19:15:14,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:14,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,375929256
+11/03/2026 19:15:14,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,1998
+11/03/2026 19:15:14,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,111
+11/03/2026 19:15:14,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,2332
+11/03/2026 19:15:14,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,20
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.03557600000000005
+11/03/2026 19:15:14,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,-1
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,151656
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,24645632
+11/03/2026 19:15:14,System.Runtime,dotnet.process.memory.working_set (By),Metric,197935104
+11/03/2026 19:15:14,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:14,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,35
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:14,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
+11/03/2026 19:15:15,Microsoft.AspNetCore.Hosting,http.server.active_requests ({request})[http.request.method=GET;url.scheme=http],Metric,4
+11/03/2026 19:15:15,HubPedidos.Fila,fila.processados (Count / 1 sec),Rate,0
+11/03/2026 19:15:15,System.Runtime,dotnet.process.cpu.count ({cpu}),Metric,4
+11/03/2026 19:15:15,System.Runtime,dotnet.thread_pool.thread.count ({thread} / 1 sec),Rate,0
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen0],Metric,382984
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen2],Metric,4187648
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=loh],Metric,98384
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=poh],Metric,157120
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.size (By)[gc.heap.generation=gen1],Metric,1331960
+11/03/2026 19:15:15,System.Runtime,dotnet.assembly.count ({assembly}),Metric,139
+11/03/2026 19:15:15,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=50],Metric,0.003490447998046875
+11/03/2026 19:15:15,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=95],Metric,0.0067596435546875
+11/03/2026 19:15:15,Microsoft.AspNetCore.Hosting,http.server.request.duration (s)[http.request.method=GET;http.response.status_code=200;http.route=/api/v1/pedidos;network.protocol.version=1.1;url.scheme=http;Percentile=99],Metric,0.010040283203125
+11/03/2026 19:15:15,HubPedidos.Fila,fila.descartados (Count / 1 sec),Rate,0
+11/03/2026 19:15:15,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=system],Rate,0.047785999999999884
+11/03/2026 19:15:15,System.Runtime,dotnet.process.cpu.time (s / 1 sec)[cpu.mode=user],Rate,3.83619800000001
+11/03/2026 19:15:15,System.Runtime,dotnet.jit.compilation.time (s / 1 sec),Rate,0.008576200000000256
+11/03/2026 19:15:15,HubPedidos.Fila,fila.aceitos (Count / 1 sec),Rate,0
+11/03/2026 19:15:15,HubPedidos.Fila,fila.rejeitados (Count / 1 sec),Rate,0
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.heap.total_allocated (By / 1 sec),Rate,381077792
+11/03/2026 19:15:15,System.Runtime,dotnet.thread_pool.work_item.count ({work_item} / 1 sec),Rate,2017
+11/03/2026 19:15:15,System.Runtime,dotnet.monitor.lock_contentions ({contention} / 1 sec),Rate,123
+11/03/2026 19:15:15,System.Runtime,dotnet.jit.compiled_il.size (By / 1 sec),Rate,655
+11/03/2026 19:15:15,System.Runtime,dotnet.jit.compiled_methods ({method} / 1 sec),Rate,12
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.pause.time (s / 1 sec),Rate,0.034446999999999894
+11/03/2026 19:15:15,System.Runtime,dotnet.thread_pool.queue.length ({work_item} / 1 sec),Rate,0
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen0],Metric,151088
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen2],Metric,464
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=loh],Metric,32
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=poh],Metric,0
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.heap.fragmentation.size (By)[gc.heap.generation=gen1],Metric,23064
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.last_collection.memory.committed_size (By),Metric,24985600
+11/03/2026 19:15:15,System.Runtime,dotnet.process.memory.working_set (By),Metric,198148096
+11/03/2026 19:15:15,HubPedidos.Fila,fila.profundidade,Metric,0
+11/03/2026 19:15:15,System.Runtime,dotnet.timer.count ({timer}),Metric,3
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen0],Rate,35
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen2],Rate,0
+11/03/2026 19:15:15,System.Runtime,dotnet.gc.collections ({collection} / 1 sec)[gc.heap.generation=gen1],Rate,0
