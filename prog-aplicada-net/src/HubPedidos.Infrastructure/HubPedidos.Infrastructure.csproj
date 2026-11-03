@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\HubPedidos.Application\HubPedidos.Application.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="HubPedidos.Tests" />
+    <InternalsVisibleTo Include="HubPedidos.Benchmarks" />
+    <InternalsVisibleTo Include="HubPedidos.Ferramentas" />
+  </ItemGroup>
+</Project>

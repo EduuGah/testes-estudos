@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\HubPedidos.Domain\HubPedidos.Domain.csproj" />
+    <!-- Abstrações de DI, logging, hosting e options (sem dependência de EF Core) -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="HubPedidos.Tests" />
+  </ItemGroup>
+</Project>

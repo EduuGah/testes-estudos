@@ -1,0 +1,33 @@
+name: Programação Aplicada em .NET – build, testes e evidências
+
+on:
+  push:
+    branches: [ aulas-prog-net ]
+    paths: [ 'prog-aplicada-net/**', '.github/workflows/aulas-prog-net.yml', '!prog-aplicada-net/evidencias/**' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  evidencias:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Executar a solução e coletar evidências
+        run: bash prog-aplicada-net/ci/evidencias.sh 2>&1 | tee prog-aplicada-net-execucao.log
+        continue-on-error: true
+      - name: Salvar evidências na branch
+        if: always()
+        run: |
+          mkdir -p prog-aplicada-net/evidencias && cp prog-aplicada-net-execucao.log prog-aplicada-net/evidencias/execucao.log || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prog-aplicada-net/evidencias
+          [ -d prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations ] && git add prog-aplicada-net/src/HubPedidos.Infrastructure/Migrations
+          git commit -m "Evidências da execução (run ${{ github.run_id }})" || echo "nada novo"
+          git push

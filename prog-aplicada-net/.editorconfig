@@ -1,0 +1,29 @@
+root = true
+
+[*]
+indent_style = space
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+indent_size = 4
+
+# ---- Estilo (IDE) ----
+csharp_style_namespace_declarations = file_scoped:warning
+dotnet_diagnostic.IDE0161.severity = error   # namespace com escopo de arquivo: padrão do time
+csharp_prefer_braces = when_multiline:suggestion
+
+# ---- Qualidade (CA) ----
+dotnet_diagnostic.CA2016.severity = error    # repassar CancellationToken: evita trabalho que não pode ser cancelado
+dotnet_diagnostic.CA1050.severity = error    # tipos dentro de namespace
+dotnet_diagnostic.CA2017.severity = error    # placeholders de log coerentes com os argumentos
+dotnet_diagnostic.CA1848.severity = none     # LoggerMessage de alto desempenho: fora do escopo didático
+dotnet_diagnostic.CA1716.severity = none     # nomes em português colidem com palavras reservadas de VB
+dotnet_diagnostic.CA1707.severity = none     # nomes de teste com sublinhado
+dotnet_diagnostic.CA1515.severity = none     # tipos públicos em projetos de aplicação
+dotnet_diagnostic.CA1062.severity = none
+dotnet_diagnostic.CA2007.severity = none     # ConfigureAwait: aplicação ASP.NET Core não tem SynchronizationContext
+dotnet_diagnostic.CA1031.severity = none     # o worker captura exceções para não derrubar os consumidores
+dotnet_diagnostic.CA1861.severity = none
+dotnet_diagnostic.CA1822.severity = suggestion
