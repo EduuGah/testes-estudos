@@ -165,7 +165,7 @@ public class ApiIntegracaoTests
         await using var app = new HubApiFactory();
         var criado = await CriarAsync(app.Cliente("ana"));
         var r = await app.Cliente("ana").GetAsync($"/api/v1/pedidos/{criado.Id}");
-        Assert.Equal("private, no-cache", r.Headers.CacheControl!.ToString());
+        Assert.True(r.Headers.CacheControl!.Private && r.Headers.CacheControl.NoCache);   // a ordem dos valores no cabeçalho não importa
         Assert.Equal(HttpStatusCode.NotFound, (await app.Cliente("bruno").GetAsync($"/api/v1/pedidos/{criado.Id}")).StatusCode);
     }
 
