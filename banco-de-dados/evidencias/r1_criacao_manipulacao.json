@@ -16,18 +16,18 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.539",
-    "ms": 200
+    "inicio": "16:17:12.011",
+    "ms": 168
    },
    {
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.740",
-    "ms": 1
+    "inicio": "16:17:12.178",
+    "ms": 2
    },
    {
     "sql": "SELECT name AS Banco, create_date AS CriadoEm, collation_name AS Collation\nFROM sys.databases WHERE name = N'LojaVirtual';",
@@ -41,7 +41,7 @@
       "linhas": [
        [
         "LojaVirtual",
-        "2026-11-03 16:15:14.537000",
+        "2026-11-03 16:17:12.010000",
         "SQL_Latin1_General_CP1_CI_AS"
        ]
       ]
@@ -49,7 +49,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.741",
+    "inicio": "16:17:12.180",
     "ms": 39
    }
   ]
@@ -70,10 +70,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.780",
+    "inicio": "16:17:12.220",
     "ms": 0
    },
    {
@@ -81,7 +81,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.780",
+    "inicio": "16:17:12.220",
     "ms": 10
    },
    {
@@ -130,8 +130,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.791",
-    "ms": 91
+    "inicio": "16:17:12.230",
+    "ms": 100
    }
   ]
  },
@@ -151,10 +151,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.882",
+    "inicio": "16:17:12.330",
     "ms": 0
    },
    {
@@ -162,8 +162,8 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.882",
-    "ms": 11
+    "inicio": "16:17:12.331",
+    "ms": 13
    },
    {
     "sql": "SELECT 'Categorias' AS Tabela, COUNT(*) AS Registros FROM dbo.Categorias UNION ALL\nSELECT 'Clientes',  COUNT(*) FROM dbo.Clientes  UNION ALL\nSELECT 'Produtos',  COUNT(*) FROM dbo.Produtos  UNION ALL\nSELECT 'Pedidos',   COUNT(*) FROM dbo.Pedidos   UNION ALL\nSELECT 'ItensPedido', COUNT(*) FROM dbo.ItensPedido;",
@@ -199,7 +199,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.893",
+    "inicio": "16:17:12.344",
     "ms": 2
    }
   ]
@@ -220,26 +220,26 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.895",
+    "inicio": "16:17:12.346",
     "ms": 0
    },
    {
     "sql": "INSERT INTO dbo.Produtos (CategoriaID, Nome, Preco, Estoque) VALUES (1, 'Produto inválido', -10.00, 5);",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição CHECK \"CK_Produtos_Preco\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Produtos\", column 'Preco'. (547)",
-    "inicio": "16:15:14.896",
-    "ms": 1
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]A instrução INSERT conflitou com a restrição do CHECK \"CK_Produtos_Preco\". O conflito ocorreu no banco de dados \"LojaVirtual\", tabela \"dbo.Produtos\", column 'Preco'. (547)",
+    "inicio": "16:17:12.346",
+    "ms": 2
    },
    {
     "sql": "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado) VALUES ('Ana Repetida', 'ana.souza@email.com', 'Santos', 'SP');",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violação da restrição UNIQUE KEY 'UQ_Clientes_Email'. Não é possível inserir uma chave duplicada no objeto 'dbo.Clientes'. O valor de chave duplicada é (ana.souza@email.com). (2627)",
-    "inicio": "16:15:14.897",
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violação da restrição UNIQUE KEY 'UQ_Clientes_Email'. Não é possível inserir a chave duplicada no objeto 'dbo.Clientes'. O valor de chave duplicada é (ana.souza@email.com). (2627)",
+    "inicio": "16:17:12.348",
     "ms": 1
    }
   ]
@@ -259,10 +259,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.899",
+    "inicio": "16:17:12.350",
     "ms": 0
    },
    {
@@ -508,8 +508,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.899",
-    "ms": 21
+    "inicio": "16:17:12.350",
+    "ms": 24
    }
   ]
  },
@@ -528,10 +528,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.920",
+    "inicio": "16:17:12.374",
     "ms": 0
    },
    {
@@ -602,8 +602,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.921",
-    "ms": 5
+    "inicio": "16:17:12.375",
+    "ms": 6
    }
   ]
  },
@@ -623,10 +623,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.926",
+    "inicio": "16:17:12.381",
     "ms": 0
    },
    {
@@ -659,15 +659,15 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.926",
+    "inicio": "16:17:12.381",
     "ms": 3
    },
    {
     "sql": "-- tentativa de excluir cliente com pedidos: a chave estrangeira impede\nDELETE FROM dbo.Clientes WHERE ClienteID = 1;",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução DELETE e a restrição REFERENCE \"FK_Pedidos_Clientes\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Pedidos\", column 'ClienteID'. (547)",
-    "inicio": "16:15:14.929",
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]A instrução DELETE conflitou com a restrição do REFERENCE \"FK_Pedidos_Clientes\". O conflito ocorreu no banco de dados \"LojaVirtual\", tabela \"dbo.Pedidos\", column 'ClienteID'. (547)",
+    "inicio": "16:17:12.384",
     "ms": 1
    }
   ]

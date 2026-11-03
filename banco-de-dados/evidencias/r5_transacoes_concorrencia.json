@@ -15,10 +15,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:15.086",
+    "inicio": "16:17:12.593",
     "ms": 0
    },
    {
@@ -36,7 +36,7 @@
         "antes",
         1,
         "Fone Bluetooth",
-        25
+        24
        ]
       ]
      },
@@ -53,7 +53,7 @@
         "dentro da transação",
         1,
         "Fone Bluetooth",
-        24,
+        23,
         1
        ]
       ]
@@ -71,7 +71,7 @@
         "após ROLLBACK",
         1,
         "Fone Bluetooth",
-        25,
+        24,
         0
        ]
       ]
@@ -79,8 +79,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.087",
-    "ms": 3
+    "inicio": "16:17:12.593",
+    "ms": 4
    },
    {
     "sql": "BEGIN TRANSACTION;\nUPDATE dbo.Produtos SET Estoque = Estoque + 2 WHERE ProdutoID = 1;\nCOMMIT TRANSACTION;\nSELECT 'após COMMIT (+2)' AS Momento, ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;",
@@ -97,14 +97,14 @@
         "após COMMIT (+2)",
         1,
         "Fone Bluetooth",
-        27
+        26
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.089",
+    "inicio": "16:17:12.597",
     "ms": 2
    }
   ]
@@ -124,10 +124,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:15.091",
+    "inicio": "16:17:12.600",
     "ms": 0
    },
    {
@@ -135,8 +135,8 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.092",
-    "ms": 3
+    "inicio": "16:17:12.600",
+    "ms": 2
    }
   ]
  },
@@ -155,10 +155,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:15.095",
+    "inicio": "16:17:12.603",
     "ms": 0
    },
    {
@@ -166,7 +166,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.095",
+    "inicio": "16:17:12.603",
     "ms": 2
    }
   ]
@@ -186,10 +186,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:15.097",
+    "inicio": "16:17:12.605",
     "ms": 0
    },
    {
@@ -250,8 +250,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.097",
-    "ms": 20
+    "inicio": "16:17:12.606",
+    "ms": 36
    }
   ]
  },
@@ -273,10 +273,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:15.117",
+    "inicio": "16:17:12.642",
     "ms": 0
    },
    {
@@ -284,24 +284,24 @@
     "resultados": [],
     "mensagens": [],
     "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)",
-    "inicio": "16:15:15.117",
-    "ms": 0
+    "inicio": "16:17:12.642",
+    "ms": 1
    },
    {
     "sql": "EXEC dbo.sp_ProcessarPagamento @PedidoID = 6, @FormaPagamento = 'Cartão';",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)",
-    "inicio": "16:15:15.118",
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não está pendente. (50011)",
+    "inicio": "16:17:12.643",
     "ms": 0
    },
    {
     "sql": "EXEC dbo.sp_ProcessarPagamento @PedidoID = 7, @FormaPagamento = 'Boleto';",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)",
-    "inicio": "16:15:15.118",
-    "ms": 0
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não há estoque suficiente para confirmar o pedido. (50001)",
+    "inicio": "16:17:12.643",
+    "ms": 1
    },
    {
     "sql": "-- nenhum pagamento parcial ficou gravado e nenhuma transação ficou aberta\nSELECT p.PedidoID, p.StatusPedido,\n       (SELECT COUNT(*) FROM dbo.Pagamentos pg WHERE pg.PedidoID = p.PedidoID) AS Pagamentos\nFROM dbo.Pedidos p WHERE p.PedidoID IN (6, 7);\nSELECT @@TRANCOUNT AS TransacoesAbertas;",
@@ -312,7 +312,18 @@
        "StatusPedido",
        "Pagamentos"
       ],
-      "linhas": []
+      "linhas": [
+       [
+        6,
+        "Pago",
+        0
+       ],
+       [
+        7,
+        "Pendente",
+        0
+       ]
+      ]
      },
      {
       "colunas": [
@@ -327,8 +338,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.119",
-    "ms": 3
+    "inicio": "16:17:12.644",
+    "ms": 4
    }
   ]
  },
@@ -347,10 +358,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:15.129",
+    "inicio": "16:17:12.656",
     "ms": 0
    },
    {
@@ -364,7 +375,7 @@
       ],
       "linhas": [
        [
-        "16:15:15.126",
+        "16:17:12.655",
         "Sessão A: BEGIN TRAN + UPDATE",
         52
        ]
@@ -378,7 +389,7 @@
       ],
       "linhas": [
        [
-        "16:15:23.128",
+        "16:17:20.655",
         "Sessão A: ROLLBACK",
         0
        ]
@@ -387,8 +398,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.129",
-    "ms": 8002
+    "inicio": "16:17:12.656",
+    "ms": 8001
    }
   ]
  },
@@ -407,10 +418,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:17.130",
+    "inicio": "16:17:14.657",
     "ms": 0
    },
    {
@@ -425,9 +436,9 @@
       ],
       "linhas": [
        [
-        "16:15:17.131",
-        "16:15:23.128",
-        5997,
+        "16:17:14.656",
+        "16:17:20.655",
+        5999,
         55
        ]
       ]
@@ -445,7 +456,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:17.130",
+    "inicio": "16:17:14.658",
     "ms": 6002
    }
   ]
@@ -477,14 +488,14 @@
         52,
         "UPDATE",
         "LCK_M_X",
-        2002
+        2001
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:19.130",
+    "inicio": "16:17:16.657",
     "ms": 4
    }
   ]
@@ -504,10 +515,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:23.133",
+    "inicio": "16:17:20.660",
     "ms": 0
    },
    {
@@ -525,15 +536,15 @@
         10,
         "Pendente",
         "Mouse sem Fio",
-        55
+        53
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:23.133",
-    "ms": 6
+    "inicio": "16:17:20.661",
+    "ms": 7
    }
   ]
  },
@@ -552,10 +563,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:23.141",
+    "inicio": "16:17:20.670",
     "ms": 0
    },
    {
@@ -568,7 +579,7 @@
       ],
       "linhas": [
        [
-        "16:15:23.141",
+        "16:17:20.667",
         "Sessão A: pagamento feito, aguardando COMMIT"
        ]
       ]
@@ -581,7 +592,7 @@
       ],
       "linhas": [
        [
-        "16:15:29.141",
+        "16:17:26.669",
         "Sessão A: COMMIT",
         0
        ]
@@ -590,8 +601,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:23.141",
-    "ms": 6002
+    "inicio": "16:17:20.670",
+    "ms": 6003
    }
   ]
  },
@@ -611,10 +622,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:25.147",
+    "inicio": "16:17:22.676",
     "ms": 0
    },
    {
@@ -627,7 +638,7 @@
       ],
       "linhas": [
        [
-        "16:15:25.145",
+        "16:17:22.676",
         "Sessão B: chamando a procedure"
        ]
       ]
@@ -635,7 +646,7 @@
     ],
     "mensagens": [],
     "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não está pendente. (50011)",
-    "inicio": "16:15:25.147",
+    "inicio": "16:17:22.677",
     "ms": 3996
    },
    {
@@ -649,7 +660,7 @@
       ],
       "linhas": [
        [
-        "16:15:29.141",
+        "16:17:26.673",
         "Sessão B: liberada",
         0
        ]
@@ -658,7 +669,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:29.143",
+    "inicio": "16:17:26.673",
     "ms": 1
    }
   ]
@@ -678,10 +689,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:29.144",
+    "inicio": "16:17:26.674",
     "ms": 0
    },
    {
@@ -699,15 +710,15 @@
         10,
         "Pago",
         1,
-        54
+        52
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:29.145",
-    "ms": 2
+    "inicio": "16:17:26.675",
+    "ms": 3
    }
   ]
  },
@@ -736,7 +747,7 @@
        ],
        [
         "language",
-        "Português"
+        "Português (Brasil)"
        ],
        [
         "dateformat",
@@ -783,7 +794,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:29.147",
+    "inicio": "16:17:26.678",
     "ms": 0
    }
   ]
@@ -803,10 +814,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:29.149",
+    "inicio": "16:17:26.679",
     "ms": 0
    },
    {
@@ -825,7 +836,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:29.149",
+    "inicio": "16:17:26.679",
     "ms": 5002
    }
   ]
@@ -845,18 +856,18 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:31.155",
+    "inicio": "16:17:28.686",
     "ms": 0
    },
    {
     "sql": "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nSET LOCK_TIMEOUT 2000;     -- desiste depois de 2 s em vez de esperar indefinidamente\nSELECT ProdutoID, Nome, Estoque FROM dbo.Produtos WHERE ProdutoID = 1;",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O tempo limite do pedido de bloqueio foi excedido. (1222)",
-    "inicio": "16:15:31.156",
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Tempo limite da solicitação de bloqueio excedido. (1222)",
+    "inicio": "16:17:28.686",
     "ms": 2002
    }
   ]
@@ -884,14 +895,14 @@
        [
         1,
         "Fone Bluetooth",
-        27
+        26
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:34.151",
+    "inicio": "16:17:31.682",
     "ms": 1
    }
   ]
@@ -903,7 +914,7 @@
   "atraso": 0,
   "lotes": [
    "USE LojaVirtual;",
-   "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\nSELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 6;\nWAITFOR DELAY '00:00:05';\nSELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 6;\nCOMMIT TRANSACTION;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;"
+   "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\nSELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 7;\nWAITFOR DELAY '00:00:05';\nSELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 7;\nCOMMIT TRANSACTION;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;"
   ],
   "spid": 52,
   "resultado": [
@@ -911,14 +922,14 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:34.154",
+    "inicio": "16:17:31.684",
     "ms": 0
    },
    {
-    "sql": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\nSELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 6;\nWAITFOR DELAY '00:00:05';\nSELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 6;\nCOMMIT TRANSACTION;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;",
+    "sql": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\nSELECT COUNT(*) AS PedidosDaElisa FROM dbo.Pedidos WHERE ClienteID = 7;\nWAITFOR DELAY '00:00:05';\nSELECT COUNT(*) AS PedidosDaElisaNovamente FROM dbo.Pedidos WHERE ClienteID = 7;\nCOMMIT TRANSACTION;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;",
     "resultados": [
      {
       "colunas": [
@@ -926,7 +937,7 @@
       ],
       "linhas": [
        [
-        0
+        1
        ]
       ]
      },
@@ -936,14 +947,14 @@
       ],
       "linhas": [
        [
-        0
+        1
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:34.154",
+    "inicio": "16:17:31.684",
     "ms": 5003
    }
   ]
@@ -955,7 +966,7 @@
   "atraso": 2,
   "lotes": [
    "USE LojaVirtual;",
-   "SET LOCK_TIMEOUT 2000;\nINSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (6, 'Cancelado', 0);"
+   "SET LOCK_TIMEOUT 2000;\nINSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (7, 'Cancelado', 0);"
   ],
   "spid": 54,
   "resultado": [
@@ -963,19 +974,19 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:36.160",
+    "inicio": "16:17:33.692",
     "ms": 0
    },
    {
-    "sql": "SET LOCK_TIMEOUT 2000;\nINSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (6, 'Cancelado', 0);",
+    "sql": "SET LOCK_TIMEOUT 2000;\nINSERT INTO dbo.Pedidos (ClienteID, StatusPedido, ValorTotal) VALUES (7, 'Cancelado', 0);",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O tempo limite do pedido de bloqueio foi excedido. (1222)",
-    "inicio": "16:15:36.161",
-    "ms": 2003
+    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Tempo limite da solicitação de bloqueio excedido. (1222)",
+    "inicio": "16:17:33.692",
+    "ms": 2004
    }
   ]
  },
@@ -1015,8 +1026,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:39.158",
-    "ms": 4
+    "inicio": "16:17:36.688",
+    "ms": 5
    }
   ]
  }

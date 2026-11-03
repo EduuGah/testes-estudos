@@ -15,10 +15,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:40.445",
+    "inicio": "16:17:38.303",
     "ms": 0
    },
    {
@@ -26,8 +26,8 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.445",
-    "ms": 1
+    "inicio": "16:17:38.303",
+    "ms": 2
    },
    {
     "sql": "SELECT ProdutoID, Nome, Preco, Disponibilidade FROM dbo.vw_CatalogoPublico;",
@@ -87,8 +87,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.446",
-    "ms": 1
+    "inicio": "16:17:38.305",
+    "ms": 2
    }
   ]
  },
@@ -111,10 +111,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:40.448",
+    "inicio": "16:17:38.307",
     "ms": 0
    },
    {
@@ -122,7 +122,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.448",
+    "inicio": "16:17:38.307",
     "ms": 1
    },
    {
@@ -130,7 +130,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.449",
+    "inicio": "16:17:38.308",
     "ms": 1
    },
    {
@@ -138,7 +138,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.450",
+    "inicio": "16:17:38.309",
     "ms": 3
    },
    {
@@ -146,8 +146,8 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.452",
-    "ms": 1
+    "inicio": "16:17:38.312",
+    "ms": 2
    },
    {
     "sql": "SELECT pr.name AS Principal, pe.permission_name AS Permissao, pe.state_desc AS Estado,\n       OBJECT_NAME(pe.major_id) AS Objeto\nFROM sys.database_permissions AS pe\nINNER JOIN sys.database_principals AS pr ON pr.principal_id = pe.grantee_principal_id\nWHERE pr.name = 'rl_CatalogoLeitura'\nORDER BY Objeto;",
@@ -177,8 +177,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.454",
-    "ms": 19
+    "inicio": "16:17:38.314",
+    "ms": 21
    }
   ]
  },
@@ -197,10 +197,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:40.473",
+    "inicio": "16:17:38.335",
     "ms": 0
    },
    {
@@ -276,7 +276,7 @@
       "linhas": [
        [
         229,
-        "A permissão SELECT foi negada no objeto 'Produtos', base de dados 'LojaVirtual', esquema 'dbo'."
+        "A permissão SELECT foi negada no objeto 'Produtos', banco de dados 'LojaVirtual', esquema 'dbo'."
        ]
       ]
      },
@@ -293,7 +293,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.473",
+    "inicio": "16:17:38.335",
     "ms": 2
    }
   ]
@@ -305,7 +305,7 @@
   "atraso": 0,
   "lotes": [
    "USE LojaVirtual;",
-   "CREATE OR ALTER PROCEDURE dbo.sp_BuscarProdutoSeguro\n    @Termo NVARCHAR(100)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    DECLARE @SQL NVARCHAR(MAX) =\n        N'SELECT ProdutoID, Nome, Preco, Disponibilidade\n          FROM dbo.vw_CatalogoPublico\n          WHERE Nome LIKE @Filtro;';\n    -- o termo vai como VALOR do parâmetro @Filtro, nunca concatenado ao comando\n    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = N'%' + @Termo + N'%';\nEND;",
+   "CREATE OR ALTER PROCEDURE dbo.sp_BuscarProdutoSeguro\n    @Termo NVARCHAR(100)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    DECLARE @SQL NVARCHAR(MAX) =\n        N'SELECT ProdutoID, Nome, Preco, Disponibilidade\n          FROM dbo.vw_CatalogoPublico\n          WHERE Nome LIKE @Filtro;';\n    -- EXEC não aceita expressões como argumento: o filtro é montado antes, em uma variável\n    DECLARE @Filtro NVARCHAR(202) = N'%' + @Termo + N'%';\n    -- o termo vai como VALOR do parâmetro @Filtro, nunca concatenado ao comando\n    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = @Filtro;\nEND;",
    "GRANT EXECUTE ON dbo.sp_BuscarProdutoSeguro TO rl_CatalogoLeitura;",
    "EXECUTE AS USER = 'usr_CatalogoTeste';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Livro';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Copo d''água';     -- apóstrofo tratado como texto\nREVERT;"
   ],
@@ -315,35 +315,67 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:40.476",
+    "inicio": "16:17:38.338",
     "ms": 0
    },
    {
-    "sql": "CREATE OR ALTER PROCEDURE dbo.sp_BuscarProdutoSeguro\n    @Termo NVARCHAR(100)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    DECLARE @SQL NVARCHAR(MAX) =\n        N'SELECT ProdutoID, Nome, Preco, Disponibilidade\n          FROM dbo.vw_CatalogoPublico\n          WHERE Nome LIKE @Filtro;';\n    -- o termo vai como VALOR do parâmetro @Filtro, nunca concatenado ao comando\n    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = N'%' + @Termo + N'%';\nEND;",
+    "sql": "CREATE OR ALTER PROCEDURE dbo.sp_BuscarProdutoSeguro\n    @Termo NVARCHAR(100)\nAS\nBEGIN\n    SET NOCOUNT ON;\n    DECLARE @SQL NVARCHAR(MAX) =\n        N'SELECT ProdutoID, Nome, Preco, Disponibilidade\n          FROM dbo.vw_CatalogoPublico\n          WHERE Nome LIKE @Filtro;';\n    -- EXEC não aceita expressões como argumento: o filtro é montado antes, em uma variável\n    DECLARE @Filtro NVARCHAR(202) = N'%' + @Termo + N'%';\n    -- o termo vai como VALOR do parâmetro @Filtro, nunca concatenado ao comando\n    EXEC sys.sp_executesql @SQL, N'@Filtro NVARCHAR(202)', @Filtro = @Filtro;\nEND;",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Sintaxe incorreta perto de '+'. (102)",
-    "inicio": "16:15:40.476",
-    "ms": 0
+    "erro": null,
+    "inicio": "16:17:38.338",
+    "ms": 1
    },
    {
     "sql": "GRANT EXECUTE ON dbo.sp_BuscarProdutoSeguro TO rl_CatalogoLeitura;",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não é possível localizar o objeto 'sp_BuscarProdutoSeguro', porque não existe ou porque o utilizador não tem permissão. (15151)",
-    "inicio": "16:15:40.476",
-    "ms": 0
+    "erro": null,
+    "inicio": "16:17:38.339",
+    "ms": 1
    },
    {
     "sql": "EXECUTE AS USER = 'usr_CatalogoTeste';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Livro';\nEXEC dbo.sp_BuscarProdutoSeguro @Termo = N'Copo d''água';     -- apóstrofo tratado como texto\nREVERT;",
-    "resultados": [],
+    "resultados": [
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Disponibilidade"
+      ],
+      "linhas": [
+       [
+        4,
+        "Livro SQL Server na Prática",
+        "132.00",
+        "Disponível"
+       ],
+       [
+        5,
+        "Livro Lógica de Programação",
+        "75.50",
+        "Indisponível"
+       ]
+      ]
+     },
+     {
+      "colunas": [
+       "ProdutoID",
+       "Nome",
+       "Preco",
+       "Disponibilidade"
+      ],
+      "linhas": []
+     }
+    ],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não foi possível localizar o procedimento armazenado 'dbo.sp_BuscarProdutoSeguro'. (2812)",
-    "inicio": "16:15:40.477",
-    "ms": 1
+    "erro": null,
+    "inicio": "16:17:38.340",
+    "ms": 2
    }
   ]
  },
@@ -362,10 +394,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:40.485",
+    "inicio": "16:17:38.350",
     "ms": 0
    },
    {
@@ -377,15 +409,15 @@
       ],
       "linhas": [
        [
-        4
+        50010
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:40.485",
-    "ms": 5001
+    "inicio": "16:17:38.350",
+    "ms": 5005
    }
   ]
  },
@@ -418,7 +450,7 @@
         "LojaVirtual",
         "suspended",
         "WAITFOR",
-        0,
+        4,
         2003,
         "WAITFOR"
        ]
@@ -427,7 +459,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:42.485",
+    "inicio": "16:17:40.351",
     "ms": 5
    }
   ]
@@ -447,10 +479,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:45.487",
+    "inicio": "16:17:43.356",
     "ms": 0
    },
    {
@@ -482,47 +514,47 @@
       ],
       "linhas": [
        [
-        "WITH n AS (     SELECT TOP (50000) ROW_NUMBER() OVER (ORDER ",
-        1,
-        "1040.00",
-        "1029.98",
-        "409444.0"
-       ],
-       [
         "(@PedidoID int,@Status varchar(20),@Valor decimal(10,2))SELE",
         6,
-        "665.87",
+        "665.91",
         "0.03",
         "2.3"
        ],
        [
-        "(@PedidoID int)UPDATE dbo.Pedidos SET StatusPedido = 'Pago' ",
-        2,
-        "5.62",
-        "5.62",
-        "72.0"
-       ],
-       [
-        "INSERT INTO dbo.AuditoriaPrecos (ProdutoID, PrecoAnterior, P",
+        "WITH n AS (     SELECT TOP (50000) ROW_NUMBER() OVER (ORDER ",
         1,
-        "0.35",
-        "0.35",
-        "17.0"
+        "445.84",
+        "439.53",
+        "257202.0"
        ],
        [
-        "IF NOT EXISTS (SELECT 1 FROM inserted AS i INNER JOIN delete",
-        4,
-        "0.24",
-        "0.24",
-        "0.0"
+        "INSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade",
+        1,
+        "198.41",
+        "197.71",
+        "161838.0"
+       ],
+       [
+        "CREATE NONCLUSTERED INDEX IX_Pedidos_Cliente_Data ON dbo.Ped",
+        1,
+        "51.37",
+        "121.59",
+        "2221.0"
+       ],
+       [
+        "CREATE NONCLUSTERED INDEX IX_Pedidos_Data_Temp ON dbo.Pedido",
+        1,
+        "38.90",
+        "127.08",
+        "1536.0"
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:45.487",
-    "ms": 52
+    "inicio": "16:17:43.357",
+    "ms": 64
    }
   ]
  }

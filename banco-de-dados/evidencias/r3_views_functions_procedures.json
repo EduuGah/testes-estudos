@@ -17,10 +17,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.977",
+    "inicio": "16:17:12.430",
     "ms": 0
    },
    {
@@ -28,7 +28,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.977",
+    "inicio": "16:17:12.430",
     "ms": 2
    },
    {
@@ -36,15 +36,15 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.979",
-    "ms": 1
+    "inicio": "16:17:12.432",
+    "ms": 2
    },
    {
     "sql": "CREATE OR ALTER VIEW dbo.vw_ClientesSemPedidos\nAS\nSELECT c.ClienteID, c.Nome, c.Email, c.Cidade\nFROM dbo.Clientes AS c\nLEFT JOIN dbo.Pedidos AS p ON p.ClienteID = c.ClienteID\nWHERE p.PedidoID IS NULL;",
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.980",
+    "inicio": "16:17:12.434",
     "ms": 1
    },
    {
@@ -126,6 +126,24 @@
         "Ana Souza",
         2,
         "379.70"
+       ],
+       [
+        5,
+        "2026-10-22 11:00:00",
+        "Entregue",
+        6,
+        "Diego Rocha",
+        1,
+        "349.90"
+       ],
+       [
+        4,
+        "2026-10-12 16:20:00",
+        "Enviado",
+        3,
+        "Carla Mendes",
+        1,
+        "119.80"
        ]
       ]
      },
@@ -138,18 +156,6 @@
       ],
       "linhas": [
        [
-        3,
-        "Carla Mendes",
-        "carla.mendes@email.com",
-        "Campinas"
-       ],
-       [
-        6,
-        "Diego Rocha",
-        "diego.rocha@email.com",
-        "Belo Horizonte"
-       ],
-       [
         7,
         "Elisa Fernandes",
         "elisa.fernandes@email.com",
@@ -160,8 +166,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.981",
-    "ms": 6
+    "inicio": "16:17:12.435",
+    "ms": 9
    }
   ]
  },
@@ -174,7 +180,7 @@
    "USE LojaVirtual;",
    "CREATE OR ALTER FUNCTION dbo.fn_CalcularSubtotal (@Quantidade INT, @PrecoUnitario DECIMAL(10,2))\nRETURNS DECIMAL(12,2)\nAS\nBEGIN\n    RETURN @Quantidade * @PrecoUnitario;\nEND;",
    "CREATE OR ALTER FUNCTION dbo.fn_PedidosPorCliente (@ClienteID INT)\nRETURNS TABLE\nAS\nRETURN\n(\n    SELECT PedidoID, DataPedido, StatusPedido, ValorTotal\n    FROM dbo.Pedidos\n    WHERE ClienteID = @ClienteID\n);",
-   "SELECT dbo.fn_CalcularSubtotal(3, 19.90) AS TesteDireto;\nSELECT ItemPedidoID, PedidoID, Quantidade, PrecoUnitario,\n       dbo.fn_CalcularSubtotal(Quantidade, PrecoUnitario) AS Subtotal\nFROM dbo.ItensPedido;\nSELECT * FROM dbo.fn_PedidosPorCliente(1);\nSELECT * FROM dbo.fn_PedidosPorCliente(6);   -- cliente sem pedidos: tabela vazia"
+   "SELECT dbo.fn_CalcularSubtotal(3, 19.90) AS TesteDireto;\nSELECT ItemPedidoID, PedidoID, Quantidade, PrecoUnitario,\n       dbo.fn_CalcularSubtotal(Quantidade, PrecoUnitario) AS Subtotal\nFROM dbo.ItensPedido;\nSELECT * FROM dbo.fn_PedidosPorCliente(1);\nSELECT * FROM dbo.fn_PedidosPorCliente(7);   -- cliente sem pedidos: tabela vazia"
   ],
   "spid": 51,
   "resultado": [
@@ -182,10 +188,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.988",
+    "inicio": "16:17:12.444",
     "ms": 0
    },
    {
@@ -193,7 +199,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.988",
+    "inicio": "16:17:12.445",
     "ms": 1
    },
    {
@@ -201,11 +207,11 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.990",
-    "ms": 1
+    "inicio": "16:17:12.446",
+    "ms": 2
    },
    {
-    "sql": "SELECT dbo.fn_CalcularSubtotal(3, 19.90) AS TesteDireto;\nSELECT ItemPedidoID, PedidoID, Quantidade, PrecoUnitario,\n       dbo.fn_CalcularSubtotal(Quantidade, PrecoUnitario) AS Subtotal\nFROM dbo.ItensPedido;\nSELECT * FROM dbo.fn_PedidosPorCliente(1);\nSELECT * FROM dbo.fn_PedidosPorCliente(6);   -- cliente sem pedidos: tabela vazia",
+    "sql": "SELECT dbo.fn_CalcularSubtotal(3, 19.90) AS TesteDireto;\nSELECT ItemPedidoID, PedidoID, Quantidade, PrecoUnitario,\n       dbo.fn_CalcularSubtotal(Quantidade, PrecoUnitario) AS Subtotal\nFROM dbo.ItensPedido;\nSELECT * FROM dbo.fn_PedidosPorCliente(1);\nSELECT * FROM dbo.fn_PedidosPorCliente(7);   -- cliente sem pedidos: tabela vazia",
     "resultados": [
      {
       "colunas": [
@@ -260,6 +266,20 @@
         1,
         "1299.00",
         "1299.00"
+       ],
+       [
+        6,
+        4,
+        2,
+        "59.90",
+        "119.80"
+       ],
+       [
+        7,
+        5,
+        1,
+        "349.90",
+        "349.90"
        ]
       ]
      },
@@ -297,7 +317,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.991",
+    "inicio": "16:17:12.448",
     "ms": 3
    }
   ]
@@ -318,10 +338,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.994",
+    "inicio": "16:17:12.452",
     "ms": 0
    },
    {
@@ -329,8 +349,8 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.994",
-    "ms": 1
+    "inicio": "16:17:12.452",
+    "ms": 2
    },
    {
     "sql": "EXEC dbo.sp_ListarPedidosCliente @ClienteID = 1;\nEXEC dbo.sp_ListarPedidosCliente @ClienteID = 1, @StatusPedido = 'Pendente';",
@@ -386,8 +406,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.995",
-    "ms": 4
+    "inicio": "16:17:12.454",
+    "ms": 5
    }
   ]
  },
@@ -409,10 +429,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.999",
+    "inicio": "16:17:12.459",
     "ms": 0
    },
    {
@@ -420,7 +440,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.000",
+    "inicio": "16:17:12.460",
     "ms": 2
    },
    {
@@ -467,7 +487,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.001",
+    "inicio": "16:17:12.462",
     "ms": 6
    },
    {
@@ -475,7 +495,7 @@
     "resultados": [],
     "mensagens": [],
     "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Produto não encontrado. (50002)",
-    "inicio": "16:15:15.007",
+    "inicio": "16:17:12.467",
     "ms": 1
    },
    {
@@ -483,8 +503,8 @@
     "resultados": [],
     "mensagens": [],
     "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O preço deve ser maior que zero. (50001)",
-    "inicio": "16:15:15.008",
-    "ms": 0
+    "inicio": "16:17:12.468",
+    "ms": 1
    }
   ]
  },
@@ -503,10 +523,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:15.008",
+    "inicio": "16:17:12.469",
     "ms": 0
    },
    {
@@ -537,14 +557,26 @@
         "1299.00",
         "1299.00",
         "1299.00"
+       ],
+       [
+        4,
+        "119.80",
+        "119.80",
+        "119.80"
+       ],
+       [
+        5,
+        "349.90",
+        "349.90",
+        "349.90"
        ]
       ]
      }
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:15.009",
-    "ms": 10
+    "inicio": "16:17:12.470",
+    "ms": 18
    }
   ]
  }

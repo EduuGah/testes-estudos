@@ -6,7 +6,7 @@
   "atraso": 0,
   "lotes": [
    "USE LojaVirtual;",
-   "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Diego Rocha',    'diego.rocha@email.com',    'Belo Horizonte', 'MG', '2026-09-20'),\n('Elisa Fernandes','elisa.fernandes@email.com','Santos',         'SP', '2026-10-02');\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-12 16:20', 'Enviado', 119.80),\n(5, '2026-10-22 11:00', 'Entregue', 349.90);\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(4, 7, 2,  59.90),\n(5, 2, 1, 349.90);",
+   "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Diego Rocha',    'diego.rocha@email.com',    'Belo Horizonte', 'MG', '2026-09-20'),\n('Elisa Fernandes','elisa.fernandes@email.com','Santos',         'SP', '2026-10-02');\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-12 16:20', 'Enviado', 119.80),\n(6, '2026-10-22 11:00', 'Entregue', 349.90);   -- Diego (ID 6: o IDENTITY não reaproveita números)\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(4, 7, 2,  59.90),\n(5, 2, 1, 349.90);",
    "SELECT COUNT(*) AS Clientes FROM dbo.Clientes;"
   ],
   "spid": 51,
@@ -15,19 +15,19 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.932",
+    "inicio": "16:17:12.387",
     "ms": 0
    },
    {
-    "sql": "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Diego Rocha',    'diego.rocha@email.com',    'Belo Horizonte', 'MG', '2026-09-20'),\n('Elisa Fernandes','elisa.fernandes@email.com','Santos',         'SP', '2026-10-02');\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-12 16:20', 'Enviado', 119.80),\n(5, '2026-10-22 11:00', 'Entregue', 349.90);\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(4, 7, 2,  59.90),\n(5, 2, 1, 349.90);",
+    "sql": "INSERT INTO dbo.Clientes (Nome, Email, Cidade, Estado, DataCadastro) VALUES\n('Diego Rocha',    'diego.rocha@email.com',    'Belo Horizonte', 'MG', '2026-09-20'),\n('Elisa Fernandes','elisa.fernandes@email.com','Santos',         'SP', '2026-10-02');\n\nINSERT INTO dbo.Pedidos (ClienteID, DataPedido, StatusPedido, ValorTotal) VALUES\n(3, '2026-10-12 16:20', 'Enviado', 119.80),\n(6, '2026-10-22 11:00', 'Entregue', 349.90);   -- Diego (ID 6: o IDENTITY não reaproveita números)\n\nINSERT INTO dbo.ItensPedido (PedidoID, ProdutoID, Quantidade, PrecoUnitario) VALUES\n(4, 7, 2,  59.90),\n(5, 2, 1, 349.90);",
     "resultados": [],
     "mensagens": [],
-    "erro": "[Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição FOREIGN KEY \"FK_Pedidos_Clientes\". O conflito ocorreu na base de dados \"LojaVirtual\", tabela \"dbo.Clientes\", column 'ClienteID'. (547)",
-    "inicio": "16:15:14.932",
-    "ms": 5
+    "erro": null,
+    "inicio": "16:17:12.388",
+    "ms": 7
    },
    {
     "sql": "SELECT COUNT(*) AS Clientes FROM dbo.Clientes;",
@@ -45,7 +45,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.938",
+    "inicio": "16:17:12.394",
     "ms": 1
    }
   ]
@@ -65,10 +65,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.939",
+    "inicio": "16:17:12.396",
     "ms": 0
    },
    {
@@ -189,6 +189,9 @@
         "Entregue"
        ],
        [
+        "Enviado"
+       ],
+       [
         "Pago"
        ],
        [
@@ -199,8 +202,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.939",
-    "ms": 7
+    "inicio": "16:17:12.396",
+    "ms": 9
    }
   ]
  },
@@ -219,10 +222,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.947",
+    "inicio": "16:17:12.406",
     "ms": 0
    },
    {
@@ -257,6 +260,20 @@
         "ana.souza@email.com",
         "Pendente",
         "1299.00"
+       ],
+       [
+        4,
+        "Carla Mendes",
+        "carla.mendes@email.com",
+        "Enviado",
+        "119.80"
+       ],
+       [
+        5,
+        "Diego Rocha",
+        "diego.rocha@email.com",
+        "Entregue",
+        "349.90"
        ]
       ]
      },
@@ -292,17 +309,17 @@
        ],
        [
         "Carla Mendes",
-        null,
-        null,
-        null,
-        null
+        4,
+        "2026-10-12 16:20:00",
+        "Enviado",
+        "119.80"
        ],
        [
         "Diego Rocha",
-        null,
-        null,
-        null,
-        null
+        5,
+        "2026-10-22 11:00:00",
+        "Entregue",
+        "349.90"
        ],
        [
         "Elisa Fernandes",
@@ -316,7 +333,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.947",
+    "inicio": "16:17:12.406",
     "ms": 2
    }
   ]
@@ -336,10 +353,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.949",
+    "inicio": "16:17:12.409",
     "ms": 0
    },
    {
@@ -355,7 +372,7 @@
        [
         5,
         8,
-        3
+        5
        ]
       ]
      },
@@ -420,8 +437,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.950",
-    "ms": 6
+    "inicio": "16:17:12.409",
+    "ms": 7
    }
   ]
  },
@@ -440,10 +457,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.956",
+    "inicio": "16:17:12.416",
     "ms": 0
    },
    {
@@ -484,6 +501,12 @@
        ],
        [
         "Bruno Lima"
+       ],
+       [
+        "Carla Mendes"
+       ],
+       [
+        "Diego Rocha"
        ]
       ]
      },
@@ -553,8 +576,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.957",
-    "ms": 16
+    "inicio": "16:17:12.417",
+    "ms": 7
    }
   ]
  },
@@ -573,10 +596,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:14.973",
+    "inicio": "16:17:12.424",
     "ms": 0
    },
    {
@@ -606,18 +629,18 @@
         "469.90"
        ],
        [
-        3,
-        "Carla Mendes",
-        0,
-        "0.00",
-        "0.00"
-       ],
-       [
         6,
         "Diego Rocha",
-        0,
-        "0.00",
-        "0.00"
+        1,
+        "349.90",
+        "349.90"
+       ],
+       [
+        3,
+        "Carla Mendes",
+        1,
+        "119.80",
+        "119.80"
        ],
        [
         7,
@@ -631,8 +654,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:14.973",
-    "ms": 3
+    "inicio": "16:17:12.425",
+    "ms": 4
    }
   ]
  }

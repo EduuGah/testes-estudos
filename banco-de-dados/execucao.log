@@ -1,163 +1,163 @@
-[r1_banco] lote 200 ms -> ok
-[r1_banco] lote 1 ms -> ok
+[r1_banco] lote 168 ms -> ok
+[r1_banco] lote 2 ms -> ok
 [r1_banco] lote 39 ms -> ok
 [r1_tabelas] lote 0 ms -> ok
 [r1_tabelas] lote 10 ms -> ok
-[r1_tabelas] lote 91 ms -> ok
+[r1_tabelas] lote 100 ms -> ok
 [r1_insercao] lote 0 ms -> ok
-[r1_insercao] lote 11 ms -> ok
+[r1_insercao] lote 13 ms -> ok
 [r1_insercao] lote 2 ms -> ok
 [r1_restricao] lote 0 ms -> ok
-[r1_restricao] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição CHECK "CK_Produtos_Preco". O conflito ocorreu na base de dados "LojaVirtual", tabela "dbo.Produtos", column 'Preco'. (547)
-[r1_restricao] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violação da restrição UNIQUE KEY 'UQ_Clientes_Email'. Não é possível inserir uma chave duplicada no objeto 'dbo.Clientes'. O valor de chave duplicada é (ana.souza@email.com). (2627)
+[r1_restricao] lote 2 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]A instrução INSERT conflitou com a restrição do CHECK "CK_Produtos_Preco". O conflito ocorreu no banco de dados "LojaVirtual", tabela "dbo.Produtos", column 'Preco'. (547)
+[r1_restricao] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violação da restrição UNIQUE KEY 'UQ_Clientes_Email'. Não é possível inserir a chave duplicada no objeto 'dbo.Clientes'. O valor de chave duplicada é (ana.souza@email.com). (2627)
 [r1_consultas] lote 0 ms -> ok
-[r1_consultas] lote 21 ms -> ok
+[r1_consultas] lote 24 ms -> ok
 [r1_atualizacao] lote 0 ms -> ok
-[r1_atualizacao] lote 5 ms -> ok
+[r1_atualizacao] lote 6 ms -> ok
 [r1_exclusao] lote 0 ms -> ok
 [r1_exclusao] lote 3 ms -> ok
-[r1_exclusao] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução DELETE e a restrição REFERENCE "FK_Pedidos_Clientes". O conflito ocorreu na base de dados "LojaVirtual", tabela "dbo.Pedidos", column 'ClienteID'. (547)
+[r1_exclusao] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]A instrução DELETE conflitou com a restrição do REFERENCE "FK_Pedidos_Clientes". O conflito ocorreu no banco de dados "LojaVirtual", tabela "dbo.Pedidos", column 'ClienteID'. (547)
 [r2_dados] lote 0 ms -> ok
-[r2_dados] lote 5 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição FOREIGN KEY "FK_Pedidos_Clientes". O conflito ocorreu na base de dados "LojaVirtual", tabela "dbo.Clientes", column 'ClienteID'. (547)
+[r2_dados] lote 7 ms -> ok
 [r2_dados] lote 1 ms -> ok
 [r2_filtros] lote 0 ms -> ok
-[r2_filtros] lote 7 ms -> ok
+[r2_filtros] lote 9 ms -> ok
 [r2_joins] lote 0 ms -> ok
 [r2_joins] lote 2 ms -> ok
 [r2_agregacoes] lote 0 ms -> ok
-[r2_agregacoes] lote 6 ms -> ok
+[r2_agregacoes] lote 7 ms -> ok
 [r2_subconsultas] lote 0 ms -> ok
-[r2_subconsultas] lote 16 ms -> ok
+[r2_subconsultas] lote 7 ms -> ok
 [r2_sintese] lote 0 ms -> ok
-[r2_sintese] lote 3 ms -> ok
+[r2_sintese] lote 4 ms -> ok
 [r3_views] lote 0 ms -> ok
 [r3_views] lote 2 ms -> ok
+[r3_views] lote 2 ms -> ok
 [r3_views] lote 1 ms -> ok
-[r3_views] lote 1 ms -> ok
-[r3_views] lote 6 ms -> ok
+[r3_views] lote 9 ms -> ok
 [r3_functions] lote 0 ms -> ok
 [r3_functions] lote 1 ms -> ok
-[r3_functions] lote 1 ms -> ok
+[r3_functions] lote 2 ms -> ok
 [r3_functions] lote 3 ms -> ok
 [r3_proc_consulta] lote 0 ms -> ok
-[r3_proc_consulta] lote 1 ms -> ok
-[r3_proc_consulta] lote 4 ms -> ok
+[r3_proc_consulta] lote 2 ms -> ok
+[r3_proc_consulta] lote 5 ms -> ok
 [r3_proc_preco] lote 0 ms -> ok
 [r3_proc_preco] lote 2 ms -> ok
 [r3_proc_preco] lote 6 ms -> ok
 [r3_proc_preco] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Produto não encontrado. (50002)
-[r3_proc_preco] lote 0 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O preço deve ser maior que zero. (50001)
+[r3_proc_preco] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O preço deve ser maior que zero. (50001)
 [r3_integracao] lote 0 ms -> ok
-[r3_integracao] lote 10 ms -> ok
+[r3_integracao] lote 18 ms -> ok
 [r4_auditoria] lote 0 ms -> ok
+[r4_auditoria] lote 3 ms -> ok
 [r4_auditoria] lote 2 ms -> ok
-[r4_auditoria] lote 2 ms -> ok
-[r4_auditoria] lote 14 ms -> ok
+[r4_auditoria] lote 15 ms -> ok
 [r4_preparacao] lote 0 ms -> ok
-[r4_preparacao] lote 5 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição FOREIGN KEY "FK_Pedidos_Clientes". O conflito ocorreu na base de dados "LojaVirtual", tabela "dbo.Clientes", column 'ClienteID'. (547)
+[r4_preparacao] lote 6 ms -> ok
 [r4_preparacao] lote 2 ms -> ok
 [r4_trigger_estoque] lote 0 ms -> ok
 [r4_trigger_estoque] lote 2 ms -> ok
 [r4_trigger_estoque] lote 5 ms -> ok
 [r4_teste_valido] lote 0 ms -> ok
-[r4_teste_valido] lote 17 ms -> ok
+[r4_teste_valido] lote 29 ms -> ok
 [r4_teste_multiplo] lote 0 ms -> ok
-[r4_teste_multiplo] lote 3 ms -> ok
+[r4_teste_multiplo] lote 20 ms -> ok
 [r4_teste_invalido] lote 0 ms -> ok
-[r4_teste_invalido] lote 1 ms -> ok
+[r4_teste_invalido] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não há estoque suficiente para confirmar o pedido. (50001)
 [r4_teste_invalido] lote 2 ms -> ok
 [r4_administracao] lote 0 ms -> ok
 [r4_administracao] lote 8 ms -> ok
 [r5_demo] lote 0 ms -> ok
-[r5_demo] lote 3 ms -> ok
+[r5_demo] lote 4 ms -> ok
 [r5_demo] lote 2 ms -> ok
 [r5_pagamentos] lote 0 ms -> ok
-[r5_pagamentos] lote 3 ms -> ok
+[r5_pagamentos] lote 2 ms -> ok
 [r5_procedure] lote 0 ms -> ok
 [r5_procedure] lote 2 ms -> ok
 [r5_teste_valido] lote 0 ms -> ok
-[r5_teste_valido] lote 20 ms -> ok
+[r5_teste_valido] lote 36 ms -> ok
 [r5_teste_erros] lote 0 ms -> ok
-[r5_teste_erros] lote 0 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)
-[r5_teste_erros] lote 0 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)
-[r5_teste_erros] lote 0 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)
-[r5_teste_erros] lote 3 ms -> ok
+[r5_teste_erros] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não encontrado. (50010)
+[r5_teste_erros] lote 0 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não está pendente. (50011)
+[r5_teste_erros] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não há estoque suficiente para confirmar o pedido. (50001)
+[r5_teste_erros] lote 4 ms -> ok
 [r5_bloqueio_A] lote 0 ms -> ok
-[r5_bloqueio_A] lote 8002 ms -> ok
+[r5_bloqueio_A] lote 8001 ms -> ok
 [r5_bloqueio_B] lote 0 ms -> ok
 [r5_bloqueio_B] lote 6002 ms -> ok
 [r5_bloqueio_M] lote 4 ms -> ok
 [r5_preparar_concorrencia] lote 0 ms -> ok
-[r5_preparar_concorrencia] lote 6 ms -> ok
+[r5_preparar_concorrencia] lote 7 ms -> ok
 [r5_pagto_A] lote 0 ms -> ok
-[r5_pagto_A] lote 6002 ms -> ok
+[r5_pagto_A] lote 6003 ms -> ok
 [r5_pagto_B] lote 0 ms -> ok
 [r5_pagto_B] lote 3996 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Pedido não está pendente. (50011)
 [r5_pagto_B] lote 1 ms -> ok
 [r5_pagto_conferencia] lote 0 ms -> ok
-[r5_pagto_conferencia] lote 2 ms -> ok
+[r5_pagto_conferencia] lote 3 ms -> ok
 [r5_isolamento] lote 0 ms -> ok
 [r5_rc_A] lote 0 ms -> ok
 [r5_rc_A] lote 5002 ms -> ok
 [r5_rc_B] lote 0 ms -> ok
-[r5_rc_B] lote 2002 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O tempo limite do pedido de bloqueio foi excedido. (1222)
+[r5_rc_B] lote 2002 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Tempo limite da solicitação de bloqueio excedido. (1222)
 [r5_rc_conferencia] lote 1 ms -> ok
 [r5_ser_A] lote 0 ms -> ok
 [r5_ser_A] lote 5003 ms -> ok
 [r5_ser_B] lote 0 ms -> ok
-[r5_ser_B] lote 2003 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]O tempo limite do pedido de bloqueio foi excedido. (1222)
-[r5_final] lote 4 ms -> ok
+[r5_ser_B] lote 2004 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Tempo limite da solicitação de bloqueio excedido. (1222)
+[r5_final] lote 5 ms -> ok
 [r6_demo] lote 0 ms -> ok
 [r6_demo] lote 2 ms -> ok
 [r6_tabela] lote 0 ms -> ok
-[r6_tabela] lote 8 ms -> ok
+[r6_tabela] lote 2 ms -> ok
 [r6_cursor] lote 0 ms -> ok
-[r6_cursor] lote 5 ms -> ok
+[r6_cursor] lote 6 ms -> ok
 [r6_cursor_erro] lote 0 ms -> ok
 [r6_cursor_erro] lote 2 ms -> ok
 [r6_conjunto] lote 0 ms -> ok
-[r6_conjunto] lote 16 ms -> ok
+[r6_conjunto] lote 22 ms -> ok
 [r6_medicao] lote 0 ms -> ok
-[r6_medicao] lote 102 ms -> ok
+[r6_medicao] lote 130 ms -> ok
 [r6_desafio] lote 0 ms -> ok
 [r6_desafio] lote 1 ms -> ok
 [r7_massa] lote 0 ms -> ok
-[r7_massa] lote 1072 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Conflito entre a instrução INSERT e a restrição FOREIGN KEY "FK_Pedidos_Clientes". O conflito ocorreu na base de dados "LojaVirtual", tabela "dbo.Clientes", column 'ClienteID'. (547)
+[r7_massa] lote 861 ms -> ok
 [r7_indices_iniciais] lote 0 ms -> ok
-[r7_indices_iniciais] lote 38 ms -> ok
+[r7_indices_iniciais] lote 50 ms -> ok
 [r7_base] lote 0 ms -> ok
-[r7_base] lote 3 ms -> ok
+[r7_base] lote 57 ms -> ok
 [r7_sargavel] lote 0 ms -> ok
-[r7_sargavel] lote 3 ms -> ok
-[r7_sargavel] lote 3 ms -> ok
-[r7_sargavel] lote 3 ms -> ok
-[r7_sargavel] lote 1 ms -> ok
+[r7_sargavel] lote 42 ms -> ok
+[r7_sargavel] lote 27 ms -> ok
+[r7_sargavel] lote 134 ms -> ok
+[r7_sargavel] lote 2 ms -> ok
 [r7_indice] lote 0 ms -> ok
-[r7_indice] lote 2 ms -> ok
-[r7_indice] lote 2 ms -> ok
+[r7_indice] lote 54 ms -> ok
+[r7_indice] lote 15 ms -> ok
 [r7_ordem] lote 0 ms -> ok
-[r7_ordem] lote 3 ms -> ok
-[r7_ordem] lote 1 ms -> ok
+[r7_ordem] lote 37 ms -> ok
+[r7_ordem] lote 7 ms -> ok
 [r7_join] lote 0 ms -> ok
-[r7_join] lote 3 ms -> ok
+[r7_join] lote 14 ms -> ok
 [r7_join] lote 0 ms -> ok
 [r8_view] lote 0 ms -> ok
-[r8_view] lote 1 ms -> ok
-[r8_view] lote 1 ms -> ok
+[r8_view] lote 2 ms -> ok
+[r8_view] lote 2 ms -> ok
 [r8_papel] lote 0 ms -> ok
 [r8_papel] lote 1 ms -> ok
 [r8_papel] lote 1 ms -> ok
 [r8_papel] lote 3 ms -> ok
-[r8_papel] lote 1 ms -> ok
-[r8_papel] lote 19 ms -> ok
+[r8_papel] lote 2 ms -> ok
+[r8_papel] lote 21 ms -> ok
 [r8_teste_acesso] lote 0 ms -> ok
 [r8_teste_acesso] lote 2 ms -> ok
 [r8_busca] lote 0 ms -> ok
-[r8_busca] lote 0 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Sintaxe incorreta perto de '+'. (102)
-[r8_busca] lote 0 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não é possível localizar o objeto 'sp_BuscarProdutoSeguro', porque não existe ou porque o utilizador não tem permissão. (15151)
-[r8_busca] lote 1 ms -> ERRO [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Não foi possível localizar o procedimento armazenado 'dbo.sp_BuscarProdutoSeguro'. (2812)
+[r8_busca] lote 1 ms -> ok
+[r8_busca] lote 1 ms -> ok
+[r8_busca] lote 2 ms -> ok
 [r8_monitor_carga] lote 0 ms -> ok
-[r8_monitor_carga] lote 5001 ms -> ok
+[r8_monitor_carga] lote 5005 ms -> ok
 [r8_monitor] lote 5 ms -> ok
 [r8_querystore] lote 0 ms -> ok
-[r8_querystore] lote 52 ms -> ok
+[r8_querystore] lote 64 ms -> ok

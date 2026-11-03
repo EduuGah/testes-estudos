@@ -14,10 +14,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:39.163",
+    "inicio": "16:17:36.695",
     "ms": 0
    },
    {
@@ -40,7 +40,7 @@
        [
         7,
         "Luminária LED",
-        3,
+        2,
         "Estoque crítico"
        ],
        [
@@ -58,7 +58,7 @@
        [
         2,
         "Teclado Mecânico",
-        12,
+        11,
         "Estoque baixo"
        ],
        [
@@ -70,13 +70,13 @@
        [
         1,
         "Fone Bluetooth",
-        27,
+        26,
         "Estoque adequado"
        ],
        [
         3,
         "Mouse sem Fio",
-        54,
+        52,
         "Estoque adequado"
        ]
       ]
@@ -90,7 +90,7 @@
      "5 é ímpar."
     ],
     "erro": null,
-    "inicio": "16:15:39.164",
+    "inicio": "16:17:36.695",
     "ms": 2
    }
   ]
@@ -110,10 +110,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:39.165",
+    "inicio": "16:17:36.697",
     "ms": 0
    },
    {
@@ -121,8 +121,8 @@
     "resultados": [],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:39.166",
-    "ms": 8
+    "inicio": "16:17:36.697",
+    "ms": 2
    }
   ]
  },
@@ -141,10 +141,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:39.174",
+    "inicio": "16:17:36.700",
     "ms": 0
    },
    {
@@ -184,48 +184,48 @@
         3,
         7,
         "ATENCAO",
-        "Produto Luminária LED: estoque atual = 3."
+        "Produto Luminária LED: estoque atual = 2."
        ]
       ]
      }
     ],
     "mensagens": [
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 1 ms, tempo decorrido = 1 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
      "Cursor processou 3 produto(s).",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 0 ms, tempo decorrido = 0 ms."
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms.",
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 0 ms, tempo decorrido = 0 ms."
     ],
     "erro": null,
-    "inicio": "16:15:39.175",
-    "ms": 5
+    "inicio": "16:17:36.700",
+    "ms": 6
    }
   ]
  },
@@ -244,10 +244,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:39.180",
+    "inicio": "16:17:36.706",
     "ms": 0
    },
    {
@@ -262,7 +262,7 @@
       "linhas": [
        [
         515,
-        "Não é possível inserir o valor NULL na coluna 'NivelAlerta', tabela 'LojaVirtual.dbo.AlertasEstoque'; a coluna não permite valores null. Falha de INSERT.",
+        "Não é possível inserir o valor NULL na coluna 'NivelAlerta', tabela 'LojaVirtual.dbo.AlertasEstoque'; a coluna não permite nulos. Falha em INSERT.",
         1
        ]
       ]
@@ -280,7 +280,7 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:39.180",
+    "inicio": "16:17:36.707",
     "ms": 2
    }
   ]
@@ -300,10 +300,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:39.182",
+    "inicio": "16:17:36.709",
     "ms": 0
    },
    {
@@ -332,11 +332,11 @@
      }
     ],
     "mensagens": [
-     "Tempos de Execução do SQL Server: \n Tempo de CPU = 1 ms, tempo decorrido = 0 ms."
+     "Tempos de Execução do SQL Server:\n Tempo de CPU = 1 ms, tempo decorrido = 2 ms."
     ],
     "erro": null,
-    "inicio": "16:15:39.182",
-    "ms": 16
+    "inicio": "16:17:36.710",
+    "ms": 22
    }
   ]
  },
@@ -355,10 +355,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:39.199",
+    "inicio": "16:17:36.732",
     "ms": 0
    },
    {
@@ -373,12 +373,12 @@
       "linhas": [
        [
         "Cursor (linha a linha)",
-        65,
+        86,
         50
        ],
        [
         "Orientada a conjuntos",
-        33,
+        37,
         50
        ]
       ]
@@ -386,8 +386,8 @@
     ],
     "mensagens": [],
     "erro": null,
-    "inicio": "16:15:39.199",
-    "ms": 102
+    "inicio": "16:17:36.732",
+    "ms": 130
    }
   ]
  },
@@ -406,10 +406,10 @@
     "sql": "USE LojaVirtual;",
     "resultados": [],
     "mensagens": [
-     "O contexto da base de dados foi alterado para 'LojaVirtual'."
+     "Contexto do banco de dados alterado para 'LojaVirtual'."
     ],
     "erro": null,
-    "inicio": "16:15:39.301",
+    "inicio": "16:17:36.863",
     "ms": 0
    },
    {
@@ -434,7 +434,7 @@
      "Atenção: 1 produto(s) sem estoque precisam de reposição imediata."
     ],
     "erro": null,
-    "inicio": "16:15:39.302",
+    "inicio": "16:17:36.864",
     "ms": 1
    }
   ]
