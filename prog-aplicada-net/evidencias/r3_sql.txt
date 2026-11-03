@@ -15,5 +15,5 @@ Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Guid
 ==== Comandos para a mesma página: ingênuo (N+1) = 21, projeção = 2
 
 ==== Página profunda (posição 15.000 de 20.000), média de 50 execuções
-  Deslocamento (Skip/Take): 6.75 ms
-  Cursor (keyset/WHERE):    1.32 ms
+  Deslocamento (Skip/Take): 7.89 ms
+  Cursor (keyset/WHERE):    1.69 ms

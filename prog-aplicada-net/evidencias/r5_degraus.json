@@ -1,0 +1,67 @@
+[
+  {
+    "Rota": "painel",
+    "Concorrencia": 4,
+    "JanelaSegundos": 8,
+    "Amostras": 6807,
+    "Erros": 0,
+    "P50": 4.6574,
+    "P95": 7.3487,
+    "P99": 8.5565,
+    "Max": 11.9766,
+    "Media": 4.697343352431314,
+    "Vazao": 850.875
+  },
+  {
+    "Rota": "painel",
+    "Concorrencia": 8,
+    "JanelaSegundos": 8,
+    "Amostras": 7429,
+    "Erros": 0,
+    "P50": 8.2436,
+    "P95": 13.6082,
+    "P99": 15.7911,
+    "Max": 21.8815,
+    "Media": 8.606154219948852,
+    "Vazao": 928.625
+  },
+  {
+    "Rota": "painel",
+    "Concorrencia": 16,
+    "JanelaSegundos": 8,
+    "Amostras": 7527,
+    "Erros": 0,
+    "P50": 15.7671,
+    "P95": 26.0463,
+    "P99": 29.7203,
+    "Max": 36.0563,
+    "Media": 16.96953439617376,
+    "Vazao": 940.875
+  },
+  {
+    "Rota": "painel",
+    "Concorrencia": 32,
+    "JanelaSegundos": 8,
+    "Amostras": 7462,
+    "Erros": 0,
+    "P50": 31.969,
+    "P95": 50.7412,
+    "P99": 57.8654,
+    "Max": 67.2494,
+    "Media": 34.139174671669615,
+    "Vazao": 932.75
+  },
+  {
+    "Rota": "painel",
+    "Concorrencia": 64,
+    "JanelaSegundos": 8,
+    "Amostras": 7544,
+    "Erros": 0,
+    "P50": 65.3878,
+    "P95": 92.5018,
+    "P99": 111.2895,
+    "Max": 128.3515,
+    "Media": 67.40039846235416,
+    "Vazao": 943
+  }
+]

@@ -1,0 +1,13 @@
+No profile or providers specified, defaulting to trace profiles 'dotnet-common' + 'dotnet-sampled-thread-time'.
+
+Provider Name                           Keywords            Level               Enabled By
+Microsoft-Windows-DotNETRuntime         0x000000100003801D  Informational(4)    --profile
+Microsoft-DotNETCore-SampleProfiler     0x0000F00000000000  Informational(4)    --profile
+
+Process        : /usr/share/dotnet/dotnet
+Output File    : /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/evidencias/r5_trace_depois.nettrace
+Trace Duration : 00:00:00:08
+
+Stopping the trace. This may take several minutes depending on the application being traced.
+
+Trace completed.

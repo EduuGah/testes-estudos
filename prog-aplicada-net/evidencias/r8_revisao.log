@@ -7,8 +7,8 @@
   HubPedidos.Domain -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Domain/bin/Release/net10.0/HubPedidos.Domain.dll
   HubPedidos.Application -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Application/bin/Release/net10.0/HubPedidos.Application.dll
   HubPedidos.Infrastructure -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/bin/Release/net10.0/HubPedidos.Infrastructure.dll
-  HubPedidos.Benchmarks -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks.dll
   HubPedidos.Ferramentas -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/bin/Release/net10.0/HubPedidos.Ferramentas.dll
+  HubPedidos.Benchmarks -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/bin/Release/net10.0/HubPedidos.Benchmarks.dll
   HubPedidos.Api -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/bin/Release/net10.0/HubPedidos.Api.dll
   HubPedidos.Tests -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll
 
@@ -16,20 +16,91 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.37
+Time Elapsed 00:00:01.65
 
 ===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,48): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,88): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,108): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(69,69): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(69,96): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(70,55): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,44): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,75): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,95): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,80): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,116): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,141): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(215,31): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-revisao.sh saiu com código 2
+
+===== [revisão] 4/4 testes
+Test run for /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.36]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
+  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [90 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: 9
+Actual:   0
+  Stack Trace:
+     at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs:line 115
+   at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs:line 120
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:01.78]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]
+[xUnit.net 00:00:01.85]     HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [FAIL]
+[xUnit.net 00:00:01.96]     HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [FAIL]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [464 ms]
+  Error Message:
+   Assert.Equal() Failure: Strings differ
+           ↓ (pos 0)
+Expected: "private, no-cache"
+Actual:   "no-cache, private"
+           ↑ (pos 0)
+  Stack Trace:
+     at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
+   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
+--- End of stack trace from previous location ---
+  Failed HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [28 ms]
+  Error Message:
+   System.InvalidOperationException : The compiled query '(ctx, id, _) => ctx.Pedidos
+    .AsNoTracking()
+    .Where(p => p.Id == id)
+    .Select(p => new PedidoDetalhe(
+        p.Id, 
+        p.Cliente, 
+        p.Regiao, 
+        p.Prioridade, 
+        p.Status, 
+        (decimal)p.TotalCentavos / 100, 
+        p.Versao, 
+        p.AtualizadoEmUtc, 
+        p.Itens
+            .OrderBy(i => i.Id)
+            .Select(i => new ItemDetalhe(
+                i.Sku, 
+                i.Quantidade, 
+                (decimal)i.PrecoCentavos / 100
+            ))
+            .ToList(), 
+        p.Metadados.Canal
+    ))
+    .FirstOrDefault()' was executed with a different model than it was compiled against. Compiled queries can only be used with a single model.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryBase`2.ExecuteCore(TContext context, CancellationToken cancellationToken, Object[] parameters)
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledAsyncTaskQuery`2.ExecuteAsync[TParam1](TContext context, TParam1 param1, CancellationToken cancellationToken)
+   at HubPedidos.Infrastructure.RepositorioPedidos.ObterDetalheAsync(PedidoId id, CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/RepositorioPedidos.cs:line 44
+   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 151
+   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 155
+   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 155
+--- End of stack trace from previous location ---
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [175 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   2
+  Stack Trace:
+     at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 154
+   at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 159
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:01.99]     HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [FAIL]
+  Failed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [17 ms]
+  Error Message:
+   Assert.Contains() Failure: Sub-string not found
+String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
+Not found: "json_extract"
+  Stack Trace:
+     at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+--- End of stack trace from previous location ---
+Results File: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/resultados-testes/resultado.trx
+
+Failed!  - Failed:     5, Passed:    63, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+revisao.sh saiu com código 1

@@ -1,0 +1,1 @@
+criar    conc=  8  amostras=  1900  erros=4195  p50=    6.5 ms  p95=   48.5 ms  p99=  331.4 ms  máx=  902.0 ms  vazão=  406.3 req/s

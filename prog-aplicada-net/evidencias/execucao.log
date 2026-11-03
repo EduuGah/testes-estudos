@@ -1,11 +1,11 @@
 
 ######## Ambiente
-Data: 2026-11-03 17:38 UTC
+Data: 2026-11-03 18:55 UTC
 Linux 7.0.0-1017-azure
 CPU(s):                                  4
-Model name:                              AMD EPYC 9V74 80-Core Processor
+Model name:                              AMD EPYC 7763 64-Core Processor
                total        used        free      shared  buff/cache   available
-Mem:            15Gi       943Mi        14Gi        42Mi       899Mi        14Gi
+Mem:            15Gi       981Mi        14Gi        41Mi       897Mi        14Gi
 10.0.403
 Microsoft.AspNetCore.App 8.0.6 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
 Microsoft.AspNetCore.App 8.0.22 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
@@ -30,48 +30,117 @@ Microsoft.NETCore.App 10.0.14 [/usr/share/dotnet/shared/Microsoft.NETCore.App]
 10.0.750501+ad724c4b85e7ae775e42f393c6e95a7557a57954
 
 ######## Restore + build Release
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 2.2 sec).
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/HubPedidos.Api.csproj (in 2.2 sec).
-  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/bench/HubPedidos.Benchmarks/HubPedidos.Benchmarks.csproj (in 741 ms).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/HubPedidos.Infrastructure.csproj (in 2.59 sec).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj (in 11 ms).
+  Restored /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj (in 2.67 sec).
 /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ImportacaoTests.cs(70,27): warning CA1859: Change return type of method 'Texto' from 'System.IO.Stream' to 'System.IO.MemoryStream' for improved performance (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1859) [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/HubPedidos.Tests.csproj]
     7 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:11.48
+Time Elapsed 00:00:12.39
 
 ######## Roteiro 3: migration
 Build started...
 Build succeeded.
 
+######## Roteiro 8: suíte de testes com saída detalhada
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto [35 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha [1 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces [3 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel [4 ms]
+  Passed HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico [15 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura [3 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core [2 ms]
+  Passed HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura [2 ms]
+  Passed HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo [6 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "nulo", pedido: null, esperado: Invalido) [2 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "sem itens", pedido: Pedido { Id = 01a1a2c4-5341-77ae-a748-8161fc295ac4, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "total zero", pedido: Pedido { Id = 01a1a2c4-5341-744d-a651-d95d1e88b138, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "normal", pedido: Pedido { Id = 01a1a2c4-5341-75f5-9f7a-f21c503dfd92, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "prioritário", pedido: Pedido { Id = 01a1a2c4-5341-71f5-be82-43a99b256790, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "exterior vence prioridade", pedido: Pedido { Id = 01a1a2c4-5341-796f-b639-e50bae0c209c, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 9.999,99 não é alto valor", pedido: Pedido { Id = 01a1a2c4-5341-7037-9d5d-a02e74f320ca, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 10.000,00 é alto valor", pedido: Pedido { Id = 01a1a2c4-5341-7ba4-a2c4-07d3b49d9218, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 99 unidades", pedido: Pedido { Id = 01a1a2c4-5341-7802-9b6c-146a6494dfb5, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "limite: 100 unidades", pedido: Pedido { Id = 01a1a2c4-5341-7622-9f22-294bcb41714c, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: "21 itens distintos", pedido: Pedido { Id = 01a1a2c4-5341-7d57-b610-d0b454d5e321, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array [6 ms]
+  Passed HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original [1 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "00000000-0000-0000-0000-000000000000", valido: False) [3 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "abc", valido: False) [< 1 ms]
+  Passed HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: "0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f", valido: True) [< 1 ms]
+[xUnit.net 00:00:00.61]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
+[xUnit.net 00:00:00.61]       Assert.Equal() Failure: Values differ
+--
+  Passed HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado [< 1 ms]
+  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [87 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: 9
+--
+  Passed HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio [5 ms]
+  Passed HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel [4 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno [460 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { }) [1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorSpan { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorUtf8Pooled { }) [< 1 ms]
+  Passed HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso [421 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorBaseline { }) [2 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorSpan { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorUtf8Pooled { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { }) [9 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorSpan { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorBaseline { }) [1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorSpan { }) [< 1 ms]
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {ec14855a-fc4b-4309-ba5d-fc6d4ff8cf03} may be persisted to storage in unencrypted form.
+--
+  Passed HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorUtf8Pooled { }) [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento [1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_mesmo_com_erro [< 1 ms]
+  Passed HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes [4 ms]
+  Passed HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao [130 ms]
+  Passed HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync [2 ms]
+  Passed HubPedidos.Tests.FilaTests.Modo_DropOldest_descarta_e_contabiliza [< 1 ms]
+  Passed HubPedidos.Tests.FilaTests.Fila_concluida_nao_aceita_novos_itens [< 1 ms]
+
 ######## Roteiro 8: revisão automatizada completa (3 execuções da suíte)
-revisao.sh saiu com código 2
-===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,48): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,88): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(68,108): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(69,69): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(69,96): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(70,55): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,44): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,75): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(212,95): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,80): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,116): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(214,141): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs(215,31): error WHITESPACE: Fix whitespace formatting. Replace 1 characters with '\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s'. [/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/HubPedidos.Ferramentas.csproj]
-revisao.sh saiu com código 2
+revisao.sh saiu com código 1
+[xUnit.net 00:00:01.99]     HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [FAIL]
+  Failed HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [17 ms]
+  Error Message:
+   Assert.Contains() Failure: Sub-string not found
+String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
+Not found: "json_extract"
+  Stack Trace:
+     at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+--- End of stack trace from previous location ---
+Results File: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/resultados-testes/resultado.trx
+
+Failed!  - Failed:     5, Passed:    63, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+revisao.sh saiu com código 1
 
 ######## Roteiro 1: classificação e catálogo
 Caso                                  Total  Categoria
-Unhandled exception. System.TypeInitializationException: The type initializer for 'HubPedidos.Ferramentas.Experimentos' threw an exception.
- ---> System.Globalization.CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode. See https://aka.ms/GlobalizationInvariantMode for more information. (Parameter 'name')
-pt-br is an invalid culture identifier.
-   at System.Globalization.CultureInfo.GetCultureInfo(String name)
-   at HubPedidos.Ferramentas.Experimentos..cctor() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 17
-   --- End of inner exception stack trace ---
-   at HubPedidos.Ferramentas.Experimentos.Catalogo() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 39
-   at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 8
-   at Program.<Main>(String[] args)
+Pedido nulo                            0,00  Invalido
+Sem itens                              0,00  Invalido
+Normal: 2 x R$ 50,00                 100,00  Padrao
+Prioridade alta                       80,00  Expresso
+Exterior + prioridade alta            80,00  Internacional
+Limite: R$ 9.999,99                9.999,99  Padrao
+Limite: R$ 10.000,00              10.000,00  AltoValor
+Limite: 99 unidades                   99,00  Padrao
+Limite: 100 unidades                 100,00  GrandeVolume
+
+Catálogo construído por reflexão restrita em 20.58 ms (assembly HubPedidos.Application):
+  Internacional  -> ProcessadorInternacional
+  AltoValor      -> ProcessadorConferenciaManual
+  Expresso       -> ProcessadorExpresso
+  GrandeVolume   -> ProcessadorConferenciaManual
+  Padrao         -> ProcessadorPadrao
 
 ######## Roteiro 3: SQL gerado
 ==== Atualização de campo JSON (1 comando(s))
@@ -80,40 +149,40 @@ Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Guid
 ==== Comandos para a mesma página: ingênuo (N+1) = 21, projeção = 2
 
 ==== Página profunda (posição 15.000 de 20.000), média de 50 execuções
-  Deslocamento (Skip/Take): 6.75 ms
-  Cursor (keyset/WHERE):    1.32 ms
+  Deslocamento (Skip/Take): 7.89 ms
+  Cursor (keyset/WHERE):    1.69 ms
 
 ######## Roteiro 4: experimentos da fila
 Produtor: 2.000 pedidos a ~500/s. Banco simulado: 4 ms + 3 ms por operação concorrente extra (contenção).
 
 Configuração                          Aceitos  Rejeit. Descart. Process.  FilaMáx Banco máx   p50 ms   p95 ms  Vazão/s
-A: cap 50, 4 consumidores, banco 4       1268      732        0     1268       50         4      172      179      304
-B: cap 500, 16 consumidores, banco 16     1814      186        0     1814      500        16      985     1582      325
-C: cap 50, 4 cons., DropOldest           2000        0      727     1273       50         4      109      114      305
+A: cap 50, 4 consumidores, banco 4       1270      730        0     1270       50         4      171      180      304
+B: cap 500, 16 consumidores, banco 16     1815      185        0     1815      500        16      981     1583      325
+C: cap 50, 4 cons., DropOldest           2000        0      729     1271       50         4      108      114      305
 
 ######## Roteiros 2, 3 e 5: BenchmarkDotNet
-Skewness = -0.07, Kurtosis = 1.28, MValue = 2
+Mean = 1.139 us, StdErr = 0.002 us (0.14%), N = 10, StdDev = 0.005 us
+Min = 1.134 us, Q1 = 1.135 us, Median = 1.139 us, Q3 = 1.140 us, Max = 1.148 us
+IQR = 0.005 us, LowerFence = 1.127 us, UpperFence = 1.148 us
+ConfidenceInterval = [1.132 us; 1.147 us] (CI 99.9%), Margin = 0.008 us (0.66% of Mean)
+Skewness = 0.69, Kurtosis = 1.95, MValue = 2
 -------------------- Histogram --------------------
-[1.011 us ; 1.030 us) | @@@@@@@@@
+[1.131 us ; 1.151 us) | @@@@@@@@@@
 ---------------------------------------------------
 
 // * Summary *
 
 BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.5 LTS (Noble Numbat)
-AMD EPYC 9V74 2.60GHz, 1 CPU, 4 logical and 2 physical cores
+AMD EPYC 7763 3.18GHz, 1 CPU, 4 logical and 2 physical cores
 .NET SDK 10.0.403
-  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
-  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v4
+  [Host]     : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
+  Job-UWLSOM : .NET 10.0.14 (10.0.14, 10.0.1426.52326), X64 RyuJIT x86-64-v3
 
 IterationCount=10  LaunchCount=1  WarmupCount=3  
 
 | Method             | Mean     | Error     | StdDev    | Gen0   | Allocated |
 |------------------- |---------:|----------:|----------:|-------:|----------:|
-| MapearEClassificar | 1.021 us | 0.0081 us | 0.0048 us | 0.0324 |     552 B |
-
-// * Hints *
-Outliers
-  MapeamentoBench.MapearEClassificar: IterationCount=10, LaunchCount=1, WarmupCount=3 -> 1 outlier  was  removed (1.05 us)
+| MapearEClassificar | 1.139 us | 0.0075 us | 0.0050 us | 0.0324 |     552 B |
 
 // * Legends *
   Mean      : Arithmetic mean of all measurements
@@ -127,14 +196,155 @@ Outliers
 
 
 // ***** BenchmarkRunner: End *****
-Run time: 00:00:08 (8.92 sec), executed benchmarks: 1
+Run time: 00:00:10 (10.04 sec), executed benchmarks: 1
 
-Global total time: 00:02:08 (128.24 sec), executed benchmarks: 11
+Global total time: 00:02:28 (148.81 sec), executed benchmarks: 11
 // * Artifacts cleanup *
 Artifacts cleanup is finished
 
 ######## Roteiro 5: publicação Release, massa de dados e carga
   HubPedidos.Api -> /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/api/
 20000 pedidos gravados em /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/out/hub.db
-API (Ingenuo) no PID 4477
-painel   conc= 16  amostras=   125  erros=   0  p50= 1890.2 ms  p95= 3357.8 ms  p99= 3482.7 ms  máx= 3894.9 ms  vazão=    6.2 req/s
+API (Ingenuo) no PID 5481
+painel   conc= 16  amostras=   102  erros=   0  p50= 3067.4 ms  p95= 4378.5 ms  p99= 4967.7 ms  máx= 4970.6 ms  vazão=    5.1 req/s
+API (Otimizado) no PID 5744
+painel   conc= 16  amostras= 17272  erros=   0  p50=   17.1 ms  p95=   29.0 ms  p99=   35.5 ms  máx=   68.8 ms  vazão=  863.6 req/s
+painel   conc=  4  amostras=  6807  erros=   0  p50=    4.7 ms  p95=    7.3 ms  p99=    8.6 ms  máx=   12.0 ms  vazão=  850.9 req/s
+painel   conc=  8  amostras=  7429  erros=   0  p50=    8.2 ms  p95=   13.6 ms  p99=   15.8 ms  máx=   21.9 ms  vazão=  928.6 req/s
+painel   conc= 16  amostras=  7527  erros=   0  p50=   15.8 ms  p95=   26.0 ms  p99=   29.7 ms  máx=   36.1 ms  vazão=  940.9 req/s
+painel   conc= 32  amostras=  7462  erros=   0  p50=   32.0 ms  p95=   50.7 ms  p99=   57.9 ms  máx=   67.2 ms  vazão=  932.8 req/s
+painel   conc= 64  amostras=  7544  erros=   0  p50=   65.4 ms  p95=   92.5 ms  p99=  111.3 ms  máx=  128.4 ms  vazão=  943.0 req/s
+criar    conc=  8  amostras=  1900  erros=4195  p50=    6.5 ms  p95=   48.5 ms  p99=  331.4 ms  máx=  902.0 ms  vazão=  406.3 req/s
+{"fila":{"aceitos":2399,"rejeitados":4295,"descartados":0,"processados":2335,"falhas":0,"duplicados":0,"profundidade":61,"profundidadeMaxima":100,"latenciaP50Ms":601.0449,"latenciaP95Ms":1483.2155},"capacidade":100,"modo":"Wait","limiteBanco":4,"maximoBancoObservado":4}
+
+######## Roteiros 6 e 7: HTTP (versões, ETag, cache)
+pedido criado: 01a1a2cb-9152-7656-9f8d-ca1c97d32acc
+
+################ ROTEIRO 6 – versões
+
+$ GET /api/v1/pedidos/{id}   (contrato v1)
+HTTP/1.1 200 OK
+Cache-Control: private, no-cache
+ETag: "a8b33dddb91068a58e1b"
+api-supported-versions: 1, 2
+api-deprecated-versions: 1
+Deprecation: @1798761600
+Sunset: Sat, 01 Jan 2028 00:00:00 GMT
+{"id":"01a1a2cb-9152-7656-9f8d-ca1c97d32acc","cliente":"ana","status":"Processado","total":74.8,"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0}]}
+
+$ GET /api/v2/pedidos/{id}   (contrato v2)
+HTTP/1.1 200 OK
+Cache-Control: private, no-cache
+ETag: "e2b1175406ae70f221df"
+api-supported-versions: 1, 2
+{"id":"01a1a2cb-9152-7656-9f8d-ca1c97d32acc","cliente":"ana","situacao":{"codigo":"Processado","descricao":"Pedido processado","atualizadoEmUtc":"2026-11-03T19:03:32.7413267"},"valores":{"total":74.8,"moeda":"BRL"},"itens":[{"sku":"CAFE-01","quantidade":2,"precoUnitario":19.9,"subtotal":39.8},{"sku":"XICARA","quantidade":1,"precoUnitario":35.0,"subtotal":35.0}],"versao":3,"canal":"app"}
+
+$ GET /api/pedidos/{id}   (sem versão -> padrão v1)
+HTTP/1.1 200 OK
+Cache-Control: private, no-cache
+ETag: "a8b33dddb91068a58e1b"
+api-version: 1
+
+$ GET /api/v9/pedidos/{id}   (versão não suportada)
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Versão não suportada","status":400,"detail":"A versão 9 não existe. Versões suportadas: 1, 2.","traceId":"00-77aad82a3c0f4953f78b5e121089b102-c7d1d9bdc525346e-00"}
+HTTP 400
+
+################ ROTEIRO 7 – ETag
+
+$ GET /api/v1/pedidos/{id}
+HTTP/1.1 200 OK
+Cache-Control: private, no-cache
+ETag: "a8b33dddb91068a58e1b"
+api-supported-versions: 1, 2
+api-deprecated-versions: 1
+Deprecation: @1798761600
+Sunset: Sat, 01 Jan 2028 00:00:00 GMT
+
+$ GET com If-None-Match: "a8b33dddb91068a58e1b"
+HTTP/1.1 304 Not Modified
+Cache-Control: private, no-cache
+ETag: "a8b33dddb91068a58e1b"
+api-supported-versions: 1, 2
+api-deprecated-versions: 1
+Deprecation: @1798761600
+Sunset: Sat, 01 Jan 2028 00:00:00 GMT
+ci/http.sh: line 28: /tmp/corpo304: No such file or directory
+bytes no corpo: 
+
+$ PUT /status sem If-Match
+HTTP 428
+
+$ PUT /status com If-Match obsoleto
+HTTP 412
+
+$ PUT /status com If-Match: "a8b33dddb91068a58e1b"
+HTTP/1.1 200 OK
+ETag: "66b76fc60f71bfe364a3"
+api-supported-versions: 1, 2
+api-deprecated-versions: 1
+Deprecation: @1798761600
+Sunset: Sat, 01 Jan 2028 00:00:00 GMT
+
+$ GET com If-None-Match antigo: "a8b33dddb91068a58e1b"
+HTTP/1.1 200 OK
+Cache-Control: private, no-cache
+ETag: "66b76fc60f71bfe364a3"
+api-supported-versions: 1, 2
+api-deprecated-versions: 1
+Deprecation: @1798761600
+Sunset: Sat, 01 Jan 2028 00:00:00 GMT
+
+################ ROTEIRO 7 – output cache (rota pública /api/v1/estatisticas)
+
+$ GET anônimo #1
+HTTP/1.1 500 Internal Server Error
+
+######## Roteiro 7: SignalR (autorização, streaming, queda e reconexão)
+19:03:36.947 [http ] POST /api/v1/pedidos -> 202 pedido 01a1a2cb-a2df-79d2-bbdb-8288d41d88df (Padrao)
+19:03:37.083 [ana  ] estado: Connected
+19:03:37.104 [ana  ] AcompanharPedido autorizado: entrou no grupo do pedido
+19:03:37.107 [bruno] AcompanharPedido negado pelo servidor: o pedido não pertence ao usuário conectado.
+19:03:37.119 [ana  ] stream do pedido 01a1a2cb…: EmProcessamento (v2)
+19:03:37.168 [ana  ] stream do pedido 01a1a2cb…: Processado (v3)
+19:03:37.177 [ana  ] estado inicial via HTTP: Processado
+19:03:37.186 [http ] PUT status=Cancelado (If-Match "4a10e6d47d08dee5ea70") -> 200
+19:03:37.194 [ana  ] evento PedidoAtualizado: Cancelado (v4)
+19:03:37.491 [http ] POST /dev/hub/derrubar -> 200 {"derrubadas":2}
+19:03:37.507 [ana  ] estado: Desconectado
+19:03:37.696 [http ] PUT status=Recebido (If-Match "b68bde0d8625124d6f4a") -> 200
+Unhandled exception. System.TimeoutException: The operation has timed out.
+   at HubPedidos.Ferramentas.TempoReal.ExecutarAsync(String url) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/TempoReal.cs:line 67
+   at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 12
+   at Program.<Main>(String[] args)
+
+######## Roteiro 5: traces convertidos
+Traceback (most recent call last):
+  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
+    d = json.load(open(sys.argv[1]))
+                  ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_antes.speedscope.json'
+Traceback (most recent call last):
+  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
+    d = json.load(open(sys.argv[1]))
+                  ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_depois.speedscope.json'
+
+######## Roteiro 8: a revisão automatizada bloqueia falhas
+===== [revisão] 1/4 restore
+===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
+/tmp/gate/src/HubPedidos.Application/ViolacaoProposital.cs(6,62): error CA2016: Forward the 'ct' parameter to the 'Delay' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2016) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+/tmp/gate/src/HubPedidos.Application/ViolacaoProposital.cs(6,62): error CA2016: Forward the 'ct' parameter to the 'Delay' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2016) [/tmp/gate/src/HubPedidos.Application/HubPedidos.Application.csproj]
+revisao.sh saiu com código 1
+===== [revisão] 1/4 restore
+===== [revisão] 2/4 build Release com analisadores (regras do .editorconfig com severidade error bloqueiam)
+===== [revisão] 3/4 formatação (dotnet format --verify-no-changes)
+===== [revisão] 4/4 testes
+[xUnit.net 00:00:00.28]     HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [FAIL]
+  Failed HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado [5 ms]
+     at HubPedidos.Tests.FalhaProposital.Total_do_pedido_esta_errado() in /tmp/gate/tests/HubPedidos.Tests/FalhaProposital.cs:line 6
+[xUnit.net 00:00:00.38]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]
+  Failed HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [88 ms]
+     at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /tmp/gate/tests/HubPedidos.Tests/FilaTests.cs:line 115
+   at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /tmp/gate/tests/HubPedidos.Tests/FilaTests.cs:line 120
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [468 ms]
+fim

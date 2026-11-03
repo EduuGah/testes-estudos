@@ -1,10 +1,17 @@
 Caso                                  Total  Categoria
-Unhandled exception. System.TypeInitializationException: The type initializer for 'HubPedidos.Ferramentas.Experimentos' threw an exception.
- ---> System.Globalization.CultureNotFoundException: Only the invariant culture is supported in globalization-invariant mode. See https://aka.ms/GlobalizationInvariantMode for more information. (Parameter 'name')
-pt-br is an invalid culture identifier.
-   at System.Globalization.CultureInfo.GetCultureInfo(String name)
-   at HubPedidos.Ferramentas.Experimentos..cctor() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 17
-   --- End of inner exception stack trace ---
-   at HubPedidos.Ferramentas.Experimentos.Catalogo() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Experimentos.cs:line 39
-   at Program.<Main>$(String[] args) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ferramentas/HubPedidos.Ferramentas/Program.cs:line 8
-   at Program.<Main>(String[] args)
+Pedido nulo                            0,00  Invalido
+Sem itens                              0,00  Invalido
+Normal: 2 x R$ 50,00                 100,00  Padrao
+Prioridade alta                       80,00  Expresso
+Exterior + prioridade alta            80,00  Internacional
+Limite: R$ 9.999,99                9.999,99  Padrao
+Limite: R$ 10.000,00              10.000,00  AltoValor
+Limite: 99 unidades                   99,00  Padrao
+Limite: 100 unidades                 100,00  GrandeVolume
+
+Catálogo construído por reflexão restrita em 20.58 ms (assembly HubPedidos.Application):
+  Internacional  -> ProcessadorInternacional
+  AltoValor      -> ProcessadorConferenciaManual
+  Expresso       -> ProcessadorExpresso
+  GrandeVolume   -> ProcessadorConferenciaManual
+  Padrao         -> ProcessadorPadrao

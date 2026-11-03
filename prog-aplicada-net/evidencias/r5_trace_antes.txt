@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/ci/analisar_trace.py", line 4, in <module>
+    d = json.load(open(sys.argv[1]))
+                  ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'evidencias/r5_trace_antes.speedscope.json'

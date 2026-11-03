@@ -1,3 +1,3 @@
-  Failed HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [94 ms]
+  Failed HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400 [95 ms]
   Failed HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor [226 ms]
-Failed!  - Failed:    11, Passed:    56, Skipped:     0, Total:    67, Duration: 2 s - HubPedidos.Tests.dll (net10.0)
+Failed!  - Failed:    11, Passed:    57, Skipped:     0, Total:    68, Duration: 2 s - HubPedidos.Tests.dll (net10.0)

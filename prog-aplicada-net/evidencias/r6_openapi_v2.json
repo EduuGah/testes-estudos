@@ -1,0 +1,54 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "HubPedidos.Api | v2",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5080/"
+    }
+  ],
+  "paths": {
+    "/dev/hub/derrubar": {
+      "post": {
+        "tags": [
+          "HubPedidos.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/pedidos/{id}": {
+      "get": {
+        "tags": [
+          "HubPedidos.Api"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "HubPedidos.Api"
+    }
+  ]
+}

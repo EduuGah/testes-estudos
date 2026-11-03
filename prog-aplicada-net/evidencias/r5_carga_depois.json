@@ -1,0 +1,15 @@
+[
+  {
+    "Rota": "painel",
+    "Concorrencia": 16,
+    "JanelaSegundos": 20,
+    "Amostras": 17272,
+    "Erros": 0,
+    "P50": 17.1321,
+    "P95": 28.9581,
+    "P99": 35.5486,
+    "Max": 68.7635,
+    "Media": 18.502018891848092,
+    "Vazao": 863.6
+  }
+]

@@ -1,0 +1,5 @@
+painel   conc=  4  amostras=  6807  erros=   0  p50=    4.7 ms  p95=    7.3 ms  p99=    8.6 ms  máx=   12.0 ms  vazão=  850.9 req/s
+painel   conc=  8  amostras=  7429  erros=   0  p50=    8.2 ms  p95=   13.6 ms  p99=   15.8 ms  máx=   21.9 ms  vazão=  928.6 req/s
+painel   conc= 16  amostras=  7527  erros=   0  p50=   15.8 ms  p95=   26.0 ms  p99=   29.7 ms  máx=   36.1 ms  vazão=  940.9 req/s
+painel   conc= 32  amostras=  7462  erros=   0  p50=   32.0 ms  p95=   50.7 ms  p99=   57.9 ms  máx=   67.2 ms  vazão=  932.8 req/s
+painel   conc= 64  amostras=  7544  erros=   0  p50=   65.4 ms  p95=   92.5 ms  p99=  111.3 ms  máx=  128.4 ms  vazão=  943.0 req/s

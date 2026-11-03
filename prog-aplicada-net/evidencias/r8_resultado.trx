@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="c45bcfbc-d091-48b8-beec-196b11be0197" name="@runnervm7aw5e 2026-11-03 18:56:04" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-03T18:56:04.2590300+00:00" queuing="2026-11-03T18:56:04.2590301+00:00" start="2026-11-03T18:56:03.5401910+00:00" finish="2026-11-03T18:56:06.9893868+00:00" />
+  <TestSettings name="default" id="6d298f01-7cef-4f0d-afff-1d6470380e13">
+    <Deployment runDeploymentRoot="_runnervm7aw5e_2026-11-03_18_56_04" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="c98f1b25-66e7-4a31-9d86-2674551aa588" testId="0c463726-4893-d70c-86ee-8c4bf975d329" testName="HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_mesmo_com_erro" computerName="runnervm7aw5e" duration="00:00:00.0010589" startTime="2026-11-03T18:56:04.6779796+00:00" endTime="2026-11-03T18:56:04.6789414+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c98f1b25-66e7-4a31-9d86-2674551aa588" />
+    <UnitTestResult executionId="4d1bea7c-d2a3-480a-8fce-78a2e6ef7d4e" testId="2cd85fd9-a666-bc86-f85d-5fc8bee71e52" testName="HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorUtf8Pooled { })" computerName="runnervm7aw5e" duration="00:00:00.0001379" startTime="2026-11-03T18:56:04.6765402+00:00" endTime="2026-11-03T18:56:04.6766330+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4d1bea7c-d2a3-480a-8fce-78a2e6ef7d4e" />
+    <UnitTestResult executionId="c90a504b-cda9-42f8-95f9-74553909085d" testId="ec2440ac-208e-0602-dfac-4d3d79c00e9d" testName="HubPedidos.Tests.ApiIntegracaoTests.Grafo_de_DI_e_valido_e_ambiente_de_testes_recusa_banco_em_arquivo" computerName="runnervm7aw5e" duration="00:00:00.9823813" startTime="2026-11-03T18:56:04.2729236+00:00" endTime="2026-11-03T18:56:05.2556478+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c90a504b-cda9-42f8-95f9-74553909085d" />
+    <UnitTestResult executionId="dabb41d6-67d1-446d-84b8-44296ce70019" testId="37f7c131-8a4a-27aa-764b-41dbd28b9291" testName="HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428" computerName="runnervm7aw5e" duration="00:00:00.1385536" startTime="2026-11-03T18:56:05.8981696+00:00" endTime="2026-11-03T18:56:06.0362664+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dabb41d6-67d1-446d-84b8-44296ce70019" />
+    <UnitTestResult executionId="0395eda2-e435-474d-a38f-50b2e3c6f2e7" testId="34678f0b-e31a-a879-ad77-81a40224d5be" testName="HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum" computerName="runnervm7aw5e" duration="00:00:00.0282885" startTime="2026-11-03T18:56:05.7673228+00:00" endTime="2026-11-03T18:56:05.7956510+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0395eda2-e435-474d-a38f-50b2e3c6f2e7">
+      <Output>
+        <ErrorInfo>
+          <Message>System.InvalidOperationException : The compiled query '(ctx, id, _) =&gt; ctx.Pedidos
+    .AsNoTracking()
+    .Where(p =&gt; p.Id == id)
+    .Select(p =&gt; new PedidoDetalhe(
+        p.Id, 
+        p.Cliente, 
+        p.Regiao, 
+        p.Prioridade, 
+        p.Status, 
+        (decimal)p.TotalCentavos / 100, 
+        p.Versao, 
+        p.AtualizadoEmUtc, 
+        p.Itens
+            .OrderBy(i =&gt; i.Id)
+            .Select(i =&gt; new ItemDetalhe(
+                i.Sku, 
+                i.Quantidade, 
+                (decimal)i.PrecoCentavos / 100
+            ))
+            .ToList(), 
+        p.Metadados.Canal
+    ))
+    .FirstOrDefault()' was executed with a different model than it was compiled against. Compiled queries can only be used with a single model.</Message>
+          <StackTrace>   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryBase`2.ExecuteCore(TContext context, CancellationToken cancellationToken, Object[] parameters)
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledAsyncTaskQuery`2.ExecuteAsync[TParam1](TContext context, TParam1 param1, CancellationToken cancellationToken)
+   at HubPedidos.Infrastructure.RepositorioPedidos.ObterDetalheAsync(PedidoId id, CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/RepositorioPedidos.cs:line 44
+   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 151
+   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 155
+   at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 155
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2b54908b-0226-4745-87e5-0eebc82ae9a1" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;total zero&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-71cd-973e-6b740cef0828, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 1 }, esperado: Invalido)" computerName="runnervm7aw5e" duration="00:00:00.0000248" startTime="2026-11-03T18:56:04.1684550+00:00" endTime="2026-11-03T18:56:04.1685709+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b54908b-0226-4745-87e5-0eebc82ae9a1" />
+    <UnitTestResult executionId="689dc023-c9bd-4191-be4d-f724767c4a58" testId="731b09ed-3c6e-888d-7597-0126ab7b3204" testName="HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura" computerName="runnervm7aw5e" duration="00:00:00.0023606" startTime="2026-11-03T18:56:04.1651814+00:00" endTime="2026-11-03T18:56:04.1652805+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="689dc023-c9bd-4191-be4d-f724767c4a58" />
+    <UnitTestResult executionId="67aaf78d-5834-4eb1-b603-c80434ef6253" testId="95c3f34d-bd2c-08ae-5a70-092da505e100" testName="HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila" computerName="runnervm7aw5e" duration="00:00:00.1172007" startTime="2026-11-03T18:56:06.0364438+00:00" endTime="2026-11-03T18:56:06.1539194+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="67aaf78d-5834-4eb1-b603-c80434ef6253" />
+    <UnitTestResult executionId="12961623-d0b2-44a1-8a8b-dd5fedff852d" testId="b9dca97e-3c26-daba-8a01-935e62fac1a9" testName="HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio" computerName="runnervm7aw5e" duration="00:00:00.0030642" startTime="2026-11-03T18:56:04.2228413+00:00" endTime="2026-11-03T18:56:04.2229462+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="12961623-d0b2-44a1-8a8b-dd5fedff852d" />
+    <UnitTestResult executionId="3a5b1c13-f18a-43ed-a805-111ba753af09" testId="bf957287-b91f-5294-9c2f-b90d6f55014c" testName="HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: &quot;abc&quot;, valido: False)" computerName="runnervm7aw5e" duration="00:00:00.0002498" startTime="2026-11-03T18:56:04.2214606+00:00" endTime="2026-11-03T18:56:04.2215976+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a5b1c13-f18a-43ed-a805-111ba753af09" />
+    <UnitTestResult executionId="26ebf65b-45fc-4210-93b9-3cda2f08f4b6" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;limite: 10.000,00 é alto valor&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-7035-9cf9-1477195328a2, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 10000, QuantidadeTotal = 1 }, esperado: AltoValor)" computerName="runnervm7aw5e" duration="00:00:00.0000020" startTime="2026-11-03T18:56:04.2128432+00:00" endTime="2026-11-03T18:56:04.2129478+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26ebf65b-45fc-4210-93b9-3cda2f08f4b6" />
+    <UnitTestResult executionId="cd5bc79b-bb6d-4436-bb1b-3b6beb78dd12" testId="d1384e31-006d-ac0e-f1d7-647ef602aa4f" testName="HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado" computerName="runnervm7aw5e" duration="00:00:00.0010112" startTime="2026-11-03T18:56:04.2222636+00:00" endTime="2026-11-03T18:56:04.2223872+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cd5bc79b-bb6d-4436-bb1b-3b6beb78dd12" />
+    <UnitTestResult executionId="e1a7674a-68bc-4f35-b228-832fa340f45a" testId="ccd6d430-81ab-941a-8289-206d1bf37edd" testName="HubPedidos.Tests.EfCoreTests.Parametros_do_usuario_nao_mudam_a_forma_do_SQL" computerName="runnervm7aw5e" duration="00:00:01.4839560" startTime="2026-11-03T18:56:04.1677324+00:00" endTime="2026-11-03T18:56:05.6442737+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1a7674a-68bc-4f35-b228-832fa340f45a" />
+    <UnitTestResult executionId="3f331d83-a9a3-48fd-ae11-d7417831457d" testId="816f3e07-319e-8c0c-8b52-aa503841cf82" testName="HubPedidos.Tests.FilaTests.Fila_concluida_nao_aceita_novos_itens" computerName="runnervm7aw5e" duration="00:00:00.0001310" startTime="2026-11-03T18:56:04.7962338+00:00" endTime="2026-11-03T18:56:04.7963147+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f331d83-a9a3-48fd-ae11-d7417831457d" />
+    <UnitTestResult executionId="1f9c934a-23e9-4e98-9786-296f2bb70fb2" testId="42e4439a-a430-203f-3d75-ac551b195a45" testName="HubPedidos.Tests.EfCoreTests.Versao_obsoleta_gera_conflito" computerName="runnervm7aw5e" duration="00:00:00.0180734" startTime="2026-11-03T18:56:05.7973335+00:00" endTime="2026-11-03T18:56:05.8137854+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f9c934a-23e9-4e98-9786-296f2bb70fb2" />
+    <UnitTestResult executionId="fb4233f7-7a23-4cf3-bd92-2a090bb3c4d9" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;prioritário&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-703a-a236-01bf1a51720c, Cliente = ana, Regiao = Sudeste, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Expresso)" computerName="runnervm7aw5e" duration="00:00:00.0000029" startTime="2026-11-03T18:56:04.1689488+00:00" endTime="2026-11-03T18:56:04.1690538+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb4233f7-7a23-4cf3-bd92-2a090bb3c4d9" />
+    <UnitTestResult executionId="197ebfb6-3611-464e-9f05-d68cf0fac660" testId="134d8413-ea5e-5f0b-9a5c-e97c94b4390a" testName="HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: &quot;0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f&quot;, valido: True)" computerName="runnervm7aw5e" duration="00:00:00.0000089" startTime="2026-11-03T18:56:04.2218265+00:00" endTime="2026-11-03T18:56:04.2219486+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="197ebfb6-3611-464e-9f05-d68cf0fac660" />
+    <UnitTestResult executionId="85daf465-a1c9-43f8-ace0-d1606f7d713b" testId="8bbfe70e-0d13-ac57-e029-2e4567ad4862" testName="HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync" computerName="runnervm7aw5e" duration="00:00:00.0025228" startTime="2026-11-03T18:56:04.7929587+00:00" endTime="2026-11-03T18:56:04.7955760+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="85daf465-a1c9-43f8-ace0-d1606f7d713b" />
+    <UnitTestResult executionId="87fecb11-b5a7-4330-adca-3a6e9ffc633e" testId="2534cdaa-d95c-efae-46b9-f2bdcce9f66c" testName="HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda" computerName="runnervm7aw5e" duration="00:00:00.1219878" startTime="2026-11-03T18:56:06.3655389+00:00" endTime="2026-11-03T18:56:06.4878237+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="87fecb11-b5a7-4330-adca-3a6e9ffc633e" />
+    <UnitTestResult executionId="2c80b05e-a51c-4773-b501-31192318aecc" testId="9d31c7bf-c1bc-ec44-3bb8-ef7b112fc3c5" testName="HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorBaseline { })" computerName="runnervm7aw5e" duration="00:00:00.0032545" startTime="2026-11-03T18:56:04.6586881+00:00" endTime="2026-11-03T18:56:04.6622864+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c80b05e-a51c-4773-b501-31192318aecc" />
+    <UnitTestResult executionId="492a799c-ea86-4dce-870b-b03f9d334e97" testId="0164b0fc-302b-c2d3-10f0-a1c0b844a8f9" testName="HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico" computerName="runnervm7aw5e" duration="00:00:00.0072832" startTime="2026-11-03T18:56:04.7040306+00:00" endTime="2026-11-03T18:56:04.7111521+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="492a799c-ea86-4dce-870b-b03f9d334e97" />
+    <UnitTestResult executionId="e6668754-37b6-42f2-a56c-71a32fe54af6" testId="2b348295-92f7-72f1-d6f3-df2228b162ac" testName="HubPedidos.Tests.EfCoreTests.Painel_usa_dois_comandos_e_so_as_colunas_necessarias" computerName="runnervm7aw5e" duration="00:00:00.1226371" startTime="2026-11-03T18:56:05.6445899+00:00" endTime="2026-11-03T18:56:05.7670379+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6668754-37b6-42f2-a56c-71a32fe54af6" />
+    <UnitTestResult executionId="45eb21b1-c598-4385-93db-13214e7be360" testId="fcd767ca-c994-0825-6534-5148d0e829d7" testName="HubPedidos.Tests.EfCoreTests.Versao_ingenua_mostra_o_problema_N_mais_1" computerName="runnervm7aw5e" duration="00:00:00.0865687" startTime="2026-11-03T18:56:05.8219718+00:00" endTime="2026-11-03T18:56:05.9083427+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="45eb21b1-c598-4385-93db-13214e7be360" />
+    <UnitTestResult executionId="615f0cf3-6990-4a3f-9fb9-665d2e6fe852" testId="e8e92359-235f-58de-ff71-b5b48eccd598" testName="HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento" computerName="runnervm7aw5e" duration="00:00:00.0011318" startTime="2026-11-03T18:56:04.6768855+00:00" endTime="2026-11-03T18:56:04.6777665+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="615f0cf3-6990-4a3f-9fb9-665d2e6fe852" />
+    <UnitTestResult executionId="9dc09e40-75a7-433a-9777-5d3fc66ab02e" testId="60920a62-65f8-ace6-34ff-2165b8f7be40" testName="HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: &quot;00000000-0000-0000-0000-000000000000&quot;, valido: False)" computerName="runnervm7aw5e" duration="00:00:00.0030440" startTime="2026-11-03T18:56:04.2160717+00:00" endTime="2026-11-03T18:56:04.2161993+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9dc09e40-75a7-433a-9777-5d3fc66ab02e" />
+    <UnitTestResult executionId="ef8ce451-41c0-4512-9524-d2ef0c85550d" testId="9eb3bc4a-2936-c585-aa45-54548f215f79" testName="HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorBaseline { })" computerName="runnervm7aw5e" duration="00:00:00.0042189" startTime="2026-11-03T18:56:04.6702467+00:00" endTime="2026-11-03T18:56:04.6744652+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ef8ce451-41c0-4512-9524-d2ef0c85550d" />
+    <UnitTestResult executionId="a11f71d9-2357-4c15-ad6a-238fbc6342ee" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;nulo&quot;, pedido: null, esperado: Invalido)" computerName="runnervm7aw5e" duration="00:00:00.0031075" startTime="2026-11-03T18:56:04.1678553+00:00" endTime="2026-11-03T18:56:04.1679704+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a11f71d9-2357-4c15-ad6a-238fbc6342ee" />
+    <UnitTestResult executionId="fdd5c965-c893-4944-a1e7-4e4db02527a6" testId="9eb3bc4a-2936-c585-aa45-54548f215f79" testName="HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorSpan { })" computerName="runnervm7aw5e" duration="00:00:00.0002417" startTime="2026-11-03T18:56:04.6745743+00:00" endTime="2026-11-03T18:56:04.6748177+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fdd5c965-c893-4944-a1e7-4e4db02527a6" />
+    <UnitTestResult executionId="7bcd16f0-63dc-4a54-a789-ed713523fc5f" testId="87980ede-ff9e-863c-b49a-a1b813edd2bc" testName="HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorSpan { })" computerName="runnervm7aw5e" duration="00:00:00.0008114" startTime="2026-11-03T18:56:04.6688991+00:00" endTime="2026-11-03T18:56:04.6696297+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7bcd16f0-63dc-4a54-a789-ed713523fc5f" />
+    <UnitTestResult executionId="62d65fa0-f290-46c2-8aac-4fbc359cabdf" testId="87980ede-ff9e-863c-b49a-a1b813edd2bc" testName="HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorBaseline { })" computerName="runnervm7aw5e" duration="00:00:00.0026149" startTime="2026-11-03T18:56:04.6661177+00:00" endTime="2026-11-03T18:56:04.6687784+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62d65fa0-f290-46c2-8aac-4fbc359cabdf" />
+    <UnitTestResult executionId="667396ab-6bd4-474a-b98e-5ea37d51d06a" testId="32036fec-043a-2a3f-b683-99992ebd888e" testName="HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco" computerName="runnervm7aw5e" duration="00:00:00.0177008" startTime="2026-11-03T18:56:05.9097737+00:00" endTime="2026-11-03T18:56:05.9264559+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="667396ab-6bd4-474a-b98e-5ea37d51d06a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Contains() Failure: Sub-string not found
+String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
+Not found: "json_extract"</Message>
+          <StackTrace>   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+   at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs:line 142
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6ee27864-3716-4627-ad73-d71ac761229d" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;limite: 99 unidades&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-7491-b9db-a5b6a2db944c, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 99, QuantidadeTotal = 99 }, esperado: Padrao)" computerName="runnervm7aw5e" duration="00:00:00.0000024" startTime="2026-11-03T18:56:04.2130474+00:00" endTime="2026-11-03T18:56:04.2131648+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6ee27864-3716-4627-ad73-d71ac761229d" />
+    <UnitTestResult executionId="b65008f5-85ff-405e-a369-eb1b91eaa8f6" testId="9eb3bc4a-2936-c585-aa45-54548f215f79" testName="HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado(importador: ImportadorUtf8Pooled { })" computerName="runnervm7aw5e" duration="00:00:00.0000599" startTime="2026-11-03T18:56:04.6758910+00:00" endTime="2026-11-03T18:56:04.6759807+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b65008f5-85ff-405e-a369-eb1b91eaa8f6" />
+    <UnitTestResult executionId="26abb179-e96e-486c-9621-346cb7117701" testId="679c32e0-2644-2096-4c0e-f59c5551a5b5" testName="HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando" computerName="runnervm7aw5e" duration="00:00:00.1148261" startTime="2026-11-03T18:56:06.2502107+00:00" endTime="2026-11-03T18:56:06.3652288+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26abb179-e96e-486c-9621-346cb7117701" />
+    <UnitTestResult executionId="01920023-fac5-4f47-a81b-865eab76f8f4" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;limite: 100 unidades&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-72d6-81e2-b57f376b1448, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 100 }, esperado: GrandeVolume)" computerName="runnervm7aw5e" duration="00:00:00.0000020" startTime="2026-11-03T18:56:04.2132519+00:00" endTime="2026-11-03T18:56:04.2133669+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01920023-fac5-4f47-a81b-865eab76f8f4" />
+    <UnitTestResult executionId="6b2aaf83-29fb-41f4-ade6-4654de1f9d40" testId="1806772a-0f88-d3a3-611a-d094c8a63455" testName="HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel" computerName="runnervm7aw5e" duration="00:00:00.0017371" startTime="2026-11-03T18:56:04.2232387+00:00" endTime="2026-11-03T18:56:04.2233701+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6b2aaf83-29fb-41f4-ade6-4654de1f9d40" />
+    <UnitTestResult executionId="b9494ff6-f4de-4192-8963-114b31bcdf2c" testId="2d155652-ac24-3a94-b8f7-452c3725cace" testName="HubPedidos.Tests.FilaTests.Modo_DropOldest_descarta_e_contabiliza" computerName="runnervm7aw5e" duration="00:00:00.0003639" startTime="2026-11-03T18:56:04.7958303+00:00" endTime="2026-11-03T18:56:04.7959888+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b9494ff6-f4de-4192-8963-114b31bcdf2c" />
+    <UnitTestResult executionId="eb9169f5-a41a-4ce8-bc7a-ed2c493b893d" testId="2cd85fd9-a666-bc86-f85d-5fc8bee71e52" testName="HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorBaseline { })" computerName="runnervm7aw5e" duration="00:00:00.0010489" startTime="2026-11-03T18:56:04.6761970+00:00" endTime="2026-11-03T18:56:04.6762898+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb9169f5-a41a-4ce8-bc7a-ed2c493b893d" />
+    <UnitTestResult executionId="64abe688-0185-46c0-982d-cb423f4df568" testId="c983a762-8a13-68ef-929d-49ae1bc47b0c" testName="HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces" computerName="runnervm7aw5e" duration="00:00:00.0021786" startTime="2026-11-03T18:56:04.6989122+00:00" endTime="2026-11-03T18:56:04.7001637+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="64abe688-0185-46c0-982d-cb423f4df568" />
+    <UnitTestResult executionId="0ebc320b-cbd2-4b65-8c30-f968f6ea1b4c" testId="707fe94c-28ad-fd3d-5a87-d7bec754129a" testName="HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag" computerName="runnervm7aw5e" duration="00:00:00.1756912" startTime="2026-11-03T18:56:05.7222354+00:00" endTime="2026-11-03T18:56:05.8972760+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ebc320b-cbd2-4b65-8c30-f968f6ea1b4c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ
+Expected: 1
+Actual:   2</Message>
+          <StackTrace>   at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 154
+   at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 159
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bb33cb15-54d2-4637-87ec-044caadb9aab" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;normal&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-7a88-a1dc-2af801f25fde, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 100, QuantidadeTotal = 2 }, esperado: Padrao)" computerName="runnervm7aw5e" duration="00:00:00.0000103" startTime="2026-11-03T18:56:04.1686951+00:00" endTime="2026-11-03T18:56:04.1688415+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb33cb15-54d2-4637-87ec-044caadb9aab" />
+    <UnitTestResult executionId="c1002246-5888-4307-8741-4fa0558d514d" testId="10b26b1e-5639-2740-0357-30ef8bcdbc11" testName="HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor" computerName="runnervm7aw5e" duration="00:00:00.2304286" startTime="2026-11-03T18:56:06.6884608+00:00" endTime="2026-11-03T18:56:06.9191066+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c1002246-5888-4307-8741-4fa0558d514d" />
+    <UnitTestResult executionId="ce9dab30-58d6-4990-8bed-abb451d06884" testId="bf7383fa-39e6-3af0-e168-17d58882d501" testName="HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso" computerName="runnervm7aw5e" duration="00:00:00.3580087" startTime="2026-11-03T18:56:04.3094350+00:00" endTime="2026-11-03T18:56:04.6632776+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce9dab30-58d6-4990-8bed-abb451d06884" />
+    <UnitTestResult executionId="bf42e100-59d7-4fbe-a31b-2ad677ad8cf0" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;exterior vence prioridade&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-7207-98f3-51c5182cc14a, Cliente = ana, Regiao = Exterior, Prioridade = Alta, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 80, QuantidadeTotal = 1 }, esperado: Internacional)" computerName="runnervm7aw5e" duration="00:00:00.0000075" startTime="2026-11-03T18:56:04.2122234+00:00" endTime="2026-11-03T18:56:04.2123773+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bf42e100-59d7-4fbe-a31b-2ad677ad8cf0" />
+    <UnitTestResult executionId="e73af72c-e606-489f-a385-6eefdca1a9cc" testId="e7fcfc51-71c7-867d-8fc5-4a9df5d84272" testName="HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura" computerName="runnervm7aw5e" duration="00:00:00.0061745" startTime="2026-11-03T18:56:04.1351914+00:00" endTime="2026-11-03T18:56:04.1480127+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e73af72c-e606-489f-a385-6eefdca1a9cc" />
+    <UnitTestResult executionId="9fe3a817-36f6-4550-b246-e8c94ca21d13" testId="d3485a14-ee8d-5eb9-3a10-6f7656c4a410" testName="HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto" computerName="runnervm7aw5e" duration="00:00:00.0051521" startTime="2026-11-03T18:56:04.6924096+00:00" endTime="2026-11-03T18:56:04.6974520+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fe3a817-36f6-4550-b246-e8c94ca21d13" />
+    <UnitTestResult executionId="8171ff31-1ddc-40c8-bf68-bb1360c2ec2e" testId="4e93694b-1941-e724-2765-46b82e5f6732" testName="HubPedidos.Tests.EfCoreTests.Atualizacao_usa_tracking_e_altera_so_as_colunas_mudadas" computerName="runnervm7aw5e" duration="00:00:00.0078476" startTime="2026-11-03T18:56:05.8140225+00:00" endTime="2026-11-03T18:56:05.8217335+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8171ff31-1ddc-40c8-bf68-bb1360c2ec2e" />
+    <UnitTestResult executionId="71fc5216-3150-43fd-a68b-8e4209555929" testId="0aa4c1ea-dd5c-32d9-adf9-2dac5ab694a1" testName="HubPedidos.Tests.ApiIntegracaoTests.Requisicao_invalida_recebe_400_com_os_campos" computerName="runnervm7aw5e" duration="00:00:00.0955910" startTime="2026-11-03T18:56:06.1542146+00:00" endTime="2026-11-03T18:56:06.2499531+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="71fc5216-3150-43fd-a68b-8e4209555929" />
+    <UnitTestResult executionId="7f37a5c4-4f6a-4961-a87c-90be26a75abd" testId="9556997b-bdd8-3eeb-a5e5-ed8db7e96ff1" testName="HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel" computerName="runnervm7aw5e" duration="00:00:00.0035972" startTime="2026-11-03T18:56:04.7003982+00:00" endTime="2026-11-03T18:56:04.7038174+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7f37a5c4-4f6a-4961-a87c-90be26a75abd" />
+    <UnitTestResult executionId="992f96c0-39e8-42b0-9f7d-ccf536a5c9a3" testId="acf1dfda-e28a-1b14-abc9-06623ab5a456" testName="HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400" computerName="runnervm7aw5e" duration="00:00:00.0959439" startTime="2026-11-03T18:56:06.5919928+00:00" endTime="2026-11-03T18:56:06.6881629+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="992f96c0-39e8-42b0-9f7d-ccf536a5c9a3" />
+    <UnitTestResult executionId="9e73cda3-bceb-4c66-9d5f-b2be1c69b614" testId="205e327c-6c4f-4a42-048f-1becae8dca3a" testName="HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core" computerName="runnervm7aw5e" duration="00:00:00.0021691" startTime="2026-11-03T18:56:04.1638493+00:00" endTime="2026-11-03T18:56:04.1639770+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9e73cda3-bceb-4c66-9d5f-b2be1c69b614" />
+    <UnitTestResult executionId="83f8ba87-4869-488f-874e-a42fd4893f5f" testId="a8918d63-d5fb-4706-5635-24ba41ec0c45" testName="HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes" computerName="runnervm7aw5e" duration="00:00:00.0088740" startTime="2026-11-03T18:56:04.6794304+00:00" endTime="2026-11-03T18:56:04.6885530+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="83f8ba87-4869-488f-874e-a42fd4893f5f" />
+    <UnitTestResult executionId="f9204081-607b-4d28-9639-dd7007e1d374" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;21 itens distintos&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-740d-9e9d-5bceed429d09, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 21, QuantidadeTotal = 21 }, esperado: GrandeVolume)" computerName="runnervm7aw5e" duration="00:00:00.0000101" startTime="2026-11-03T18:56:04.2134641+00:00" endTime="2026-11-03T18:56:04.2135968+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f9204081-607b-4d28-9639-dd7007e1d374" />
+    <UnitTestResult executionId="bf739885-ea30-480b-a3a9-664c688917d3" testId="3c1f0221-f7fd-e827-f5aa-2e7fa946baa3" testName="HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes" computerName="runnervm7aw5e" duration="00:00:00.0901441" startTime="2026-11-03T18:56:04.2259614+00:00" endTime="2026-11-03T18:56:04.2992940+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bf739885-ea30-480b-a3a9-664c688917d3">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Values differ
+Expected: 9
+Actual:   0</Message>
+          <StackTrace>   at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs:line 115
+   at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs:line 120
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d86b87d4-9554-47bc-a7c5-c6f548692d45" testId="3a31a87a-589d-b51f-8078-aaf202ca57b2" testName="HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo" computerName="runnervm7aw5e" duration="00:00:00.0007431" startTime="2026-11-03T18:56:04.6913942+00:00" endTime="2026-11-03T18:56:04.6921032+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d86b87d4-9554-47bc-a7c5-c6f548692d45" />
+    <UnitTestResult executionId="bf954466-acf8-4c6e-8073-38bf8c9b7ac5" testId="9d31c7bf-c1bc-ec44-3bb8-ef7b112fc3c5" testName="HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorUtf8Pooled { })" computerName="runnervm7aw5e" duration="00:00:00.0007060" startTime="2026-11-03T18:56:04.6647295+00:00" endTime="2026-11-03T18:56:04.6653237+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bf954466-acf8-4c6e-8073-38bf8c9b7ac5" />
+    <UnitTestResult executionId="99bffbf1-8606-4555-b76f-10be08c74923" testId="cda05842-2a1f-8993-82dd-4e55dea20a08" testName="HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original" computerName="runnervm7aw5e" duration="00:00:00.0045438" startTime="2026-11-03T18:56:04.2156714+00:00" endTime="2026-11-03T18:56:04.2158169+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="99bffbf1-8606-4555-b76f-10be08c74923" />
+    <UnitTestResult executionId="11296b2a-a063-4dc7-9a98-20fea05a74e5" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;limite: 9.999,99 não é alto valor&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-765c-867e-b4b1ed60c7ff, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 9999.99, QuantidadeTotal = 1 }, esperado: Padrao)" computerName="runnervm7aw5e" duration="00:00:00.0000055" startTime="2026-11-03T18:56:04.2125840+00:00" endTime="2026-11-03T18:56:04.2127399+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11296b2a-a063-4dc7-9a98-20fea05a74e5" />
+    <UnitTestResult executionId="6496b317-211d-4c49-b50f-c1d72bc531ae" testId="2cd85fd9-a666-bc86-f85d-5fc8bee71e52" testName="HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado(importador: ImportadorSpan { })" computerName="runnervm7aw5e" duration="00:00:00.0003102" startTime="2026-11-03T18:56:04.6763793+00:00" endTime="2026-11-03T18:56:04.6764522+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6496b317-211d-4c49-b50f-c1d72bc531ae" />
+    <UnitTestResult executionId="af8d8823-18a3-425e-a29f-0f46ef0cbe17" testId="9d31c7bf-c1bc-ec44-3bb8-ef7b112fc3c5" testName="HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia(importador: ImportadorSpan { })" computerName="runnervm7aw5e" duration="00:00:00.0017392" startTime="2026-11-03T18:56:04.6628198+00:00" endTime="2026-11-03T18:56:04.6645940+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af8d8823-18a3-425e-a29f-0f46ef0cbe17" />
+    <UnitTestResult executionId="3b0f93f5-f69f-4a6d-ac31-920db0889926" testId="b9ca36b2-ca3f-629e-2875-4974cfa67e0b" testName="HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno" computerName="runnervm7aw5e" duration="00:00:00.5149671" startTime="2026-11-03T18:56:04.1369119+00:00" endTime="2026-11-03T18:56:04.6551456+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b0f93f5-f69f-4a6d-ac31-920db0889926" />
+    <UnitTestResult executionId="a43e6587-7549-4df1-b749-d3ae80b26460" testId="cdede547-14bf-e916-e1a5-862d2606fc53" testName="HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404" computerName="runnervm7aw5e" duration="00:00:00.1033173" startTime="2026-11-03T18:56:06.4880033+00:00" endTime="2026-11-03T18:56:06.5916562+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a43e6587-7549-4df1-b749-d3ae80b26460" />
+    <UnitTestResult executionId="887aa987-4c9a-4b27-bb1f-60e8a7d4247e" testId="bfd5dfeb-e86d-d433-c8da-7476fe4aa8a2" testName="HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha" computerName="runnervm7aw5e" duration="00:00:00.0004407" startTime="2026-11-03T18:56:04.6985877+00:00" endTime="2026-11-03T18:56:04.6986739+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="887aa987-4c9a-4b27-bb1f-60e8a7d4247e" />
+    <UnitTestResult executionId="abb5af77-d367-40d2-9ff8-85f0674e76de" testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" testName="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia(caso: &quot;sem itens&quot;, pedido: Pedido { Id = 01a1a2c4-ba3d-78a7-938e-9cde0f3038c2, Cliente = ana, Regiao = Sudeste, Prioridade = Normal, Itens = System.Collections.Immutable.ImmutableArray`1[HubPedidos.Domain.ItemPedido], Total = 0, QuantidadeTotal = 0 }, esperado: Invalido)" computerName="runnervm7aw5e" duration="00:00:00.0002605" startTime="2026-11-03T18:56:04.1680973+00:00" endTime="2026-11-03T18:56:04.1682044+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="abb5af77-d367-40d2-9ff8-85f0674e76de" />
+    <UnitTestResult executionId="e5aae289-e18d-489f-9140-7ead5bfa9e43" testId="7eb53daa-3f0a-7658-3578-52cd8e9062c4" testName="HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache" computerName="runnervm7aw5e" duration="00:00:00.4640562" startTime="2026-11-03T18:56:05.2570292+00:00" endTime="2026-11-03T18:56:05.7209668+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e5aae289-e18d-489f-9140-7ead5bfa9e43">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Strings differ
+           ↓ (pos 0)
+Expected: "private, no-cache"
+Actual:   "no-cache, private"
+           ↑ (pos 0)</Message>
+          <StackTrace>   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 168
+   at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs:line 169
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cd1a3a9c-e5b9-4c98-9734-f18c36773114" testId="87980ede-ff9e-863c-b49a-a1b813edd2bc" testName="HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha(importador: ImportadorUtf8Pooled { })" computerName="runnervm7aw5e" duration="00:00:00.0003573" startTime="2026-11-03T18:56:04.6697632+00:00" endTime="2026-11-03T18:56:04.6700042+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cd1a3a9c-e5b9-4c98-9734-f18c36773114" />
+    <UnitTestResult executionId="d036e1a3-ff53-4795-9db6-ac4408884cfe" testId="5edcaff4-5b34-8178-b58c-340b6364c173" testName="HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao" computerName="runnervm7aw5e" duration="00:00:00.1289659" startTime="2026-11-03T18:56:04.6635362+00:00" endTime="2026-11-03T18:56:04.7926758+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d036e1a3-ff53-4795-9db6-ac4408884cfe" />
+    <UnitTestResult executionId="cedabee9-11f0-4ea4-8786-bd9b55d49055" testId="63b5cf37-12a1-d49f-86b4-6cbf33d132fe" testName="HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array" computerName="runnervm7aw5e" duration="00:00:00.0041915" startTime="2026-11-03T18:56:04.2151946+00:00" endTime="2026-11-03T18:56:04.2153069+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cedabee9-11f0-4ea4-8786-bd9b55d49055" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="cdede547-14bf-e916-e1a5-862d2606fc53">
+      <Execution id="a43e6587-7549-4df1-b749-d3ae80b26460" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="Sem_autenticacao_recebe_401_e_pedido_de_outro_usuario_404" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="2534cdaa-d95c-efae-46b9-f2bdcce9f66c">
+      <Execution id="87fecb11-b5a7-4330-adca-3a6e9ffc633e" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="ETag_estavel_304_sem_corpo_e_novo_ETag_quando_muda" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.As_tres_versoes_sao_funcionalmente_equivalentes" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="a8918d63-d5fb-4706-5635-24ba41ec0c45">
+      <Execution id="83f8ba87-4869-488f-874e-a42fd4893f5f" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="As_tres_versoes_sao_funcionalmente_equivalentes" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.Lote_acima_do_limite_e_recusado" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="2cd85fd9-a666-bc86-f85d-5fc8bee71e52">
+      <Execution id="eb9169f5-a41a-4ce8-bc7a-ed2c493b893d" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="Lote_acima_do_limite_e_recusado" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.EfCoreTests.Parametros_do_usuario_nao_mudam_a_forma_do_SQL" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="ccd6d430-81ab-941a-8289-206d1bf37edd">
+      <Execution id="e1a7674a-68bc-4f35-b228-832fa340f45a" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.EfCoreTests" name="Parametros_do_usuario_nao_mudam_a_forma_do_SQL" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.RegressaoTests.ImportadorSpan_aceita_limite_maximo" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="3a31a87a-589d-b51f-8078-aaf202ca57b2">
+      <Execution id="d86b87d4-9554-47bc-a7c5-c6f548692d45" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.RegressaoTests" name="ImportadorSpan_aceita_limite_maximo" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="679c32e0-2644-2096-4c0e-f59c5551a5b5">
+      <Execution id="26abb179-e96e-486c-9621-346cb7117701" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="V1_e_v2_coexistem_e_o_cliente_v1_continua_funcionando" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.FilaTests.Fila_concluida_nao_aceita_novos_itens" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="816f3e07-319e-8c0c-8b52-aa503841cf82">
+      <Execution id="3f331d83-a9a3-48fd-ae11-d7417831457d" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.FilaTests" name="Fila_concluida_nao_aceita_novos_itens" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.FilaTests.Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="8bbfe70e-0d13-ac57-e029-2e4567ad4862">
+      <Execution id="85daf465-a1c9-43f8-ace0-d1606f7d713b" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.FilaTests" name="Modo_Wait_rejeita_no_TryWrite_e_faz_o_produtor_esperar_no_WriteAsync" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.Cria_e_consulta_o_pedido_processado_pela_fila" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="95c3f34d-bd2c-08ae-5a70-092da505e100">
+      <Execution id="67aaf78d-5834-4eb1-b603-c80434ef6253" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="Cria_e_consulta_o_pedido_processado_pela_fila" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="32036fec-043a-2a3f-b683-99992ebd888e">
+      <Execution id="667396ab-6bd4-474a-b98e-5ea37d51d06a" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.EfCoreTests" name="Filtro_em_campo_JSON_e_traduzido_para_o_banco" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_no_cancelamento" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="e8e92359-235f-58de-ff71-b5b48eccd598">
+      <Execution id="615f0cf3-6990-4a3f-9fb9-665d2e6fe852" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="Buffer_volta_ao_pool_no_cancelamento" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="707fe94c-28ad-fd3d-5a87-d7bec754129a">
+      <Execution id="0ebc320b-cbd2-4b65-8c30-f968f6ea1b4c" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="Output_cache_atende_leitura_publica_e_e_invalidado_por_tag" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ArquiteturaTests.Aplicacao_nao_conhece_a_infraestrutura" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="731b09ed-3c6e-888d-7597-0126ab7b3204">
+      <Execution id="689dc023-c9bd-4191-be4d-f724767c4a58" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ArquiteturaTests" name="Aplicacao_nao_conhece_a_infraestrutura" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.CatalogoTests.Catalogo_descobre_somente_as_estrategias_do_namespace_previsto" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="d3485a14-ee8d-5eb9-3a10-6f7656c4a410">
+      <Execution id="9fe3a817-36f6-4550-b246-e8c94ca21d13" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.CatalogoTests" name="Catalogo_descobre_somente_as_estrategias_do_namespace_previsto" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.With_cria_copia_sem_alterar_o_original" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="cda05842-2a1f-8993-82dd-4e55dea20a08">
+      <Execution id="99bffbf1-8606-4555-b76f-10be08c74923" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="With_cria_copia_sem_alterar_o_original" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.Requisicao_invalida_recebe_400_com_os_campos" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="0aa4c1ea-dd5c-32d9-adf9-2dac5ab694a1">
+      <Execution id="71fc5216-3150-43fd-a68b-8e4209555929" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="Requisicao_invalida_recebe_400_com_os_campos" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.Lote_grande_e_processado_em_streaming_com_buffer_pequeno" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="b9ca36b2-ca3f-629e-2875-4974cfa67e0b">
+      <Execution id="3b0f93f5-f69f-4a6d-ac31-920db0889926" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="Lote_grande_e_processado_em_streaming_com_buffer_pequeno" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.CatalogoTests.Duplicidade_falha_de_forma_legivel" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="9556997b-bdd8-3eeb-a5e5-ed8db7e96ff1">
+      <Execution id="7f37a5c4-4f6a-4961-a87c-90be26a75abd" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.CatalogoTests" name="Duplicidade_falha_de_forma_legivel" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.CatalogoTests.Varredura_restrita_nao_encontra_tipos_de_outros_namespaces" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="c983a762-8a13-68ef-929d-49ae1bc47b0c">
+      <Execution id="64abe688-0185-46c0-982d-cb423f4df568" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.CatalogoTests" name="Varredura_restrita_nao_encontra_tipos_de_outros_namespaces" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.EfCoreTests.Atualizacao_usa_tracking_e_altera_so_as_colunas_mudadas" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="4e93694b-1941-e724-2765-46b82e5f6732">
+      <Execution id="8171ff31-1ddc-40c8-bf68-bb1360c2ec2e" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.EfCoreTests" name="Atualizacao_usa_tracking_e_altera_so_as_colunas_mudadas" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.FilaTests.Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="5edcaff4-5b34-8178-b58c-340b6364c173">
+      <Execution id="d036e1a3-ff53-4795-9db6-ac4408884cfe" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.FilaTests" name="Semaforo_nunca_excede_o_limite_e_nao_perde_slots_com_excecao" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.Record_com_colecao_compara_a_referencia_do_array" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="63b5cf37-12a1-d49f-86b4-6cbf33d132fe">
+      <Execution id="cedabee9-11f0-4ea4-8786-bd9b55d49055" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="Record_com_colecao_compara_a_referencia_do_array" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.If_Match_obsoleto_recebe_412_e_ausente_428" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="37f7c131-8a4a-27aa-764b-41dbd28b9291">
+      <Execution id="dabb41d6-67d1-446d-84b8-44296ce70019" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="If_Match_obsoleto_recebe_412_e_ausente_428" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.EfCoreTests.Painel_usa_dois_comandos_e_so_as_colunas_necessarias" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="2b348295-92f7-72f1-d6f3-df2228b162ac">
+      <Execution id="e6668754-37b6-42f2-a56c-71a32fe54af6" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.EfCoreTests" name="Painel_usa_dois_comandos_e_so_as_colunas_necessarias" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.FilaTests.Produtor_cancelado_nao_fica_preso" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="bf7383fa-39e6-3af0-e168-17d58882d501">
+      <Execution id="ce9dab30-58d6-4990-8bed-abb451d06884" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.FilaTests" name="Produtor_cancelado_nao_fica_preso" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.Item_invalido_nao_e_criado" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="d1384e31-006d-ac0e-f1d7-647ef602aa4f">
+      <Execution id="cd5bc79b-bb6d-4436-bb1b-3b6beb78dd12" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="Item_invalido_nao_e_criado" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.Utf8_multibyte_e_preservado" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="9eb3bc4a-2936-c585-aa45-54548f215f79">
+      <Execution id="ef8ce451-41c0-4512-9524-d2ef0c85550d" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="Utf8_multibyte_e_preservado" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.Classifica_cada_classe_de_equivalencia" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="0c133cb1-7182-bb45-e8a5-b563f563e12a">
+      <Execution id="a11f71d9-2357-4c15-ad6a-238fbc6342ee" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="Classifica_cada_classe_de_equivalencia" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: &quot;00000000-0000-0000-0000-000000000000&quot;, valido: False)" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="60920a62-65f8-ace6-34ff-2165b8f7be40">
+      <Execution id="9dc09e40-75a7-433a-9777-5d3fc66ab02e" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="PedidoId_implementa_IParsable" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ArquiteturaTests.Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="e7fcfc51-71c7-867d-8fc5-4a9df5d84272">
+      <Execution id="e73af72c-e606-489f-a385-6eefdca1a9cc" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ArquiteturaTests" name="Dtos_de_contrato_nao_dependem_de_tipos_de_infraestrutura" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ArquiteturaTests.Dominio_nao_depende_de_api_nem_de_ef_core" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="205e327c-6c4f-4a42-048f-1becae8dca3a">
+      <Execution id="9e73cda3-bceb-4c66-9d5f-b2be1c69b614" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ArquiteturaTests" name="Dominio_nao_depende_de_api_nem_de_ef_core" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="acf1dfda-e28a-1b14-abc9-06623ab5a456">
+      <Execution id="992f96c0-39e8-42b0-9f7d-ccf536a5c9a3" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="Versao_ausente_usa_v1_e_versao_desconhecida_recebe_400" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="3c1f0221-f7fd-e827-f5aa-2e7fa946baa3">
+      <Execution id="bf739885-ea30-480b-a3a9-664c688917d3" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.FilaTests" name="Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.CatalogoTests.Catalogo_e_deterministico" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="0164b0fc-302b-c2d3-10f0-a1c0b844a8f9">
+      <Execution id="492a799c-ea86-4dce-870b-b03f9d334e97" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.CatalogoTests" name="Catalogo_e_deterministico" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.Linha_incompleta_informa_o_numero_da_linha" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="87980ede-ff9e-863c-b49a-a1b813edd2bc">
+      <Execution id="62d65fa0-f290-46c2-8aac-4fbc359cabdf" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="Linha_incompleta_informa_o_numero_da_linha" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: &quot;abc&quot;, valido: False)" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="bf957287-b91f-5294-9c2f-b90d6f55014c">
+      <Execution id="3a5b1c13-f18a-43ed-a805-111ba753af09" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="PedidoId_implementa_IParsable" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.Grafo_de_DI_e_valido_e_ambiente_de_testes_recusa_banco_em_arquivo" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="ec2440ac-208e-0602-dfac-4d3d79c00e9d">
+      <Execution id="c90a504b-cda9-42f8-95f9-74553909085d" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="Grafo_de_DI_e_valido_e_ambiente_de_testes_recusa_banco_em_arquivo" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.SignalR_so_entrega_ao_dono_autorizado_no_servidor" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="10b26b1e-5639-2740-0357-30ef8bcdbc11">
+      <Execution id="c1002246-5888-4307-8741-4fa0558d514d" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="SignalR_so_entrega_ao_dono_autorizado_no_servidor" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.EfCoreTests.Versao_obsoleta_gera_conflito" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="42e4439a-a430-203f-3d75-ac551b195a45">
+      <Execution id="1f9c934a-23e9-4e98-9786-296f2bb70fb2" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.EfCoreTests" name="Versao_obsoleta_gera_conflito" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.Dto_valido_gera_dominio_com_colecao_imutavel" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="1806772a-0f88-d3a3-611a-d094c8a63455">
+      <Execution id="6b2aaf83-29fb-41f4-ade6-4654de1f9d40" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="Dto_valido_gera_dominio_com_colecao_imutavel" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.Dto_invalido_e_rejeitado_antes_de_criar_o_dominio" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="b9dca97e-3c26-daba-8a01-935e62fac1a9">
+      <Execution id="12961623-d0b2-44a1-8a8b-dd5fedff852d" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="Dto_invalido_e_rejeitado_antes_de_criar_o_dominio" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.DominioTests.PedidoId_implementa_IParsable(texto: &quot;0199f0c2-6c5b-7c4e-9e8b-2b3a4c5d6e7f&quot;, valido: True)" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="134d8413-ea5e-5f0b-9a5c-e97c94b4390a">
+      <Execution id="197ebfb6-3611-464e-9f05-d68cf0fac660" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.DominioTests" name="PedidoId_implementa_IParsable" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.CatalogoTests.Atributo_em_tipo_que_nao_implementa_a_interface_falha" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="bfd5dfeb-e86d-d433-c8da-7476fe4aa8a2">
+      <Execution id="887aa987-4c9a-4b27-bb1f-60e8a7d4247e" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.CatalogoTests" name="Atributo_em_tipo_que_nao_implementa_a_interface_falha" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.Entrada_vazia_devolve_lista_vazia" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="9d31c7bf-c1bc-ec44-3bb8-ef7b112fc3c5">
+      <Execution id="2c80b05e-a51c-4773-b501-31192318aecc" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="Entrada_vazia_devolve_lista_vazia" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="7eb53daa-3f0a-7658-3578-52cd8e9062c4">
+      <Execution id="e5aae289-e18d-489f-9140-7ead5bfa9e43" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ApiIntegracaoTests" name="Respostas_autenticadas_nao_entram_no_cache" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.FilaTests.Modo_DropOldest_descarta_e_contabiliza" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="2d155652-ac24-3a94-b8f7-452c3725cace">
+      <Execution id="b9494ff6-f4de-4192-8963-114b31bcdf2c" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.FilaTests" name="Modo_DropOldest_descarta_e_contabiliza" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.ImportacaoTests.Buffer_volta_ao_pool_mesmo_com_erro" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="0c463726-4893-d70c-86ee-8c4bf975d329">
+      <Execution id="c98f1b25-66e7-4a31-9d86-2674551aa588" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.ImportacaoTests" name="Buffer_volta_ao_pool_mesmo_com_erro" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.EfCoreTests.Versao_ingenua_mostra_o_problema_N_mais_1" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="fcd767ca-c994-0825-6534-5148d0e829d7">
+      <Execution id="45eb21b1-c598-4385-93db-13214e7be360" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.EfCoreTests" name="Versao_ingenua_mostra_o_problema_N_mais_1" />
+    </UnitTest>
+    <UnitTest name="HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum" storage="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/hubpedidos.tests/bin/release/net10.0/hubpedidos.tests.dll" id="34678f0b-e31a-a879-ad77-81a40224d5be">
+      <Execution id="0395eda2-e435-474d-a38f-50b2e3c6f2e7" />
+      <TestMethod codeBase="/home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/bin/Release/net10.0/HubPedidos.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HubPedidos.Tests.EfCoreTests" name="Consulta_compilada_devolve_o_mesmo_resultado_da_comum" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="0c463726-4893-d70c-86ee-8c4bf975d329" executionId="c98f1b25-66e7-4a31-9d86-2674551aa588" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2cd85fd9-a666-bc86-f85d-5fc8bee71e52" executionId="4d1bea7c-d2a3-480a-8fce-78a2e6ef7d4e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ec2440ac-208e-0602-dfac-4d3d79c00e9d" executionId="c90a504b-cda9-42f8-95f9-74553909085d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="37f7c131-8a4a-27aa-764b-41dbd28b9291" executionId="dabb41d6-67d1-446d-84b8-44296ce70019" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="34678f0b-e31a-a879-ad77-81a40224d5be" executionId="0395eda2-e435-474d-a38f-50b2e3c6f2e7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="2b54908b-0226-4745-87e5-0eebc82ae9a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="731b09ed-3c6e-888d-7597-0126ab7b3204" executionId="689dc023-c9bd-4191-be4d-f724767c4a58" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="95c3f34d-bd2c-08ae-5a70-092da505e100" executionId="67aaf78d-5834-4eb1-b603-c80434ef6253" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9dca97e-3c26-daba-8a01-935e62fac1a9" executionId="12961623-d0b2-44a1-8a8b-dd5fedff852d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf957287-b91f-5294-9c2f-b90d6f55014c" executionId="3a5b1c13-f18a-43ed-a805-111ba753af09" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="26ebf65b-45fc-4210-93b9-3cda2f08f4b6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1384e31-006d-ac0e-f1d7-647ef602aa4f" executionId="cd5bc79b-bb6d-4436-bb1b-3b6beb78dd12" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ccd6d430-81ab-941a-8289-206d1bf37edd" executionId="e1a7674a-68bc-4f35-b228-832fa340f45a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="816f3e07-319e-8c0c-8b52-aa503841cf82" executionId="3f331d83-a9a3-48fd-ae11-d7417831457d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="42e4439a-a430-203f-3d75-ac551b195a45" executionId="1f9c934a-23e9-4e98-9786-296f2bb70fb2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="fb4233f7-7a23-4cf3-bd92-2a090bb3c4d9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="134d8413-ea5e-5f0b-9a5c-e97c94b4390a" executionId="197ebfb6-3611-464e-9f05-d68cf0fac660" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8bbfe70e-0d13-ac57-e029-2e4567ad4862" executionId="85daf465-a1c9-43f8-ace0-d1606f7d713b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2534cdaa-d95c-efae-46b9-f2bdcce9f66c" executionId="87fecb11-b5a7-4330-adca-3a6e9ffc633e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9d31c7bf-c1bc-ec44-3bb8-ef7b112fc3c5" executionId="2c80b05e-a51c-4773-b501-31192318aecc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0164b0fc-302b-c2d3-10f0-a1c0b844a8f9" executionId="492a799c-ea86-4dce-870b-b03f9d334e97" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2b348295-92f7-72f1-d6f3-df2228b162ac" executionId="e6668754-37b6-42f2-a56c-71a32fe54af6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fcd767ca-c994-0825-6534-5148d0e829d7" executionId="45eb21b1-c598-4385-93db-13214e7be360" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e8e92359-235f-58de-ff71-b5b48eccd598" executionId="615f0cf3-6990-4a3f-9fb9-665d2e6fe852" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60920a62-65f8-ace6-34ff-2165b8f7be40" executionId="9dc09e40-75a7-433a-9777-5d3fc66ab02e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9eb3bc4a-2936-c585-aa45-54548f215f79" executionId="ef8ce451-41c0-4512-9524-d2ef0c85550d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="a11f71d9-2357-4c15-ad6a-238fbc6342ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9eb3bc4a-2936-c585-aa45-54548f215f79" executionId="fdd5c965-c893-4944-a1e7-4e4db02527a6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87980ede-ff9e-863c-b49a-a1b813edd2bc" executionId="7bcd16f0-63dc-4a54-a789-ed713523fc5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87980ede-ff9e-863c-b49a-a1b813edd2bc" executionId="62d65fa0-f290-46c2-8aac-4fbc359cabdf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="32036fec-043a-2a3f-b683-99992ebd888e" executionId="667396ab-6bd4-474a-b98e-5ea37d51d06a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="6ee27864-3716-4627-ad73-d71ac761229d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9eb3bc4a-2936-c585-aa45-54548f215f79" executionId="b65008f5-85ff-405e-a369-eb1b91eaa8f6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="679c32e0-2644-2096-4c0e-f59c5551a5b5" executionId="26abb179-e96e-486c-9621-346cb7117701" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="01920023-fac5-4f47-a81b-865eab76f8f4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1806772a-0f88-d3a3-611a-d094c8a63455" executionId="6b2aaf83-29fb-41f4-ade6-4654de1f9d40" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2d155652-ac24-3a94-b8f7-452c3725cace" executionId="b9494ff6-f4de-4192-8963-114b31bcdf2c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2cd85fd9-a666-bc86-f85d-5fc8bee71e52" executionId="eb9169f5-a41a-4ce8-bc7a-ed2c493b893d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c983a762-8a13-68ef-929d-49ae1bc47b0c" executionId="64abe688-0185-46c0-982d-cb423f4df568" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="707fe94c-28ad-fd3d-5a87-d7bec754129a" executionId="0ebc320b-cbd2-4b65-8c30-f968f6ea1b4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="bb33cb15-54d2-4637-87ec-044caadb9aab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10b26b1e-5639-2740-0357-30ef8bcdbc11" executionId="c1002246-5888-4307-8741-4fa0558d514d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf7383fa-39e6-3af0-e168-17d58882d501" executionId="ce9dab30-58d6-4990-8bed-abb451d06884" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="bf42e100-59d7-4fbe-a31b-2ad677ad8cf0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7fcfc51-71c7-867d-8fc5-4a9df5d84272" executionId="e73af72c-e606-489f-a385-6eefdca1a9cc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d3485a14-ee8d-5eb9-3a10-6f7656c4a410" executionId="9fe3a817-36f6-4550-b246-e8c94ca21d13" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4e93694b-1941-e724-2765-46b82e5f6732" executionId="8171ff31-1ddc-40c8-bf68-bb1360c2ec2e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0aa4c1ea-dd5c-32d9-adf9-2dac5ab694a1" executionId="71fc5216-3150-43fd-a68b-8e4209555929" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9556997b-bdd8-3eeb-a5e5-ed8db7e96ff1" executionId="7f37a5c4-4f6a-4961-a87c-90be26a75abd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="acf1dfda-e28a-1b14-abc9-06623ab5a456" executionId="992f96c0-39e8-42b0-9f7d-ccf536a5c9a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="205e327c-6c4f-4a42-048f-1becae8dca3a" executionId="9e73cda3-bceb-4c66-9d5f-b2be1c69b614" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8918d63-d5fb-4706-5635-24ba41ec0c45" executionId="83f8ba87-4869-488f-874e-a42fd4893f5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="f9204081-607b-4d28-9639-dd7007e1d374" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3c1f0221-f7fd-e827-f5aa-2e7fa946baa3" executionId="bf739885-ea30-480b-a3a9-664c688917d3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a31a87a-589d-b51f-8078-aaf202ca57b2" executionId="d86b87d4-9554-47bc-a7c5-c6f548692d45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9d31c7bf-c1bc-ec44-3bb8-ef7b112fc3c5" executionId="bf954466-acf8-4c6e-8073-38bf8c9b7ac5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cda05842-2a1f-8993-82dd-4e55dea20a08" executionId="99bffbf1-8606-4555-b76f-10be08c74923" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="11296b2a-a063-4dc7-9a98-20fea05a74e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2cd85fd9-a666-bc86-f85d-5fc8bee71e52" executionId="6496b317-211d-4c49-b50f-c1d72bc531ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9d31c7bf-c1bc-ec44-3bb8-ef7b112fc3c5" executionId="af8d8823-18a3-425e-a29f-0f46ef0cbe17" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9ca36b2-ca3f-629e-2875-4974cfa67e0b" executionId="3b0f93f5-f69f-4a6d-ac31-920db0889926" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cdede547-14bf-e916-e1a5-862d2606fc53" executionId="a43e6587-7549-4df1-b749-d3ae80b26460" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bfd5dfeb-e86d-d433-c8da-7476fe4aa8a2" executionId="887aa987-4c9a-4b27-bb1f-60e8a7d4247e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c133cb1-7182-bb45-e8a5-b563f563e12a" executionId="abb5af77-d367-40d2-9ff8-85f0674e76de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7eb53daa-3f0a-7658-3578-52cd8e9062c4" executionId="e5aae289-e18d-489f-9140-7ead5bfa9e43" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87980ede-ff9e-863c-b49a-a1b813edd2bc" executionId="cd1a3a9c-e5b9-4c98-9734-f18c36773114" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5edcaff4-5b34-8178-b58c-340b6364c173" executionId="d036e1a3-ff53-4795-9db6-ac4408884cfe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63b5cf37-12a1-d49f-86b4-6cbf33d132fe" executionId="cedabee9-11f0-4ea4-8786-bd9b55d49055" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="68" executed="68" passed="63" failed="5" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
+[xUnit.net 00:00:00.08]   Discovering: HubPedidos.Tests
+[xUnit.net 00:00:00.14]   Discovered:  HubPedidos.Tests
+[xUnit.net 00:00:00.17]   Starting:    HubPedidos.Tests
+[xUnit.net 00:00:00.36]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:00.36]       Expected: 9
+[xUnit.net 00:00:00.36]       Actual:   0
+[xUnit.net 00:00:00.36]       Stack Trace:
+[xUnit.net 00:00:00.37]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs(115,0): at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes()
+[xUnit.net 00:00:00.37]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/FilaTests.cs(120,0): at HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes()
+[xUnit.net 00:00:00.37]         --- End of stack trace from previous location ---
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+[xUnit.net 00:00:01.78]       Assert.Equal() Failure: Strings differ
+[xUnit.net 00:00:01.78]                  ↓ (pos 0)
+[xUnit.net 00:00:01.78]       Expected: "private, no-cache"
+[xUnit.net 00:00:01.78]       Actual:   "no-cache, private"
+[xUnit.net 00:00:01.78]                  ↑ (pos 0)
+[xUnit.net 00:00:01.78]       Stack Trace:
+[xUnit.net 00:00:01.78]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(168,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
+[xUnit.net 00:00:01.78]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(169,0): at HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache()
+[xUnit.net 00:00:01.78]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:01.85]       System.InvalidOperationException : The compiled query '(ctx, id, _) =&gt; ctx.Pedidos
+[xUnit.net 00:00:01.85]           .AsNoTracking()
+[xUnit.net 00:00:01.85]           .Where(p =&gt; p.Id == id)
+[xUnit.net 00:00:01.85]           .Select(p =&gt; new PedidoDetalhe(
+[xUnit.net 00:00:01.85]               p.Id, 
+[xUnit.net 00:00:01.85]               p.Cliente, 
+[xUnit.net 00:00:01.85]               p.Regiao, 
+[xUnit.net 00:00:01.85]               p.Prioridade, 
+[xUnit.net 00:00:01.85]               p.Status, 
+[xUnit.net 00:00:01.85]               (decimal)p.TotalCentavos / 100, 
+[xUnit.net 00:00:01.85]               p.Versao, 
+[xUnit.net 00:00:01.85]               p.AtualizadoEmUtc, 
+[xUnit.net 00:00:01.85]               p.Itens
+[xUnit.net 00:00:01.85]                   .OrderBy(i =&gt; i.Id)
+[xUnit.net 00:00:01.85]                   .Select(i =&gt; new ItemDetalhe(
+[xUnit.net 00:00:01.85]                       i.Sku, 
+[xUnit.net 00:00:01.85]                       i.Quantidade, 
+[xUnit.net 00:00:01.85]                       (decimal)i.PrecoCentavos / 100
+[xUnit.net 00:00:01.86]                   ))
+[xUnit.net 00:00:01.86]                   .ToList(), 
+[xUnit.net 00:00:01.86]               p.Metadados.Canal
+[xUnit.net 00:00:01.86]           ))
+[xUnit.net 00:00:01.86]           .FirstOrDefault()' was executed with a different model than it was compiled against. Compiled queries can only be used with a single model.
+[xUnit.net 00:00:01.86]       Stack Trace:
+[xUnit.net 00:00:01.86]            at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryBase`2.ExecuteCore(TContext context, CancellationToken cancellationToken, Object[] parameters)
+[xUnit.net 00:00:01.86]            at Microsoft.EntityFrameworkCore.Query.Internal.CompiledAsyncTaskQuery`2.ExecuteAsync[TParam1](TContext context, TParam1 param1, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.86]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/RepositorioPedidos.cs(44,0): at HubPedidos.Infrastructure.RepositorioPedidos.ObterDetalheAsync(PedidoId id, CancellationToken ct)
+[xUnit.net 00:00:01.86]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(151,0): at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum()
+[xUnit.net 00:00:01.86]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(155,0): at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum()
+[xUnit.net 00:00:01.86]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(155,0): at HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum()
+[xUnit.net 00:00:01.86]         --- End of stack trace from previous location ---
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The LINQ expression 'DbSet&lt;PedidoEntidade&gt;()
+          .GroupBy(p =&gt; p.Status)
+          .Select(g =&gt; new EstatisticaStatusDto(
+              g.Key, 
+              g
+                  .AsQueryable()
+                  .Count(), 
+              (decimal)g
+                  .AsQueryable()
+                  .Sum(e =&gt; e.TotalCentavos) / 100
+          ))
+          .OrderBy(e0 =&gt; e0.Status)' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.
+         at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+         at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutorExpression[TResult](Expression query)
+         at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+         at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.&lt;&gt;c__DisplayClass11_0`1.&lt;ExecuteCore&gt;b__0()
+         at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator()
+         at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+         at HubPedidos.Infrastructure.RepositorioPedidos.EstatisticasAsync(CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/RepositorioPedidos.cs:line 103
+         at HubPedidos.Api.Endpoints.PedidosEndpoints.&lt;&gt;c.&lt;&lt;MapPedidos&gt;b__2_5&gt;d.MoveNext() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/Endpoints/PedidosEndpoints.cs:line 50
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+         at Microsoft.AspNetCore.OutputCaching.OutputCacheMiddleware.&lt;&gt;c__DisplayClass11_0.&lt;&lt;InvokeAwaited&gt;g__ExecuteResponseAsync|0&gt;d.MoveNext()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.OutputCaching.WorkDispatcher`2.ScheduleAsync(TKey key, Func`2 valueFactory)
+         at Microsoft.AspNetCore.OutputCaching.OutputCacheMiddleware.InvokeAwaited(HttpContext httpContext, IReadOnlyList`1 policies)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.&lt;Invoke&gt;g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The LINQ expression 'DbSet&lt;PedidoEntidade&gt;()
+          .GroupBy(p =&gt; p.Status)
+          .Select(g =&gt; new EstatisticaStatusDto(
+              g.Key, 
+              g
+                  .AsQueryable()
+                  .Count(), 
+              (decimal)g
+                  .AsQueryable()
+                  .Sum(e =&gt; e.TotalCentavos) / 100
+          ))
+          .OrderBy(e0 =&gt; e0.Status)' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.
+         at Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitor.Translate(Expression expression)
+         at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutorExpression[TResult](Expression query)
+         at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+         at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.&lt;&gt;c__DisplayClass11_0`1.&lt;ExecuteCore&gt;b__0()
+         at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator()
+         at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+         at HubPedidos.Infrastructure.RepositorioPedidos.EstatisticasAsync(CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Infrastructure/RepositorioPedidos.cs:line 103
+         at HubPedidos.Api.Endpoints.PedidosEndpoints.&lt;&gt;c.&lt;&lt;MapPedidos&gt;b__2_5&gt;d.MoveNext() in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/Endpoints/PedidosEndpoints.cs:line 50
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+         at Microsoft.AspNetCore.OutputCaching.OutputCacheMiddleware.&lt;&gt;c__DisplayClass11_0.&lt;&lt;InvokeAwaited&gt;g__ExecuteResponseAsync|0&gt;d.MoveNext()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.OutputCaching.WorkDispatcher`2.ScheduleAsync(TKey key, Func`2 valueFactory)
+         at Microsoft.AspNetCore.OutputCaching.OutputCacheMiddleware.InvokeAwaited(HttpContext httpContext, IReadOnlyList`1 policies)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.&lt;Invoke&gt;g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+[xUnit.net 00:00:01.96]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:01.96]       Expected: 1
+[xUnit.net 00:00:01.96]       Actual:   2
+[xUnit.net 00:00:01.96]       Stack Trace:
+[xUnit.net 00:00:01.96]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(154,0): at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag()
+[xUnit.net 00:00:01.96]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/ApiIntegracaoTests.cs(159,0): at HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag()
+[xUnit.net 00:00:01.96]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:01.99]       Assert.Contains() Failure: Sub-string not found
+[xUnit.net 00:00:01.99]       String:    "SELECT COUNT(*)\nFROM "Pedidos" AS "p"\nWHE"···
+[xUnit.net 00:00:01.99]       Not found: "json_extract"
+[xUnit.net 00:00:01.99]       Stack Trace:
+[xUnit.net 00:00:01.99]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
+[xUnit.net 00:00:01.99]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
+[xUnit.net 00:00:01.99]         /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/tests/HubPedidos.Tests/EfCoreTests.cs(142,0): at HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco()
+[xUnit.net 00:00:01.99]         --- End of stack trace from previous location ---
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: HubPedidos.Api.Seguranca.AutenticacaoCabecalho[12]
+      AuthenticationScheme: Cabecalho was challenged.
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testes
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api
+fail: Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher[8]
+      Failed to invoke hub method 'AcompanharPedido'.
+      Microsoft.AspNetCore.SignalR.HubException: Acesso negado: o pedido não pertence ao usuário conectado.
+         at HubPedidos.Api.TempoReal.PedidosHub.AutorizarAsync(Guid pedidoId, CancellationToken ct) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/TempoReal/PedidosHub.cs:line 65
+         at HubPedidos.Api.TempoReal.PedidosHub.AcompanharPedido(Guid pedidoId) in /home/runner/work/testes-estudos/testes-estudos/prog-aplicada-net/src/HubPedidos.Api/TempoReal/PedidosHub.cs:line 37
+         at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+         at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.&lt;Invoke&gt;g__ExecuteInvocation|22_0(DefaultHubDispatcher`1 dispatcher, ObjectMethodExecutor methodExecutor, THub hub, Object[] arguments, AsyncServiceScope scope, IHubActivator`1 hubActivator, HubConnectionContext connection, HubMethodInvocationMessage hubMethodInvocationMessage, Boolean isStreamCall)
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+info: HubPedidos.Application.Processamento.WorkerProcessamento[0]
+      Encerrando: 0 item(ns) na fila serão drenados até o prazo do host
+[xUnit.net 00:00:02.98]   Finished:    HubPedidos.Tests
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="runnervm7aw5e" outcome="Error" timestamp="2026-11-03T18:56:04.3044678+00:00">
+        <Text>[xUnit.net 00:00:00.36]     HubPedidos.Tests.FilaTests.Falha_de_um_item_nao_derruba_o_worker_e_nenhum_pedido_e_processado_duas_vezes [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="runnervm7aw5e" outcome="Error" timestamp="2026-11-03T18:56:05.7225235+00:00">
+        <Text>[xUnit.net 00:00:01.78]     HubPedidos.Tests.ApiIntegracaoTests.Respostas_autenticadas_nao_entram_no_cache [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="runnervm7aw5e" outcome="Error" timestamp="2026-11-03T18:56:05.7961321+00:00">
+        <Text>[xUnit.net 00:00:01.85]     HubPedidos.Tests.EfCoreTests.Consulta_compilada_devolve_o_mesmo_resultado_da_comum [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="runnervm7aw5e" outcome="Error" timestamp="2026-11-03T18:56:05.8976546+00:00">
+        <Text>[xUnit.net 00:00:01.96]     HubPedidos.Tests.ApiIntegracaoTests.Output_cache_atende_leitura_publica_e_e_invalidado_por_tag [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="runnervm7aw5e" outcome="Error" timestamp="2026-11-03T18:56:05.9268749+00:00">
+        <Text>[xUnit.net 00:00:01.99]     HubPedidos.Tests.EfCoreTests.Filtro_em_campo_JSON_e_traduzido_para_o_banco [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
